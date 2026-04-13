@@ -11,6 +11,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RAM Peugeot Professional Plasencia | Vehículos comerciales y utilitarios</title>
+<meta property="og:title" content="RAM y Peugeot Plasencia — Camionetas y autos nuevos en Guadalajara">
+<meta property="og:description" content="Cotiza tu RAM o Peugeot en línea, agenda tu cita y recibe precotización al instante. Vehículos comerciales y utilitarios con financiamiento.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -695,6 +698,10 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 }
 .enganche-label { font-size: 13px; font-weight: 600; color: var(--ink-600, #475469); }
 .enganche-amount { font-family: var(--font-display, 'Montserrat'); font-size: 22px; font-weight: 800; color: var(--brand-accent, #334E8B); letter-spacing: -0.02em; }
+.skip-link { position:absolute; top:-100%; left:16px; padding:8px 16px; background:var(--color-accent); color:#1A1A1A; font-weight:700; font-size:14px; border-radius:0 0 8px 8px; z-index:10000; text-decoration:none; }
+.skip-link:focus { top:0; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+:focus-visible { outline:3px solid var(--color-accent); outline-offset:2px; }
 
 </style>
 </head>
@@ -703,6 +710,7 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKV7LZ7T"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
 
 <header class="header">
   <div class="container">
@@ -714,6 +722,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 
+<main id="main-content">
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="container">
@@ -758,6 +767,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="inventory-grid" id="inventoryGrid"></div>
   </div>
 </section>
+</main>
 
 <footer class="footer">
   <div class="container">
@@ -909,32 +919,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="form-grid">
             <div class="form-group full">
-              <label class="form-label">Nombre(s) <span class="req">*</span></label>
-              <input class="form-input uppercase-field" id="fName" type="text" placeholder="JUAN CARLOS" oninput="sanitizeOnInput(this); validateField(this)">
+              <label class="form-label" for="fName">Nombre(s) <span class="req">*</span></label>
+              <input class="form-input uppercase-field" id="fName" type="text" placeholder="JUAN CARLOS" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="given-name">
               <div class="form-error-msg" id="fName-error">Ingresa tu nombre</div>
             </div>
             <div class="form-group">
-              <label class="form-label">Apellido paterno <span class="req">*</span></label>
-              <input class="form-input uppercase-field" id="fLastName1" type="text" placeholder="PEREZ" oninput="sanitizeOnInput(this); validateField(this)">
+              <label class="form-label" for="fLastName1">Apellido paterno <span class="req">*</span></label>
+              <input class="form-input uppercase-field" id="fLastName1" type="text" placeholder="PEREZ" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="family-name">
               <div class="form-error-msg" id="fLastName1-error">Ingresa tu apellido paterno</div>
             </div>
             <div class="form-group">
-              <label class="form-label">Apellido materno <span class="req">*</span></label>
-              <input class="form-input uppercase-field" id="fLastName2" type="text" placeholder="GARCIA" oninput="sanitizeOnInput(this); validateField(this)">
+              <label class="form-label" for="fLastName2">Apellido materno <span class="req">*</span></label>
+              <input class="form-input uppercase-field" id="fLastName2" type="text" placeholder="GARCIA" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="additional-name">
               <div class="form-error-msg" id="fLastName2-error">Ingresa tu apellido materno</div>
             </div>
             <div class="form-group">
-              <label class="form-label">Celular / WhatsApp <span class="req">*</span></label>
+              <label class="form-label" for="fPhone">Celular / WhatsApp <span class="req">*</span></label>
               <div class="phone-wrap">
                 <div class="phone-prefix">MX +52</div>
-                <input class="form-input" id="fPhone" type="tel" placeholder="3312345678" maxlength="10" oninput="formatPhone(this); validateField(this)" onkeypress="return /[0-9]/.test(event.key)" inputmode="numeric" style="flex:1;">
+                <input class="form-input" id="fPhone" type="tel" placeholder="3312345678" maxlength="10" oninput="formatPhone(this); validateField(this)" onkeypress="return /[0-9]/.test(event.key)" autocomplete="tel-national" inputmode="numeric" style="flex:1;">
               </div>
               <div class="help-text">10 dígitos sin espacios</div>
               <div class="form-error-msg" id="fPhone-error">Ingresa un celular válido de 10 dígitos</div>
             </div>
             <div class="form-group">
-              <label class="form-label">Correo electrónico <span class="req">*</span></label>
-              <input class="form-input" id="fEmail" type="email" placeholder="tu@email.com" oninput="validateField(this)">
+              <label class="form-label" for="fEmail">Correo electrónico <span class="req">*</span></label>
+              <input class="form-input" id="fEmail" type="email" placeholder="tu@email.com" oninput="validateField(this)" autocomplete="email">
               <div class="form-error-msg" id="fEmail-error">Ingresa un correo válido</div>
             </div>
             <div class="form-group full">
@@ -967,18 +977,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <label style="display:flex; align-items:flex-start; gap:8px; margin:16px 0 8px; font-size:13px; color:var(--ink-400, #94a3b8); line-height:1.4; cursor:pointer;">
-            <input type="checkbox" id="fPrivacy" checked required style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #334E8B);">
+            <input type="checkbox" id="fPrivacy" required style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #334E8B);">
             <span>He leído y acepto el <a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color:var(--brand-accent-bright, #6B8CCE); text-decoration:underline;">Aviso de Privacidad</a> de Grupo Plasencia Automotriz.</span>
           </label>
           <div class="form-error-msg" id="fPrivacy-error">Debes aceptar el aviso de privacidad para continuar.</div>
           <label style="display:flex; align-items:flex-start; gap:8px; margin:0 0 16px; font-size:13px; color:var(--ink-400, #94a3b8); line-height:1.4; cursor:pointer;">
-            <input type="checkbox" id="fMarketing" checked style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #334E8B);">
+            <input type="checkbox" id="fMarketing" style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #334E8B);">
             <span>Acepto que mis datos sean utilizados con fines promocionales y de contacto comercial.</span>
           </label>
 
           <button class="btn-conversion" onclick="submitForm()">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
-            Agendar visita y recibir precotización
+            Agendar mi cita
           </button>
           <p class="form-privacy">Al agendar, aceptas el <a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener">aviso de privacidad</a> de Grupo Plasencia conforme a la LFPDPPP.</p>
         </div>
