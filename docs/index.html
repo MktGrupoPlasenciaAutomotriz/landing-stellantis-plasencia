@@ -213,6 +213,33 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .filter-chip.active { background:var(--brand-primary); color:#fff; border-color:var(--brand-primary); box-shadow:var(--shadow-md); }
 .filters-count { font-size:12px; color:var(--ink-500); font-weight:600; white-space:nowrap; }
 
+/* ── SEARCH BAR ── */
+.search-bar-wrap { padding:16px 0 0; }
+.search-bar-wrap .container { display:flex; justify-content:center; }
+.search-input-wrap {
+  position:relative; width:100%; max-width:480px;
+}
+.search-input-wrap svg {
+  position:absolute; left:14px; top:50%; transform:translateY(-50%);
+  width:18px; height:18px; color:var(--ink-400); pointer-events:none;
+  transition: color var(--duration-fast) var(--ease);
+}
+.search-input-wrap input {
+  width:100%; padding:12px 16px 12px 42px;
+  font-family:var(--font-body); font-size:14px; color:var(--ink-800);
+  background:#fff; border:1.5px solid var(--ink-200);
+  border-radius:var(--radius-full);
+  outline:none; transition: border-color var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease);
+}
+.search-input-wrap input::placeholder { color:var(--ink-400); }
+.search-input-wrap input:focus { border-color:var(--brand-accent); box-shadow:0 0 0 3px var(--brand-accent-soft); }
+.search-input-wrap input:focus + svg,
+.search-input-wrap input:focus ~ svg { color:var(--brand-accent); }
+.search-no-results {
+  grid-column:1/-1; text-align:center; padding:48px 20px;
+  color:var(--ink-400); font-size:15px; font-weight:500;
+}
+
 /* ── INVENTORY ── */
 .inventory-section { padding:48px 0 64px; }
 .inventory-grid { display:grid; grid-template-columns:1fr; gap:20px; }
@@ -749,6 +776,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
+<section class="search-bar-wrap">
+  <div class="container">
+    <div class="search-input-wrap">
+      <input type="text" id="searchInput" placeholder="Buscar por marca, modelo o año..." oninput="onSearch(this.value)" autocomplete="off">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </div>
+  </div>
+</section>
+
 <section class="filters-section">
   <div class="container">
     <div class="filters-row" id="filterRow">
@@ -1042,7 +1078,7 @@ const agenciaFija = 'RAM PEUGEOT PROFESSIONAL PLASENCIA';
 // El lead entra al canal y se asigna automaticamente desde Airtable/MaxiPublica.
 const ASESOR_ASIGNADO = {
   nombre: 'VENDEDOR DIGITAL',
-  canal: 'Canal de atencion digital',
+  canal: 'Canal de atención digital',
   telefono: '+52 33 0000 0000' // TODO: telefono real del canal
 };
 
@@ -1080,6 +1116,12 @@ const vehicles = [
 let currentCar = null;
 let selectedTerm = 36;
 let currentFilter = 'all';
+let searchQuery = '';
+
+function onSearch(val) {
+  searchQuery = val.trim();
+  renderCards(currentFilter);
+}
 
 function fmt(n) { return '$' + n.toLocaleString('es-MX'); }
 
@@ -1098,6 +1140,17 @@ function renderCards(filter) {
   if (filter === 'all') filtered = vehicles;
   else if (filter === 'ram' || filter === 'peugeot') filtered = vehicles.filter(v => v.cat === filter);
   else filtered = vehicles.filter(v => v.type === filter);
+
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    filtered = filtered.filter(v =>
+      (v.name||'').toLowerCase().includes(q) ||
+      (v.version||'').toLowerCase().includes(q) ||
+      String(v.year).includes(q) ||
+      (v.color||'').toLowerCase().includes(q) ||
+      (v.brand||'').toLowerCase().includes(q)
+    );
+  }
 
   document.getElementById('carCount').textContent = filtered.length;
 
@@ -1135,6 +1188,10 @@ function renderCards(filter) {
       </div>
     </div>`;
   }).join('');
+
+  if (filtered.length === 0 && searchQuery) {
+    grid.innerHTML = `<div class="search-no-results">Sin resultados para "<strong>${searchQuery.replace(/</g,'&lt;')}</strong>"</div>`;
+  }
 }
 
 function filterCars(type, el) {
