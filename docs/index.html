@@ -1117,11 +1117,15 @@ let currentCar = null;
 let selectedTerm = 36;
 let currentFilter = 'all';
 let searchQuery = '';
+const ITEMS_PER_PAGE = 12;
+let visibleCount = ITEMS_PER_PAGE;
 
 function onSearch(val) {
   searchQuery = val.trim();
+  visibleCount = ITEMS_PER_PAGE;
   renderCards(currentFilter);
 }
+function loadMore() { visibleCount += ITEMS_PER_PAGE; renderCards(currentFilter); }
 
 function fmt(n) { return '$' + n.toLocaleString('es-MX'); }
 
@@ -1152,7 +1156,8 @@ function renderCards(filter) {
     );
   }
 
-  document.getElementById('carCount').textContent = filtered.length;
+  const showing = Math.min(visibleCount, filtered.length);
+  document.getElementById('carCount').textContent = filtered.length > showing ? showing + ' de ' + filtered.length : filtered.length;
 
   // Build display name avoiding "RAM RAM 1200" double prefix
   const displayName = v => {
@@ -1160,7 +1165,10 @@ function renderCards(filter) {
     return v.name;
   };
 
-  grid.innerHTML = filtered.map(v => {
+  const toShow = filtered.slice(0, visibleCount);
+  const remaining = filtered.length - toShow.length;
+
+  grid.innerHTML = toShow.map(v => {
     const monthly = calcMonthly(v.price, 20, 36);
     const badgeClass = v.cat === 'ram' ? 'ram' : 'peugeot';
     return `
@@ -1189,6 +1197,14 @@ function renderCards(filter) {
     </div>`;
   }).join('');
 
+  if (remaining > 0) {
+    grid.innerHTML += `<div style="grid-column:1/-1;text-align:center;padding:24px;">
+      <button onclick="loadMore()" style="padding:14px 32px;background:var(--brand-accent,#334E8B);color:#fff;border:none;border-radius:9999px;font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;min-height:48px;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        Ver más vehículos (${remaining} restantes)
+      </button>
+    </div>`;
+  }
+
   if (filtered.length === 0 && searchQuery) {
     grid.innerHTML = `<div class="search-no-results">Sin resultados para "<strong>${searchQuery.replace(/</g,'&lt;')}</strong>"</div>`;
   }
@@ -1196,6 +1212,7 @@ function renderCards(filter) {
 
 function filterCars(type, el) {
   currentFilter = type;
+  visibleCount = ITEMS_PER_PAGE;
   document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
   renderCards(type);
