@@ -1131,8 +1131,8 @@ let submitting = false;
 
 const vehicles = [
   // RAM (3 modelos)
-  { id:1,  name:"RAM 700",       brand:"RAM",     year:2025, version:"Club Cab / Crew Cab",    type:"pickup", cat:"ram",     engine:"1.6L",    trans:"Manual",     fuel:"Gasolina", price:64700,   badge:"Bono $6,000",   img:"", color:"", km:0, photos:0 },
-  { id:2,  name:"RAM 1200",      brand:"RAM",     year:2025, version:"Crew Cab",               type:"pickup", cat:"ram",     engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:72700,   badge:"Bono $47,000",  img:"", color:"", km:0, photos:0 },
+  { id:1,  name:"RAM 700",       brand:"RAM",     year:2025, version:"Club Cab / Crew Cab",    type:"pickup", cat:"ram",     engine:"1.6L",    trans:"Manual",     fuel:"Gasolina", price:64700,   badge:"Bono $6,000",   img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/ram-acces-home-700-reg-cab-2023.png.img.500.png", color:"", km:0, photos:0 },
+  { id:2,  name:"RAM 1200",      brand:"RAM",     year:2025, version:"Crew Cab",               type:"pickup", cat:"ram",     engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:72700,   badge:"Bono $47,000",  img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/my25-ram-1200-laramie-jellybean-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
   { id:3,  name:"RAM 4000",      brand:"RAM",     year:2025, version:"Chasis Cabina",          type:"pickup", cat:"ram",     engine:"5.7L V8", trans:"Automática", fuel:"Gasolina", price:0,       badge:"Bono $40,000",  img:"", color:"", km:0, photos:0 },
   // Peugeot (6 modelos)
   { id:4,  name:"Peugeot Partner Rapid", brand:"PEUGEOT", year:2026, version:"Rapid",          type:"van",    cat:"peugeot", engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:76000,   badge:"Bono $50,000",  img:"", color:"", km:0, photos:0 },
@@ -1142,13 +1142,13 @@ const vehicles = [
   { id:8,  name:"Peugeot 3008",   brand:"PEUGEOT", year:2026, version:"Nueva 3008",            type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:123700,  badge:"Bono $15,000",  img:"", color:"", km:0, photos:0 },
   { id:9,  name:"Peugeot 2008",   brand:"PEUGEOT", year:2025, version:"GT",                    type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:95000,   badge:"Bono $62,000",  img:"", color:"", km:0, photos:0 },
   // Jeep (3 modelos)
-  { id:10, name:"Jeep Wrangler",  brand:"JEEP",    year:2025, version:"Sport / Sahara",         type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:0,       badge:"24 MSI",        img:"", color:"", km:0, photos:0 },
-  { id:11, name:"Jeep Gladiator", brand:"JEEP",    year:2025, version:"JT Mojave",              type:"pickup", cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:0,       badge:"24 MSI",        img:"", color:"", km:0, photos:0 },
-  { id:12, name:"Jeep Grand Cherokee", brand:"JEEP", year:2025, version:"Limited / Overland",   type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:0,       badge:"Bono $200,000", img:"", color:"", km:0, photos:0 },
+  { id:10, name:"Jeep Wrangler",  brand:"JEEP",    year:2025, version:"Sport / Sahara",         type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:0,       badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-wrangler-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:11, name:"Jeep Gladiator", brand:"JEEP",    year:2025, version:"JT Mojave",              type:"pickup", cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:0,       badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:12, name:"Jeep Grand Cherokee", brand:"JEEP", year:2025, version:"Limited / Overland",   type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:0,       badge:"Bono $200,000", img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
   // Dodge (1 modelo)
   { id:13, name:"Dodge Attitude", brand:"DODGE",   year:2026, version:"SE / SXT",               type:"sedan",  cat:"dodge",   engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:78000,   badge:"Bono $57,000",  img:"", color:"", km:0, photos:0 },
   // Fiat (1 modelo)
-  { id:14, name:"Fiat Fastback",  brand:"FIAT",    year:2025, version:"SUV Coupé",              type:"suv",    cat:"fiat",    engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:90000,   badge:"Bono $72,000",  img:"", color:"", km:0, photos:0 },
+  { id:14, name:"Fiat Fastback",  brand:"FIAT",    year:2025, version:"SUV Coupé",              type:"suv",    cat:"fiat",    engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:90000,   badge:"Bono $72,000",  img:"https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/menu/my26-fiat-fastback-inicio-global-nav-alldevices-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
 ];
 
 let currentCar = null;
@@ -1249,11 +1249,7 @@ function renderCards(filter) {
     return `
     <div class="v-card" onclick="openModal(${v.id})">
       <div class="v-card-img-wrap">
-        <div class="v-card-empty">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <div>Foto próximamente</div>
-          <div style="font-size:11px;">${displayName(v)} ${v.year}</div>
-        </div>
+        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName(v) + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><div>Foto próximamente</div><div style="font-size:11px;">' + displayName(v) + ' ' + v.year + '</div></div>'}
         ${v.badge ? '<div class="v-card-badge ' + badgeClass + '">' + v.badge + '</div>' : ''}
       </div>
       <div class="v-card-body">
@@ -1515,11 +1511,9 @@ function openModal(id) {
   const gallery = document.getElementById('modalGallery');
   gallery.innerHTML = `
     <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">&times;</button>
-    <div class="modal-gallery-empty">
-      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--ink-400)" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-      <div style="font-size:15px;font-weight:600;">Foto del modelo próximamente</div>
-      <div style="font-size:13px;">${displayName} ${currentCar.year} ${currentCar.version}</div>
-    </div>
+    ${currentCar.img
+      ? '<img class="v-card-img" src="' + currentCar.img + '" alt="' + displayName + ' ' + currentCar.year + '" style="width:100%;height:100%;object-fit:cover;">'
+      : '<div class="modal-gallery-empty"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--ink-400)" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><div style="font-size:15px;font-weight:600;">Foto del modelo próximamente</div><div style="font-size:13px;">' + displayName + ' ' + currentCar.year + ' ' + currentCar.version + '</div></div>'}
     <div class="modal-gallery-badge">${currentCar.badge}</div>
   `;
 
