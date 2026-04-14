@@ -249,6 +249,11 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .v-card-img-wrap { position:relative; aspect-ratio:16/10; overflow:hidden; background:linear-gradient(135deg, var(--ink-100), var(--ink-200)); }
 .v-card-img { width:100%; height:100%; object-fit:cover; transition:transform var(--duration-slow) var(--ease); }
 .v-card:hover .v-card-img { transform:scale(1.06); }
+.v-card-empty.ram { background: linear-gradient(135deg, #1A1A1A 0%, #C5140C 100%); }
+.v-card-empty.peugeot { background: linear-gradient(135deg, #1A1A1A 0%, #334E8B 100%); }
+.v-card-empty.jeep { background: linear-gradient(135deg, #1A1A1A 0%, #4A7A2D 100%); }
+.v-card-empty.dodge { background: linear-gradient(135deg, #1A1A1A 0%, #C5140C 100%); }
+.v-card-empty.fiat { background: linear-gradient(135deg, #1A1A1A 0%, #8B1A2B 100%); }
 .v-card-empty {
   width:100%; height:100%; display:flex; flex-direction:column;
   align-items:center; justify-content:center; gap:8px;
@@ -1261,7 +1266,7 @@ function renderCards(filter) {
     return `
     <div class="v-card" onclick="openModal(${v.id})">
       <div class="v-card-img-wrap">
-        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName(v) + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><div>Foto próximamente</div><div style="font-size:11px;">' + displayName(v) + ' ' + v.year + '</div></div>'}
+        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName(v) + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName(v) + ' ' + v.year + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Agenda tu cita para conocerlo</div></div>'}
         ${v.badge ? '<div class="v-card-badge ' + badgeClass + '">' + v.badge + '</div>' : ''}
       </div>
       <div class="v-card-body">
