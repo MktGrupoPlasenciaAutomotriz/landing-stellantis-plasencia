@@ -1222,6 +1222,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 const WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/27114778/u74w9qs/';
 const agenciaFija = 'RAM PEUGEOT PROFESSIONAL PLASENCIA';
+var searchDebounce = null;
 
 // Vendedor Digital es un CANAL de ventas (no una persona).
 // El lead entra al canal y se asigna automaticamente desde Airtable/MaxiPublica.
@@ -1289,10 +1290,18 @@ let searchQuery = '';
 const ITEMS_PER_PAGE = 12;
 let visibleCount = ITEMS_PER_PAGE;
 
-function filterByType(val) { currentFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); }
-function filterByBrandSelect(val) { currentBrandFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); }
-function filterByPriceSelect(val) { currentPriceFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); }
-function onSearch(val) { searchQuery = val.trim(); visibleCount = ITEMS_PER_PAGE; renderCards(currentFilter); updateFilterUI(); }
+function filterByType(val) { currentFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_type', filter_value: val }); }
+function filterByBrandSelect(val) { currentBrandFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_brand', filter_value: val }); }
+function filterByPriceSelect(val) { currentPriceFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_price', filter_value: val }); }
+function onSearch(val) {
+  searchQuery = val.trim(); visibleCount = ITEMS_PER_PAGE; renderCards(currentFilter); updateFilterUI();
+  clearTimeout(searchDebounce);
+  if (val && val.trim().length >= 2) {
+    searchDebounce = setTimeout(function() {
+      dataLayer.push({ event: 'search', search_term: val.trim(), results_count: document.querySelectorAll('.v-card').length });
+    }, 1000);
+  }
+}
 function loadMore() { visibleCount += ITEMS_PER_PAGE; renderCards(currentFilter); }
 
 function clearAllFilters() {
@@ -1303,6 +1312,7 @@ function clearAllFilters() {
   document.getElementById('filterPrice').value = 'all';
   document.getElementById('searchInput').value = '';
   updateFilters();
+  dataLayer.push({ event: 'filter_clear' });
 }
 
 function updateFilters() { renderCards(currentFilter); updateFilterUI(); }
@@ -1638,6 +1648,7 @@ function openModal(id) {
   if (typeof resetSubmitState === 'function') resetSubmitState();
   currentCar = vehicles.find(v => v.id === id);
   if (!currentCar) return;
+  dataLayer.push({ event: 'view_item', item_name: currentCar.name + ' ' + currentCar.year, item_price: currentCar.price, item_brand: currentCar.brand || '' });
 
   const displayName = currentCar.name.startsWith(currentCar.brand) ? currentCar.name : currentCar.name;
   const gallery = document.getElementById('modalGallery');
@@ -1790,6 +1801,9 @@ function goToFormStep(step) {
     }
   }
   // Update steps
+  if (step === 2 && currentCar) {
+    dataLayer.push({ event: 'form_start', item_name: currentCar.name + ' ' + currentCar.year, item_price: currentCar.price });
+  }
   currentFormStep = step;
   document.querySelectorAll('.form-step').forEach(function(s) { s.classList.remove('active'); });
   var target = document.getElementById('formStep' + step);
@@ -1915,6 +1929,7 @@ function submitForm() {
 
   lastAppointment = { ...payload, vehiculoObj: currentCar, dateLabel: '', timeLabel };
   sendToWebhook(payload);
+  dataLayer.push({ event: 'generate_lead', item_name: currentCar.name + ' ' + currentCar.year, item_price: currentCar.price, lead_value: currentCar.price });
 
   let dateLabel = dateVal;
   if (dateVal) {
