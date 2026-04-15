@@ -1693,21 +1693,24 @@ function openModal(id) {
   document.getElementById('detailState').style.display = 'block';
   document.getElementById('confirmState').classList.remove('show');
   document.getElementById('vehicleModal').classList.add('open');
+  document.body.dataset.scrollY = window.scrollY;
   document.body.style.overflow = 'hidden';
   document.body.style.position = 'fixed';
   document.body.style.width = '100%';
   document.body.style.top = `-${window.scrollY}px`;
+  document.documentElement.style.overflow = 'hidden';
 }
 
 function closeModal() {
   const modal = document.getElementById('vehicleModal');
   if (modal) modal.classList.remove('open');
-  const scrollY = document.body.style.top;
+  var savedScrollY = document.body.dataset.scrollY || '0';
   document.body.style.overflow = '';
   document.body.style.position = '';
   document.body.style.width = '';
   document.body.style.top = '';
-  window.scrollTo(0, parseInt(scrollY || '0') * -1);
+  document.documentElement.style.overflow = '';
+  window.scrollTo(0, parseInt(savedScrollY, 10));
   // Liberar estado de envio para permitir abrir otro vehiculo
   if (typeof resetSubmitState === 'function') resetSubmitState();
   // Restaurar vista de formulario para la proxima apertura
