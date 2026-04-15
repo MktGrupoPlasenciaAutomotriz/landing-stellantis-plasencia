@@ -1146,6 +1146,15 @@ const BRAND_CONFIG = {
 let lastAppointment = null;
 let submitting = false;
 
+// ── CAPTURE URL PARAMS (fbclid, gclid, UTMs) ──
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  ['fbclid','gclid','utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
+    var v = params.get(k);
+    if (v) sessionStorage.setItem(k, v);
+  });
+})();
+
 const vehicles = [
   // RAM (3 modelos)
   { id:1,  name:"RAM 700",       brand:"RAM",     year:2025, version:"Club Cab / Crew Cab",    type:"pickup", cat:"ram",     engine:"1.6L",    trans:"Manual",     fuel:"Gasolina", price:64700,   badge:"Bono $6,000",   img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/ram-acces-home-700-reg-cab-2023.png.img.500.png", color:"", km:0, photos:0 },
@@ -1743,6 +1752,11 @@ function submitForm() {
     comprueba_ingresos: document.getElementById('fCompruebaIngresos').value || 'N/A',
     fuente: 'LANDING PAGE',
     etapa: 'CITA AGENDADA',
+    fbclid: sessionStorage.getItem('fbclid') || '',
+    gclid: sessionStorage.getItem('gclid') || '',
+    utm_source: sessionStorage.getItem('utm_source') || '',
+    utm_medium: sessionStorage.getItem('utm_medium') || '',
+    utm_campaign: sessionStorage.getItem('utm_campaign') || '',
     acepta_aviso_privacidad: document.getElementById('fPrivacy').checked,
     acepta_marketing: document.getElementById('fMarketing').checked
   };
