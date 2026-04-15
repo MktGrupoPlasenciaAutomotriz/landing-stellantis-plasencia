@@ -83,7 +83,7 @@ body { font-family:var(--font-body); color:var(--ink-700); background:var(--ink-
 @media(min-width: 768px) { .gp-logo-chip img { height:32px; } }
 @media(max-width:767px){
   .modal-overlay.open { padding:0; align-items:stretch; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
-  .modal-content { margin:0; border-radius:0; min-height:100vh; max-width:100%; }
+  .modal-content { margin:0; border-radius:0; min-height:100vh; min-height:100dvh; max-width:100%; overflow-y:auto; -webkit-overflow-scrolling:touch; }
   .header { padding:10px 0; }
   .header-tel-link { padding:10px 14px; }
   .calc-terms { grid-template-columns:repeat(5,1fr); }
