@@ -1289,7 +1289,10 @@ function renderCards(filter) {
           <div class="v-card-price">${v.price > 0 ? 'Enganche ' + fmt(v.price) : 'Consultar precio'}</div>
           <div class="v-card-monthly">${v.price > 0 ? 'Desde ' + fmt(monthly) + '/mes' : 'Cotiza con tu asesor'}</div>
         </div>
-        <div class="v-card-cta">Agendar cita para este auto</div>
+        <div style="margin-top:8px;display:flex;gap:6px;position:relative;">
+          ${v.badge ? `<button onclick="event.stopPropagation();this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'" style="flex:1;padding:8px;background:transparent;color:var(--brand-accent,#334E8B);border:1.5px solid var(--brand-accent,#334E8B);border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:11px;cursor:pointer;">Ver promoción</button><div style="display:none;position:absolute;left:0;right:0;bottom:42px;background:#1E2740;color:#F7FAFC;padding:12px 14px;border-radius:10px;font-size:12px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,0.3);z-index:5;"><strong style="color:#63B3ED;">${v.badge}</strong><br>Tasa desde 7.99% con STM Financial (Inbursa). Sin comisión por apertura.<br><span style="font-size:10px;color:#A0AEC0;">Vigencia abril 2026. CAT 20.5%.</span></div>` : ''}
+          <button onclick="event.stopPropagation();openModal(${v.id})" style="flex:1;padding:8px;background:var(--brand-accent,#334E8B);color:#fff;border:none;border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:11px;cursor:pointer;">Agendar cita</button>
+        </div>
       </div>
     </div>`;
   }).join('');
