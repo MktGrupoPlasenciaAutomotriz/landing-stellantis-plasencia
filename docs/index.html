@@ -301,12 +301,22 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .v-card-badge.dodge { background:#BA0C2F; color:#fff; }
 .v-card-badge.fiat { background:#8B1A2B; color:#fff; }
 .v-card-body { padding:20px; display:flex; flex-direction:column; flex:1; }
-.v-card-brand-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
+.v-card-brand-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
 .v-card-brand {
-  font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
-  color:var(--ink-400);
+  font-size:9px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+  padding:3px 8px; border-radius:4px;
+  background:var(--ink-100); color:var(--ink-600);
 }
-.v-card-cat { font-size:10px; color:var(--ink-400); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; }
+.v-card-brand.ram { background:rgba(197,20,12,0.10); color:#B31217; }
+.v-card-brand.peugeot { background:rgba(74,112,192,0.10); color:var(--brand-accent); }
+.v-card-brand.jeep { background:rgba(74,103,65,0.10); color:#4A6741; }
+.v-card-brand.dodge { background:rgba(186,12,47,0.10); color:#BA0C2F; }
+.v-card-brand.fiat { background:rgba(139,26,43,0.10); color:#8B1A2B; }
+.v-card-cat {
+  font-size:9px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
+  padding:3px 8px; border-radius:4px;
+  background:var(--ink-100); color:var(--ink-500);
+}
 .v-card-title { font-family:var(--font-display); font-size:18px; font-weight:800; color:var(--ink-900); letter-spacing:-0.02em; margin-bottom:4px; }
 .v-card-specs { font-size:12px; color:var(--ink-500); margin-bottom:14px; }
 .v-card-price-row { display:flex; align-items:baseline; justify-content:space-between; margin-top:auto; padding-top:12px; border-top:1px solid var(--ink-100); }
@@ -1434,7 +1444,7 @@ function renderCards(filter) {
       </div>
       <div class="v-card-body">
         <div class="v-card-brand-row">
-          <span class="v-card-brand">${v.brand}</span>
+          <span class="v-card-brand ${v.cat}">${v.brand}</span>
           <span class="v-card-cat">${typeLabels[v.type] || v.type}</span>
         </div>
         <div class="v-card-title">${displayName(v)} ${v.year}</div>
