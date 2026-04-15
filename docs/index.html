@@ -20,14 +20,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 :root {
-  /* Paleta real extraida de stellantisplasencia.com (RAM + Peugeot) */
-  --brand-primary: #1F1F1F;
-  --brand-primary-dark: #0B0B0B;
-  --brand-primary-light: #2D2D2D;
-  --brand-accent: #334E8B;            /* Peugeot Blue (acento global, profesional) */
-  --brand-accent-hover: #243964;
-  --brand-accent-bright: #4A6BAA;
-  --brand-accent-soft: rgba(51,78,139,0.12);
+  /* Stellantis Plasencia — Navy + Vibrant Peugeot Blue */
+  --brand-primary: #0F1A2E;           /* Deep navy (was flat grey #1F1F1F) */
+  --brand-primary-dark: #070E1C;      /* Darkest navy */
+  --brand-primary-light: #1A2B4A;     /* Card/hover navy */
+  --brand-accent: #4A70C0;            /* Vibrant Peugeot Blue (was muted #4A70C0) */
+  --brand-accent-hover: #3D5FA8;
+  --brand-accent-bright: #6B8FDB;     /* Highlights, glows */
+  --brand-accent-soft: rgba(74,112,192,0.12);
   --brand-secondary: #C5140C;         /* RAM Red (reservado para badges/acentos RAM) */
   --brand-secondary-bright: #E30D13;
   --brand-secondary-soft: rgba(197,20,12,0.12);
@@ -46,32 +46,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   --color-primary: var(--brand-primary);
   --color-accent: var(--brand-accent);
-  --color-conversion: #334E8B;
-  --color-conversion-hover: #243964;
+  --color-conversion: var(--brand-accent);
+  --color-conversion-hover: var(--brand-accent-hover);
   --color-success: #10B981;
   --color-success-dark: #047857;
   --color-error: #EF4444;
 
-  --font-display: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Montserrat', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-lg: 18px;
   --radius-xl: 24px;
-  --radius-2xl: 32px;
+  --radius-2xl: 28px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.04);
-  --shadow-md: 0 4px 8px -2px rgba(15,23,42,0.08), 0 2px 4px -1px rgba(15,23,42,0.04);
-  --shadow-lg: 0 12px 24px -4px rgba(15,23,42,0.12), 0 4px 8px -2px rgba(15,23,42,0.06);
-  --shadow-xl: 0 24px 48px -8px rgba(15,23,42,0.18), 0 8px 16px -4px rgba(15,23,42,0.08);
-  --shadow-brand: 0 10px 30px -8px rgba(51,78,139,0.4);
+  --shadow-sm: 0 2px 8px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+  --shadow-md: 0 8px 24px rgba(15,23,42,0.08), 0 2px 6px rgba(15,23,42,0.04);
+  --shadow-lg: 0 20px 48px rgba(15,23,42,0.12), 0 4px 12px rgba(15,23,42,0.06);
+  --shadow-xl: 0 32px 64px rgba(15,23,42,0.18), 0 8px 24px rgba(15,23,42,0.08);
+  --shadow-glow: 0 0 0 4px rgba(74,112,192,0.18);
+  --shadow-brand: 0 12px 32px rgba(15,26,46,0.32);
 
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 400ms;
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 160ms;
+  --duration-normal: 280ms;
+  --duration-slow: 480ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --gradient-brand: linear-gradient(135deg, #0F1A2E 0%, #1A2B4A 50%, #4A70C0 100%);
+  --gradient-brand-soft: linear-gradient(135deg, rgba(15,26,46,0.04) 0%, rgba(74,112,192,0.08) 100%);
+  --gradient-mesh: radial-gradient(at 20% 0%, rgba(74,112,192,0.22) 0px, transparent 50%),
+                   radial-gradient(at 80% 30%, rgba(26,43,74,0.28) 0px, transparent 50%),
+                   radial-gradient(at 40% 80%, rgba(107,143,219,0.14) 0px, transparent 50%);
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -108,10 +116,10 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 /* ── HEADER (glass) ── */
 .header {
   position:sticky; top:0; z-index:100;
-  background:rgba(15,15,30,0.85);
-  backdrop-filter:blur(20px) saturate(180%);
-  -webkit-backdrop-filter:blur(20px) saturate(180%);
-  border-bottom:1px solid rgba(51,78,139,0.15);
+  background:rgba(7,14,28,0.82);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(74,112,192,0.12);
   padding:14px 0;
 }
 .header .container { display:flex; align-items:center; justify-content:space-between; gap:12px; }
@@ -149,27 +157,24 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 /* ── HERO (gradient mesh) ── */
 .hero {
   position:relative; overflow:hidden;
-  background:radial-gradient(ellipse at top right, rgba(51,78,139,0.18), transparent 60%),
-             radial-gradient(ellipse at bottom left, rgba(51,78,139,0.08), transparent 50%),
-             linear-gradient(180deg, var(--brand-primary-dark) 0%, var(--brand-primary) 100%);
-  color:#fff; padding:64px 0 80px;
+  background:var(--brand-primary-dark);
+  color:#fff; padding:72px 0 88px;
 }
 .hero::before {
   content:''; position:absolute; inset:0;
-  background-image:radial-gradient(circle at 20% 30%, rgba(51,78,139,0.15) 0, transparent 35%),
-                   radial-gradient(circle at 80% 70%, rgba(51,78,139,0.12) 0, transparent 35%);
+  background:var(--gradient-mesh);
   pointer-events:none;
 }
 .hero-grid {
-  position:absolute; inset:0; opacity:0.25;
-  background-image:linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                   linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  position:absolute; inset:0; opacity:0.3;
+  background-image:linear-gradient(rgba(74,112,192,0.06) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(74,112,192,0.06) 1px, transparent 1px);
   background-size:40px 40px; mask-image:radial-gradient(ellipse at center, black, transparent 70%);
 }
 .hero-content { position:relative; z-index:1; max-width:880px; margin:0 auto; text-align:center; }
 .hero-pill {
   display:inline-flex; align-items:center; gap:8px;
-  background:rgba(51,78,139,0.12); border:1px solid rgba(51,78,139,0.3);
+  background:rgba(74,112,192,0.14); border:1px solid rgba(74,112,192,0.35);
   border-radius:var(--radius-full); padding:8px 18px;
   font-size:12px; font-weight:600; color:#B8D4FF;
   letter-spacing:0.04em; text-transform:uppercase; margin-bottom:24px;
@@ -209,11 +214,11 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   color:#fff; border:none; border-radius:var(--radius-full);
   font-family:var(--font-display); font-size:16px; font-weight:800;
   cursor:pointer; text-decoration:none; letter-spacing:0.3px;
-  box-shadow:0 12px 28px -8px rgba(51,78,139,0.55);
+  box-shadow:0 12px 28px -8px rgba(74,112,192,0.55);
   transition:transform var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease);
   min-height:52px;
 }
-.hero-cta:hover { transform:translateY(-2px); box-shadow:0 16px 34px -8px rgba(51,78,139,0.65); }
+.hero-cta:hover { transform:translateY(-2px); box-shadow:0 16px 34px -8px rgba(74,112,192,0.65); }
 .hero-cta svg { width:18px; height:18px; }
 
 /* ── TRUST BAR ── */
@@ -274,7 +279,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .v-card-img { width:100%; height:100%; object-fit:cover; transition:transform var(--duration-slow) var(--ease); }
 .v-card:hover .v-card-img { transform:scale(1.06); }
 .v-card-empty.ram { background: linear-gradient(135deg, #1A1A1A 0%, #C5140C 100%); }
-.v-card-empty.peugeot { background: linear-gradient(135deg, #1A1A1A 0%, #334E8B 100%); }
+.v-card-empty.peugeot { background: linear-gradient(135deg, #1A1A1A 0%, #4A70C0 100%); }
 .v-card-empty.jeep { background: linear-gradient(135deg, #1A1A1A 0%, #4A7A2D 100%); }
 .v-card-empty.dodge { background: linear-gradient(135deg, #1A1A1A 0%, #C5140C 100%); }
 .v-card-empty.fiat { background: linear-gradient(135deg, #1A1A1A 0%, #8B1A2B 100%); }
@@ -320,7 +325,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 /* ── MODAL ── */
 .modal-overlay {
   display:none; position:fixed; inset:0; z-index:200;
-  background:rgba(15,15,30,0.75); backdrop-filter:blur(8px);
+  background:rgba(7,14,28,0.75); backdrop-filter:blur(8px);
   justify-content:center; align-items:flex-start;
   padding:16px; overflow-y:auto; -webkit-overflow-scrolling:touch;
   overscroll-behavior:contain;
@@ -342,7 +347,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .modal-close {
   position:absolute; top:16px; right:16px; z-index:10;
   width:44px; height:44px; border-radius:50%;
-  background:rgba(15,15,30,0.6); color:#fff; border:none;
+  background:rgba(7,14,28,0.6); color:#fff; border:none;
   font-size:22px; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   backdrop-filter:blur(8px); transition:all var(--duration-fast);
@@ -377,7 +382,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .modal-trust { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
 .trust-badge-item {
   display:inline-flex; align-items:center; gap:6px;
-  background:var(--brand-accent-soft); border:1px solid rgba(51,78,139,0.3);
+  background:var(--brand-accent-soft); border:1px solid rgba(74,112,192,0.3);
   border-radius:var(--radius-full); padding:8px 14px;
   font-size:12px; font-weight:600; color:var(--brand-primary);
 }
@@ -420,7 +425,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   border-radius:50%;
   background:linear-gradient(135deg, var(--brand-accent), var(--brand-accent-hover));
   border:4px solid #fff;
-  box-shadow:0 4px 12px rgba(51,78,139,0.5), 0 0 0 1px var(--brand-accent-hover);
+  box-shadow:0 4px 12px rgba(74,112,192,0.5), 0 0 0 1px var(--brand-accent-hover);
   cursor:pointer;
   transition:transform var(--duration-fast);
 }
@@ -455,7 +460,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .calc-result::before {
   content:''; position:absolute; top:-50%; right:-30%;
   width:300px; height:300px; border-radius:50%;
-  background:radial-gradient(circle, rgba(51,78,139,0.25), transparent 70%);
+  background:radial-gradient(circle, rgba(74,112,192,0.25), transparent 70%);
   pointer-events:none;
 }
 .calc-result-label { font-size:11px; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; margin-bottom:8px; position:relative; }
@@ -469,7 +474,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 
 .calc-offer-banner {
   margin-top:14px; padding:12px 18px; border-radius:var(--radius-md);
-  background:var(--brand-accent-soft); border:1px solid rgba(51,78,139,0.3);
+  background:var(--brand-accent-soft); border:1px solid rgba(74,112,192,0.3);
   text-align:center; font-size:12px; color:var(--brand-primary); font-weight:600;
 }
 
@@ -556,7 +561,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .form-progress-step.active .form-step-num {
   background: var(--brand-accent); color: #fff;
   border-color: var(--brand-accent);
-  box-shadow: 0 4px 12px -4px rgba(51,78,139,0.5);
+  box-shadow: 0 4px 12px -4px rgba(74,112,192,0.5);
 }
 .form-progress-step.completed .form-step-num {
   background: var(--color-success); color: #fff;
@@ -590,9 +595,9 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   flex: 1;
   background: linear-gradient(135deg, var(--brand-accent), var(--brand-accent-dark, #263A6A));
   color: #fff;
-  box-shadow: 0 8px 20px -6px rgba(51,78,139,0.45);
+  box-shadow: 0 8px 20px -6px rgba(74,112,192,0.45);
 }
-.btn-step-next:hover { transform: translateY(-1px); box-shadow: 0 12px 26px -6px rgba(51,78,139,0.55); }
+.btn-step-next:hover { transform: translateY(-1px); box-shadow: 0 12px 26px -6px rgba(74,112,192,0.55); }
 .btn-step-prev {
   background: var(--ink-100); color: var(--ink-600);
   border: 1.5px solid var(--ink-200);
@@ -621,7 +626,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   background:#fff; transition:all var(--duration-fast); outline:none; width:100%;
   min-height:48px;
 }
-.form-input:focus { border-color:var(--brand-accent); box-shadow:0 0 0 4px rgba(51,78,139,0.15); }
+.form-input:focus { border-color:var(--brand-accent); box-shadow:var(--shadow-glow); }
 .form-input::placeholder { color:var(--ink-400); }
 select.form-input { -webkit-appearance:none; appearance:none; background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23475569'/%3E%3C/svg%3E") no-repeat right 16px center; padding-right:38px; cursor:pointer; }
 
@@ -656,9 +661,9 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
   font-family:var(--font-display); font-size:15px; font-weight:800; letter-spacing:0.02em;
   cursor:pointer; transition:all var(--duration-fast);
   margin-top:18px;
-  box-shadow:0 8px 20px -6px rgba(15,15,30,0.4);
+  box-shadow:0 8px 20px -6px rgba(7,14,28,0.4);
 }
-.btn-conversion:hover { transform:translateY(-2px); box-shadow:0 12px 28px -6px rgba(15,15,30,0.5); }
+.btn-conversion:hover { transform:translateY(-2px); box-shadow:0 12px 28px -6px rgba(7,14,28,0.5); }
 .btn-conversion svg { width:18px; height:18px; }
 
 .btn-wa-asesor {
@@ -699,17 +704,17 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 .cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:12px; }
 .cal-dow { font-size:11px; font-weight:700; color:var(--ink-400); text-align:center; padding:4px 0; text-transform:uppercase; letter-spacing:0.05em; }
 .cal-cell { width:100%; aspect-ratio:1; border:none; border-radius:var(--radius-sm); background:transparent; font-family:var(--font-body); font-size:13px; font-weight:600; color:var(--ink-700); cursor:pointer; transition:all var(--duration-fast) var(--ease); display:flex; align-items:center; justify-content:center; min-height:38px; }
-.cal-cell:hover:not(:disabled):not(.cal-cell--selected) { background:var(--brand-accent-soft, rgba(51,78,139,0.1)); }
+.cal-cell:hover:not(:disabled):not(.cal-cell--selected) { background:var(--brand-accent-soft, rgba(74,112,192,0.1)); }
 .cal-cell:disabled { color:var(--ink-300); cursor:default; opacity:0.45; }
 .cal-cell--today:not(.cal-cell--selected) { border:2px solid var(--brand-accent); }
-.cal-cell--selected { background:var(--brand-accent) !important; color:#fff !important; box-shadow:0 4px 12px -2px rgba(51,78,139,0.35); opacity:1 !important; }
+.cal-cell--selected { background:var(--brand-accent) !important; color:#fff !important; box-shadow:0 4px 12px -2px rgba(74,112,192,0.35); opacity:1 !important; }
 .cal-cell--empty { pointer-events:none; }
 .time-slots-label { font-size:13px; font-weight:600; color:var(--ink-600); margin-bottom:8px; }
 .time-slots { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
 .time-pill { padding:8px 14px; border:1.5px solid var(--ink-200); border-radius:var(--radius-full); background:#fff; font-family:var(--font-body); font-size:13px; font-weight:600; color:var(--ink-600); cursor:pointer; transition:all var(--duration-fast) var(--ease); min-height:38px; }
-.time-pill:hover:not(.time-pill--selected) { border-color:var(--brand-accent); color:var(--brand-accent); background:var(--brand-accent-soft, rgba(51,78,139,0.06)); }
-.time-pill--selected { background:var(--brand-accent) !important; color:#fff !important; border-color:var(--brand-accent) !important; box-shadow:0 4px 12px -2px rgba(51,78,139,0.35); }
-.cita-summary { font-size:14px; font-weight:700; color:var(--brand-accent); padding:10px 14px; background:var(--brand-accent-soft, rgba(51,78,139,0.08)); border-radius:var(--radius-sm); text-align:center; margin-top:4px; }
+.time-pill:hover:not(.time-pill--selected) { border-color:var(--brand-accent); color:var(--brand-accent); background:var(--brand-accent-soft, rgba(74,112,192,0.06)); }
+.time-pill--selected { background:var(--brand-accent) !important; color:#fff !important; border-color:var(--brand-accent) !important; box-shadow:0 4px 12px -2px rgba(74,112,192,0.35); }
+.cita-summary { font-size:14px; font-weight:700; color:var(--brand-accent); padding:10px 14px; background:var(--brand-accent-soft, rgba(74,112,192,0.08)); border-radius:var(--radius-sm); text-align:center; margin-top:4px; }
 @media(max-width:767px){
   .cal-cell { min-height:36px; font-size:12px; }
   .time-pill { padding:8px 12px; font-size:12px; min-height:36px; }
@@ -750,7 +755,7 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 .asesor-confirm::before {
   content:''; position:absolute; top:-40%; right:-20%;
   width:200px; height:200px; border-radius:50%;
-  background:radial-gradient(circle, rgba(51,78,139,0.2), transparent 70%);
+  background:radial-gradient(circle, rgba(74,112,192,0.2), transparent 70%);
 }
 .asesor-avatar-lg {
   width:72px; height:72px; border-radius:50%; flex-shrink:0;
@@ -811,8 +816,8 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
   gap: 10px;
   margin-top: 10px;
   padding: 12px 14px;
-  background: linear-gradient(135deg, rgba(51,78,139,0.10), rgba(51,78,139,0.20));
-  border: 1px solid rgba(51,78,139,0.35);
+  background: linear-gradient(135deg, rgba(74,112,192,0.10), rgba(74,112,192,0.20));
+  border: 1px solid rgba(74,112,192,0.35);
   border-radius: 10px;
   animation: fadeSlideIn 0.3s ease;
 }
@@ -824,15 +829,15 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 .enganche-highlight {
   margin-top: 12px;
   padding: 14px 16px;
-  background: linear-gradient(135deg, rgba(51,78,139,0.06), rgba(51,78,139,0.12));
-  border: 1px solid rgba(51,78,139,0.2);
+  background: linear-gradient(135deg, rgba(74,112,192,0.06), rgba(74,112,192,0.12));
+  border: 1px solid rgba(74,112,192,0.2);
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .enganche-label { font-size: 13px; font-weight: 600; color: var(--ink-600, #475469); }
-.enganche-amount { font-family: var(--font-display, 'Montserrat'); font-size: 22px; font-weight: 800; color: var(--brand-accent, #334E8B); letter-spacing: -0.02em; }
+.enganche-amount { font-family: var(--font-display, 'Montserrat'); font-size: 22px; font-weight: 800; color: var(--brand-accent, #4A70C0); letter-spacing: -0.02em; }
 .skip-link { position:absolute; top:-100%; left:16px; padding:8px 16px; background:var(--color-accent); color:#1A1A1A; font-weight:700; font-size:14px; border-radius:0 0 8px 8px; z-index:10000; text-decoration:none; }
 .skip-link:focus { top:0; }
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
@@ -946,7 +951,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span style="width:1px;height:24px;background:rgba(255,255,255,0.18);"></span>
       <img src="https://spdfc.s3.us-west-2.amazonaws.com/distribuidores/Ram_Peugeot_Professional_Plasencia/img/logo.svg" alt="Stellantis Plasencia" style="height:30px;opacity:0.95;mix-blend-mode:screen;">
     </div>
-    <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat<br>Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jalisco<br>Lun a Vie 9:00 a 20:00 &middot; Sáb 9:00 a 18:00 &middot; Dom 11:00 a 17:00 &middot; Tel. (33) 3344 4455<br><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#334E8B);text-decoration:underline;font-weight:600;font-size:13px;">📍 Ver ubicación en mapa</a></p>
+    <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat<br>Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jalisco<br>Lun a Vie 9:00 a 20:00 &middot; Sáb 9:00 a 18:00 &middot; Dom 11:00 a 17:00 &middot; Tel. (33) 3344 4455<br><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#4A70C0);text-decoration:underline;font-weight:600;font-size:13px;">📍 Ver ubicación en mapa</a></p>
     <p style="margin-top:10px;font-size:10px;line-height:1.5;opacity:0.65;">Financiamiento con STM Financial, S.A. de C.V. SOFOM E.R. (Grupo Financiero Inbursa). CAT promedio 20.5% sin IVA, ponderado calculado al 23 de marzo de 2026. Promocion valida en Mexico. Credito sujeto a aprobacion. Sin comision por apertura. Vigencia abril 2026. Consulta terminos, condiciones y precios con tu distribuidor autorizado.</p>
     <div style="margin-top:14px;"><a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.5); text-decoration: underline; font-size: 12px;">Aviso de Privacidad</a></div>
     <p style="margin-top:8px;font-size:11px;opacity:0.55;">© 2026 Grupo Plasencia Automotriz. Todos los derechos reservados.</p>
@@ -1153,12 +1158,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div style="grid-column:1/-1;margin-bottom:4px;">
               <label class="form-label">¿En cuál sucursal te gustaría tu cita?</label>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0;">
-                <label onclick="document.getElementById('fSucursal').value='Stellantis Plasencia'" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#334E8B)';this.style.background='rgba(51,78,139,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
+                <label onclick="document.getElementById('fSucursal').value='Stellantis Plasencia'" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#4A70C0)';this.style.background='rgba(74,112,192,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
                   <div style="font-weight:700;font-size:13px;color:var(--ink-900,#1A1A1A);">📍 Plasencia</div>
                   <div style="font-size:11px;color:var(--ink-500,#718096);margin-top:4px;line-height:1.3;">Av. Mariano Otero 405-A, La Giralda, Zapopan</div>
                   <div style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:4px;">Lun-Vie 9-20h · Sab 9-18h · Dom 11-17h</div>
                 </label>
-                <label onclick="document.getElementById('fSucursal').value='Stellantis Santa Anita'" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#334E8B)';this.style.background='rgba(51,78,139,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
+                <label onclick="document.getElementById('fSucursal').value='Stellantis Santa Anita'" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#4A70C0)';this.style.background='rgba(74,112,192,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
                   <div style="font-weight:700;font-size:13px;color:var(--ink-900,#1A1A1A);">📍 Santa Anita</div>
                   <div style="font-size:11px;color:var(--ink-500,#718096);margin-top:4px;line-height:1.3;">Av. Lopez Mateos Sur 3505, Los Gavilanes, Guadalajara</div>
                   <div style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:4px;">Lun-Vie 9-20h · Sab 9-18h · Dom 11-17h</div>
@@ -1193,12 +1198,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <label style="display:flex; align-items:flex-start; gap:8px; margin:16px 0 8px; font-size:13px; color:var(--ink-400, #94a3b8); line-height:1.4; cursor:pointer;">
-            <input type="checkbox" id="fPrivacy" required style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #334E8B);">
+            <input type="checkbox" id="fPrivacy" required style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #4A70C0);">
             <span>He leído y acepto el <a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color:var(--brand-accent-bright, #6B8CCE); text-decoration:underline;">Aviso de Privacidad</a> de Grupo Plasencia Automotriz.</span>
           </label>
           <div class="form-error-msg" id="fPrivacy-error">Debes aceptar el aviso de privacidad para continuar.</div>
           <label style="display:flex; align-items:flex-start; gap:8px; margin:0 0 16px; font-size:13px; color:var(--ink-400, #94a3b8); line-height:1.4; cursor:pointer;">
-            <input type="checkbox" id="fMarketing" style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #334E8B);">
+            <input type="checkbox" id="fMarketing" style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #4A70C0);">
             <span>Acepto que mis datos sean utilizados con fines promocionales y de contacto comercial.</span>
           </label>
 
@@ -1439,8 +1444,8 @@ function renderCards(filter) {
           <div class="v-card-monthly">${v.price > 0 ? 'Desde ' + fmt(monthly) + '/mes' : 'Cotiza con tu asesor'}</div>
         </div>
         <div style="margin-top:8px;display:flex;gap:6px;position:relative;">
-          ${v.badge ? `<button onclick="event.stopPropagation();this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'" style="flex:1;padding:8px;background:transparent;color:var(--brand-accent,#334E8B);border:1.5px solid var(--brand-accent,#334E8B);border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:11px;cursor:pointer;">Ver promoción</button><div style="display:none;position:absolute;left:0;right:0;bottom:42px;background:#1E2740;color:#F7FAFC;padding:12px 14px;border-radius:10px;font-size:12px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,0.3);z-index:5;"><strong style="color:#63B3ED;">${v.badge}</strong><br>Tasa desde 7.99% con STM Financial (Inbursa). Sin comisión por apertura.<br><span style="font-size:10px;color:#A0AEC0;">Vigencia abril 2026. CAT 20.5%.</span></div>` : ''}
-          <button onclick="event.stopPropagation();openModal(${v.id})" style="flex:1;padding:8px;background:var(--brand-accent,#334E8B);color:#fff;border:none;border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:11px;cursor:pointer;">Agendar cita</button>
+          ${v.badge ? `<button onclick="event.stopPropagation();this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'" style="flex:1;padding:8px;background:transparent;color:var(--brand-accent,#4A70C0);border:1.5px solid var(--brand-accent,#4A70C0);border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:11px;cursor:pointer;">Ver promoción</button><div style="display:none;position:absolute;left:0;right:0;bottom:42px;background:#1E2740;color:#F7FAFC;padding:12px 14px;border-radius:10px;font-size:12px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,0.3);z-index:5;"><strong style="color:#63B3ED;">${v.badge}</strong><br>Tasa desde 7.99% con STM Financial (Inbursa). Sin comisión por apertura.<br><span style="font-size:10px;color:#A0AEC0;">Vigencia abril 2026. CAT 20.5%.</span></div>` : ''}
+          <button onclick="event.stopPropagation();openModal(${v.id})" style="flex:1;padding:8px;background:var(--brand-accent,#4A70C0);color:#fff;border:none;border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:11px;cursor:pointer;">Agendar cita</button>
         </div>
       </div>
     </div>`;
@@ -1448,7 +1453,7 @@ function renderCards(filter) {
 
   if (remaining > 0) {
     grid.innerHTML += `<div style="grid-column:1/-1;text-align:center;padding:24px;">
-      <button onclick="loadMore()" style="padding:14px 32px;background:var(--brand-accent,#334E8B);color:#fff;border:none;border-radius:9999px;font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;min-height:48px;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+      <button onclick="loadMore()" style="padding:14px 32px;background:var(--brand-accent,#4A70C0);color:#fff;border:none;border-radius:9999px;font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;min-height:48px;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
         Ver más vehículos (${remaining} restantes)
       </button>
     </div>`;
@@ -2256,7 +2261,7 @@ renderCards('all');
       <button onclick="document.getElementById('mapModal').style.display='none'" style="background:none;border:none;font-size:24px;cursor:pointer;color:#718096;padding:4px 8px;line-height:1;" aria-label="Cerrar mapa">&times;</button>
     </div>
     <div style="display:flex;border-bottom:1px solid #E2E8F0;">
-      <button onclick="switchMapTab('plasencia')" id="mapTabPlasencia" style="flex:1;padding:12px;border:none;background:#fff;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;border-bottom:3px solid var(--brand-accent,#334E8B);color:var(--brand-accent,#334E8B);">Plasencia</button>
+      <button onclick="switchMapTab('plasencia')" id="mapTabPlasencia" style="flex:1;padding:12px;border:none;background:#fff;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;border-bottom:3px solid var(--brand-accent,#4A70C0);color:var(--brand-accent,#4A70C0);">Plasencia</button>
       <button onclick="switchMapTab('santaanita')" id="mapTabSantaAnita" style="flex:1;padding:12px;border:none;background:#fff;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;color:#718096;">Santa Anita</button>
     </div>
     <div id="mapPlasencia" style="display:block;">
