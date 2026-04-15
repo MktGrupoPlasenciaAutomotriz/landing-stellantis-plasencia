@@ -82,7 +82,7 @@ body { font-family:var(--font-body); color:var(--ink-700); background:var(--ink-
 .gp-logo-chip img { height:26px; width:auto; display:block; opacity:0.95; }
 @media(min-width: 768px) { .gp-logo-chip img { height:32px; } }
 @media(max-width:767px){
-  .modal-overlay.open { padding:0; align-items:stretch; }
+  .modal-overlay.open { padding:0; align-items:stretch; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
   .modal-content { margin:0; border-radius:0; min-height:100vh; max-width:100%; }
   .header { padding:10px 0; }
   .header-tel-link { padding:10px 14px; }
@@ -202,9 +202,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   backdrop-filter: blur(14px);
   padding: 18px 0;
   border-bottom: 1px solid var(--ink-200);
-  position: sticky; top: 70px; z-index: 90;
 }
-@media(min-width:768px){ .filters-section { top: 72px; } }
 .filter-bar { padding: 0; }
 .filter-bar-inner { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .filter-search { position: relative; flex: 1; min-width: 200px; }
@@ -299,6 +297,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   background:rgba(15,15,30,0.75); backdrop-filter:blur(8px);
   justify-content:center; align-items:flex-start;
   padding:16px; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
 }
 .modal-overlay.open { display:flex; }
 .modal-content {
