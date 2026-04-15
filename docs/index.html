@@ -81,14 +81,20 @@ body { font-family:var(--font-body); color:var(--ink-700); background:var(--ink-
 .gp-logo-chip { display:inline-flex; align-items:center; }
 .gp-logo-chip img { height:26px; width:auto; display:block; opacity:0.95; }
 @media(min-width: 768px) { .gp-logo-chip img { height:32px; } }
-@media(max-width:767px){
-  .modal-overlay.open { padding:0; align-items:stretch; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
+/* ── MOBILE-FIRST REFINEMENT ── */
+@media (max-width: 640px) {
+  .modal-overlay { padding:0; align-items:stretch; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
   .modal-content { margin:0; border-radius:0; min-height:100vh; min-height:100dvh; max-width:100%; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .modal-gallery { aspect-ratio:4/3; }
+  .modal-body { padding:22px 18px 28px; }
   .header { padding:10px 0; }
   .header-tel-link { padding:10px 14px; }
   .calc-terms { grid-template-columns:repeat(5,1fr); }
   .calc-term-btn { min-height:44px; }
   button, .btn-conversion, .btn-wa-asesor, .confirm-action-btn, .filter-chip, .v-card-cta { min-height:44px; }
+  .hero { padding:56px 0 64px; }
+  .inventory-section { padding:32px 0 48px; }
+  .form-grid { gap:12px; }
 }
 button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-btn, .btn-conversion, .modal-close, .tooltip-trigger, input[type="range"], select, input[type="date"], .form-input {
   touch-action: manipulation;
@@ -182,13 +188,33 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   font-size:clamp(15px, 1.6vw, 18px); color:rgba(255,255,255,0.7);
   line-height:1.6; max-width:640px; margin:0 auto 36px;
 }
-.hero-stats { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; padding-top:8px; }
-.hero-stat { text-align:center; min-width:90px; }
+.hero-stats { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+.hero-stat {
+  text-align:left; padding:16px 22px;
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-lg); backdrop-filter:blur(10px);
+  min-width:140px;
+}
 .hero-stat-num {
-  font-family:var(--font-display); font-size:34px; font-weight:800; color:#fff;
+  font-family:var(--font-display); font-size:30px; font-weight:800; color:#fff;
   letter-spacing:-0.02em; line-height:1;
 }
 .hero-stat-label { font-size:11px; color:rgba(255,255,255,0.5); margin-top:6px; text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }
+
+/* ── HERO CTA ── */
+.hero-cta {
+  display:inline-flex; align-items:center; gap:10px;
+  margin-top:32px; padding:16px 32px;
+  background:linear-gradient(135deg, var(--brand-accent), var(--brand-accent-hover));
+  color:#fff; border:none; border-radius:var(--radius-full);
+  font-family:var(--font-display); font-size:16px; font-weight:800;
+  cursor:pointer; text-decoration:none; letter-spacing:0.3px;
+  box-shadow:0 12px 28px -8px rgba(51,78,139,0.55);
+  transition:transform var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease);
+  min-height:52px;
+}
+.hero-cta:hover { transform:translateY(-2px); box-shadow:0 16px 34px -8px rgba(51,78,139,0.65); }
+.hero-cta svg { width:18px; height:18px; }
 
 /* ── TRUST BAR ── */
 .trust-bar { background:#fff; border-bottom:1px solid var(--ink-200); padding:18px 0; }
@@ -306,6 +332,13 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   animation:modalIn var(--duration-slow) var(--ease);
 }
 @keyframes modalIn { from { opacity:0; transform:translateY(20px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+/* Modal fullscreen mobile — must come AFTER base .modal-content */
+@media (max-width: 640px) {
+  .modal-overlay { padding:0; align-items:stretch; }
+  .modal-content { margin:0; border-radius:0; min-height:100dvh; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .modal-gallery { aspect-ratio:4/3; }
+  .modal-body { padding:22px 18px 28px; }
+}
 .modal-close {
   position:absolute; top:16px; right:16px; z-index:10;
   width:44px; height:44px; border-radius:50%;
@@ -834,9 +867,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="hero-sub">5 marcas: RAM, Peugeot, Jeep, Dodge y Fiat. Bonos, tasas preferenciales, MSI y mantenimientos gratis. Financiamiento con STM Financial (Inbursa). Sin comision por apertura.</p>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Marcas</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">14</div><div class="hero-stat-label">Modelos</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">7.99%</div><div class="hero-stat-label">Tasa desde</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">Desde $64,700</div><div class="hero-stat-label">Enganche</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">Desde 7.99%</div><div class="hero-stat-label">Tasa anual</div></div>
       </div>
+      <button class="hero-cta" onclick="document.querySelector('.inventory-section').scrollIntoView({behavior:'smooth'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Ver modelos
+      </button>
     </div>
   </div>
 </section>
