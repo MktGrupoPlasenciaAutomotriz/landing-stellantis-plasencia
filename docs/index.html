@@ -994,7 +994,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat<br>Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jalisco<br>Lun a Vie 9:00 a 20:00 &middot; Sáb 9:00 a 18:00 &middot; Dom 11:00 a 17:00 &middot; Tel. (33) 3344 4455<br><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#4A70C0);text-decoration:underline;font-weight:600;font-size:13px;">📍 Ver ubicación en mapa</a></p>
     <p style="margin-top:10px;font-size:10px;line-height:1.5;opacity:0.65;">Financiamiento con STM Financial, S.A. de C.V. SOFOM E.R. (Grupo Financiero Inbursa). CAT promedio 20.5% sin IVA, ponderado calculado al 23 de marzo de 2026. Promocion valida en Mexico. Credito sujeto a aprobacion. Sin comision por apertura. Vigencia abril 2026. Consulta terminos, condiciones y precios con tu distribuidor autorizado.</p>
     <div style="margin-top:14px;"><a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.5); text-decoration: underline; font-size: 12px;">Aviso de Privacidad</a></div>
-    <p style="margin-top:14px;font-size:11px;opacity:0.65;">Vigencia del 1 al 30 de abril de 2026 o hasta agotar existencias. Promociones y bonos aplican únicamente en modelos RAM, Peugeot, Jeep, Dodge y Fiat seleccionados. Imágenes ilustrativas. Consulta modelos participantes, términos y condiciones con tu asesor de ventas. Crédito sujeto a aprobación bancaria.</p>
+    <p style="margin-top:14px;font-size:11px;opacity:0.65;">Vigencia del 1 al 30 de abril de 2026 o hasta agotar existencias. Precios de lista en pesos mexicanos, incluyen IVA y estan sujetos a cambios sin previo aviso. Los intereses del financiamiento causan IVA adicional; la mensualidad mostrada es estimada y puede variar al momento de la contratacion segun tasa autorizada, enganche y esquema elegido. Promociones y bonos aplican unicamente en modelos RAM, Peugeot, Jeep, Dodge y Fiat seleccionados. Imagenes ilustrativas. Consulta modelos participantes, terminos y condiciones con tu asesor de ventas. Credito sujeto a aprobacion bancaria.</p>
     <p style="margin-top:8px;font-size:11px;opacity:0.55;">© 2026 Grupo Plasencia Automotriz. Todos los derechos reservados.</p>
   </div>
 </footer>
@@ -1064,6 +1064,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="calc-result-label">Mensualidad estimada</div>
             <div class="calc-result-amount" id="monthlyAmount">$0</div>
             <div class="calc-result-sub">Tasa referencial anual: <strong>7.99%</strong> (Dodge/Fiat). Tasas desde 9.99% (Peugeot SUVs), 11.99% (Peugeot Manager)</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.42);margin-top:6px;line-height:1.35;font-style:italic;position:relative;">Mensualidad estimada. El importe real puede variar al contratar segun tasa autorizada, enganche, plazo y esquema elegido. El interes causa IVA.</div>
             <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-top:6px;line-height:1.4;position:relative;">* Financiamiento con STM Financial (Inbursa). CAT promedio 20.5% sin IVA. Vigencia abril 2026. Calculo con fines informativos. No constituye una autorizacion de credito ni una oferta vinculante. Monto, plazo y tasa sujetos a aprobacion crediticia.</div>
           </div>
 
@@ -1497,7 +1498,7 @@ function renderCards(filter) {
         <div class="v-card-title">${displayName(v)} ${v.year}</div>
         <div class="v-card-specs">${v.version} &middot; ${v.engine} &middot; ${v.trans}</div>
         <div class="v-card-price-row">
-          <div class="v-card-price">${v.price > 0 ? 'Enganche ' + fmt(v.price) : 'Consultar precio'}</div>
+          <div class="v-card-price" title="Precio de lista, incluye IVA. Sujeto a cambios sin previo aviso.">${v.price > 0 ? 'Enganche ' + fmt(v.price) : 'Consultar precio'}</div>
           <div class="v-card-monthly">${v.price > 0 ? 'Desde ' + fmt(monthly) + '/mes' : 'Cotiza con tu asesor'}</div>
         </div>
         <div style="margin-top:8px;display:flex;gap:6px;position:relative;">
