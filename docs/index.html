@@ -1481,23 +1481,42 @@ function renderCards(filter) {
   const showing = Math.min(visibleCount, filtered.length);
   document.getElementById('carCount').textContent = filtered.length > showing ? showing + ' de ' + filtered.length : filtered.length;
 
-  // Build display name avoiding "RAM RAM 1200" double prefix
-  const displayName = v => {
-    if (v.name.startsWith(v.brand)) return v.name;
-    return v.name;
-  };
+  if (filtered.length === 0) {
+    const suggestions = getSuggestions(3);
+    const msgText = searchQuery ? 'para "' + searchQuery.replace(/</g,'&lt;') + '"' : 'con esos filtros';
+    grid.innerHTML =
+      '<div class="search-no-results" style="grid-column:1/-1;">' +
+        '<div style="font-weight:800;font-size:18px;color:var(--ink-900);margin-bottom:8px;font-family:var(--font-display);">No encontramos autos ' + msgText + '</div>' +
+        '<div style="font-size:14px;color:var(--ink-500);margin-bottom:18px;">Pero te sugerimos estos — con los mejores bonos de abril:</div>' +
+        '<button onclick="clearAllFilters()" style="padding:10px 20px;background:transparent;border:1.5px solid var(--ink-300);border-radius:9999px;font-size:13px;font-weight:700;cursor:pointer;color:var(--ink-700);font-family:var(--font-body);">↺ Ver todo el inventario</button>' +
+      '</div>' +
+      suggestions.map(buildVCardHTML).join('');
+    return;
+  }
 
   const toShow = filtered.slice(0, visibleCount);
   const remaining = filtered.length - toShow.length;
 
-  grid.innerHTML = toShow.map(v => {
-    const monthly = calcMonthly(v.price, 20, 36);
-    const badgeClass = v.cat;
-    const typeLabels = {pickup:'Pickup',van:'Van',suv:'SUV',sedan:'Sedan'};
-    return `
+  grid.innerHTML = toShow.map(buildVCardHTML).join('');
+  if (remaining > 0) {
+    grid.innerHTML += `<div style="grid-column:1/-1;text-align:center;padding:24px;">
+      <button onclick="loadMore()" style="padding:14px 32px;background:var(--brand-accent,#4A70C0);color:#fff;border:none;border-radius:9999px;font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;min-height:48px;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        Ver más vehículos (${remaining} restantes)
+      </button>
+    </div>`;
+  }
+}
+
+// Card template unificado
+function buildVCardHTML(v) {
+  const monthly = calcMonthly(v.price, 20, 36);
+  const badgeClass = v.cat;
+  const typeLabels = {pickup:'Pickup',van:'Van',suv:'SUV',sedan:'Sedan'};
+  const displayName = v.name.startsWith(v.brand) ? v.name : v.name;
+  return `
     <div class="v-card" onclick="openModal(${v.id})">
       <div class="v-card-img-wrap">
-        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName(v) + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName(v) + ' ' + v.year + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Agenda tu cita para conocerlo</div></div>'}
+        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName + ' ' + v.year + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Agenda tu cita para conocerlo</div></div>'}
         ${v.badge ? '<div class="v-card-badge ' + badgeClass + '">' + v.badge + '</div>' : ''}
       </div>
       <div class="v-card-body">
@@ -1505,7 +1524,7 @@ function renderCards(filter) {
           <span class="v-card-brand ${v.cat}">${v.brand}</span>
           <span class="v-card-cat">${typeLabels[v.type] || v.type}</span>
         </div>
-        <div class="v-card-title">${displayName(v)} ${v.year}</div>
+        <div class="v-card-title">${displayName} ${v.year}</div>
         <div class="v-card-specs">${v.version} &middot; ${v.engine} &middot; ${v.trans}</div>
         <div class="v-card-price-row">
           <div class="v-card-price" title="Precio de lista, incluye IVA. Sujeto a cambios sin previo aviso.">${v.price > 0 ? 'Enganche ' + fmt(v.price) : 'Consultar precio'}</div>
@@ -1518,19 +1537,34 @@ function renderCards(filter) {
         </div>
       </div>
     </div>`;
-  }).join('');
+}
 
-  if (remaining > 0) {
-    grid.innerHTML += `<div style="grid-column:1/-1;text-align:center;padding:24px;">
-      <button onclick="loadMore()" style="padding:14px 32px;background:var(--brand-accent,#4A70C0);color:#fff;border:none;border-radius:9999px;font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;min-height:48px;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-        Ver más vehículos (${remaining} restantes)
-      </button>
-    </div>`;
+function getSuggestions(n) {
+  function bonoAmt(v) {
+    const m = (v.badge || '').match(/\$\s*([\d,]+)/);
+    return m ? parseInt(m[1].replace(/,/g,''), 10) : 0;
   }
+  return vehicles.slice().sort(function(a, b){
+    const d = bonoAmt(b) - bonoAmt(a);
+    if (d !== 0) return d;
+    const y = (b.year || 0) - (a.year || 0);
+    if (y !== 0) return y;
+    return (b.price || 0) - (a.price || 0);
+  }).slice(0, n || 3);
+}
 
-  if (filtered.length === 0 && searchQuery) {
-    grid.innerHTML = `<div class="search-no-results">Sin resultados para "<strong>${searchQuery.replace(/</g,'&lt;')}</strong>"</div>`;
-  }
+function clearAllFilters() {
+  searchQuery = '';
+  currentFilter = 'all';
+  currentBrandFilter = 'all';
+  currentPriceFilter = 'all';
+  const si = document.getElementById('searchInput'); if (si) si.value = '';
+  const ft = document.getElementById('filterType'); if (ft) ft.value = 'all';
+  const fb = document.getElementById('filterBrand'); if (fb) fb.value = 'all';
+  const fp = document.getElementById('filterPrice'); if (fp) fp.value = 'all';
+  visibleCount = ITEMS_PER_PAGE;
+  renderCards('all');
+  if (typeof updateFilterUI === 'function') updateFilterUI();
 }
 
 /* filterCars replaced by dropdown system */
