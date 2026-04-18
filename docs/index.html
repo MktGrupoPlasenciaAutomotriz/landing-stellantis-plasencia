@@ -1947,19 +1947,8 @@ function goToFormStep(step) {
       });
       if (!allValid) return;
     }
-    if (currentFormStep === 2) {
-      // Sucursal obligatoria para avanzar al paso de cita
-      const suc = document.getElementById('fSucursal');
-      if (suc && !suc.value) {
-        showFieldError('fSucursal');
-        suc.classList.add('error');
-        suc.focus();
-        return;
-      } else if (suc) {
-        hideFieldError('fSucursal');
-        suc.classList.remove('error');
-      }
-    }
+    // Nota: fSucursal vive en step 3 (no 2). No se valida en goToFormStep —
+    // submitForm() la valida junto con fecha/hora/tipo persona/privacidad antes de enviar.
   }
   // Update steps
   if (step === 2 && currentCar) {
