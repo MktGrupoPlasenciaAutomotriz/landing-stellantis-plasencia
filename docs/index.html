@@ -1466,27 +1466,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- STEP 3: TU CITA -->
           <div class="form-step" id="formStep3">
           <div class="form-grid">
-            <div style="grid-column:1/-1;margin-bottom:4px;">
-              <label class="form-label">¿En cuál sucursal te gustaría tu cita?</label>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0;">
-                <label onclick="document.getElementById('fSucursal').value='Stellantis Plasencia'" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#4A70C0)';this.style.background='rgba(74,112,192,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
-                  <div style="font-weight:700;font-size:13px;color:var(--ink-900,#1A1A1A);">📍 Plasencia</div>
-                  <div style="font-size:11px;color:var(--ink-500,#718096);margin-top:4px;line-height:1.3;">Av. Mariano Otero 405-A, La Giralda, Zapopan</div>
-                  <div style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:4px;">Lun-Vie 9-20h · Sab 9-18h · Dom 11-17h</div>
-                </label>
-                <label onclick="document.getElementById('fSucursal').value='Stellantis Santa Anita'" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#4A70C0)';this.style.background='rgba(74,112,192,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
-                  <div style="font-weight:700;font-size:13px;color:var(--ink-900,#1A1A1A);">📍 Santa Anita</div>
-                  <div style="font-size:11px;color:var(--ink-500,#718096);margin-top:4px;line-height:1.3;">Av. Lopez Mateos Sur 3505, Los Gavilanes, Guadalajara</div>
-                  <div style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:4px;">Lun-Vie 9-20h · Sab 9-18h · Dom 11-17h</div>
-                </label>
-              </div>
-              <select class="form-input" id="fSucursal" required style="margin-top:4px;" onchange="validateField(this)">
-                <option value="">Selecciona sucursal</option>
-                <option value="Stellantis Plasencia">Plasencia — Av. Mariano Otero 405-A</option>
-                <option value="Stellantis Santa Anita">Santa Anita — Av. Lopez Mateos Sur 3505</option>
-              </select>
-              <div class="form-error-msg" id="fSucursal-error" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Selecciona una sucursal para tu cita</div>
-            </div>
             <div class="form-group full">
               <label class="form-label">Fecha y hora de tu cita <span class="label-req">Obligatorio</span></label>
               <input type="hidden" id="fDate" value="">
@@ -1506,6 +1485,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
               <div class="form-error-msg" id="fDate-error">Selecciona una fecha y horario para tu cita.</div>
               <div class="form-error-msg" id="fTime-error">Selecciona un horario válido</div>
+            </div>
+            <div style="grid-column:1/-1;margin-top:24px;">
+              <label class="form-label" for="fSucursal">¿En cuál sucursal te gustaría tu cita? <span class="label-req">Obligatorio</span></label>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0;">
+                <label onclick="document.getElementById('fSucursal').value='Stellantis Plasencia';validateField(document.getElementById('fSucursal'))" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#4A70C0)';this.style.background='rgba(74,112,192,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
+                  <div style="font-weight:700;font-size:13px;color:var(--ink-900,#1A1A1A);">📍 Plasencia</div>
+                  <div style="font-size:11px;color:var(--ink-500,#718096);margin-top:4px;line-height:1.3;">Av. Mariano Otero 405-A, La Giralda, Zapopan</div>
+                </label>
+                <label onclick="document.getElementById('fSucursal').value='Stellantis Santa Anita';validateField(document.getElementById('fSucursal'))" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#4A70C0)';this.style.background='rgba(74,112,192,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
+                  <div style="font-weight:700;font-size:13px;color:var(--ink-900,#1A1A1A);">📍 Santa Anita</div>
+                  <div style="font-size:11px;color:var(--ink-500,#718096);margin-top:4px;line-height:1.3;">Av. Lopez Mateos Sur 3505, Los Gavilanes</div>
+                </label>
+              </div>
+              <select class="form-input" id="fSucursal" required style="margin-top:4px;" onchange="validateField(this)">
+                <option value="">Selecciona sucursal</option>
+                <option value="Stellantis Plasencia">Plasencia — Av. Mariano Otero 405-A</option>
+                <option value="Stellantis Santa Anita">Santa Anita — Av. Lopez Mateos Sur 3505</option>
+              </select>
+              <div class="form-error-msg" id="fSucursal-error" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Selecciona una sucursal para tu cita</div>
             </div>
           </div>
 
@@ -2239,7 +2237,7 @@ function goToFormStep(step) {
         if (!valid) { showFieldError(id); el.classList.add('error'); el.classList.remove('valid'); allValid = false; }
         else { hideFieldError(id); el.classList.remove('error'); el.classList.add('valid'); }
       });
-      if (!allValid) return;
+      if (!allValid) { if (typeof scrollToFirstError === 'function') scrollToFirstError(); return; }
     }
     // Nota: fSucursal vive en step 3 (no 2). No se valida en goToFormStep —
     // submitForm() la valida junto con fecha/hora/tipo persona/privacidad antes de enviar.
