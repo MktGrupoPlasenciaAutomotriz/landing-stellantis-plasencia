@@ -1889,12 +1889,16 @@ function validateField(el) {
   else if (el.id === 'fEmail') {
     const v = el.value.trim().toUpperCase();
     el.value = v;
-    isValid = v.includes('@') && v.length >= 5;
+    isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   } else isValid = el.value.trim().length > 0;
 
   if (isValid) {
     el.classList.remove('error'); el.classList.add('valid');
     if (errorEl) errorEl.classList.remove('show');
+    if (!document.querySelector('.form-error-msg.show') && !document.querySelector('.form-input.error')) {
+      const ge = document.getElementById('formGlobalError');
+      if (ge) ge.classList.remove('show');
+    }
   } else el.classList.remove('valid');
 }
 
@@ -1943,7 +1947,7 @@ function goToFormStep(step) {
         const v = el.value.trim();
         let valid = v.length > 0;
         if (id === 'fPhone') valid = /^[0-9]{10}$/.test(v);
-        else if (id === 'fEmail') valid = v.includes('@') && v.length >= 5;
+        else if (id === 'fEmail') valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
         if (!valid) { showFieldError(id); el.classList.add('error'); el.classList.remove('valid'); allValid = false; }
         else { hideFieldError(id); el.classList.remove('error'); el.classList.add('valid'); }
       });
@@ -1996,6 +2000,7 @@ function resetSubmitState() {
 }
 function submitForm() {
   if (submitting) return;
+  clearValidation(); // limpia errores stale de intentos previos
   const nombre = document.getElementById('fName').value.trim().toUpperCase();
   const ap1 = document.getElementById('fLastName1').value.trim().toUpperCase();
   const ap2 = document.getElementById('fLastName2').value.trim().toUpperCase();
@@ -2003,12 +2008,15 @@ function submitForm() {
   const email = document.getElementById('fEmail').value.trim().toUpperCase();
 
   const buscaFinVal = document.getElementById('fBuscaFinanciamiento').value;
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const required = [
     { id: 'fName', val: nombre },
     { id: 'fLastName1', val: ap1 },
     { id: 'fLastName2', val: ap2 },
     { id: 'fPhone', val: phone, check: v => /^[0-9]{10}$/.test(v) },
-    { id: 'fEmail', val: email, check: v => v.includes('@') && v.length >= 5 },
+    { id: 'fEmail', val: email, check: v => EMAIL_RE.test(v) },
+    { id: 'fTipoPersona', val: document.getElementById('fTipoPersona').value },
+    { id: 'fBuscaFinanciamiento', val: buscaFinVal },
     { id: 'fSucursal', val: document.getElementById('fSucursal').value },
     { id: 'fDate', val: document.getElementById('fDate').value, check: v => isValidAppointmentDate(v) },
     { id: 'fTime', val: document.getElementById('fTime').value }
@@ -2020,10 +2028,12 @@ function submitForm() {
   required.forEach(f => {
     const valid = f.check ? f.check(f.val) : f.val.length > 0;
     if (!valid) { showFieldError(f.id); hasErrors = true; }
+    else if (typeof hideFieldError === 'function') { hideFieldError(f.id); }
   });
   // Privacy checkbox validation
   const privacyCheck = document.getElementById('fPrivacy');
-  if (!privacyCheck.checked) { showFieldError('fPrivacy'); hasErrors = true; }
+  if (privacyCheck && !privacyCheck.checked) { showFieldError('fPrivacy'); hasErrors = true; }
+  else if (privacyCheck && typeof hideFieldError === 'function') { hideFieldError('fPrivacy'); }
   if (hasErrors) { document.getElementById('formGlobalError').classList.add('show'); return; }
 
   submitting = true;
