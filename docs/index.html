@@ -593,6 +593,11 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   letter-spacing: 0.3px; white-space: nowrap;
 }
 .form-progress-step.active .form-step-label { color: var(--ink-900); }
+.step-summary { display:none; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; margin:0 0 16px; background:linear-gradient(135deg,#0F1A2E,#1E2740); color:#F7FAFC; border-radius:12px; position:sticky; top:0; z-index:5; }
+.step-summary.show { display:flex; }
+.step-summary-main { flex:1; min-width:0; }
+.step-summary-title { font-family:var(--font-display); font-weight:700; font-size:13px; color:#F7FAFC; line-height:1.2; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.step-summary-meta { font-size:11px; color:#CBD5E1; margin-top:2px; font-weight:500; }
 .form-progress-step.completed .form-step-label { color: var(--color-success-dark); }
 @media(max-width:559px){ .form-step-label { display: none; } }
 
@@ -1107,23 +1112,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
 
+          <!-- Sticky summary visible en step 2 y 3 -->
+          <div class="step-summary" id="stepSummary">
+            <div class="step-summary-main">
+              <div class="step-summary-title" id="stepSummaryTitle">—</div>
+              <div class="step-summary-meta" id="stepSummaryMeta">—</div>
+            </div>
+          </div>
+
           <!-- STEP 1: DATOS PERSONALES -->
           <div class="form-step active" id="formStep1">
           <div class="form-grid">
             <div class="form-group full">
               <label class="form-label" for="fName">Nombre(s) <span class="label-req">Obligatorio</span></label>
               <input class="form-input uppercase-field" id="fName" type="text" placeholder="JUAN CARLOS" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="given-name">
-              <div class="form-error-msg" id="fName-error">Ingresa tu nombre</div>
+              <div class="form-error-msg" id="fName-error">Necesitamos tu nombre para la precotización</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="fLastName1">Apellido paterno <span class="label-req">Obligatorio</span></label>
               <input class="form-input uppercase-field" id="fLastName1" type="text" placeholder="PEREZ" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="family-name">
-              <div class="form-error-msg" id="fLastName1-error">Ingresa tu apellido paterno</div>
+              <div class="form-error-msg" id="fLastName1-error">Necesitamos tu apellido paterno</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="fLastName2">Apellido materno <span class="label-req">Obligatorio</span></label>
               <input class="form-input uppercase-field" id="fLastName2" type="text" placeholder="GARCIA" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="additional-name">
-              <div class="form-error-msg" id="fLastName2-error">Ingresa tu apellido materno</div>
+              <div class="form-error-msg" id="fLastName2-error">Necesitamos tu apellido materno</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="fPhone">Celular / WhatsApp <span class="label-req">Obligatorio</span></label>
@@ -1132,12 +1145,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <input class="form-input" id="fPhone" type="tel" placeholder="3312345678" maxlength="10" oninput="formatPhone(this); validateField(this)" onkeypress="return /[0-9]/.test(event.key)" autocomplete="tel-national" inputmode="numeric" style="flex:1;">
               </div>
               <div class="help-text">10 dígitos sin espacios</div>
-              <div class="form-error-msg" id="fPhone-error">Ingresa un celular válido de 10 dígitos</div>
+              <div class="form-error-msg" id="fPhone-error">Necesitamos 10 dígitos para contactarte por WhatsApp</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="fEmail">Correo electrónico <span class="label-req">Obligatorio</span></label>
               <input class="form-input" id="fEmail" type="email" placeholder="tu@email.com" oninput="validateField(this)" autocomplete="email">
-              <div class="form-error-msg" id="fEmail-error">Ingresa un correo válido</div>
+              <div class="form-error-msg" id="fEmail-error">Revisa tu correo — te enviaremos la precotización ahí</div>
             </div>
           </div>
           <div class="form-step-nav">
@@ -1882,6 +1895,18 @@ function sanitizeOnInput(el) {
 }
 function formatPhone(el) { el.value = el.value.replace(/[^0-9]/g, '').slice(0, 10); }
 
+function updateStepSummary(step) {
+  const bar = document.getElementById('stepSummary'); if (!bar) return;
+  if (step === 1 || !currentCar) { bar.classList.remove('show'); return; }
+  const t = document.getElementById('stepSummaryTitle');
+  const m = document.getElementById('stepSummaryMeta');
+  if (t) t.textContent = (currentCar.name || '') + ' ' + (currentCar.year || '') + (currentCar.version ? ' · ' + currentCar.version : '');
+  const monthly = typeof calcMonthly === 'function' && currentCar.price > 0 ? calcMonthly(currentCar.price, 20, 36) : 0;
+  const priceLabel = currentCar.price > 0 ? 'Enganche ' + fmt(currentCar.price) : 'Cotiza con asesor';
+  if (m) m.textContent = priceLabel + (monthly ? '  ·  Desde ' + fmt(monthly) + '/mes' : '');
+  bar.classList.add('show');
+}
+
 function validateField(el) {
   const errorEl = document.getElementById(el.id + '-error');
   let isValid = false;
@@ -1960,6 +1985,7 @@ function goToFormStep(step) {
   if (step === 2 && currentCar) {
     dataLayer.push({ event: 'form_start', item_name: currentCar.name + ' ' + currentCar.year, item_price: currentCar.price });
   }
+  updateStepSummary(step);
   currentFormStep = step;
   document.querySelectorAll('.form-step').forEach(function(s) { s.classList.remove('active'); });
   var target = document.getElementById('formStep' + step);
