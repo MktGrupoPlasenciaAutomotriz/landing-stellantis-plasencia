@@ -2294,6 +2294,29 @@ function resetSubmitState() {
   const b = document.querySelector('.btn-conversion');
   if (b) { b.disabled = false; b.style.opacity = ''; b.style.cursor = ''; }
 }
+
+// Scroll al primer campo con error (UX: user-centric — sube al problema)
+function scrollToFirstError() {
+  // Prioridad: campo input con error > error-msg visible > banner global
+  const firstInvalidInput = document.querySelector('.form-step.active .form-input.error, .form-step.active select.error');
+  const firstErrorMsg = document.querySelector('.form-step.active .form-error-msg.show');
+  const target = firstInvalidInput || firstErrorMsg;
+  if (!target) return;
+  // Scroll del modal-content (scroll interno del modal)
+  const modal = document.getElementById('vehicleModal');
+  const content = modal ? modal.querySelector('.modal-content') : null;
+  const scroller = content || modal || document.scrollingElement;
+  if (scroller && scroller.scrollBy) {
+    const rect = target.getBoundingClientRect();
+    const offset = rect.top - 120; // margen arriba para contexto
+    scroller.scrollBy({ top: offset, behavior: 'smooth' });
+  }
+  // Focus si es input/select (en mobile abre teclado solo si input, evitamos)
+  if (firstInvalidInput && window.innerWidth > 768) {
+    firstInvalidInput.focus({ preventScroll: true });
+  }
+}
+
 function submitForm() {
   if (submitting) return;
   clearValidation(); // limpia errores stale de intentos previos
@@ -2330,7 +2353,7 @@ function submitForm() {
   const privacyCheck = document.getElementById('fPrivacy');
   if (privacyCheck && !privacyCheck.checked) { showFieldError('fPrivacy'); hasErrors = true; }
   else if (privacyCheck && typeof hideFieldError === 'function') { hideFieldError('fPrivacy'); }
-  if (hasErrors) { document.getElementById('formGlobalError').classList.add('show'); return; }
+  if (hasErrors) { document.getElementById('formGlobalError').classList.add('show'); scrollToFirstError(); return; }
 
   submitting = true;
   const submitBtn = document.querySelector('.btn-conversion');
