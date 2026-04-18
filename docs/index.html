@@ -1999,7 +1999,14 @@ function goToFormStep(step) {
   });
   // Scroll form into view
   var formHead = document.querySelector('.form-section-head');
-  if (formHead) formHead.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Auto-focus sobre el primer campo del nuevo step (asi el usuario ve la sucursal/calendario, no se queda arriba)
+  setTimeout(function(){
+    var stepEl = document.getElementById('formStep' + step);
+    if (!stepEl) return;
+    var firstField = stepEl.querySelector('.cita-picker, select:not([type=hidden]), input:not([type=hidden]):not([type=checkbox]), textarea');
+    var target = firstField || stepEl;
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 120);
 }
 
 function sendToWebhook(data) {
