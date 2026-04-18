@@ -1216,11 +1216,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:4px;">Lun-Vie 9-20h · Sab 9-18h · Dom 11-17h</div>
                 </label>
               </div>
-              <select class="form-input" id="fSucursal" required style="margin-top:4px;">
+              <select class="form-input" id="fSucursal" required style="margin-top:4px;" onchange="validateField(this)">
                 <option value="">Selecciona sucursal</option>
                 <option value="Stellantis Plasencia">Plasencia — Av. Mariano Otero 405-A</option>
                 <option value="Stellantis Santa Anita">Santa Anita — Av. Lopez Mateos Sur 3505</option>
               </select>
+              <div class="form-error-msg" id="fSucursal-error" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Selecciona una sucursal para tu cita</div>
             </div>
             <div class="form-group full">
               <label class="form-label">Fecha y hora de tu cita <span class="req">*</span></label>
@@ -1946,6 +1947,19 @@ function goToFormStep(step) {
       });
       if (!allValid) return;
     }
+    if (currentFormStep === 2) {
+      // Sucursal obligatoria para avanzar al paso de cita
+      const suc = document.getElementById('fSucursal');
+      if (suc && !suc.value) {
+        showFieldError('fSucursal');
+        suc.classList.add('error');
+        suc.focus();
+        return;
+      } else if (suc) {
+        hideFieldError('fSucursal');
+        suc.classList.remove('error');
+      }
+    }
   }
   // Update steps
   if (step === 2 && currentCar) {
@@ -2004,6 +2018,7 @@ function submitForm() {
     { id: 'fLastName2', val: ap2 },
     { id: 'fPhone', val: phone, check: v => /^[0-9]{10}$/.test(v) },
     { id: 'fEmail', val: email, check: v => v.includes('@') && v.length >= 5 },
+    { id: 'fSucursal', val: document.getElementById('fSucursal').value },
     { id: 'fDate', val: document.getElementById('fDate').value, check: v => isValidAppointmentDate(v) },
     { id: 'fTime', val: document.getElementById('fTime').value }
   ];
