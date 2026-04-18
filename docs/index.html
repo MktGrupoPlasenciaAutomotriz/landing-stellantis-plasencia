@@ -265,6 +265,27 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .type-chip.active { background:var(--brand-accent); color:#fff; border-color:var(--brand-accent); box-shadow:0 4px 10px rgba(74,112,192,0.25); }
 .type-chip svg { width:18px; height:18px; flex-shrink:0; }
 #filterType { display:none; }
+
+/* FAQ */
+.faq-section { background:#F7F9FC; padding:72px 0; }
+.faq-head { text-align:center; max-width:680px; margin:0 auto 40px; }
+.faq-kicker { font-size:11px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand-accent); margin-bottom:8px; }
+.faq-title { font-family:var(--font-display); font-weight:800; font-size:28px; line-height:1.2; color:var(--ink-900); letter-spacing:-0.02em; }
+.faq-list { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+.faq-item { background:#fff; border:1px solid var(--ink-200); border-radius:14px; overflow:hidden; transition:border-color 0.15s; }
+.faq-item[open] { border-color:var(--brand-accent); box-shadow:0 6px 20px -8px rgba(74,112,192,0.22); }
+.faq-item summary { list-style:none; cursor:pointer; padding:18px 22px; font-family:var(--font-body); font-size:15px; font-weight:700; color:var(--ink-900); display:flex; align-items:center; justify-content:space-between; gap:16px; user-select:none; }
+.faq-item summary::-webkit-details-marker { display:none; }
+.faq-item summary::after { content:''; width:12px; height:12px; border-right:2.2px solid var(--ink-500); border-bottom:2.2px solid var(--ink-500); transform:rotate(45deg); transition:transform 0.2s; flex-shrink:0; margin-top:-4px; }
+.faq-item[open] summary::after { transform:rotate(-135deg); margin-top:2px; border-color:var(--brand-accent); }
+.faq-item summary:hover { color:var(--brand-accent); }
+.faq-a { padding:0 22px 20px; font-size:14px; line-height:1.65; color:var(--ink-600); }
+@media (max-width: 640px) {
+  .faq-section { padding:48px 0; }
+  .faq-title { font-size:22px; }
+  .faq-item summary { padding:16px 18px; font-size:14px; }
+  .faq-a { padding:0 18px 16px; font-size:13px; }
+}
 .filter-search { position: relative; flex: 1; min-width: 200px; }
 .filter-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-400); pointer-events: none; }
 .filter-search input { width: 100%; padding: 10px 12px 10px 36px; border: 1px solid var(--ink-200); border-radius: 9999px; font-size: 14px; font-family: var(--font-body); background: #fff; transition: border-color 0.15s; color: var(--ink-800); }
@@ -1033,6 +1054,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="inventory-section">
   <div class="container">
     <div class="inventory-grid" id="inventoryGrid"></div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section class="faq-section" aria-labelledby="faqTitle">
+  <div class="container">
+    <div class="faq-head">
+      <div class="faq-kicker">Preguntas frecuentes</div>
+      <h2 class="faq-title" id="faqTitle">Resolvemos tus dudas antes de tu cita</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Cómo funcionan los bonos de hasta $200,000?</summary>
+        <div class="faq-a">El bono es un descuento directo que varía por modelo y marca. El más alto es $200,000 en Jeep Grand Cherokee; RAM 1200 $47,000; Fiat Fastback $72,000; Peugeot 2008 $62,000; Dodge Attitude $57,000. Aplica automáticamente al cerrar tu compra durante abril. Los bonos incluyen IVA.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo funciona la tasa desde 7.99% con STM Financial (Inbursa)?</summary>
+        <div class="faq-a">Tasa preferencial según modelo: 7.99% en Dodge Attitude y Fiat Fastback; 9.99% en Peugeot 3008 y 2008; 11.99% en Peugeot Manager. Sin comisión por apertura en todas las marcas Stellantis. CAT promedio 20.5% sin IVA. Crédito sujeto a aprobación.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué son los meses sin intereses en Jeep?</summary>
+        <div class="faq-a">Jeep Wrangler y Gladiator tienen 24 MSI; Grand Cherokee tiene 36 MSI. Además, si ya tienes un Jeep puedes aplicar al bono de lealtad de hasta $30,000 adicionales. Tu asesor te explica cómo combinar MSI con el bono en tu cita.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Los Peugeot incluyen mantenimientos gratis?</summary>
+        <div class="faq-a">Sí. Peugeot Partner incluye 2 mantenimientos gratis; Peugeot 2008 y Nueva 3008 incluyen 3 mantenimientos gratis. El detalle del plan de mantenimiento se confirma en tu visita.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Reciben mi auto actual a cuenta?</summary>
+        <div class="faq-a">Sí. La tasación es gratuita el mismo día de tu cita. Te damos una oferta basada en condición, kilometraje y mercado actual. Si aceptas, aplica directo a tu enganche.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo hacer prueba de manejo?</summary>
+        <div class="faq-a">Sí. Agendas tu cita en menos de 60 segundos eligiendo día y hora. Al llegar, tu asesor te asigna el modelo que seleccionaste para una prueba supervisada.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué necesito llevar para comprar?</summary>
+        <div class="faq-a">Si vas a contado: INE y comprobante de domicilio. Si vas a crédito STM Financial: además comprobante de ingresos de los últimos 3 meses. Tu asesor te confirma la lista exacta por WhatsApp antes de tu cita.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿La oferta aplica en las dos sucursales?</summary>
+        <div class="faq-a">Sí. Los mismos precios, bonos y tasas aplican tanto en Stellantis Plasencia (Av. Mariano Otero 405-A) como en Stellantis Santa Anita (Av. López Mateos Sur 3505). Elige la sucursal más cercana al agendar.</div>
+      </details>
+    </div>
   </div>
 </section>
 </main>
