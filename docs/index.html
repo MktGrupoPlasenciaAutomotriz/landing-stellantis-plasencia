@@ -639,8 +639,10 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 
 .form-group { display:flex; flex-direction:column; }
 .form-group.full { grid-column:1 / -1; }
-.form-label { font-size:12px; font-weight:700; color:var(--ink-700); margin-bottom:6px; text-transform:uppercase; letter-spacing:0.04em; display:flex; align-items:center; gap:6px; }
-.form-label .req { color:var(--color-error); }
+.form-label { font-size:12px; font-weight:700; color:var(--ink-700); margin-bottom:6px; text-transform:uppercase; letter-spacing:0.04em; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.form-label .req { display:none; }
+.label-req { font-size: 10px; font-weight: 700; color: #dc2626; letter-spacing: 0.03em; text-transform: uppercase; padding: 2px 7px; background: rgba(220,38,38,0.08); border-radius: 999px; }
+.label-opt { font-size: 10px; font-weight: 600; color: #94a3b8; letter-spacing: 0.03em; text-transform: uppercase; padding: 2px 7px; background: rgba(148,163,184,0.12); border-radius: 999px; }
 .form-input {
   padding:14px 16px; border:1.5px solid var(--ink-300); border-radius:var(--radius-md);
   font-family:var(--font-body); font-size:16px; color:var(--ink-900);
@@ -716,7 +718,7 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 .form-privacy a { color:var(--brand-primary); font-weight:600; }
 
 /* ── INLINE CALENDAR + TIME PICKER ── */
-.cita-picker { margin-top:4px; }
+.cita-picker { margin-top:4px; max-width:340px; }
 .cal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
 .cal-header-title { font-family:var(--font-display); font-weight:700; font-size:15px; color:var(--ink-800); text-transform:capitalize; }
 .cal-nav { background:none; border:1.5px solid var(--ink-200); border-radius:var(--radius-sm); width:34px; height:34px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--ink-500); transition:all var(--duration-fast) var(--ease); }
@@ -1085,7 +1087,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="form-section-sub">Completa tus datos y recibe tu precotización al instante.</div>
 
           <div class="form-empty-state" id="formGlobalError">
-            <div class="form-empty-state-text">Completa los campos requeridos para agendar</div>
+            <div class="form-empty-state-text">Faltan campos obligatorios. Revisa los marcados en rojo para continuar.</div>
             <div class="form-empty-state-sub">Los campos marcados necesitan tu atención.</div>
           </div>
 
@@ -1109,22 +1111,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="form-step active" id="formStep1">
           <div class="form-grid">
             <div class="form-group full">
-              <label class="form-label" for="fName">Nombre(s) <span class="req">*</span></label>
+              <label class="form-label" for="fName">Nombre(s) <span class="label-req">Obligatorio</span></label>
               <input class="form-input uppercase-field" id="fName" type="text" placeholder="JUAN CARLOS" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="given-name">
               <div class="form-error-msg" id="fName-error">Ingresa tu nombre</div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="fLastName1">Apellido paterno <span class="req">*</span></label>
+              <label class="form-label" for="fLastName1">Apellido paterno <span class="label-req">Obligatorio</span></label>
               <input class="form-input uppercase-field" id="fLastName1" type="text" placeholder="PEREZ" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="family-name">
               <div class="form-error-msg" id="fLastName1-error">Ingresa tu apellido paterno</div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="fLastName2">Apellido materno <span class="req">*</span></label>
+              <label class="form-label" for="fLastName2">Apellido materno <span class="label-req">Obligatorio</span></label>
               <input class="form-input uppercase-field" id="fLastName2" type="text" placeholder="GARCIA" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="additional-name">
               <div class="form-error-msg" id="fLastName2-error">Ingresa tu apellido materno</div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="fPhone">Celular / WhatsApp <span class="req">*</span></label>
+              <label class="form-label" for="fPhone">Celular / WhatsApp <span class="label-req">Obligatorio</span></label>
               <div class="phone-wrap">
                 <div class="phone-prefix">MX +52</div>
                 <input class="form-input" id="fPhone" type="tel" placeholder="3312345678" maxlength="10" oninput="formatPhone(this); validateField(this)" onkeypress="return /[0-9]/.test(event.key)" autocomplete="tel-national" inputmode="numeric" style="flex:1;">
@@ -1133,7 +1135,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="form-error-msg" id="fPhone-error">Ingresa un celular válido de 10 dígitos</div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="fEmail">Correo electrónico <span class="req">*</span></label>
+              <label class="form-label" for="fEmail">Correo electrónico <span class="label-req">Obligatorio</span></label>
               <input class="form-input" id="fEmail" type="email" placeholder="tu@email.com" oninput="validateField(this)" autocomplete="email">
               <div class="form-error-msg" id="fEmail-error">Ingresa un correo válido</div>
             </div>
@@ -1155,7 +1157,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
               </label>
               <select class="form-input" id="fTipoPersona" onchange="onTipoPersonaChange()">
-                <option value="">Selecciona (opcional)</option>
+                <option value="">Selecciona <span class="label-opt">Opcional</span></option>
                 <option value="PERSONA FISICA">PERSONA FÍSICA</option>
                 <option value="PERSONA FISICA CON ACTIVIDAD EMPRESARIAL">PERSONA FÍSICA CON ACTIVIDAD EMPRESARIAL</option>
                 <option value="PERSONA MORAL">PERSONA MORAL</option>
@@ -1186,7 +1188,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="help-text">Si no puedes comprobarlos, no te preocupes: no es restricción para la compra. Solo puede implicar un enganche mayor (desde 25%).</div>
             </div>
             <div class="form-group full">
-              <label class="form-label">¿Tienes auto a cuenta? (opcional)</label>
+              <label class="form-label">¿Tienes auto a cuenta? <span class="label-opt">Opcional</span></label>
               <select class="form-input" id="fTradeIn">
                 <option value="">No, compra directa</option>
                 <option value="si">Sí, quiero que lo evalúen</option>
@@ -1224,7 +1226,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="form-error-msg" id="fSucursal-error" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Selecciona una sucursal para tu cita</div>
             </div>
             <div class="form-group full">
-              <label class="form-label">Fecha y hora de tu cita <span class="req">*</span></label>
+              <label class="form-label">Fecha y hora de tu cita <span class="label-req">Obligatorio</span></label>
               <input type="hidden" id="fDate" value="">
               <input type="hidden" id="fTime" value="">
               <div class="cita-picker" id="citaPicker">
