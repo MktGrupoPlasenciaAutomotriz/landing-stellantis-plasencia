@@ -1653,24 +1653,24 @@ let submitting = false;
 
 const vehicles = [
   // RAM (3 modelos)
-  { id:1,  name:"RAM 700",       brand:"RAM",     year:2025, version:"Club Cab / Crew Cab",    type:"pickup", cat:"ram",     engine:"1.6L",    trans:"Manual",     fuel:"Gasolina", price:64700,   priceType:"enganche", badge:"Bono $6,000",   img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/ram-acces-home-700-reg-cab-2023.png.img.500.png", color:"", km:0, photos:0 },
-  { id:2,  name:"RAM 1200",      brand:"RAM",     year:2025, version:"Crew Cab",               type:"pickup", cat:"ram",     engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:72700,   priceType:"enganche", badge:"Bono $47,000",  img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/my25-ram-1200-laramie-jellybean-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
-  { id:3,  name:"RAM 4000",      brand:"RAM",     year:2025, version:"Chasis Cabina",          type:"pickup", cat:"ram",     engine:"5.7L V8", trans:"Automática", fuel:"Gasolina", price:0,       priceType:"consultar", badge:"Bono $40,000",  img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-4000-global-navigation-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:1,  name:"RAM 700",       brand:"RAM",     year:2026, version:"Tradesman / Bighorn / Laramie", type:"pickup", cat:"ram",     engine:"1.6L",    trans:"Manual",     fuel:"Gasolina", price:344900,  priceType:"msrp", badge:"Bono $6,000",   img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-700-global-navigation-mx.jpg.img.2880.jpg", color:"", km:0, photos:0 },
+  { id:2,  name:"RAM 1200",      brand:"RAM",     year:2026, version:"Tradesman / Bighorn / Laramie", type:"pickup", cat:"ram",     engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:449900,  priceType:"msrp", badge:"Bono $47,000",  img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/my25-ram-1200-laramie-jellybean-mx.jpg.img.2880.jpg", color:"", km:0, photos:0 },
+  { id:3,  name:"RAM 4000",      brand:"RAM",     year:2026, version:"Chasis Cabina V8",       type:"pickup", cat:"ram",     engine:"5.7L V8", trans:"Automática", fuel:"Gasolina", price:1029900, priceType:"msrp", badge:"Bono $40,000",  img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-4000-global-navigation-mx.jpg.img.2880.jpg", color:"", km:0, photos:0 },
   // Peugeot (6 modelos)
-  { id:4,  name:"Peugeot Partner Rapid", brand:"PEUGEOT", year:2026, version:"Rapid",          type:"van",    cat:"peugeot", engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:298400,  priceType:"msrp", badge:"Bono $50,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/peugeotrapid-1.png", color:"", km:0, photos:0 },
-  { id:5,  name:"Peugeot Partner",brand:"PEUGEOT", year:2026, version:"FL Maxi Pack MT",       type:"van",    cat:"peugeot", engine:"1.5L TD", trans:"Manual",     fuel:"Diésel",   price:439900,  priceType:"msrp", badge:"Bono $25,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png", color:"", km:0, photos:0 },
-  { id:6,  name:"Peugeot Manager",brand:"PEUGEOT", year:2026, version:"Van Carga",             type:"van",    cat:"peugeot", engine:"2.0L TD", trans:"Manual",     fuel:"Diésel",   price:777900,  priceType:"msrp", badge:"Bono $50,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png", color:"", km:0, photos:0 },
-  { id:7,  name:"Peugeot Rifter", brand:"PEUGEOT", year:2026, version:"Pasajeros",             type:"van",    cat:"peugeot", engine:"1.5L TD", trans:"Automática", fuel:"Diésel",   price:469900,  priceType:"msrp", badge:"Enganche bajo", img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/PEUGEOT-RIFTER-2026.png", color:"", km:0, photos:0 },
-  { id:8,  name:"Peugeot 3008",   brand:"PEUGEOT", year:2026, version:"Nueva 3008",            type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:654900,  priceType:"msrp", badge:"Bono $15,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png", color:"", km:0, photos:0 },
-  { id:9,  name:"Peugeot 2008",   brand:"PEUGEOT", year:2025, version:"GT",                    type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:500900,  priceType:"msrp", badge:"Bono $62,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my23-peugeot-2008-lista-de-precios-mx.png", color:"", km:0, photos:0 },
+  { id:4,  name:"Peugeot Partner Rapid", brand:"PEUGEOT", year:2026, version:"Rapid",          type:"van",    cat:"peugeot", engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:338400,  priceType:"msrp", badge:"Bono $30,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/peugeotrapid-1.png", color:"", km:0, photos:0 },
+  { id:5,  name:"Peugeot Partner",brand:"PEUGEOT", year:2026, version:"FL Maxi HDI Man",       type:"van",    cat:"peugeot", engine:"1.5L TD", trans:"Manual",     fuel:"Diésel",   price:443900,  priceType:"msrp", badge:"2 mantenimientos gratis", img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png", color:"", km:0, photos:0 },
+  { id:6,  name:"Peugeot Manager",brand:"PEUGEOT", year:2026, version:"FL Furgón L2H2 HDI Man", type:"van",    cat:"peugeot", engine:"2.0L TD", trans:"Manual",     fuel:"Diésel",   price:827900,  priceType:"msrp", badge:"Bono $40,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png", color:"", km:0, photos:0 },
+  { id:7,  name:"Peugeot Rifter", brand:"PEUGEOT", year:2026, version:"FL Allure Pack",        type:"van",    cat:"peugeot", engine:"1.5L TD", trans:"Manual",     fuel:"Diésel",   price:469900,  priceType:"msrp", badge:"Tasa desde 14.50%", img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/PEUGEOT-RIFTER-2026.png", color:"", km:0, photos:0 },
+  { id:8,  name:"Peugeot 3008",   brand:"PEUGEOT", year:2026, version:"Allure Pack",           type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:654900,  priceType:"msrp", badge:"Bono $5,000 + 3 mant.",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png", color:"", km:0, photos:0 },
+  { id:9,  name:"Peugeot 2008",   brand:"PEUGEOT", year:2025, version:"FL GT",                 type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:545900,  priceType:"msrp", badge:"Bono $45,000 + 2 mant.", img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my23-peugeot-2008-lista-de-precios-mx.png", color:"", km:0, photos:0 },
   // Jeep (3 modelos)
-  { id:10, name:"Jeep Wrangler",  brand:"JEEP",    year:2025, version:"Willys / Sahara",        type:"suv",    cat:"jeep",    engine:"2.0L T",  trans:"Automática", fuel:"Gasolina", price:1274900, priceType:"msrp", badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-wrangler-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
-  { id:11, name:"Jeep Gladiator", brand:"JEEP",    year:2025, version:"JT Mojave",              type:"pickup", cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:1553900, priceType:"msrp", badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.500.jpg", color:"", km:0, photos:0 },
-  { id:12, name:"Jeep Grand Cherokee", brand:"JEEP", year:2025, version:"Altitude / Limited",   type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:1156900, priceType:"msrp", badge:"Bono $200,000", img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:10, name:"Jeep Wrangler",  brand:"JEEP",    year:2026, version:"Unlimited Willys",       type:"suv",    cat:"jeep",    engine:"2.0L T",  trans:"Automática", fuel:"Gasolina", price:1274900, priceType:"msrp", badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-wrangler-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:11, name:"Jeep Gladiator", brand:"JEEP",    year:2025, version:"JT Mojave",              type:"pickup", cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:1598900, priceType:"msrp", badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:12, name:"Jeep Grand Cherokee", brand:"JEEP", year:2026, version:"Altitude 4X2",         type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:1189900, priceType:"msrp", badge:"Tasa desde 13.99%", img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
   // Dodge (1 modelo)
-  { id:13, name:"Dodge Attitude", brand:"DODGE",   year:2026, version:"SXT / SPORT / GT / R/T", type:"sedan",  cat:"dodge",   engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:78000,   priceType:"enganche", badge:"Bono $57,000",  img:"https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg", color:"", km:0, photos:0 },
+  { id:13, name:"Dodge Attitude", brand:"DODGE",   year:2026, version:"SXT",                    type:"sedan",  cat:"dodge",   engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:419900,  priceType:"msrp", badge:"Bono $30,000",  img:"https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg", color:"", km:0, photos:0 },
   // Fiat (1 modelo)
-  { id:14, name:"Fiat Fastback",  brand:"FIAT",    year:2025, version:"SUV Coupé",              type:"suv",    cat:"fiat",    engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:90000,   priceType:"enganche", badge:"Bono $72,000",  img:"https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/menu/my26-fiat-fastback-inicio-global-nav-alldevices-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:14, name:"Fiat Fastback",  brand:"FIAT",    year:2026, version:"Impetus",                type:"suv",    cat:"fiat",    engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:502900,  priceType:"msrp", badge:"Bono $20,000",  img:"https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/menu/my26-fiat-fastback-inicio-global-nav-alldevices-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
 ];
 
 let currentCar = null;
@@ -1683,27 +1683,31 @@ const ITEMS_PER_PAGE = 12;
 let visibleCount = ITEMS_PER_PAGE;
 
 // ── DETALLE DE OFERTA POR MODELO ──
-// Datos de la oferta comercial Stellantis abril 2026 (STM Financial / Inbursa).
-// Cada oferta detalla: tasa preferencial (si aplica), MSI (Jeep), mantenimientos gratis (Peugeot),
-// bono de lealtad (Jeep), enganche cuando viene en oferta. Incluye CAT 20.5% y vigencia.
+// Fuente: Circular VTAS-9620426 Plan de Incentivos Stellantis - Abril 2026.
+// Vigencia: 3 al 30 de abril de 2026. Financiera: STM Financial (Grupo Financiero Inbursa).
+// CAT promedio 20.5% sin IVA (ponderado 23 marzo 2026).
 function getOfferDetailHTML(v) {
   const id = v && v.id;
-  // Por modelo (override) o por marca (default)
   const detailsByModel = {
-    1:  'Bono $6,000 + enganche desde $64,700. Sin comisión por apertura.',                                 // RAM 700
-    2:  'Bono $47,000 + enganche desde $72,700. Sin comisión por apertura.',                                // RAM 1200
-    3:  'Bono $40,000. Sin comisión por apertura. Consulta enganche con tu asesor.',                         // RAM 4000
-    4:  'Bono $50,000 + enganche desde $76,000. Sin comisión por apertura.',                                // Peugeot Partner Rapid
-    5:  'Bono $25,000 + enganche desde $107,000 + 2 mantenimientos gratis. Sin comisión por apertura.',     // Peugeot Partner FL Maxi Pack
-    6:  'Bono $50,000 + tasa desde 11.99%. Sin comisión por apertura.',                                     // Peugeot Manager
-    7:  'Enganche desde $75,000. Sin comisión por apertura.',                                                // Peugeot Rifter
-    8:  'Bono $15,000 + tasa desde 9.99% + enganche desde $123,700 + 3 mantenimientos gratis. Sin comisión por apertura.', // Peugeot 3008
-    9:  'Bono $62,000 + tasa desde 9.99% + enganche desde $95,000 + 3 mantenimientos gratis. Sin comisión por apertura.',  // Peugeot 2008 GT
-    10: '24 MSI + bono de lealtad hasta $30,000 si ya tienes un Jeep. Sin comisión por apertura.',          // Jeep Wrangler
-    11: '24 MSI + bono de lealtad hasta $30,000 si ya tienes un Jeep. Sin comisión por apertura.',          // Jeep Gladiator
-    12: 'Bono $200,000 + 36 MSI. Sin comisión por apertura.',                                               // Jeep Grand Cherokee
-    13: 'Bono $57,000 + tasa desde 7.99% + enganche desde $78,000. Sin comisión por apertura.',             // Dodge Attitude
-    14: 'Bono $72,000 + tasa desde 7.99% + enganche desde $90,000.'                                         // Fiat Fastback
+    // RAM 2026 MY — circular Stellantis
+    1:  'Bono contado $5,000–$6,000 (Tradesman/Bighorn). Tasa desde 14.50% con 1.5% comisión por apertura.',             // RAM 700
+    2:  'Bono contado hasta $36,000 (Tradesman CC 4x2). Tasa desde 11.99% (Bighorn/Laramie) o 14.50% (Tradesman).',      // RAM 1200
+    3:  'Bono contado $30,000 (V8 Chasis Corto P/PL). Tasa desde 14.50% con 1.5% comisión por apertura.',                // RAM 4000
+    // Peugeot 2026 MY
+    4:  'Descuento contado $30,000 (Rapid 2026). Tasa desde 14.50% financiamiento.',                                      // Partner Rapid
+    5:  '2 mantenimientos gratis tipo póliza. Tasa desde 11.99% con 1.5% comisión por apertura.',                        // Partner FL Maxi HDI Man
+    6:  'Descuento contado $40,000 (Furgón L2H2). Tasa desde 11.99% con 1.5% comisión por apertura.',                    // Peugeot Manager
+    7:  'Allure Pack 2026. Tasa desde 14.50% con STM Financial. Sin comisión adicional.',                                // Peugeot Rifter
+    8:  'Descuento contado $5,000 + 3 años de mantenimiento gratis. Tasa desde 9.99% con 1.5% comisión por apertura.',   // Peugeot 3008
+    9:  'Descuento contado hasta $45,000 + 2 años mantenimiento gratis. Tasa desde 9.99% con 1.5% comisión.',            // Peugeot 2008 FL GT 2025
+    // Jeep
+    10: '24 MSI con 1.5% comisión por apertura + bono de lealtad hasta $30,000 si ya tienes un Jeep.',                   // Wrangler Unlimited Willys 2026
+    11: '24 MSI con 1.5% comisión por apertura + bono de lealtad hasta $30,000 si ya tienes un Jeep.',                   // Gladiator JT Mojave 2025
+    12: 'Grand Cherokee Altitude 4X2 2026. Tasa desde 13.99% con 1.5% comisión por apertura.',                           // Grand Cherokee Altitude
+    // Dodge 2026 MY
+    13: 'Descuento contado hasta $30,000 + descuento adicional $10,000 del 1–17 abril. Tasa desde 7.99% con 1.5% comisión por apertura.',  // Attitude SXT
+    // Fiat 2026 MY
+    14: 'Descuento contado $20,000. Tasa desde 7.99% con 1.5% comisión por apertura.'                                     // Fastback Impetus
   };
   return detailsByModel[id] || 'Consulta detalles de la promoción con tu asesor.';
 }
