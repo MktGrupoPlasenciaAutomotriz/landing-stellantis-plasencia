@@ -1290,7 +1290,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="modal-vehicle-version" id="modalVersion"></div>
           </div>
           <div class="modal-vehicle-price" id="modalPrice"></div>
-            <div class="modal-vehicle-price-disclaimer" style="font-size:11px;color:var(--ink-500,#64748B);margin-top:4px;font-weight:500;line-height:1.35;">Precio de lista, incluye IVA. Sujeto a cambios sin previo aviso.</div>
+            <div class="modal-vehicle-price-disclaimer" id="modalPriceDisclaimer" style="font-size:11px;color:var(--ink-500,#64748B);margin-top:4px;font-weight:500;line-height:1.35;">Precio de lista, incluye IVA. Sujeto a cambios sin previo aviso.</div>
         </div>
 
         <div class="modal-specs" id="modalSpecs"></div>
@@ -1653,24 +1653,24 @@ let submitting = false;
 
 const vehicles = [
   // RAM (3 modelos)
-  { id:1,  name:"RAM 700",       brand:"RAM",     year:2025, version:"Club Cab / Crew Cab",    type:"pickup", cat:"ram",     engine:"1.6L",    trans:"Manual",     fuel:"Gasolina", price:64700,   badge:"Bono $6,000",   img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/ram-acces-home-700-reg-cab-2023.png.img.500.png", color:"", km:0, photos:0 },
-  { id:2,  name:"RAM 1200",      brand:"RAM",     year:2025, version:"Crew Cab",               type:"pickup", cat:"ram",     engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:72700,   badge:"Bono $47,000",  img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/my25-ram-1200-laramie-jellybean-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
-  { id:3,  name:"RAM 4000",      brand:"RAM",     year:2025, version:"Chasis Cabina",          type:"pickup", cat:"ram",     engine:"5.7L V8", trans:"Automática", fuel:"Gasolina", price:0,       badge:"Bono $40,000",  img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-4000-global-navigation-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:1,  name:"RAM 700",       brand:"RAM",     year:2025, version:"Club Cab / Crew Cab",    type:"pickup", cat:"ram",     engine:"1.6L",    trans:"Manual",     fuel:"Gasolina", price:64700,   priceType:"enganche", badge:"Bono $6,000",   img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/ram-acces-home-700-reg-cab-2023.png.img.500.png", color:"", km:0, photos:0 },
+  { id:2,  name:"RAM 1200",      brand:"RAM",     year:2025, version:"Crew Cab",               type:"pickup", cat:"ram",     engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:72700,   priceType:"enganche", badge:"Bono $47,000",  img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/home/modelos/comerciales/my25-ram-1200-laramie-jellybean-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:3,  name:"RAM 4000",      brand:"RAM",     year:2025, version:"Chasis Cabina",          type:"pickup", cat:"ram",     engine:"5.7L V8", trans:"Automática", fuel:"Gasolina", price:0,       priceType:"consultar", badge:"Bono $40,000",  img:"https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-4000-global-navigation-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
   // Peugeot (6 modelos)
-  { id:4,  name:"Peugeot Partner Rapid", brand:"PEUGEOT", year:2026, version:"Rapid",          type:"van",    cat:"peugeot", engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:76000,   badge:"Bono $50,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/peugeotrapid-1.png", color:"", km:0, photos:0 },
-  { id:5,  name:"Peugeot Partner",brand:"PEUGEOT", year:2026, version:"FL Maxi Pack MT",       type:"van",    cat:"peugeot", engine:"1.5L TD", trans:"Manual",     fuel:"Diésel",   price:107000,  badge:"Bono $25,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png", color:"", km:0, photos:0 },
-  { id:6,  name:"Peugeot Manager",brand:"PEUGEOT", year:2026, version:"Van Carga",             type:"van",    cat:"peugeot", engine:"2.0L TD", trans:"Manual",     fuel:"Diésel",   price:0,       badge:"Bono $50,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png", color:"", km:0, photos:0 },
-  { id:7,  name:"Peugeot Rifter", brand:"PEUGEOT", year:2026, version:"Pasajeros",             type:"van",    cat:"peugeot", engine:"1.5L TD", trans:"Automática", fuel:"Diésel",   price:75000,   badge:"Enganche bajo", img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/PEUGEOT-RIFTER-2026.png", color:"", km:0, photos:0 },
-  { id:8,  name:"Peugeot 3008",   brand:"PEUGEOT", year:2026, version:"Nueva 3008",            type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:123700,  badge:"Bono $15,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png", color:"", km:0, photos:0 },
-  { id:9,  name:"Peugeot 2008",   brand:"PEUGEOT", year:2025, version:"GT",                    type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:95000,   badge:"Bono $62,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my23-peugeot-2008-lista-de-precios-mx.png", color:"", km:0, photos:0 },
+  { id:4,  name:"Peugeot Partner Rapid", brand:"PEUGEOT", year:2026, version:"Rapid",          type:"van",    cat:"peugeot", engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:298400,  priceType:"msrp", badge:"Bono $50,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/peugeotrapid-1.png", color:"", km:0, photos:0 },
+  { id:5,  name:"Peugeot Partner",brand:"PEUGEOT", year:2026, version:"FL Maxi Pack MT",       type:"van",    cat:"peugeot", engine:"1.5L TD", trans:"Manual",     fuel:"Diésel",   price:439900,  priceType:"msrp", badge:"Bono $25,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png", color:"", km:0, photos:0 },
+  { id:6,  name:"Peugeot Manager",brand:"PEUGEOT", year:2026, version:"Van Carga",             type:"van",    cat:"peugeot", engine:"2.0L TD", trans:"Manual",     fuel:"Diésel",   price:777900,  priceType:"msrp", badge:"Bono $50,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png", color:"", km:0, photos:0 },
+  { id:7,  name:"Peugeot Rifter", brand:"PEUGEOT", year:2026, version:"Pasajeros",             type:"van",    cat:"peugeot", engine:"1.5L TD", trans:"Automática", fuel:"Diésel",   price:469900,  priceType:"msrp", badge:"Enganche bajo", img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/PEUGEOT-RIFTER-2026.png", color:"", km:0, photos:0 },
+  { id:8,  name:"Peugeot 3008",   brand:"PEUGEOT", year:2026, version:"Nueva 3008",            type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:654900,  priceType:"msrp", badge:"Bono $15,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png", color:"", km:0, photos:0 },
+  { id:9,  name:"Peugeot 2008",   brand:"PEUGEOT", year:2025, version:"GT",                    type:"suv",    cat:"peugeot", engine:"1.2L T",  trans:"Automática", fuel:"Gasolina", price:500900,  priceType:"msrp", badge:"Bono $62,000",  img:"https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my23-peugeot-2008-lista-de-precios-mx.png", color:"", km:0, photos:0 },
   // Jeep (3 modelos)
-  { id:10, name:"Jeep Wrangler",  brand:"JEEP",    year:2025, version:"Sport / Sahara",         type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:0,       badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-wrangler-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
-  { id:11, name:"Jeep Gladiator", brand:"JEEP",    year:2025, version:"JT Mojave",              type:"pickup", cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:0,       badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.500.jpg", color:"", km:0, photos:0 },
-  { id:12, name:"Jeep Grand Cherokee", brand:"JEEP", year:2025, version:"Limited / Overland",   type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:0,       badge:"Bono $200,000", img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:10, name:"Jeep Wrangler",  brand:"JEEP",    year:2025, version:"Willys / Sahara",        type:"suv",    cat:"jeep",    engine:"2.0L T",  trans:"Automática", fuel:"Gasolina", price:1274900, priceType:"msrp", badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-wrangler-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:11, name:"Jeep Gladiator", brand:"JEEP",    year:2025, version:"JT Mojave",              type:"pickup", cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:1553900, priceType:"msrp", badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:12, name:"Jeep Grand Cherokee", brand:"JEEP", year:2025, version:"Altitude / Limited",   type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:1156900, priceType:"msrp", badge:"Bono $200,000", img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
   // Dodge (1 modelo)
-  { id:13, name:"Dodge Attitude", brand:"DODGE",   year:2026, version:"SE / SXT",               type:"sedan",  cat:"dodge",   engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:78000,   badge:"Bono $57,000",  img:"https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg", color:"", km:0, photos:0 },
+  { id:13, name:"Dodge Attitude", brand:"DODGE",   year:2026, version:"SXT / SPORT / GT / R/T", type:"sedan",  cat:"dodge",   engine:"1.2L",    trans:"Manual",     fuel:"Gasolina", price:78000,   priceType:"enganche", badge:"Bono $57,000",  img:"https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg", color:"", km:0, photos:0 },
   // Fiat (1 modelo)
-  { id:14, name:"Fiat Fastback",  brand:"FIAT",    year:2025, version:"SUV Coupé",              type:"suv",    cat:"fiat",    engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:90000,   badge:"Bono $72,000",  img:"https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/menu/my26-fiat-fastback-inicio-global-nav-alldevices-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
+  { id:14, name:"Fiat Fastback",  brand:"FIAT",    year:2025, version:"SUV Coupé",              type:"suv",    cat:"fiat",    engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:90000,   priceType:"enganche", badge:"Bono $72,000",  img:"https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/menu/my26-fiat-fastback-inicio-global-nav-alldevices-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
 ];
 
 let currentCar = null;
@@ -1681,6 +1681,32 @@ let currentPriceFilter = 'all';
 let searchQuery = '';
 const ITEMS_PER_PAGE = 12;
 let visibleCount = ITEMS_PER_PAGE;
+
+// ── DETALLE DE OFERTA POR MODELO ──
+// Datos de la oferta comercial Stellantis abril 2026 (STM Financial / Inbursa).
+// Cada oferta detalla: tasa preferencial (si aplica), MSI (Jeep), mantenimientos gratis (Peugeot),
+// bono de lealtad (Jeep), enganche cuando viene en oferta. Incluye CAT 20.5% y vigencia.
+function getOfferDetailHTML(v) {
+  const id = v && v.id;
+  // Por modelo (override) o por marca (default)
+  const detailsByModel = {
+    1:  'Bono $6,000 + enganche desde $64,700. Sin comisión por apertura.',                                 // RAM 700
+    2:  'Bono $47,000 + enganche desde $72,700. Sin comisión por apertura.',                                // RAM 1200
+    3:  'Bono $40,000. Sin comisión por apertura. Consulta enganche con tu asesor.',                         // RAM 4000
+    4:  'Bono $50,000 + enganche desde $76,000. Sin comisión por apertura.',                                // Peugeot Partner Rapid
+    5:  'Bono $25,000 + enganche desde $107,000 + 2 mantenimientos gratis. Sin comisión por apertura.',     // Peugeot Partner FL Maxi Pack
+    6:  'Bono $50,000 + tasa desde 11.99%. Sin comisión por apertura.',                                     // Peugeot Manager
+    7:  'Enganche desde $75,000. Sin comisión por apertura.',                                                // Peugeot Rifter
+    8:  'Bono $15,000 + tasa desde 9.99% + enganche desde $123,700 + 3 mantenimientos gratis. Sin comisión por apertura.', // Peugeot 3008
+    9:  'Bono $62,000 + tasa desde 9.99% + enganche desde $95,000 + 3 mantenimientos gratis. Sin comisión por apertura.',  // Peugeot 2008 GT
+    10: '24 MSI + bono de lealtad hasta $30,000 si ya tienes un Jeep. Sin comisión por apertura.',          // Jeep Wrangler
+    11: '24 MSI + bono de lealtad hasta $30,000 si ya tienes un Jeep. Sin comisión por apertura.',          // Jeep Gladiator
+    12: 'Bono $200,000 + 36 MSI. Sin comisión por apertura.',                                               // Jeep Grand Cherokee
+    13: 'Bono $57,000 + tasa desde 7.99% + enganche desde $78,000. Sin comisión por apertura.',             // Dodge Attitude
+    14: 'Bono $72,000 + tasa desde 7.99% + enganche desde $90,000.'                                         // Fiat Fastback
+  };
+  return detailsByModel[id] || 'Consulta detalles de la promoción con tu asesor.';
+}
 
 function filterByType(val) { currentFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_type', filter_value: val }); }
 function filterByTypeChip(val) {
@@ -1815,12 +1841,12 @@ function buildVCardHTML(v) {
         <div class="v-card-title">${displayName} ${v.year}</div>
         <div class="v-card-specs">${v.version} &middot; ${v.engine} &middot; ${v.trans}</div>
         <div class="v-card-price-row">
-          <div class="v-card-price" title="Precio de lista, incluye IVA. Sujeto a cambios sin previo aviso.">${v.price > 0 ? 'Enganche ' + fmt(v.price) : 'Consultar precio'}</div>
+          <div class="v-card-price" title="${v.priceType === 'msrp' ? 'Precio de lista, incluye IVA. Sujeto a cambios sin previo aviso.' : (v.priceType === 'enganche' ? 'Enganche desde, según oferta abril 2026. Consulta precio total con tu asesor.' : 'Precio sujeto a cotización en agencia.')}">${v.price > 0 ? (v.priceType === 'msrp' ? 'Desde ' + fmt(v.price) : 'Enganche ' + fmt(v.price)) : 'Consultar precio'}</div>
           <div class="v-card-monthly">${v.price > 0 ? 'Desde ' + fmt(monthly) + '/mes' : 'Cotiza con tu asesor'}</div>
         </div>
-        <div class="v-card-price-disclaimer" style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:4px;line-height:1.3;">Precio de lista, incluye IVA. Sujeto a cambios sin previo aviso.</div>
+        <div class="v-card-price-disclaimer" style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:4px;line-height:1.3;">${v.priceType === 'msrp' ? 'Precio de lista, incluye IVA. Sujeto a cambios sin previo aviso.' : (v.priceType === 'enganche' ? 'Enganche desde según oferta abril 2026. Sujeto a aprobación crediticia.' : 'Precio sujeto a cotización en agencia.')}</div>
         <div style="margin-top:8px;display:flex;gap:6px;position:relative;">
-          ${v.badge ? `<button onclick="event.stopPropagation();this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'" style="flex:1;padding:8px;background:transparent;color:var(--brand-accent,#4A70C0);border:1.5px solid var(--brand-accent,#4A70C0);border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:11px;cursor:pointer;">Ver promoción</button><div style="display:none;position:absolute;left:0;right:0;bottom:42px;background:#1E2740;color:#F7FAFC;padding:12px 14px;border-radius:10px;font-size:12px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,0.3);z-index:5;"><strong style="color:#63B3ED;">${v.badge}</strong>${v.badge && v.badge.indexOf('Bono') === 0 ? ' <span style="font-size:10px;color:#A0AEC0;">(incluye IVA)</span>' : ''}<br>Tasa desde 7.99% con STM Financial (Inbursa). Sin comisión por apertura.<br><span style="font-size:10px;color:#A0AEC0;">Vigencia abril 2026. CAT 20.5%.</span></div>` : ''}
+          ${v.badge ? `<button onclick="event.stopPropagation();this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'" style="flex:1;padding:8px;background:transparent;color:var(--brand-accent,#4A70C0);border:1.5px solid var(--brand-accent,#4A70C0);border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:11px;cursor:pointer;">Ver promoción</button><div style="display:none;position:absolute;left:0;right:0;bottom:42px;background:#1E2740;color:#F7FAFC;padding:12px 14px;border-radius:10px;font-size:12px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,0.3);z-index:5;"><strong style="color:#63B3ED;">${v.badge}</strong>${v.badge && v.badge.indexOf('Bono') === 0 ? ' <span style="font-size:10px;color:#A0AEC0;">(incluye IVA)</span>' : ''}<br>${getOfferDetailHTML(v)}<br><span style="font-size:10px;color:#A0AEC0;">Vigencia 1 al 30 de abril de 2026. STM Financial (Inbursa) · CAT 20.5% sin IVA. Crédito sujeto a aprobación.</span></div>` : ''}
           <button onclick="event.stopPropagation();openModal(${v.id})" style="flex:1;padding:8px;background:var(--brand-accent,#4A70C0);color:#fff;border:none;border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:11px;cursor:pointer;">Agendar cita</button>
         </div>
       </div>
@@ -2124,7 +2150,13 @@ function openModal(id) {
   `;
 
   document.getElementById('modalName').textContent = `${displayName} ${currentCar.year}`;
-  document.getElementById('modalPrice').textContent = currentCar.price > 0 ? 'Enganche ' + fmt(currentCar.price) : 'Consultar precio';
+  document.getElementById('modalPrice').textContent = currentCar.price > 0 ? (currentCar.priceType === 'msrp' ? 'Desde ' + fmt(currentCar.price) : 'Enganche ' + fmt(currentCar.price)) : 'Consultar precio';
+  const _mpd = document.getElementById('modalPriceDisclaimer');
+  if (_mpd) _mpd.textContent = currentCar.priceType === 'msrp'
+    ? 'Precio de lista, incluye IVA. Sujeto a cambios sin previo aviso.'
+    : (currentCar.priceType === 'enganche'
+      ? 'Enganche desde según oferta abril 2026. Crédito sujeto a aprobación de STM Financial (Inbursa).'
+      : 'Precio sujeto a cotización en agencia.');
   document.getElementById('modalVersion').textContent = `${currentCar.brand} &middot; ${currentCar.version}`;
   document.getElementById('modalVersion').innerHTML = `${currentCar.brand} &middot; ${currentCar.version}`;
 
