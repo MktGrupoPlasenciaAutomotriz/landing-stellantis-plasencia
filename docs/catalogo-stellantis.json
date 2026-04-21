@@ -16,7 +16,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-700-global-navigation-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 5000,
+    "descFinanc": 5000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 2,
@@ -35,7 +44,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-700-global-navigation-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 5000,
+    "descFinanc": 5000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 3,
@@ -54,7 +72,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-700/inicio/desktop/my26-ram-bighornquartzcvt-modelizer-mx-alldevices.png.img.2880.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 6000,
+    "descFinanc": 6000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 4,
@@ -73,7 +100,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-700/inicio/desktop/my26-ram-bighornquartzcvt-modelizer-mx-alldevices.png.img.2880.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 5,
@@ -92,7 +128,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-700/inicio/desktop/my26-ram-bighornquartzcvt-modelizer-mx-alldevices.png.img.2880.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 6,
@@ -111,7 +156,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-700/inicio/desktop/my26-ram-bighornquartzcvt-modelizer-mx-alldevices.png.img.2880.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 7,
@@ -130,7 +184,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-700/inicio/desktop/my26-ram-laramie-modelizer-red-mx-v2.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 8,
@@ -149,7 +212,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-promaster/inicio/desktop/my26-ram-promaster-inicio-mainhero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 9,
@@ -168,7 +240,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/tradesman-cc/my26-ram-1200sc-modelizer-blanco-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 36000,
+    "descFinanc": 47000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 10,
@@ -187,7 +268,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/tradesman-cc/my26-ram-1200sc-modelizer-blanco-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 30000,
+    "descFinanc": 46000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 11,
@@ -206,7 +296,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/tradesman-cc/my26-ram-1200sc-modelizer-blanco-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 35000,
+    "descFinanc": 45000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 12,
@@ -225,7 +324,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/tradesman-cc/my26-ram-1200sc-modelizer-blanco-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 13,
@@ -244,7 +352,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/big-horn/my26-ram-1200-bighorn-doble-cab-modelizer-blanco-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.015,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 14,
@@ -263,7 +380,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/big-horn/my26-ram-1200-bighorn-doble-cab-modelizer-blanco-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.015,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 15,
@@ -282,7 +408,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/laramie/my26-ram-1200-laramie-doble-cab-modelizer-gris-oscuro-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.015,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 16,
@@ -301,7 +436,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my26-ram-1500-global-nav-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 17,
@@ -320,7 +464,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2025/ram-1500/inicio/desktop/modelizer/big-horn-off-road/my25-ram-1500-modelizer-diamondblack-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 18,
@@ -339,7 +492,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2025/ram-1500/inicio/desktop/modelizer/limited/my25-ram-limited-modelizer-diamond-black-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 19,
@@ -358,7 +520,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-4000-global-navigation-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 30000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 20,
@@ -377,7 +548,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-4000/desktop/my26-ram-4000-chasis-pl-doblecabina-inicio-modelizer-mx-allbreakingpoints.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 30000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 21,
@@ -396,7 +576,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-4000-global-navigation-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 30000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 22,
@@ -415,7 +604,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-700-global-navigation-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 23,
@@ -434,7 +632,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-700-global-navigation-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 24,
@@ -453,7 +660,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-700/inicio/desktop/my26-ram-bighornquartzcvt-modelizer-mx-alldevices.png.img.2880.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 25,
@@ -472,7 +688,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-700/inicio/desktop/my26-ram-bighornquartzcvt-modelizer-mx-alldevices.png.img.2880.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 26,
@@ -491,7 +716,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-700/inicio/desktop/my26-ram-bighornquartzcvt-modelizer-mx-alldevices.png.img.2880.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 27,
@@ -510,7 +744,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-700/inicio/desktop/my26-ram-bighornquartzcvt-modelizer-mx-alldevices.png.img.2880.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 28,
@@ -529,7 +772,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-promaster/inicio/desktop/my26-ram-promaster-inicio-mainhero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 29,
@@ -548,7 +800,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/tradesman-cc/my26-ram-1200sc-modelizer-blanco-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 30,
@@ -567,7 +828,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/tradesman-cc/my26-ram-1200sc-modelizer-blanco-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 31,
@@ -586,7 +856,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/big-horn/my26-ram-1200-bighorn-doble-cab-modelizer-blanco-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.015,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 32,
@@ -605,7 +884,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-1200/inicio/desktop/modelizer/laramie/my26-ram-1200-laramie-doble-cab-modelizer-gris-oscuro-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.015,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 33,
@@ -624,7 +912,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2025/ram-1500/inicio/desktop/modelizer/big-horn-off-road/my25-ram-1500-modelizer-diamondblack-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.015,
+    "descContado": 50000,
+    "descFinanc": 50000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 34,
@@ -643,7 +940,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2025/ram-1500/inicio/desktop/modelizer/big-horn-off-road/my25-ram-1500-modelizer-diamondblack-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.015,
+    "descContado": 50000,
+    "descFinanc": 50000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 35,
@@ -662,7 +968,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2025/ram-1500/inicio/desktop/modelizer/laramie-sport/my25-ram-laramie-modelizer-diamond-black-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.015,
+    "descContado": 50000,
+    "descFinanc": 50000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 36,
@@ -681,7 +996,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-4000-global-navigation-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 37,
@@ -700,7 +1024,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/2026/ram-4000/desktop/my26-ram-4000-chasis-pl-doblecabina-inicio-modelizer-mx-allbreakingpoints.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 38,
@@ -719,7 +1052,16 @@
     "img": "https://www.ram.com/content/dam/cross-regional/nafta/ramtrucks/es_mx/header/nav-vehicle/my25-ram-4000-global-navigation-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 39,
@@ -738,7 +1080,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/peugeotrapid-1.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 30000,
+    "descFinanc": 50000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 40,
@@ -757,7 +1108,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 2,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 41,
@@ -776,7 +1136,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 2,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 42,
@@ -795,7 +1164,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 15000,
+    "descFinanc": 25000,
+    "msi": 0,
+    "mantAnios": 2,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 43,
@@ -814,7 +1192,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 40000,
+    "descFinanc": 50000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 44,
@@ -833,7 +1220,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 45,
@@ -852,7 +1248,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/PEUGEOT-RIFTER-2026.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 46,
@@ -871,7 +1276,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/PEUGEOT-RIFTER-2026.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 47,
@@ -890,7 +1304,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/PEUGEOT-RIFTER-2026.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 48,
@@ -909,7 +1332,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/expert.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 90000,
+    "descFinanc": 100000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 49,
@@ -928,7 +1360,16 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/expert.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 90000,
+    "descFinanc": 100000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 50,
@@ -947,7 +1388,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/index/incentives/march-2026/my26-peugeot-2008-hero-desktop-mx.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 42000,
+    "descFinanc": 62000,
+    "msi": 0,
+    "mantAnios": 3,
+    "programas": [
+      "Bono Lealtad Peugeot $20K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 51,
@@ -966,7 +1418,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/index/incentives/march-2026/my26-peugeot-2008-hero-desktop-mx.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 42000,
+    "descFinanc": 62000,
+    "msi": 0,
+    "mantAnios": 3,
+    "programas": [
+      "Bono Lealtad Peugeot $20K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 52,
@@ -985,7 +1448,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 5000,
+    "descFinanc": 15000,
+    "msi": 0,
+    "mantAnios": 3,
+    "programas": [
+      "Bono Lealtad Peugeot $20K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 53,
@@ -1004,7 +1478,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 5000,
+    "descFinanc": 15000,
+    "msi": 0,
+    "mantAnios": 3,
+    "programas": [
+      "Bono Lealtad Peugeot $20K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 54,
@@ -1023,7 +1508,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-5008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 3,
+    "programas": [
+      "Bono Lealtad Peugeot $20K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 55,
@@ -1042,7 +1538,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my23-peugeot-2008-lista-de-precios-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 45000,
+    "descFinanc": 45000,
+    "msi": 0,
+    "mantAnios": 2,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 56,
@@ -1061,7 +1568,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my23-peugeot-2008-lista-de-precios-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 45000,
+    "descFinanc": 45000,
+    "msi": 0,
+    "mantAnios": 2,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 57,
@@ -1080,7 +1598,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my23-peugeot-2008-lista-de-precios-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 45000,
+    "descFinanc": 45000,
+    "msi": 0,
+    "mantAnios": 2,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 58,
@@ -1099,7 +1628,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 57000,
+    "descFinanc": 45000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 59,
@@ -1118,7 +1658,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 97000,
+    "descFinanc": 85000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 60,
@@ -1137,7 +1688,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 77000,
+    "descFinanc": 65000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 61,
@@ -1156,7 +1718,19 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 5000,
+    "descFinanc": 15000,
+    "msi": 0,
+    "mantAnios": 3,
+    "programas": [
+      "Bono Lealtad Peugeot $20K",
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 62,
@@ -1175,7 +1749,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/PEUGEOT-RIFTER-2026.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 63,
@@ -1194,7 +1779,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/PEUGEOT-RIFTER-2026.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 64,
@@ -1213,7 +1809,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/landtrek.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 65,
@@ -1232,7 +1839,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/landtrek.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 66,
@@ -1251,7 +1869,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/landtrek.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 67,
@@ -1270,7 +1899,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/peugeotrapid-1.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 68500,
+    "descFinanc": 68500,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 68,
@@ -1289,7 +1929,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/peugeotrapid-1.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 70500,
+    "descFinanc": 70500,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 69,
@@ -1308,7 +1959,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 29000,
+    "descFinanc": 29000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 70,
@@ -1327,7 +1989,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 39000,
+    "descFinanc": 39000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 71,
@@ -1346,7 +2019,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 33000,
+    "descFinanc": 33000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 72,
@@ -1365,7 +2049,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/partner-nueva-mca.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 29000,
+    "descFinanc": 29000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 73,
@@ -1384,7 +2079,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/expert.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 100000,
+    "descFinanc": 100000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 74,
@@ -1403,7 +2109,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 88000,
+    "descFinanc": 88000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 75,
@@ -1422,7 +2139,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 88000,
+    "descFinanc": 88000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 76,
@@ -1441,7 +2169,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 100000,
+    "descFinanc": 100000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 77,
@@ -1460,7 +2199,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/manager.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 100000,
+    "descFinanc": 100000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 78,
@@ -1479,7 +2229,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my23-peugeot-2008-lista-de-precios-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 40000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 2,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 79,
@@ -1498,7 +2259,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my23-peugeot-2008-lista-de-precios-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 40000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 2,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 80,
@@ -1517,7 +2289,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 92000,
+    "descFinanc": 80000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 81,
@@ -1536,7 +2319,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 92000,
+    "descFinanc": 80000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 82,
@@ -1555,7 +2349,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/thumbs/my26-peugeot-3008-bhp-jelly-mx.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 79000,
+    "descFinanc": 70000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 83,
@@ -1574,7 +2379,18 @@
     "img": "https://www.peugeot.com.mx/content/dam/peugeot/mexico/b2c/our-range/bbc/peugeotrapid-1.png",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.025,
+    "descContado": 40000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "BonoFlex (bono a tasa)"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 84,
@@ -1593,7 +2409,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-renegade-mantarraya-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 15000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $15K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 85,
@@ -1612,7 +2439,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-renegade-mantarraya-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 17000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $15K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 86,
@@ -1631,7 +2469,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-compass-blanco-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 30000,
+    "descFinanc": 50000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $15K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 87,
@@ -1650,7 +2499,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-compass-blanco-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 30000,
+    "descFinanc": 50000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $15K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 88,
@@ -1669,7 +2529,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-compass-blanco-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 30000,
+    "descFinanc": 70000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $15K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 89,
@@ -1688,7 +2559,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-commander-gold-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 90,
@@ -1707,7 +2589,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-cherokeelimited-hydroblue-lineup-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 91,
@@ -1726,7 +2619,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-cherokeelimited-hydroblue-lineup-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 92,
@@ -1745,7 +2649,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 93,
@@ -1764,7 +2679,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 94,
@@ -1783,7 +2709,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 95,
@@ -1802,7 +2739,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 96,
@@ -1821,7 +2769,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/my26-jeep-rubicon-modelizer-black-alldevices-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 97,
@@ -1840,7 +2799,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/2026-jeep-vlp-modelizer-willys-blanco-mx-full.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 98,
@@ -1859,7 +2829,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/my26-jeep-rubicon-modelizer-black-alldevices-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 99,
@@ -1878,7 +2859,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/my26-jeep-rubicon-modelizer-black-alldevices-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 100,
@@ -1897,7 +2889,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 101,
@@ -1916,7 +2919,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 102,
@@ -1935,7 +2949,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 103,
@@ -1954,7 +2979,16 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-renegade-mantarraya-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 10000,
+    "descFinanc": 20000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 104,
@@ -1973,7 +3007,16 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-renegade-mantarraya-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 10000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 105,
@@ -1992,7 +3035,16 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-renegade-mantarraya-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 10000,
+    "descFinanc": 40000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 106,
@@ -2011,7 +3063,16 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-compass-blanco-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 30000,
+    "descFinanc": 50000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 107,
@@ -2030,7 +3091,16 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-compass-blanco-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 30000,
+    "descFinanc": 50000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 108,
@@ -2049,7 +3119,16 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-compass-blanco-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 60000,
+    "descFinanc": 100000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 109,
@@ -2068,7 +3147,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-commander-gold-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.015,
+    "descContado": 82000,
+    "descFinanc": 82000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 110,
@@ -2087,7 +3177,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 120000,
+    "descFinanc": 200000,
+    "msi": 36,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 111,
@@ -2106,7 +3207,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 120000,
+    "descFinanc": 200000,
+    "msi": 36,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 112,
@@ -2125,7 +3237,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 120000,
+    "descFinanc": 200000,
+    "msi": 36,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 113,
@@ -2144,7 +3267,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 120000,
+    "descFinanc": 200000,
+    "msi": 36,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 114,
@@ -2163,7 +3297,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.015,
+    "descContado": 250000,
+    "descFinanc": 250000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 115,
@@ -2182,7 +3327,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.015,
+    "descContado": 250000,
+    "descFinanc": 250000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 116,
@@ -2201,7 +3357,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/my26-jeep-rubicon-modelizer-black-alldevices-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 117,
@@ -2220,7 +3387,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/2026-jeep-vlp-modelizer-willys-blanco-mx-full.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 118,
@@ -2239,7 +3417,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/my26-jeep-rubicon-modelizer-black-alldevices-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 119,
@@ -2258,7 +3447,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/my26-jeep-rubicon-modelizer-black-alldevices-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 120,
@@ -2277,7 +3477,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/my26-jeep-rubicon-modelizer-black-alldevices-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 121,
@@ -2296,7 +3507,19 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/my26-jeep-rubicon-modelizer-black-alldevices-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K",
+      "Cargador Pared Wrangler PHEV"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 122,
@@ -2315,7 +3538,19 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/2026/wrangler/design/modelizer/my26-jeep-rubicon-modelizer-black-alldevices-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K",
+      "Cargador Pared Wrangler PHEV"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 123,
@@ -2334,7 +3569,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 124,
@@ -2353,7 +3599,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 125,
@@ -2372,7 +3629,18 @@
     "img": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1399,
+    "cxa": 0.0,
+    "descContado": 84000,
+    "descFinanc": 200000,
+    "msi": 24,
+    "mantAnios": 0,
+    "programas": [
+      "Bono Lealtad Jeep $30K"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 126,
@@ -2391,7 +3659,18 @@
     "img": "https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0799,
+    "cxa": 0.0,
+    "descContado": 20000,
+    "descFinanc": 30000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 127,
@@ -2410,7 +3689,18 @@
     "img": "https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/Home/modelos/menu/dodge-attitude-sport-jelly-ivory-white-line-aup-all-breakpoints-1.jpg.img.1000.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0799,
+    "cxa": 0.0,
+    "descContado": 25000,
+    "descFinanc": 35000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 128,
@@ -2429,7 +3719,18 @@
     "img": "https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0799,
+    "cxa": 0.0,
+    "descContado": 37000,
+    "descFinanc": 47000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 129,
@@ -2448,7 +3749,16 @@
     "img": "https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/Home/modelos/menu/my25-dodge-journey-gt-mx-v1.jpg.img.1000.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 130,
@@ -2467,7 +3777,16 @@
     "img": "https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/Home/modelos/menu/my25-dodge-journey-gt-mx-v1.jpg.img.1000.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 131,
@@ -2486,7 +3805,16 @@
     "img": "https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/Home/modelos/menu/my25-dodge-journey-gt-mx-v1.jpg.img.1000.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.145,
+    "cxa": 0.0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 132,
@@ -2505,7 +3833,18 @@
     "img": "https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 37000,
+    "descFinanc": 47000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 133,
@@ -2524,7 +3863,18 @@
     "img": "https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/Home/modelos/menu/dodge-attitude-sport-jelly-ivory-white-line-aup-all-breakpoints-1.jpg.img.1000.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 57000,
+    "descFinanc": 67000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 134,
@@ -2543,7 +3893,18 @@
     "img": "https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.1199,
+    "cxa": 0.0,
+    "descContado": 46000,
+    "descFinanc": 56000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 135,
@@ -2562,7 +3923,16 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/desktop/my26-fiat-pulse-inicio-hero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0799,
+    "cxa": 0.0,
+    "descContado": 20000,
+    "descFinanc": 20000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 136,
@@ -2581,7 +3951,16 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/desktop/my26-fiat-pulse-inicio-hero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0799,
+    "cxa": 0.0,
+    "descContado": 20000,
+    "descFinanc": 20000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 137,
@@ -2600,7 +3979,16 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-abarth/inicio/desktop/my26-fiat-pulseabarth-bhp-dk-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0799,
+    "cxa": 0.0,
+    "descContado": 20000,
+    "descFinanc": 20000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 138,
@@ -2619,7 +4007,16 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/fastback/inicio/desktop/my26-fiat-fastback-inicio-hero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0799,
+    "cxa": 0.0,
+    "descContado": 20000,
+    "descFinanc": 20000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 139,
@@ -2638,7 +4035,16 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2025/Argo/Inicio/desktop/my25-fiat-argo-hero-incentives-septiembre-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.015,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 140,
@@ -2657,7 +4063,18 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2025/Argo/Inicio/desktop/my25-fiat-argo-hero-incentives-septiembre-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.015,
+    "descContado": 30000,
+    "descFinanc": 30000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 141,
@@ -2676,7 +4093,16 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2025/Argo/Inicio/desktop/my25-fiat-argo-hero-incentives-septiembre-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.015,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 142,
@@ -2695,7 +4121,18 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2025/Argo/Inicio/desktop/my25-fiat-argo-hero-incentives-septiembre-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.015,
+    "descContado": 30000,
+    "descFinanc": 30000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 143,
@@ -2714,7 +4151,18 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/desktop/my26-fiat-pulse-inicio-hero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.015,
+    "descContado": 50000,
+    "descFinanc": 50000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 144,
@@ -2733,7 +4181,18 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/desktop/my26-fiat-pulse-inicio-hero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.015,
+    "descContado": 50000,
+    "descFinanc": 50000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 145,
@@ -2752,7 +4211,18 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/desktop/my26-fiat-pulse-inicio-hero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.015,
+    "descContado": 50000,
+    "descFinanc": 50000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 146,
@@ -2771,7 +4241,18 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-abarth/inicio/desktop/my26-fiat-pulseabarth-bhp-dk-mx.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0999,
+    "cxa": 0.015,
+    "descContado": 55000,
+    "descFinanc": 55000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 147,
@@ -2790,7 +4271,18 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/fastback/inicio/desktop/my26-fiat-fastback-inicio-hero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0799,
+    "cxa": 0.015,
+    "descContado": 52000,
+    "descFinanc": 52000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   },
   {
     "id": 148,
@@ -2809,6 +4301,17 @@
     "img": "https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/fastback/inicio/desktop/my26-fiat-fastback-inicio-hero-mx-dk.jpg.img.2880.jpg",
     "color": "",
     "km": 0,
-    "photos": 0
+    "photos": 0,
+    "tasa": 0.0799,
+    "cxa": 0.015,
+    "descContado": 62000,
+    "descFinanc": 62000,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [
+      "Descuento adicional 1-17 abril"
+    ],
+    "vigDesde": "2026-04-03",
+    "vigHasta": "2026-04-30"
   }
 ]

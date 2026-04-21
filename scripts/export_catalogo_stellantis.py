@@ -93,7 +93,8 @@ def brand_to_cat(brand):
 
 
 def transform(fields):
-    """Convierte un record de Airtable al formato vehicles[] del HTML."""
+    """Convierte un record de Airtable al formato vehicles[] del HTML.
+    Incluye campos de oferta para que la calculadora use tasa/CxA por SKU."""
     return {
         "id": int(fields.get("ID_SKU", 0)),
         "name": fields.get("MODELO", ""),
@@ -112,6 +113,16 @@ def transform(fields):
         "color": "",
         "km": 0,
         "photos": 0,
+        # Campos de oferta (nuevos, usados por calculadora y popup):
+        "tasa": float(fields.get("TASA_ANUAL", 0) or 0),  # decimal: 0.0799 = 7.99%
+        "cxa": float(fields.get("COMISION_APERTURA", 0) or 0),  # decimal: 0.015 = 1.5%
+        "descContado": int(fields.get("DESCUENTO_CONTADO", 0) or 0),
+        "descFinanc": int(fields.get("DESCUENTO_FINANCIAMIENTO", 0) or 0),
+        "msi": int(fields.get("MSI_MESES", 0) or 0),
+        "mantAnios": int(fields.get("MANTENIMIENTOS_ANIOS", 0) or 0),
+        "programas": fields.get("PROGRAMAS_APLICABLES", []) or [],
+        "vigDesde": fields.get("VIGENCIA_DESDE", "2026-04-03"),
+        "vigHasta": fields.get("VIGENCIA_HASTA", "2026-04-30"),
     }
 
 

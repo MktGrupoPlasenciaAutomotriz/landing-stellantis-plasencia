@@ -1357,7 +1357,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="calc-result">
             <div class="calc-result-label">Mensualidad estimada</div>
             <div class="calc-result-amount" id="monthlyAmount">$0</div>
-            <div class="calc-result-sub">Tasa referencial anual: <strong>7.99%</strong> (Dodge/Fiat). Tasas desde 9.99% (Peugeot SUVs), 11.99% (Peugeot Manager)</div>
+            <div class="calc-result-sub">Tasa anual referencial <strong>9.99%</strong> (Peugeot SUVs / Jeep Renegade-Compass 2026). Selecciona un modelo para ver su tasa real: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 11.99% (Peugeot Manager/Partner FL), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).</div>
             <div style="font-size:10px;color:rgba(255,255,255,0.42);margin-top:6px;line-height:1.35;font-style:italic;position:relative;">Mensualidad estimada. El importe real puede variar al contratar según tasa autorizada, enganche, plazo y esquema elegido. El interés causa IVA.</div>
             <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-top:6px;line-height:1.4;position:relative;">* Financiamiento con STM Financial (Inbursa). CAT promedio 20.5% sin IVA. Vigencia abril 2026. Cálculo con fines informativos. No constituye una autorización de crédito ni una oferta vinculante. Monto, plazo y tasa sujetos a aprobación crediticia.</div>
           </div>
@@ -1641,7 +1641,11 @@ const ASESOR_ASIGNADO = {
   telefono: '+52 33 0000 0000' // TODO: telefono real del canal
 };
 
-const TASA_ANUAL = 0.0799;
+// Tasa de referencia estándar: 9.99% (Peugeot SUVs + Jeep Renegade/Compass 2026,
+// los segmentos de mayor volumen del piloto). Cada SKU puede sobrescribir su tasa
+// específica vía `v.tasa` desde catalogo-stellantis.json (poblada desde Airtable
+// "Inventario Stellantis" → campo TASA_ANUAL extraído de Circular VTAS-*).
+const TASA_ANUAL = 0.0999;
 
 const BRAND_CONFIG = {
   brand: 'STELLANTIS',
@@ -1774,9 +1778,11 @@ function updateFilterUI() {
 function fmt(n) { return '$' + n.toLocaleString('es-MX'); }
 
 // PMT financiera estandar: P * (r(1+r)^n) / ((1+r)^n - 1)
-function calcMonthly(price, downPct, months) {
+// `tasa` opcional: si se provee usa esa (la del SKU desde Airtable); si no, fallback a TASA_ANUAL.
+function calcMonthly(price, downPct, months, tasa) {
   const principal = price * (1 - downPct / 100);
-  const r = TASA_ANUAL / 12;
+  const tasaAnual = (typeof tasa === 'number' && tasa > 0) ? tasa : TASA_ANUAL;
+  const r = tasaAnual / 12;
   if (r === 0) return Math.round(principal / months);
   const payment = principal * (r * Math.pow(1+r, months)) / (Math.pow(1+r, months) - 1);
   return Math.round(payment);
@@ -1842,7 +1848,7 @@ function renderCards(filter) {
 
 // Card template unificado
 function buildVCardHTML(v) {
-  const monthly = calcMonthly(v.price, 20, 36);
+  const monthly = calcMonthly(v.price, 20, 36, v.tasa);
   const badgeClass = v.cat;
   const typeLabels = {pickup:'Pickup',van:'Van',suv:'SUV',sedan:'Sedan'};
   const displayName = v.name.startsWith(v.brand) ? v.name : v.name;
@@ -1913,8 +1919,16 @@ function updateCalc() {
   const slider = document.getElementById('downSlider');
   const pct = ((downPct - 20) / 50) * 100;
   slider.style.background = `linear-gradient(to right, var(--brand-accent) 0%, var(--brand-accent) ${pct}%, var(--ink-200) ${pct}%)`;
-  const monthly = calcMonthly(currentCar.price, downPct, selectedTerm);
+  const monthly = calcMonthly(currentCar.price, downPct, selectedTerm, currentCar.tasa);
   document.getElementById('monthlyAmount').textContent = fmt(monthly);
+  // Actualizar el sub-texto con la tasa real del SKU seleccionado
+  const tasaUsada = (currentCar.tasa && currentCar.tasa > 0) ? currentCar.tasa : TASA_ANUAL;
+  const cxaUsada = (typeof currentCar.cxa === 'number') ? currentCar.cxa : 0;
+  const subEl = document.querySelector('.calc-result-sub');
+  if (subEl) {
+    const cxaTxt = cxaUsada > 0 ? ` con ${(cxaUsada*100).toFixed(2).replace('.00','')}% CxA` : ' SC (sin comisión por apertura)';
+    subEl.innerHTML = `Tasa anual <strong>${(tasaUsada*100).toFixed(2).replace('.00','')}%</strong>${cxaTxt} para este modelo (Circular VTAS-9620426). Tasas en otros modelos: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).`;
+  }
 }
 
 function setTerm(months, el) {
@@ -2263,7 +2277,7 @@ function updateStepSummary(step) {
   const t = document.getElementById('stepSummaryTitle');
   const m = document.getElementById('stepSummaryMeta');
   if (t) t.textContent = (currentCar.name || '') + ' ' + (currentCar.year || '') + (currentCar.version ? ' · ' + currentCar.version : '');
-  const monthly = typeof calcMonthly === 'function' && currentCar.price > 0 ? calcMonthly(currentCar.price, 20, 36) : 0;
+  const monthly = typeof calcMonthly === 'function' && currentCar.price > 0 ? calcMonthly(currentCar.price, 20, 36, currentCar.tasa) : 0;
   const priceLabel = currentCar.price > 0 ? 'Enganche ' + fmt(currentCar.price) : 'Cotiza con asesor';
   if (m) m.textContent = priceLabel + (monthly ? '  ·  Desde ' + fmt(monthly) + '/mes' : '');
   bar.classList.add('show');
@@ -2470,7 +2484,7 @@ function submitForm() {
     return `${h12}:${String(m).padStart(2,'0')} ${ampm}`;
   })();
   const downPct = parseInt(document.getElementById('downSlider').value);
-  const monthly = calcMonthly(currentCar.price, downPct, selectedTerm);
+  const monthly = calcMonthly(currentCar.price, downPct, selectedTerm, currentCar.tasa);
   const folio = generateFolio('GP-STL');
   const displayName = currentCar.name.startsWith(currentCar.brand) ? currentCar.name : currentCar.name;
 
