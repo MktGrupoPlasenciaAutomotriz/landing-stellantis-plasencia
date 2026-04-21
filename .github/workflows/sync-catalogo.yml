@@ -1,0 +1,47 @@
+name: Sync catalogo Stellantis (Airtable → JSON)
+
+on:
+  schedule:
+    # Cron en UTC. 10:08 UTC = 04:08 hora Guadalajara (CST UTC-6).
+    # Minuto 08 deliberado: separar de Seminuevos (10:03) para evitar rate-limit Airtable.
+    - cron: '8 10 * * *'
+  workflow_dispatch:  # Permite correrlo manualmente desde la pestaña Actions
+
+concurrency:
+  group: sync-catalogo-stellantis
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Crear .env desde secrets
+        run: |
+          cat > .env <<EOF
+          AIRTABLE_PAT=${{ secrets.AIRTABLE_PAT }}
+          AIRTABLE_BASE_ID=${{ secrets.AIRTABLE_BASE_ID }}
+          EOF
+
+      - name: Export catalogo Stellantis (Airtable → JSON)
+        run: python3 scripts/export_catalogo_stellantis.py
+
+      - name: Commit y push catalogo-stellantis.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/catalogo-stellantis.json
+          git diff --cached --quiet && echo "Sin cambios en catalogo" || git commit -m "sync: catalogo-stellantis.json $(date -u +%Y-%m-%d)"
+          git push
