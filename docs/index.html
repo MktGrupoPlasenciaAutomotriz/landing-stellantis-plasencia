@@ -1230,7 +1230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="faq-list">
       <details class="faq-item">
         <summary>¿Cómo funcionan los descuentos y bonos?</summary>
-        <div class="faq-a">Los descuentos son contado (aplican al precio de lista al cerrar la compra). Los más altos según la Circular VTAS-9620426 de abril 2026: Peugeot 2008 FL GT $45,000 + 2 mant.; Peugeot Manager $40,000; Jeep Grand Cherokee tasa 13.99% en lugar de bono; Peugeot Partner Rapid $30,000; Dodge Attitude $30,000; Fiat Fastback $20,000. Jeep Wrangler y Gladiator ofrecen 24 MSI en lugar de descuento. Los montos incluyen IVA.</div>
+        <div class="faq-a">Los descuentos son contado (aplican al precio de lista al cerrar la compra). Los más altos según la Circular VTAS-9620426 de abril 2026: Peugeot 2008 FL GT $45,000 + 2 mant.; Peugeot Manager $40,000; Jeep Grand Cherokee tasa 13.99% en lugar de bono; Peugeot Partner Rapid $30,000; Dodge Attitude $20,000 (tuvo $10,000 adicional del 1-17 abril, ya no aplica); Fiat Fastback $20,000. Jeep Wrangler y Gladiator ofrecen 24 MSI en lugar de descuento. Los montos incluyen IVA.</div>
       </details>
       <details class="faq-item">
         <summary>¿Cómo funciona la tasa desde 7.99% con STM Financial (Inbursa)?</summary>
@@ -1685,7 +1685,7 @@ const vehicles = [
   { id:11, name:"Jeep Gladiator", brand:"JEEP",    year:2025, version:"JT Mojave",              type:"pickup", cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:1598900, priceType:"msrp", badge:"24 MSI",        img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my26-jeep-mojave-flyout-mx-white-background-v2.jpg.img.500.jpg", color:"", km:0, photos:0 },
   { id:12, name:"Jeep Grand Cherokee", brand:"JEEP", year:2026, version:"Altitude 4X2",         type:"suv",    cat:"jeep",    engine:"3.6L V6", trans:"Automática", fuel:"Gasolina", price:1189900, priceType:"msrp", badge:"Tasa desde 13.99%", img:"https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/my24-jeep-grandcherokee-negro-flyout-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
   // Dodge (1 modelo)
-  { id:13, name:"Dodge Attitude", brand:"DODGE",   year:2026, version:"SXT",                    type:"sedan",  cat:"dodge",   engine:"1.5L Turbo GDI", trans:"Automática DCT 7vel", fuel:"Gasolina", price:419900,  priceType:"msrp", badge:"Bono $30,000",  img:"https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg", color:"", km:0, photos:0 },
+  { id:13, name:"Dodge Attitude", brand:"DODGE",   year:2026, version:"SXT",                    type:"sedan",  cat:"dodge",   engine:"1.5L Turbo GDI", trans:"Automática DCT 7vel", fuel:"Gasolina", price:419900,  priceType:"msrp", badge:"Bono $20,000",  img:"https://www.dodge.com/content/dam/cross-regional/nafta/dodge/es_mx/2026/attitude/colores/01-SXT/my26-dodge-attitude-overview-modelizer-alldevices-mx-v1.jpg.img.1000.jpg", color:"", km:0, photos:0 },
   // Fiat (1 modelo)
   { id:14, name:"Fiat Fastback",  brand:"FIAT",    year:2026, version:"Impetus",                type:"suv",    cat:"fiat",    engine:"1.3L T",  trans:"Automática", fuel:"Gasolina", price:502900,  priceType:"msrp", badge:"Bono $20,000",  img:"https://www.fiat.com.mx/content/dam/cross-regional/nafta/fiat/es_mx/2026/pulse-2026/menu/my26-fiat-fastback-inicio-global-nav-alldevices-mx.jpg.img.500.jpg", color:"", km:0, photos:0 },
 ];
@@ -1722,7 +1722,7 @@ function getOfferDetailHTML(v) {
     11: '24 MSI (0% interés) con 1.5% comisión por apertura + Bono Lealtad $30,000 si ya tienes un Jeep.',                   // Gladiator JT Mojave 2025
     12: 'Grand Cherokee Altitude 4X2 2026. Tasa desde 13.99% con 1.5% comisión por apertura.',                           // Grand Cherokee Altitude
     // Dodge 2026 MY
-    13: 'Descuento contado hasta $30,000 + descuento adicional $10,000 del 1–17 abril. Tasa desde 7.99% con 1.5% comisión por apertura.',  // Attitude SXT
+    13: 'Descuento contado $20,000 (vigente todo abril). El bono adicional $10,000 (1-17 abril) ya no aplica. Tasa desde 7.99% con 2.5% comisión por apertura, o tasa estándar con 1.5% CxA.',  // Attitude SXT
     // Fiat 2026 MY
     14: 'Descuento contado $20,000. Tasa desde 7.99% con 1.5% comisión por apertura.'                                     // Fastback Impetus
   };
