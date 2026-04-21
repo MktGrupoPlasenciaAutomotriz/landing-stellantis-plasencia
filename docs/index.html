@@ -2168,10 +2168,35 @@ function buildTimeSlots() {
   return slots;
 }
 
+// SPA Virtual Pageviews (Clarity + GA4 heatmaps por pantalla)
+let _spaNavigating = false;
+function setView(viewName, detail) {
+  if (_spaNavigating) return;
+  let hash = '', title = 'Stellantis Plasencia';
+  if (viewName === 'vehiculo' && detail != null) { hash = '#vehiculo-' + detail; title = 'Detalle vehiculo'; }
+  else if (viewName === 'agendar-paso-2') { hash = '#agendar-paso-2'; title = 'Agendar paso 2 - Perfil'; }
+  else if (viewName === 'agendar-paso-3') { hash = '#agendar-paso-3'; title = 'Agendar paso 3 - Cita'; }
+  else if (viewName === 'confirmacion') { hash = '#confirmacion'; title = 'Confirmacion cita'; }
+  const targetUrl = window.location.pathname + window.location.search + hash;
+  if (window.location.pathname + window.location.search + window.location.hash === targetUrl) return;
+  try { history.pushState({ view: viewName, detail: detail || null }, '', targetUrl); } catch(e) {}
+  (window.dataLayer = window.dataLayer || []).push({ event: 'virtual_pageview', page_path: targetUrl, page_title: title });
+}
+window.addEventListener('popstate', function() {
+  _spaNavigating = true;
+  try {
+    const h = window.location.hash;
+    const modal = document.getElementById('vehicleModal');
+    const isOpen = modal && modal.classList.contains('open');
+    if ((!h || h === '#catalogo') && isOpen) closeModal();
+  } finally { _spaNavigating = false; }
+});
+
 function openModal(id) {
   if (typeof resetSubmitState === 'function') resetSubmitState();
   currentCar = vehicles.find(v => v.id === id);
   if (!currentCar) return;
+  setView('vehiculo', id);
   dataLayer.push({ event: 'view_item', item_name: currentCar.name + ' ' + currentCar.year, item_price: currentCar.price, item_brand: currentCar.brand || '' });
 
   const displayName = currentCar.name.startsWith(currentCar.brand) ? currentCar.name : currentCar.name;
@@ -2257,6 +2282,7 @@ function closeModal() {
   if (detail) detail.style.display = 'block';
   if (confirm) confirm.classList.remove('show');
   currentCar = null;
+  if (!_spaNavigating) setView('catalogo');
 }
 
 document.getElementById('vehicleModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
@@ -2377,6 +2403,7 @@ function goToFormStep(step) {
   }
   updateStepSummary(step);
   currentFormStep = step;
+  if (step === 2 || step === 3) setView('agendar-paso-' + step);
   document.querySelectorAll('.form-step').forEach(function(s) { s.classList.remove('active'); });
   var target = document.getElementById('formStep' + step);
   if (target) target.classList.add('active');
@@ -2568,6 +2595,7 @@ function submitForm() {
     ${tradeIn === 'NO' ? '' : `<p><strong>Auto a cuenta:</strong> ${tradeIn}</p>`}
   `;
   document.getElementById('confirmState').classList.add('show');
+  setView('confirmacion');
   document.querySelector('.modal-content').scrollTop = 0;
 }
 
