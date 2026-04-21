@@ -1687,6 +1687,17 @@ function getCookie(name) {
   return m ? decodeURIComponent(m[1]) : '';
 }
 
+// ── FETCH CLIENT IP (async, non-blocking) ──
+// Se guarda en sessionStorage al cargar la pagina. Si falla, el campo
+// llega vacio al webhook y Zapier puede tomar la IP del header HTTP.
+(function() {
+  if (sessionStorage.getItem('client_ip')) return; // ya la tenemos
+  fetch('https://api.ipify.org?format=json')
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(d) { if (d && d.ip) sessionStorage.setItem('client_ip', d.ip); })
+    .catch(function() { /* noop - fallback a header Zapier */ });
+})();
+
 // ── VEHICLE DATA (fetched from Airtable via catalogo-stellantis.json) ──
 // Pipeline: Airtable "Inventario Stellantis" (tblDjSN19anut5mQF en base
 // appDrSPzp5214PFj1 "Catalogos Plasencia") → scripts/export_catalogo_stellantis.py
@@ -2577,6 +2588,8 @@ function submitForm() {
     utm_term: sessionStorage.getItem('utm_term') || '',
     fbp: getCookie('_fbp'),
     fbc: getCookie('_fbc'),
+    client_ip_address: sessionStorage.getItem('client_ip') || '',
+    client_user_agent: navigator.userAgent || '',
     acepta_aviso_privacidad: document.getElementById('fPrivacy').checked,
     acepta_marketing: document.getElementById('fMarketing').checked
   };
