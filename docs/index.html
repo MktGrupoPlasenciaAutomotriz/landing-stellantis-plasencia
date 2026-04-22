@@ -2675,7 +2675,7 @@ function submitForm() {
 
   lastAppointment = { ...payload, vehiculoObj: currentCar, dateLabel: '', timeLabel };
   sendToWebhook(payload);
-  dataLayer.push({ event: 'generate_lead', item_name: currentCar.name + ' ' + currentCar.year, item_price: currentCar.price, lead_value: currentCar.price });
+  dataLayer.push({ event: 'generate_lead', folio: folio, item_name: currentCar.name + ' ' + currentCar.year, item_price: currentCar.price, lead_value: currentCar.price });
 
   let dateLabel = dateVal;
   if (dateVal) {
