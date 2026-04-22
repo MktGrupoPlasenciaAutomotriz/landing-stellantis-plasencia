@@ -3472,17 +3472,6 @@ function stickyCtaBrowse() {
   }, 450);
 }
 
-function stickyCtaWaClick() {
-  (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_wa_click' });
-  try {
-    var phone = (ASESOR_ASIGNADO && ASESOR_ASIGNADO.telefono ? ASESOR_ASIGNADO.telefono : '').replace(/[^0-9]/g, '');
-    var msg = 'Hola, me interesa informacion de Stellantis Plasencia (Jeep / RAM / Dodge / Fiat / Peugeot).';
-    var link = document.getElementById('stickyCtaWa');
-    if (link) link.href = 'https://api.whatsapp.com/send/?phone=' + phone + '&text=' + encodeURIComponent(msg) + '&type=phone_number&app_absent=0';
-  } catch(e) {}
-  return true;
-}
-
 (function initStickyMobileCta(){
   var bar = document.getElementById('stickyMobileCta');
   if (!bar) return;
@@ -3516,9 +3505,6 @@ function stickyCtaWaClick() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
     Encuentra tu auto
   </button>
-  <a class="sticky-mobile-cta-btn sticky-mobile-cta-btn--wa" id="stickyCtaWa" href="#" onclick="stickyCtaWaClick()" target="_blank" rel="noopener" aria-label="WhatsApp asesor">
-    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.546.747 4.919 2.033 6.912L3.2 28.8l5.981-1.973A12.74 12.74 0 0016 28.8c7.06 0 12.8-5.74 12.8-12.8S23.061 3.2 16.001 3.2zm0 23.2a10.35 10.35 0 01-5.463-1.56l-.39-.231-4.043 1.333 1.354-3.94-.254-.404A10.35 10.35 0 015.6 16c0-5.735 4.665-10.4 10.4-10.4 5.736 0 10.401 4.665 10.401 10.4 0 5.735-4.665 10.4-10.4 10.4zm5.695-7.789c-.312-.156-1.846-.91-2.132-1.014-.286-.104-.494-.156-.702.156-.208.312-.806 1.014-.988 1.222-.182.208-.364.234-.676.078-.312-.156-1.318-.486-2.511-1.55-.928-.828-1.555-1.85-1.737-2.162-.182-.312-.019-.48.137-.636.14-.14.312-.364.468-.546.156-.182.208-.312.312-.52.104-.208.052-.39-.026-.546-.078-.156-.702-1.693-.962-2.318-.254-.61-.513-.527-.702-.537l-.597-.011a1.145 1.145 0 00-.832.39c-.286.312-1.092 1.066-1.092 2.6s1.118 3.016 1.274 3.224c.156.208 2.202 3.362 5.336 4.716.746.322 1.328.515 1.782.659.749.238 1.43.204 1.969.124.6-.09 1.846-.754 2.107-1.482.26-.728.26-1.352.182-1.482-.078-.13-.286-.208-.598-.364z"/></svg>
-  </a>
 </div>
 
 </body>
