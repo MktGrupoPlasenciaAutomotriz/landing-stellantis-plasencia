@@ -1012,6 +1012,82 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 :focus-visible { outline:3px solid var(--color-accent); outline-offset:2px; }
 
+/* ── STICKY MOBILE CTA (H2) ── Visible solo en mobile cuando hero sale del viewport */
+.sticky-mobile-cta {
+  display: none;
+  position: fixed; left: 0; right: 0; bottom: 0;
+  z-index: 80;
+  background: #fff;
+  border-top: 1px solid var(--ink-200);
+  padding: 10px 16px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  opacity: 0; transform: translateY(100%);
+  transition: opacity 250ms cubic-bezier(0.4,0,0.2,1), transform 250ms cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .sticky-mobile-cta { display: flex; gap: 10px; align-items: center; }
+  .sticky-mobile-cta.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  body.has-sticky-cta { padding-bottom: 76px; }
+  body[style*="position: fixed"] .sticky-mobile-cta { opacity: 0; transform: translateY(100%); pointer-events: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticky-mobile-cta { transition: none; }
+}
+.sticky-mobile-cta-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 16px; min-height: 48px;
+  border-radius: var(--radius-md); border: none;
+  font-family: var(--font-display); font-weight: 800; font-size: 14px;
+  letter-spacing: 0.02em; cursor: pointer; text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease);
+}
+.sticky-mobile-cta-btn--primary {
+  background: linear-gradient(135deg, var(--brand-accent), var(--brand-accent-hover));
+  color: #fff;
+  box-shadow: 0 8px 20px -6px rgba(0,53,143,0.45);
+}
+.sticky-mobile-cta-btn--primary:hover { transform: translateY(-1px); }
+.sticky-mobile-cta-btn--primary svg { width: 18px; height: 18px; }
+.sticky-mobile-cta-btn--wa {
+  background: #25D366; color: #fff;
+  box-shadow: 0 8px 20px -6px rgba(37,211,102,0.45);
+}
+.sticky-mobile-cta-btn--wa svg { width: 22px; height: 22px; }
+
+/* ── Sucursal selector cards (Step 4) ── */
+.sucursal-radio-card {
+  cursor: pointer;
+  border: 2px solid var(--ink-200);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  background: #fff;
+  transition: border-color var(--duration-fast) var(--ease), background var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease);
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.sucursal-radio-card:hover { border-color: var(--brand-accent); background: rgba(0,53,143,0.03); }
+.sucursal-radio-card.selected {
+  border-color: var(--brand-accent); background: rgba(0,53,143,0.06);
+  box-shadow: 0 4px 12px -4px rgba(0,53,143,0.25);
+}
+.sucursal-radio-card .radio-dot {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid var(--ink-300); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff; margin-top: 2px;
+  transition: border-color var(--duration-fast) var(--ease);
+}
+.sucursal-radio-card.selected .radio-dot { border-color: var(--brand-accent); }
+.sucursal-radio-card.selected .radio-dot::after {
+  content: ''; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--brand-accent);
+}
+.sucursal-radio-card .sucursal-title { font-family: var(--font-display); font-weight: 800; font-size: 14px; color: var(--ink-900); }
+.sucursal-radio-card .sucursal-addr { font-size: 12px; color: var(--ink-500); margin-top: 3px; line-height: 1.35; }
+.sucursal-map-wrap { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--ink-200); margin: 12px 0; aspect-ratio: 16/10; background: var(--ink-100); }
+.sucursal-map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
 </style>
 </head>
 <body>
@@ -1318,79 +1394,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="trust-badge-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Esquema empresarial</div>
         </div>
 
-        <!-- CALCULADORA -->
-        <div class="calc-section">
-          <div class="calc-header">
-            <div class="calc-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/></svg>
-            </div>
-            <div>
-              <div class="calc-title">Calcula tu mensualidad</div>
-              <div class="calc-sub">Ajusta el enganche y el plazo en tiempo real</div>
-            </div>
-          </div>
-
-          <div class="calc-row">
-            <div class="calc-label">
-              <span>Enganche</span>
-              <span class="calc-label-value" id="downLabel">20%</span>
-            </div>
-            <input type="range" class="calc-slider" id="downSlider" min="20" max="70" value="20" step="5" oninput="updateCalc()">
-            <div class="slider-bounds"><span>20%</span><span>70%</span></div>
-            <div class="enganche-highlight" id="engancheBox">
-              <div class="enganche-label">Tu enganche</div>
-              <div class="enganche-amount" id="engancheAmount">$0</div>
-            </div>
-          </div>
-
-          <div class="calc-row">
-            <div class="calc-label"><span>Plazo</span></div>
-            <div class="calc-terms" id="termBtns">
-              <button class="calc-term-btn" onclick="setTerm(12,this)">12m</button>
-              <button class="calc-term-btn" onclick="setTerm(24,this)">24m</button>
-              <button class="calc-term-btn active" onclick="setTerm(36,this)">36m</button>
-              <button class="calc-term-btn" onclick="setTerm(48,this)">48m</button>
-              <button class="calc-term-btn" onclick="setTerm(60,this)">60m</button>
-            </div>
-          </div>
-
-          <div class="calc-result">
-            <div class="calc-result-label">Mensualidad estimada</div>
-            <div class="calc-result-amount" id="monthlyAmount">$0</div>
-            <div class="calc-result-sub">Tasa anual referencial <strong>9.99%</strong> (Peugeot SUVs / Jeep Renegade-Compass 2026). Selecciona un modelo para ver su tasa real: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 11.99% (Peugeot Manager/Partner FL), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).</div>
-            <div style="font-size:10px;color:rgba(255,255,255,0.42);margin-top:6px;line-height:1.35;font-style:italic;position:relative;">Mensualidad estimada. El importe real puede variar al contratar según tasa autorizada, enganche, plazo y esquema elegido. El interés causa IVA.</div>
-            <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-top:6px;line-height:1.4;position:relative;">* Financiamiento con STM Financial (Inbursa). CAT promedio 20.5% sin IVA. Vigencia abril 2026. Cálculo con fines informativos. No constituye una autorización de crédito ni una oferta vinculante. Monto, plazo y tasa sujetos a aprobación crediticia.</div>
-          </div>
-
-          <div class="calc-offer-banner">
-            <strong>Abril 2026 — Circular VTAS-9620426.</strong> Bonos hasta $250,000 (Grand Cherokee PHEV 4xe), 24/36 MSI en Jeep, mantenimientos gratis en Peugeot y tasas desde 7.99% con STM Financial. Consulta con tu asesor.
-          </div>
-        </div>
-
-        <!-- SOBRE TU COMPRA -->
-        <!-- FORM -->
+        <!-- FORM (calc moved INTO step 1 as commitment trigger) -->
         <div class="form-section">
-          <div class="form-section-title form-section-head">Agenda tu visita</div>
-          <div class="form-section-sub">Completa tus datos y recibe tu precotización al instante.</div>
+          <div class="form-section-title form-section-head" id="formSectionTitle">Cotiza tu mensualidad</div>
+          <div class="form-section-sub" id="formSectionSub">Ajusta el enganche y el plazo a tu medida.</div>
 
           <div class="form-empty-state" id="formGlobalError">
             <div class="form-empty-state-text">Faltan campos obligatorios. Revisa los marcados en rojo para continuar.</div>
             <div class="form-empty-state-sub">Los campos marcados necesitan tu atención.</div>
           </div>
 
-          <!-- PROGRESS BAR -->
+          <!-- PROGRESS BAR (5 steps: Cotiza · Datos · Perfil · Sucursal · Cita) -->
           <div class="form-progress" id="formProgress">
             <div class="form-progress-step active" data-step="1">
               <div class="form-step-num">1</div>
-              <div class="form-step-label">Tus datos</div>
+              <div class="form-step-label">Cotiza</div>
             </div>
             <div class="form-progress-step" data-step="2">
               <div class="form-step-num">2</div>
-              <div class="form-step-label">Tu compra</div>
+              <div class="form-step-label">Datos</div>
             </div>
             <div class="form-progress-step" data-step="3">
               <div class="form-step-num">3</div>
-              <div class="form-step-label">Tu cita</div>
+              <div class="form-step-label">Perfil</div>
+            </div>
+            <div class="form-progress-step" data-step="4">
+              <div class="form-step-num">4</div>
+              <div class="form-step-label">Sucursal</div>
+            </div>
+            <div class="form-progress-step" data-step="5">
+              <div class="form-step-num">5</div>
+              <div class="form-step-label">Cita</div>
             </div>
           </div>
 
@@ -1402,8 +1436,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
 
-          <!-- STEP 1: DATOS PERSONALES -->
+          <!-- STEP 1: COTIZACION (calculadora como commitment trigger) -->
           <div class="form-step active" id="formStep1">
+            <div class="calc-section" style="margin:0 0 16px;">
+              <div class="calc-header">
+                <div class="calc-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/></svg>
+                </div>
+                <div>
+                  <div class="calc-title">Calcula tu mensualidad</div>
+                  <div class="calc-sub">Ajusta el enganche y el plazo en tiempo real</div>
+                </div>
+              </div>
+
+              <div class="calc-row">
+                <div class="calc-label">
+                  <span>Enganche</span>
+                  <span class="calc-label-value" id="downLabel">20%</span>
+                </div>
+                <input type="range" class="calc-slider" id="downSlider" min="20" max="70" value="20" step="5" oninput="updateCalc(); pushCalcInteraction('enganche');">
+                <div class="slider-bounds"><span>20%</span><span>70%</span></div>
+                <div class="enganche-highlight" id="engancheBox">
+                  <div class="enganche-label">Tu enganche</div>
+                  <div class="enganche-amount" id="engancheAmount">$0</div>
+                </div>
+              </div>
+
+              <div class="calc-row">
+                <div class="calc-label"><span>Plazo</span></div>
+                <div class="calc-terms" id="termBtns">
+                  <button class="calc-term-btn" onclick="setTerm(12,this)">12m</button>
+                  <button class="calc-term-btn" onclick="setTerm(24,this)">24m</button>
+                  <button class="calc-term-btn active" onclick="setTerm(36,this)">36m</button>
+                  <button class="calc-term-btn" onclick="setTerm(48,this)">48m</button>
+                  <button class="calc-term-btn" onclick="setTerm(60,this)">60m</button>
+                </div>
+              </div>
+
+              <div class="calc-result">
+                <div class="calc-result-label">Mensualidad estimada</div>
+                <div class="calc-result-amount" id="monthlyAmount">$0</div>
+                <div class="calc-result-sub">Tasa anual referencial <strong>9.99%</strong> (Peugeot SUVs / Jeep Renegade-Compass 2026). Selecciona un modelo para ver su tasa real: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 11.99% (Peugeot Manager/Partner FL), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).</div>
+                <div style="font-size:10px;color:rgba(255,255,255,0.42);margin-top:6px;line-height:1.35;font-style:italic;position:relative;">Mensualidad estimada. El importe real puede variar al contratar según tasa autorizada, enganche, plazo y esquema elegido. El interés causa IVA.</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-top:6px;line-height:1.4;position:relative;">* Financiamiento con STM Financial (Inbursa). CAT promedio 20.5% sin IVA. Vigencia abril 2026. Cálculo con fines informativos. No constituye una autorización de crédito ni una oferta vinculante. Monto, plazo y tasa sujetos a aprobación crediticia.</div>
+              </div>
+
+              <div class="calc-offer-banner">
+                <strong>Abril 2026 — Circular VTAS-9620426.</strong> Bonos hasta $250,000 (Grand Cherokee PHEV 4xe), 24/36 MSI en Jeep, mantenimientos gratis en Peugeot y tasas desde 7.99% con STM Financial. Consulta con tu asesor.
+              </div>
+            </div>
+
+            <!-- Commitment CTA: ata la cotizacion a la siguiente accion (dar datos) -->
+            <div class="form-step-nav" style="margin-top:4px;">
+              <button type="button" class="btn-step-next" id="btnCommitCalc" onclick="goToFormStep(2)" style="width:100%; justify-content:center; font-size:15px; padding:14px 20px;">
+                Agendar mi cita con esta cotización
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+            <!-- Disclaimer transparente: baja ansiedad + resetea expectativa -->
+            <div style="margin:12px 0 0; padding:12px 14px; background:var(--ink-50,#F8FAFC); border:1px solid var(--ink-200,#E2E8F0); border-left:3px solid var(--brand-accent,#00358F); border-radius:8px;">
+              <div style="display:flex; align-items:flex-start; gap:10px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-accent,#00358F)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <div style="font-size:12.5px; color:var(--ink-600,#475569); line-height:1.5;">
+                  <strong style="color:var(--ink-800,#1E293B);">Esto es una estimación, no una cotización final.</strong>
+                  En tu visita, el asesor te arma planes de pago a tu medida, revisa otros esquemas y te confirma el precio exacto según tu perfil.
+                </div>
+              </div>
+            </div>
+            <p style="text-align:center; font-size:12px; color:var(--ink-500,#64748B); margin:10px 0 0; line-height:1.5;">
+              Llevamos tu cotización a la cita · Respuesta por WhatsApp en minutos
+            </p>
+          </div>
+
+          <!-- STEP 2: DATOS PERSONALES -->
+          <div class="form-step" id="formStep2">
           <div class="form-grid">
             <div class="form-group full">
               <label class="form-label" for="fName">Nombre(s) <span class="label-req">Obligatorio</span></label>
@@ -1436,12 +1542,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="form-step-nav">
-            <button type="button" class="btn-step-next" onclick="goToFormStep(2)">Siguiente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></button>
+            <button type="button" class="btn-step-prev" onclick="goToFormStep(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg> Volver a cotizar</button>
+            <button type="button" class="btn-step-next" onclick="goToFormStep(3)">Siguiente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></button>
           </div>
           </div>
 
-          <!-- STEP 2: SOBRE TU COMPRA -->
-          <div class="form-step" id="formStep2">
+          <!-- STEP 3: PERFIL / FINANCIAMIENTO -->
+          <div class="form-step" id="formStep3">
           <div class="form-grid">
             <div class="form-group full">
               <label class="form-label">
@@ -1493,78 +1600,120 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="form-step-nav">
-            <button type="button" class="btn-step-prev" onclick="goToFormStep(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg> Anterior</button>
-            <button type="button" class="btn-step-next" onclick="goToFormStep(3)">Siguiente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></button>
-          </div>
-          </div>
-
-          <!-- STEP 3: TU CITA -->
-          <div class="form-step" id="formStep3">
-          <div class="form-grid">
-            <div class="form-group full">
-              <label class="form-label">Fecha y hora de tu cita <span class="label-req">Obligatorio</span></label>
-              <input type="hidden" id="fDate" value="">
-              <input type="hidden" id="fTime" value="">
-              <div class="cita-picker" id="citaPicker">
-                <div class="cal-warning" id="calWarning" role="status" aria-live="polite">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                  <span>No agendamos citas el mismo día. Selecciona una fecha de mañana en adelante (mínimo 24 h).</span>
-                </div>
-                <div class="cal-header">
-                  <button type="button" class="cal-nav" id="calPrev" onclick="calNavigate(-1)">&#8249;</button>
-                  <span class="cal-header-title" id="calTitle"></span>
-                  <button type="button" class="cal-nav" id="calNext" onclick="calNavigate(1)">&#8250;</button>
-                </div>
-                <div class="cal-grid" id="calGrid"></div>
-                <div id="timeSlotsWrap" style="display:none;">
-                  <div class="time-slots-label">Selecciona horario:</div>
-                  <div class="time-slots" id="timeSlots"></div>
-                </div>
-                <div class="cita-summary" id="citaSummary" style="display:none;"></div>
-              </div>
-              <div class="form-error-msg" id="fDate-error">Selecciona una fecha para tu cita</div>
-              <div class="form-error-msg" id="fTime-error">Selecciona un horario</div>
-            </div>
-            <div style="grid-column:1/-1;margin-top:24px;">
-              <label class="form-label" for="fSucursal">¿En cuál sucursal te gustaría tu cita? <span class="label-req">Obligatorio</span></label>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0;">
-                <label onclick="document.getElementById('fSucursal').value='STELLANTIS PLASENCIA';validateField(document.getElementById('fSucursal'))" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#00358F)';this.style.background='rgba(0,53,143,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
-                  <div style="font-weight:700;font-size:13px;color:var(--ink-900,#1A1A1A);">📍 Plasencia</div>
-                  <div style="font-size:11px;color:var(--ink-500,#718096);margin-top:4px;line-height:1.3;">Av. Mariano Otero 405-A, La Giralda, Zapopan</div>
-                </label>
-                <label onclick="document.getElementById('fSucursal').value='STELLANTIS SANTA ANITA';validateField(document.getElementById('fSucursal'))" style="cursor:pointer;border:1px solid var(--ink-200,#E2E8F0);border-radius:10px;padding:12px;transition:border-color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--brand-accent,#00358F)';this.style.background='rgba(0,53,143,0.04)'" onmouseout="this.style.borderColor='';this.style.background=''">
-                  <div style="font-weight:700;font-size:13px;color:var(--ink-900,#1A1A1A);">📍 Santa Anita</div>
-                  <div style="font-size:11px;color:var(--ink-500,#718096);margin-top:4px;line-height:1.3;">Av. Lopez Mateos Sur 3505, Los Gavilanes</div>
-                </label>
-              </div>
-              <select class="form-input" id="fSucursal" required style="margin-top:4px;" onchange="validateField(this)">
-                <option value="">Selecciona sucursal</option>
-                <option value="STELLANTIS PLASENCIA">Plasencia — Av. Mariano Otero 405-A</option>
-                <option value="STELLANTIS SANTA ANITA">Santa Anita — Av. Lopez Mateos Sur 3505</option>
-              </select>
-              <div class="form-error-msg" id="fSucursal-error" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Selecciona una sucursal para tu cita</div>
-            </div>
-          </div>
-
-          <label style="display:flex; align-items:flex-start; gap:8px; margin:16px 0 8px; font-size:13px; color:var(--ink-400, #94a3b8); line-height:1.4; cursor:pointer;">
-            <input type="checkbox" id="fPrivacy" required style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #00358F);">
-            <span>He leído y acepto el <a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color:var(--brand-accent-bright, #6B8CCE); text-decoration:underline;">Aviso de Privacidad</a> de Grupo Plasencia Automotriz.</span>
-          </label>
-          <div class="form-error-msg" id="fPrivacy-error">Acepta el aviso de privacidad para continuar</div>
-          <label style="display:flex; align-items:flex-start; gap:8px; margin:0 0 16px; font-size:13px; color:var(--ink-400, #94a3b8); line-height:1.4; cursor:pointer;">
-            <input type="checkbox" id="fMarketing" style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #00358F);">
-            <span>Acepto que mis datos sean utilizados con fines promocionales y de contacto comercial.</span>
-          </label>
-
-          <div class="form-step-nav">
             <button type="button" class="btn-step-prev" onclick="goToFormStep(2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg> Anterior</button>
+            <button type="button" class="btn-step-next" onclick="goToFormStep(4)">Siguiente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></button>
+          </div>
           </div>
 
-          <button class="btn-conversion" onclick="submitForm()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
-            Agendar mi cita
-          </button>
-          <p class="form-privacy">Al agendar, aceptas el <a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener">aviso de privacidad</a> de Grupo Plasencia conforme a la LFPDPPP.</p>
+          <!-- STEP 4: SUCURSAL (selector — 2 sucursales Stellantis) -->
+          <div class="form-step" id="formStep4">
+            <div style="margin-bottom:10px;">
+              <div style="font-family:var(--font-display); font-weight:800; font-size:15px; color:var(--ink-900); margin-bottom:4px;">¿En cuál sucursal te gustaría tu cita?</div>
+              <div style="font-size:13px; color:var(--ink-500); line-height:1.4;">Elige la que te quede más cerca. Las dos manejan los mismos precios, bonos y tasas.</div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr; gap:10px; margin:12px 0;">
+              <div class="sucursal-radio-card" id="sucursalCardPlasencia" onclick="selectSucursal('STELLANTIS PLASENCIA')" role="radio" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectSucursal('STELLANTIS PLASENCIA');}">
+                <div class="radio-dot" aria-hidden="true"></div>
+                <div style="flex:1; min-width:0;">
+                  <div class="sucursal-title">Stellantis Plasencia</div>
+                  <div class="sucursal-addr">Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jal.</div>
+                </div>
+              </div>
+              <div class="sucursal-radio-card" id="sucursalCardSantaAnita" onclick="selectSucursal('STELLANTIS SANTA ANITA')" role="radio" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectSucursal('STELLANTIS SANTA ANITA');}">
+                <div class="radio-dot" aria-hidden="true"></div>
+                <div style="flex:1; min-width:0;">
+                  <div class="sucursal-title">Stellantis Santa Anita</div>
+                  <div class="sucursal-addr">Av. Adolfo López Mateos Sur 3505, Los Gavilanes, 45645 Guadalajara, Jal.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Select oculto (mantiene compatibilidad con submitForm() y validateField()) -->
+            <select id="fSucursal" required aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" onchange="validateField(this)">
+              <option value="">Selecciona sucursal</option>
+              <option value="STELLANTIS PLASENCIA">Plasencia</option>
+              <option value="STELLANTIS SANTA ANITA">Santa Anita</option>
+            </select>
+            <div class="form-error-msg" id="fSucursal-error" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Selecciona una sucursal para tu cita</div>
+
+            <!-- Mapa dinámico -->
+            <div class="sucursal-map-wrap">
+              <iframe id="sucursalMapIframe" src="https://www.google.com/maps?q=Av.+Mariano+Otero+405-A,+La+Giralda,+45088+Zapopan,+Jalisco&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de la sucursal"></iframe>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:10px; padding:10px 12px; background:#fff; border:1px solid var(--ink-200); border-radius:8px; margin-top:8px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-success,#10B981)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <div style="font-size:13px; font-weight:600; color:var(--ink-800);">Horarios de atención</div>
+                <div style="font-size:12px; color:var(--ink-600);">Lun a Vie 9:00 a 20:00 · Sáb 9:00 a 18:00 · Dom 11:00 a 17:00</div>
+              </div>
+            </div>
+
+            <div class="form-step-nav">
+              <button type="button" class="btn-step-prev" onclick="goToFormStep(3)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg> Anterior</button>
+              <button type="button" class="btn-step-next" onclick="goToFormStep(5)">Siguiente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></button>
+            </div>
+          </div>
+
+          <!-- STEP 5: CITA (calendario primero, warning abajo) -->
+          <div class="form-step" id="formStep5">
+            <!-- Badge compacto de sucursal confirmada -->
+            <div id="citaSucursalBadge" style="display:flex; align-items:center; gap:8px; padding:10px 12px; background:var(--ink-50); border:1px solid var(--ink-200); border-radius:8px; margin-bottom:14px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-accent,#00358F)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div style="flex:1; min-width:0;">
+                <div style="font-size:11px; color:var(--ink-500); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; line-height:1;">Tu cita en</div>
+                <div id="citaSucursalBadgeName" style="font-size:14px; font-weight:800; color:var(--ink-900); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:var(--font-display);">—</div>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group full">
+                <label class="form-label">Fecha y hora de tu cita <span class="label-req">Obligatorio</span></label>
+                <input type="hidden" id="fDate" value="">
+                <input type="hidden" id="fTime" value="">
+                <div class="cita-picker" id="citaPicker">
+                  <!-- CALENDARIO PRIMERO -->
+                  <div class="cal-header">
+                    <button type="button" class="cal-nav" id="calPrev" onclick="calNavigate(-1)">&#8249;</button>
+                    <span class="cal-header-title" id="calTitle"></span>
+                    <button type="button" class="cal-nav" id="calNext" onclick="calNavigate(1)">&#8250;</button>
+                  </div>
+                  <div class="cal-grid" id="calGrid"></div>
+                  <!-- WARNING DEBAJO del calendario -->
+                  <div class="cal-warning" id="calWarning" role="status" aria-live="polite" style="margin-top:10px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span>Mínimo 24 h de anticipación. No agendamos citas el mismo día.</span>
+                  </div>
+                  <div id="timeSlotsWrap" style="display:none;">
+                    <div class="time-slots-label">Selecciona horario:</div>
+                    <div class="time-slots" id="timeSlots"></div>
+                  </div>
+                  <div class="cita-summary" id="citaSummary" style="display:none;"></div>
+                </div>
+                <div class="form-error-msg" id="fDate-error">Selecciona una fecha para tu cita</div>
+                <div class="form-error-msg" id="fTime-error">Selecciona un horario</div>
+              </div>
+            </div>
+
+            <label style="display:flex; align-items:flex-start; gap:8px; margin:16px 0 8px; font-size:13px; color:var(--ink-600); line-height:1.4; cursor:pointer;">
+              <input type="checkbox" id="fPrivacy" required style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #00358F);">
+              <span>He leído y acepto el <a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color:var(--brand-accent-bright, #6B8CCE); text-decoration:underline;">Aviso de Privacidad</a> de Grupo Plasencia Automotriz.</span>
+            </label>
+            <div class="form-error-msg" id="fPrivacy-error">Acepta el aviso de privacidad para continuar</div>
+            <label style="display:flex; align-items:flex-start; gap:8px; margin:0 0 16px; font-size:13px; color:var(--ink-600); line-height:1.4; cursor:pointer;">
+              <input type="checkbox" id="fMarketing" style="margin-top:3px; min-width:18px; min-height:18px; accent-color:var(--brand-accent, #00358F);">
+              <span>Acepto que mis datos sean utilizados con fines promocionales y de contacto comercial.</span>
+            </label>
+
+            <div class="form-step-nav">
+              <button type="button" class="btn-step-prev" onclick="goToFormStep(4)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg> Anterior</button>
+            </div>
+
+            <button class="btn-conversion" onclick="submitForm()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+              Agendar mi cita
+            </button>
+            <p class="form-privacy">Al agendar, aceptas el <a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener">aviso de privacidad</a> de Grupo Plasencia conforme a la LFPDPPP.</p>
           </div>
         </div>
       </div>
@@ -1955,6 +2104,11 @@ function updateCalc() {
     const cxaTxt = cxaUsada > 0 ? ` con ${(cxaUsada*100).toFixed(2).replace('.00','')}% CxA` : ' SC (sin comisión por apertura)';
     subEl.innerHTML = `Tasa anual <strong>${(tasaUsada*100).toFixed(2).replace('.00','')}%</strong>${cxaTxt} para este modelo (Circular VTAS-9620426). Tasas en otros modelos: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).`;
   }
+  // H1: si el resumen sticky esta visible, refrescarlo con nuevo pct/plazo
+  try {
+    var bar = document.getElementById('stepSummary');
+    if (bar && bar.classList.contains('show') && currentFormStep > 1) updateStepSummary(currentFormStep);
+  } catch(e) {}
 }
 
 function setTerm(months, el) {
@@ -1962,6 +2116,7 @@ function setTerm(months, el) {
   document.querySelectorAll('.calc-term-btn').forEach(b => b.classList.remove('active'));
   el.classList.add('active');
   updateCalc();
+  if (typeof pushCalcInteraction === 'function') pushCalcInteraction('plazo');
 }
 
 function onTipoPersonaChange() {
@@ -2120,6 +2275,22 @@ function calSelectDate(dateKey) {
   renderCalendar();
   renderTimeSlots(dateKey);
   document.getElementById('citaSummary').style.display = 'none';
+  // GA4: calendar_day_selected
+  try {
+    var parts = dateKey.split('-').map(Number);
+    var d = new Date(parts[0], parts[1]-1, parts[2]);
+    var dow = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'][d.getDay()];
+    var today = new Date(); today.setHours(0,0,0,0);
+    var daysAhead = Math.round((d - today) / (1000*60*60*24));
+    (window.dataLayer = window.dataLayer || []).push({
+      event: 'calendar_day_selected',
+      date_iso: dateKey,
+      day_of_week: dow,
+      days_ahead: daysAhead,
+      item_name: currentCar ? (currentCar.name + ' ' + currentCar.year) : '',
+      item_brand: currentCar ? (currentCar.brand || '') : ''
+    });
+  } catch(e) {}
 }
 
 function renderTimeSlots(dateKey) {
@@ -2163,6 +2334,19 @@ function calSelectTime(val, el) {
   el.classList.add('time-pill--selected');
   // Show summary
   showCitaSummary();
+  // GA4: calendar_time_selected
+  try {
+    var h = parseInt(val.split(':')[0], 10);
+    var slot = h < 12 ? 'morning' : (h < 15 ? 'midday' : 'afternoon');
+    (window.dataLayer = window.dataLayer || []).push({
+      event: 'calendar_time_selected',
+      time_24h: val,
+      time_slot: slot,
+      date_iso: calSelectedDate || '',
+      item_name: currentCar ? (currentCar.name + ' ' + currentCar.year) : '',
+      item_brand: currentCar ? (currentCar.brand || '') : ''
+    });
+  } catch(e) {}
 }
 
 function showCitaSummary() {
@@ -2198,8 +2382,10 @@ function setView(viewName, detail) {
   if (_spaNavigating) return;
   let hash = '', title = 'Stellantis Plasencia';
   if (viewName === 'vehiculo' && detail != null) { hash = '#vehiculo-' + detail; title = 'Detalle vehiculo'; }
-  else if (viewName === 'agendar-paso-2') { hash = '#agendar-paso-2'; title = 'Agendar paso 2 - Perfil'; }
-  else if (viewName === 'agendar-paso-3') { hash = '#agendar-paso-3'; title = 'Agendar paso 3 - Cita'; }
+  else if (viewName === 'agendar-paso-2') { hash = '#agendar-paso-2'; title = 'Agendar paso 2 - Datos'; }
+  else if (viewName === 'agendar-paso-3') { hash = '#agendar-paso-3'; title = 'Agendar paso 3 - Perfil'; }
+  else if (viewName === 'agendar-paso-4') { hash = '#agendar-paso-4'; title = 'Agendar paso 4 - Sucursal'; }
+  else if (viewName === 'agendar-paso-5') { hash = '#agendar-paso-5'; title = 'Agendar paso 5 - Cita'; }
   else if (viewName === 'confirmacion') { hash = '#confirmacion'; title = 'Confirmacion cita'; }
   const targetUrl = window.location.pathname + window.location.search + hash;
   if (window.location.pathname + window.location.search + window.location.hash === targetUrl) return;
@@ -2266,7 +2452,19 @@ function openModal(id) {
   document.getElementById('fBuscaFinanciamiento').value = '';
   document.getElementById('fCompruebaIngresos').value = '';
   document.getElementById('ingresosWrap').style.display = 'none';
+  // Reset sucursal selector (radio cards + hidden select)
+  try {
+    var _suc = document.getElementById('fSucursal');
+    if (_suc) _suc.value = '';
+    Object.keys(STELLANTIS_SUCURSALES || {}).forEach(function(k){
+      var card = document.getElementById(STELLANTIS_SUCURSALES[k].cardId);
+      if (card) { card.classList.remove('selected'); card.setAttribute('aria-checked','false'); }
+    });
+    var _badge = document.getElementById('citaSucursalBadgeName');
+    if (_badge) _badge.textContent = '—';
+  } catch(e) {}
   clearValidation();
+  currentFormStep = 1;
   if (typeof goToFormStep === 'function') goToFormStep(1);
 
   document.getElementById('detailState').style.display = 'block';
@@ -2289,6 +2487,21 @@ function openModal(id) {
 }
 
 function closeModal() {
+  // H6: modal_close_before_submit — solo si estaba abierto, mas alla de step 1, y no se completo el submit
+  try {
+    var _modal = document.getElementById('vehicleModal');
+    var wasOpen = _modal && _modal.classList.contains('open');
+    if (wasOpen && currentFormStep > 1 && !window._submitCompleted) {
+      var _stepNames = {1:'cotiza', 2:'datos', 3:'perfil', 4:'sucursal', 5:'cita'};
+      (window.dataLayer = window.dataLayer || []).push({
+        event: 'modal_close_before_submit',
+        step_at_close: currentFormStep,
+        step_name: _stepNames[currentFormStep] || '',
+        item_name: currentCar ? (currentCar.name + ' ' + currentCar.year) : '',
+        item_brand: currentCar ? (currentCar.brand || '') : ''
+      });
+    }
+  } catch(e) {}
   const modal = document.getElementById('vehicleModal');
   if (modal) modal.classList.remove('open');
   var savedScrollY = document.body.dataset.scrollY || '0';
@@ -2329,9 +2542,20 @@ function updateStepSummary(step) {
   const t = document.getElementById('stepSummaryTitle');
   const m = document.getElementById('stepSummaryMeta');
   if (t) t.textContent = (currentCar.name || '') + ' ' + (currentCar.year || '') + (currentCar.version ? ' · ' + currentCar.version : '');
-  const monthly = typeof calcMonthly === 'function' && currentCar.price > 0 ? calcMonthly(currentCar.price, 20, 36, currentCar.tasa) : 0;
-  const priceLabel = currentCar.price > 0 ? 'Enganche ' + fmt(currentCar.price) : 'Cotiza con asesor';
-  if (m) m.textContent = priceLabel + (monthly ? '  ·  Desde ' + fmt(monthly) + '/mes' : '');
+  // H1: usar estado real del slider + plazo seleccionado (no hardcoded 20/36)
+  var sliderEl = document.getElementById('downSlider');
+  var downPct = sliderEl ? parseInt(sliderEl.value) : 20;
+  var term = selectedTerm || 36;
+  var downAmount = currentCar.price > 0 ? Math.round(currentCar.price * downPct / 100) : 0;
+  const monthly = typeof calcMonthly === 'function' && currentCar.price > 0 ? calcMonthly(currentCar.price, downPct, term, currentCar.tasa) : 0;
+  var parts = [];
+  if (currentCar.price > 0) {
+    parts.push('Enganche ' + fmt(downAmount) + ' (' + downPct + '%)');
+    if (monthly) parts.push(fmt(monthly) + '/mes a ' + term + ' meses');
+  } else {
+    parts.push('Cotiza con asesor');
+  }
+  if (m) m.textContent = parts.join('  ·  ');
   bar.classList.add('show');
 }
 
@@ -2387,50 +2611,143 @@ function hideFieldError(id) {
 }
 
 // ── FORM STEP NAVIGATION (Progressive Disclosure) ──
+// H1+H1.5: 5-step flow con calculator como commitment device en Step 1.
+// Step 1: Cotiza (calculator + CTA commitment)
+// Step 2: Datos personales
+// Step 3: Perfil (financiamiento/ingresos)
+// Step 4: Sucursal (selector: Plasencia o Santa Anita)
+// Step 5: Cita (calendario + hora + privacidad + submit)
+const FORM_STEP_HEADS = {
+  1: { title: 'Cotiza tu mensualidad', sub: 'Ajusta el enganche y el plazo a tu medida.' },
+  2: { title: 'Tus datos de contacto', sub: 'Para confirmarte la cita y enviarte tu cotización.' },
+  3: { title: 'Perfil de financiamiento', sub: 'Para preparar la mejor opción con STM Financial (Inbursa).' },
+  4: { title: 'Elige tu sucursal', sub: 'Agenda en la agencia que mejor te convenga.' },
+  5: { title: 'Reserva tu cita', sub: 'Elige el día y la hora que mejor te acomode.' }
+};
+
+function updateFormHead(step) {
+  var cfg = FORM_STEP_HEADS[step]; if (!cfg) return;
+  var t = document.getElementById('formSectionTitle');
+  var s = document.getElementById('formSectionSub');
+  if (t) t.textContent = cfg.title;
+  if (s) s.textContent = cfg.sub;
+}
+
 let currentFormStep = 1;
 function goToFormStep(step) {
+  var fromStep = currentFormStep;
   // Validate current step before advancing
   if (step > currentFormStep) {
-    if (currentFormStep === 1) {
-      const step1Fields = ['fName','fLastName1','fLastName2','fPhone','fEmail'];
+    // Step 1 -> 2: no validacion (el commit CTA es el trigger). form_start se emite aqui.
+    if (currentFormStep === 2) {
+      const step2Fields = ['fName','fLastName1','fLastName2','fPhone','fEmail'];
       let allValid = true;
-      step1Fields.forEach(function(id) {
+      var firstErrId = null;
+      step2Fields.forEach(function(id) {
         const el = document.getElementById(id);
         if (!el) return;
         const v = el.value.trim();
         let valid = v.length > 0;
         if (id === 'fPhone') valid = /^[0-9]{10}$/.test(v);
         else if (id === 'fEmail') valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-        if (!valid) { showFieldError(id); el.classList.add('error'); el.classList.remove('valid'); allValid = false; }
+        if (!valid) { showFieldError(id); el.classList.add('error'); el.classList.remove('valid'); allValid = false; if (!firstErrId) firstErrId = id; }
         else { hideFieldError(id); el.classList.remove('error'); el.classList.add('valid'); }
       });
-      if (!allValid) { if (typeof scrollToFirstError === 'function') scrollToFirstError(); return; }
+      if (!allValid) {
+        (window.dataLayer = window.dataLayer || []).push({
+          event: 'form_step_error', step: 2, step_name: 'datos', first_error_field: firstErrId || ''
+        });
+        if (typeof scrollToFirstError === 'function') scrollToFirstError();
+        return;
+      }
     }
-    if (currentFormStep === 2) {
-      const step2Fields = ['fBuscaFinanciamiento'];
-      if (document.getElementById('fBuscaFinanciamiento').value === 'SI') step2Fields.push('fCompruebaIngresos');
-      let allValid2 = true;
-      step2Fields.forEach(function(id) {
+    if (currentFormStep === 3) {
+      const step3Fields = ['fBuscaFinanciamiento'];
+      if (document.getElementById('fBuscaFinanciamiento').value === 'SI') step3Fields.push('fCompruebaIngresos');
+      let allValid3 = true;
+      var firstErrId3 = null;
+      step3Fields.forEach(function(id) {
         const el = document.getElementById(id);
         if (!el) return;
         const v = el.value.trim();
-        if (v.length === 0) { showFieldError(id); el.classList.add('error'); el.classList.remove('valid'); allValid2 = false; }
+        if (v.length === 0) { showFieldError(id); el.classList.add('error'); el.classList.remove('valid'); allValid3 = false; if (!firstErrId3) firstErrId3 = id; }
         else { hideFieldError(id); el.classList.remove('error'); el.classList.add('valid'); }
       });
-      if (!allValid2) { if (typeof scrollToFirstError === 'function') scrollToFirstError(); return; }
+      if (!allValid3) {
+        (window.dataLayer = window.dataLayer || []).push({
+          event: 'form_step_error', step: 3, step_name: 'perfil', first_error_field: firstErrId3 || ''
+        });
+        if (typeof scrollToFirstError === 'function') scrollToFirstError();
+        return;
+      }
     }
-    // Nota: fSucursal vive en step 3 (no 2). submitForm() la valida junto con fecha/hora/privacidad antes de enviar.
+    if (currentFormStep === 4) {
+      const sucVal = (document.getElementById('fSucursal') || {}).value || '';
+      if (!sucVal) {
+        showFieldError('fSucursal');
+        (window.dataLayer = window.dataLayer || []).push({
+          event: 'form_step_error', step: 4, step_name: 'sucursal', first_error_field: 'fSucursal'
+        });
+        if (typeof scrollToFirstError === 'function') scrollToFirstError();
+        return;
+      } else {
+        hideFieldError('fSucursal');
+      }
+    }
   }
-  // Update steps
-  if (step === 2 && currentCar) {
-    dataLayer.push({ event: 'form_start', item_name: currentCar.name + ' ' + currentCar.year, item_price: currentCar.price });
+
+  // Fire form_start + commitment_cta_click cuando el usuario avanza de Step 1 -> 2
+  if (fromStep === 1 && step === 2 && currentCar) {
+    var _downPct = parseInt((document.getElementById('downSlider') || {}).value || 20);
+    var _monthly = (typeof calcMonthly === 'function' && currentCar.price > 0)
+      ? calcMonthly(currentCar.price, _downPct, selectedTerm, currentCar.tasa) : 0;
+    (window.dataLayer = window.dataLayer || []).push({
+      event: 'form_start',
+      item_name: currentCar.name + ' ' + currentCar.year,
+      item_price: currentCar.price,
+      item_brand: currentCar.brand || '',
+      down_pct: _downPct,
+      term_months: selectedTerm,
+      monthly_estimate: _monthly
+    });
+    (window.dataLayer = window.dataLayer || []).push({
+      event: 'commitment_cta_click',
+      item_name: currentCar.name + ' ' + currentCar.year,
+      item_price: currentCar.price,
+      down_pct: _downPct,
+      term_months: selectedTerm,
+      monthly_estimate: _monthly
+    });
   }
+
+  // form_step_complete cuando se avanza
+  if (step > fromStep && currentCar) {
+    var _stepNames = {1:'cotiza', 2:'datos', 3:'perfil', 4:'sucursal', 5:'cita'};
+    var _monthlyNow = (typeof calcMonthly === 'function' && currentCar.price > 0)
+      ? calcMonthly(currentCar.price, parseInt((document.getElementById('downSlider')||{}).value||20), selectedTerm, currentCar.tasa) : 0;
+    (window.dataLayer = window.dataLayer || []).push({
+      event: 'form_step_complete',
+      step_from: fromStep,
+      step_to: step,
+      step_from_name: _stepNames[fromStep] || '',
+      step_to_name: _stepNames[step] || '',
+      monthly_estimate: _monthlyNow
+    });
+  }
+
   updateStepSummary(step);
+  updateFormHead(step);
   currentFormStep = step;
-  if (step === 2 || step === 3) setView('agendar-paso-' + step);
+  if (step >= 2 && step <= 5) setView('agendar-paso-' + step);
   document.querySelectorAll('.form-step').forEach(function(s) { s.classList.remove('active'); });
   var target = document.getElementById('formStep' + step);
   if (target) target.classList.add('active');
+
+  // Al entrar a Step 5, refrescar badge con sucursal seleccionada
+  if (step === 5) updateCitaSucursalBadge();
+  // Al entrar a Step 4, asegurar mapa sincronizado con seleccion previa
+  if (step === 4) updateSucursalStepMap();
+
   // Update progress bar
   document.querySelectorAll('.form-progress-step').forEach(function(s) {
     var sNum = parseInt(s.dataset.step);
@@ -2438,9 +2755,7 @@ function goToFormStep(step) {
     if (sNum === step) s.classList.add('active');
     else if (sNum < step) s.classList.add('completed');
   });
-  // Scroll form into view
-  var formHead = document.querySelector('.form-section-head');
-  // Auto-focus sobre el primer campo del nuevo step (asi el usuario ve la sucursal/calendario, no se queda arriba)
+  // Auto-focus sobre el primer campo del nuevo step
   setTimeout(function(){
     var stepEl = document.getElementById('formStep' + step);
     if (!stepEl) return;
@@ -2448,6 +2763,107 @@ function goToFormStep(step) {
     var target = firstField || stepEl;
     target.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 120);
+}
+
+// ── SUCURSAL SELECTOR (Step 4) ──
+// Stellantis maneja 2 sucursales: Plasencia (Av. Mariano Otero) y Santa Anita (Lopez Mateos Sur).
+// El usuario elige con radio-cards visuales + <select id="fSucursal"> oculto para compatibilidad con submitForm().
+const STELLANTIS_SUCURSALES = {
+  'STELLANTIS PLASENCIA': {
+    cardId: 'sucursalCardPlasencia',
+    label: 'Stellantis Plasencia',
+    mapSrc: 'https://www.google.com/maps?q=Av.+Mariano+Otero+405-A,+La+Giralda,+45088+Zapopan,+Jalisco&output=embed'
+  },
+  'STELLANTIS SANTA ANITA': {
+    cardId: 'sucursalCardSantaAnita',
+    label: 'Stellantis Santa Anita',
+    mapSrc: 'https://www.google.com/maps?q=Av.+Lopez+Mateos+Sur+7500,+Santa+Anita,+Tlajomulco+de+Zuniga,+Jalisco&output=embed'
+  }
+};
+
+function selectSucursal(value) {
+  var cfg = STELLANTIS_SUCURSALES[value];
+  if (!cfg) return;
+  // Visual: toggle selected class en todos
+  Object.keys(STELLANTIS_SUCURSALES).forEach(function(k){
+    var card = document.getElementById(STELLANTIS_SUCURSALES[k].cardId);
+    if (!card) return;
+    if (k === value) { card.classList.add('selected'); card.setAttribute('aria-checked','true'); }
+    else { card.classList.remove('selected'); card.setAttribute('aria-checked','false'); }
+  });
+  // Hidden select (compat con submitForm)
+  var sel = document.getElementById('fSucursal');
+  if (sel) {
+    // Crear option si no existe
+    var found = false;
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === value) { found = true; break; }
+    }
+    if (!found) {
+      var opt = document.createElement('option'); opt.value = value; opt.textContent = value;
+      sel.appendChild(opt);
+    }
+    sel.value = value;
+    if (typeof hideFieldError === 'function') hideFieldError('fSucursal');
+    sel.classList.remove('error'); sel.classList.add('valid');
+  }
+  // Map swap
+  var iframe = document.getElementById('sucursalMapIframe');
+  if (iframe && iframe.src !== cfg.mapSrc) iframe.src = cfg.mapSrc;
+  // Badge Step 5
+  updateCitaSucursalBadge();
+  // Event
+  (window.dataLayer = window.dataLayer || []).push({
+    event: 'sucursal_selected',
+    sucursal: value,
+    sucursal_label: cfg.label,
+    item_name: currentCar ? (currentCar.name + ' ' + currentCar.year) : '',
+    item_brand: currentCar ? (currentCar.brand || '') : ''
+  });
+}
+
+function updateSucursalStepMap() {
+  var sel = document.getElementById('fSucursal');
+  var val = sel ? sel.value : '';
+  if (val && STELLANTIS_SUCURSALES[val]) {
+    var iframe = document.getElementById('sucursalMapIframe');
+    if (iframe) iframe.src = STELLANTIS_SUCURSALES[val].mapSrc;
+  }
+}
+
+function updateCitaSucursalBadge() {
+  var sel = document.getElementById('fSucursal');
+  var val = sel ? sel.value : '';
+  var nameEl = document.getElementById('citaSucursalBadgeName');
+  if (!nameEl) return;
+  var cfg = STELLANTIS_SUCURSALES[val];
+  nameEl.textContent = cfg ? cfg.label : '—';
+}
+
+// ── CALC INTERACTION (debounced 600ms) ──
+var _calcInteractionTimer = null;
+var _lastCalcSnapshot = null;
+function pushCalcInteraction(type) {
+  if (!currentCar) return;
+  if (_calcInteractionTimer) clearTimeout(_calcInteractionTimer);
+  _calcInteractionTimer = setTimeout(function(){
+    var downPct = parseInt((document.getElementById('downSlider') || {}).value || 20);
+    var monthly = (typeof calcMonthly === 'function' && currentCar.price > 0)
+      ? calcMonthly(currentCar.price, downPct, selectedTerm, currentCar.tasa) : 0;
+    var snap = downPct + '|' + selectedTerm + '|' + monthly;
+    if (snap === _lastCalcSnapshot) return;
+    _lastCalcSnapshot = snap;
+    (window.dataLayer = window.dataLayer || []).push({
+      event: 'calc_interaction',
+      interaction_type: type || 'unknown',
+      down_pct: downPct,
+      term_months: selectedTerm,
+      monthly_estimate: monthly,
+      item_name: currentCar.name + ' ' + currentCar.year,
+      item_price: currentCar.price,
+      item_brand: currentCar.brand || ''
+    });
+  }, 600);
 }
 
 // Triple-path resilience (iframe + fetch no-cors keepalive + sendBeacon) + retry queue.
@@ -2548,6 +2964,7 @@ function sendToWebhook(data) {
 
 function resetSubmitState() {
   submitting = false;
+  window._submitCompleted = false;
   const b = document.querySelector('.btn-conversion');
   if (b) { b.disabled = false; b.style.opacity = ''; b.style.cursor = ''; }
 }
@@ -2708,6 +3125,8 @@ function submitForm() {
   document.getElementById('confirmState').classList.add('show');
   setView('confirmacion');
   document.querySelector('.modal-content').scrollTop = 0;
+  // Mark submit completed so closeModal no emite modal_close_before_submit
+  window._submitCompleted = true;
 }
 
 function generateQuotePDF() {
@@ -3041,7 +3460,66 @@ function toggleIngresosFeedback(sel) {
   }
 }
 
+// ── H2: STICKY MOBILE CTA (mobile <=640px) ──
+// Barra fija bottom con "Encuentra tu auto" + WhatsApp. IntersectionObserver en .hero.
+function stickyCtaBrowse() {
+  (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_browse_click' });
+  var grid = document.getElementById('inventoryGrid');
+  if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(function(){
+    var inp = document.getElementById('searchInput');
+    if (inp) { try { inp.focus({ preventScroll: true }); } catch(e) { inp.focus(); } }
+  }, 450);
+}
+
+function stickyCtaWaClick() {
+  (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_wa_click' });
+  try {
+    var phone = (ASESOR_ASIGNADO && ASESOR_ASIGNADO.telefono ? ASESOR_ASIGNADO.telefono : '').replace(/[^0-9]/g, '');
+    var msg = 'Hola, me interesa informacion de Stellantis Plasencia (Jeep / RAM / Dodge / Fiat / Peugeot).';
+    var link = document.getElementById('stickyCtaWa');
+    if (link) link.href = 'https://api.whatsapp.com/send/?phone=' + phone + '&text=' + encodeURIComponent(msg) + '&type=phone_number&app_absent=0';
+  } catch(e) {}
+  return true;
+}
+
+(function initStickyMobileCta(){
+  var bar = document.getElementById('stickyMobileCta');
+  if (!bar) return;
+  var hero = document.querySelector('.hero');
+  if (!hero || !('IntersectionObserver' in window)) return;
+  var _impressionFired = false;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      // Mostrar cuando el hero ya NO esta visible (user scrolleo abajo)
+      if (!entry.isIntersecting) {
+        bar.classList.add('is-visible');
+        document.body.classList.add('has-sticky-cta');
+        if (!_impressionFired) {
+          _impressionFired = true;
+          (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_impression' });
+        }
+      } else {
+        bar.classList.remove('is-visible');
+        document.body.classList.remove('has-sticky-cta');
+      }
+    });
+  }, { root: null, rootMargin: '-80px 0px 0px 0px', threshold: 0 });
+  io.observe(hero);
+})();
+
 </script>
+
+<!-- H2: Sticky Mobile CTA -->
+<div class="sticky-mobile-cta" id="stickyMobileCta" role="region" aria-label="Acciones rápidas">
+  <button type="button" class="sticky-mobile-cta-btn sticky-mobile-cta-btn--primary" id="stickyCtaBrowse" onclick="stickyCtaBrowse()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+    Encuentra tu auto
+  </button>
+  <a class="sticky-mobile-cta-btn sticky-mobile-cta-btn--wa" id="stickyCtaWa" href="#" onclick="stickyCtaWaClick()" target="_blank" rel="noopener" aria-label="WhatsApp asesor">
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.001 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.546.747 4.919 2.033 6.912L3.2 28.8l5.981-1.973A12.74 12.74 0 0016 28.8c7.06 0 12.8-5.74 12.8-12.8S23.061 3.2 16.001 3.2zm0 23.2a10.35 10.35 0 01-5.463-1.56l-.39-.231-4.043 1.333 1.354-3.94-.254-.404A10.35 10.35 0 015.6 16c0-5.735 4.665-10.4 10.4-10.4 5.736 0 10.401 4.665 10.401 10.4 0 5.735-4.665 10.4-10.4 10.4zm5.695-7.789c-.312-.156-1.846-.91-2.132-1.014-.286-.104-.494-.156-.702.156-.208.312-.806 1.014-.988 1.222-.182.208-.364.234-.676.078-.312-.156-1.318-.486-2.511-1.55-.928-.828-1.555-1.85-1.737-2.162-.182-.312-.019-.48.137-.636.14-.14.312-.364.468-.546.156-.182.208-.312.312-.52.104-.208.052-.39-.026-.546-.078-.156-.702-1.693-.962-2.318-.254-.61-.513-.527-.702-.537l-.597-.011a1.145 1.145 0 00-.832.39c-.286.312-1.092 1.066-1.092 2.6s1.118 3.016 1.274 3.224c.156.208 2.202 3.362 5.336 4.716.746.322 1.328.515 1.782.659.749.238 1.43.204 1.969.124.6-.09 1.846-.754 2.107-1.482.26-.728.26-1.352.182-1.482-.078-.13-.286-.208-.598-.364z"/></svg>
+  </a>
+</div>
 
 </body>
 </html>
