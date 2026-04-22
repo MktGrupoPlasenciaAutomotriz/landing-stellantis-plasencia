@@ -216,6 +216,32 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 }
 .hero-vp { font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin:14px 0 18px; max-width:540px; }
 @media (max-width: 768px) { .hero-vp { margin:14px auto 18px; text-align:center; } }
+/* Authority eyebrow + legacy stat strip */
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: #ECC94B;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, rgba(236,201,75,0.12), rgba(236,201,75,0.04));
+  border: 1px solid rgba(236,201,75,0.28);
+  border-radius: 999px;
+}
+.hero-eyebrow .heb-dot { width:5px; height:5px; border-radius:50%; background:#ECC94B; box-shadow:0 0 8px #ECC94B; }
+@media (max-width: 768px) { .hero-eyebrow { margin-left:auto; margin-right:auto; } }
+.hero-legacy-strip {
+  display:flex; flex-wrap:wrap; gap:6px 18px; align-items:baseline;
+  margin:10px 0 6px; max-width:640px;
+  font-family: 'Inter', sans-serif;
+  font-size:13px; color:rgba(255,255,255,0.72);
+}
+.hero-legacy-strip b {
+  font-family:'Montserrat', sans-serif;
+  font-weight:800; font-size:18px; color:#ECC94B; margin-right:4px;
+}
+.hero-legacy-strip .leg-sep { color:rgba(255,255,255,0.22); }
+@media (max-width: 768px) { .hero-legacy-strip { justify-content:center; margin-left:auto; margin-right:auto; } }
 .hero-sub {
   font-size:clamp(15px, 1.6vw, 18px); color:rgba(255,255,255,0.7);
   line-height:1.6; max-width:640px; margin:0 auto 36px;
@@ -1112,10 +1138,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-grid"></div>
   <div class="container">
     <div class="hero-content">
+      <div class="hero-eyebrow"><span class="heb-dot"></span>DESDE 1951 · GRUPO PLASENCIA AUTOMOTRIZ</div>
       <div class="hero-pill"><span class="hero-pill-dot"></span> Vigencia del 1 al 30 de abril de 2026</div>
       <div class="hero-vp">75 años acercándote al auto de tus sueños</div>
       <h1>RAM, Peugeot, Jeep, Dodge y Fiat con <span class="accent">bonos de hasta $250,000</span></h1>
       <p class="hero-sub">5 marcas, 148 versiones. Bonos contado y financiamiento, tasas preferenciales, 24/36 MSI en Jeep y mantenimientos gratis en Peugeot. Financiamiento con STM Financial (Inbursa).</p>
+      <div class="hero-legacy-strip">
+        <span><b>75</b>años en Jalisco</span><span class="leg-sep">·</span>
+        <span><b>3</b>generaciones</span><span class="leg-sep">·</span>
+        <span><b>41</b>agencias del grupo</span>
+      </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Marcas</div></div>
         <div class="hero-stat"><div class="hero-stat-num">Desde $338,400</div><div class="hero-stat-label">Precio</div></div>
@@ -1162,7 +1194,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="trust-bar">
   <div class="container">
-    <div class="trust-item"><strong><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg> 75 años de experiencia Plasencia</strong></div>
+    <div class="trust-item"><strong><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-7h6v7"/></svg> 75 años en Jalisco · Desde 1951</strong></div>
     <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> Garantía de fábrica</div>
     <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Vehículos comerciales</div>
     <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Esquemas PFAE / PM</div>
@@ -1360,7 +1392,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span style="width:1px;height:24px;background:rgba(255,255,255,0.18);"></span>
       <img src="https://spdfc.s3.us-west-2.amazonaws.com/distribuidores/Ram_Peugeot_Professional_Plasencia/img/logo.svg" alt="Stellantis Plasencia" style="height:30px;opacity:0.95;mix-blend-mode:screen;">
     </div>
-    <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat<br>Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jalisco<br>Lun a Vie 9:00 a 20:00 &middot; Sáb 9:00 a 18:00 &middot; Dom 11:00 a 17:00 &middot; Tel. (33) 3344 4455<br><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#00358F);text-decoration:underline;font-weight:600;font-size:13px;">📍 Ver ubicación en mapa</a></p>
+    <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat &middot; Parte de Grupo Plasencia Automotriz desde 1951<br>Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jalisco<br>Lun a Vie 9:00 a 20:00 &middot; Sáb 9:00 a 18:00 &middot; Dom 11:00 a 17:00 &middot; Tel. (33) 3344 4455<br><span style="opacity:0.75;">75 años acercándote al auto de tus sueños &middot; 8 marcas &middot; 41 agencias en Jalisco &middot; 3 generaciones de compromiso</span><br><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#00358F);text-decoration:underline;font-weight:600;font-size:13px;">📍 Ver ubicación en mapa</a></p>
     <p style="margin-top:10px;font-size:10px;line-height:1.5;opacity:0.65;">Financiamiento con STM Financial, S.A. de C.V. SOFOM E.R. (Grupo Financiero Inbursa). CAT promedio 20.5% sin IVA, ponderado calculado al 23 de marzo de 2026. Promoción válida en México. Crédito sujeto a aprobación. Sin comisión por apertura. Vigencia abril 2026. Consulta términos, condiciones y precios con tu distribuidor autorizado.</p>
     <div style="margin-top:14px;"><a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.5); text-decoration: underline; font-size: 12px;">Aviso de Privacidad</a></div>
     <p style="margin-top:14px;font-size:11px;opacity:0.65;">Vigencia del 1 al 30 de abril de 2026 o hasta agotar existencias. Precios de lista en pesos mexicanos, incluyen IVA y están sujetos a cambios sin previo aviso. Los intereses del financiamiento causan IVA adicional; la mensualidad mostrada es estimada y puede variar al momento de la contratación según tasa autorizada, enganche y esquema elegido. Promociones y bonos aplican únicamente en modelos RAM, Peugeot, Jeep, Dodge y Fiat seleccionados. Imágenes ilustrativas. Consulta modelos participantes, términos y condiciones con tu asesor de ventas. Crédito sujeto a aprobación bancaria.</p>
