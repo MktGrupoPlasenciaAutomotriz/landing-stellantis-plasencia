@@ -1338,7 +1338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="faq-list">
       <details class="faq-item">
         <summary>¿Cómo funcionan los descuentos y bonos?</summary>
-        <div class="faq-a">Los descuentos son contado o aplicables a financiamiento (más altos en financiamiento). Top según Circular VTAS-9620426 abril 2026: Jeep Grand Cherokee PHEV 4xe 2025 $250,000 (el más alto del portafolio); Jeep Grand Cherokee Altitude 2025 $200,000 + 36 MSI; Peugeot Expert FURGON $100,000; Jeep Commander Overland 2025 $82,000; Fiat Fastback Impetus 2025 $72,000; Peugeot 2008 FL Allure Pack 2026 $62,000 + 3 mant; Peugeot 2008 FL GT 2025 $45,000 + 2 mant; RAM 1500 Mild-Hybrid Bighorn $50,000 + 24 MSI; Jeep Compass Altitude 2026 $50,000; Dodge Attitude GT 2026 $47,000; RAM 1200 Tradesman CC $47,000; Peugeot Manager $40,000; Jeep Renegade Latitude $40,000. Modelos sin bono: Peugeot 5008 (3 mant), Jeep Wrangler/Gladiator (24 MSI), Jeep Grand Cherokee 2026 (tasa 13.99%). Los montos incluyen IVA.</div>
+        <div class="faq-a">Los descuentos son contado o aplicables a financiamiento (más altos en financiamiento). Top vigente abril 2026: Jeep Grand Cherokee PHEV 4xe 2025 $250,000 (el más alto del portafolio); Jeep Grand Cherokee Altitude 2025 $200,000 + 36 MSI; Peugeot Expert FURGON $100,000; Jeep Commander Overland 2025 $82,000; Fiat Fastback Impetus 2025 $72,000; Peugeot 2008 FL Allure Pack 2026 $62,000 + 3 mant; Peugeot 2008 FL GT 2025 $45,000 + 2 mant; RAM 1500 Mild-Hybrid Bighorn $50,000 + 24 MSI; Jeep Compass Altitude 2026 $50,000; Dodge Attitude GT 2026 $47,000; RAM 1200 Tradesman CC $47,000; Peugeot Manager $40,000; Jeep Renegade Latitude $40,000. Modelos sin bono: Peugeot 5008 (3 mant), Jeep Wrangler/Gladiator (24 MSI), Jeep Grand Cherokee 2026 (tasa 13.99%). Los montos incluyen IVA.</div>
       </details>
       <details class="faq-item">
         <summary>¿Cómo funciona la tasa desde 7.99% con STM Financial (Inbursa)?</summary>
@@ -1514,7 +1514,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
 
               <div class="calc-offer-banner">
-                <strong>Abril 2026 — Circular VTAS-9620426.</strong> Bonos hasta $250,000 (Grand Cherokee PHEV 4xe), 24/36 MSI en Jeep, mantenimientos gratis en Peugeot y tasas desde 7.99% con STM Financial. Consulta con tu asesor.
+                <strong>Abril 2026.</strong> Bonos hasta $250,000 (Grand Cherokee PHEV 4xe), 24/36 MSI en Jeep, mantenimientos gratis en Peugeot y tasas desde 7.99% con STM Financial. Consulta con tu asesor.
               </div>
             </div>
 
@@ -1827,7 +1827,7 @@ const ASESOR_ASIGNADO = {
 // Tasa de referencia estándar: 9.99% (Peugeot SUVs + Jeep Renegade/Compass 2026,
 // los segmentos de mayor volumen del piloto). Cada SKU puede sobrescribir su tasa
 // específica vía `v.tasa` desde catalogo-stellantis.json (poblada desde Airtable
-// "Inventario Stellantis" → campo TASA_ANUAL extraído de Circular VTAS-*).
+// "Inventario Stellantis" → campo TASA_ANUAL del tabulador interno vigente.
 const TASA_ANUAL = 0.0999;
 
 const BRAND_CONFIG = {
@@ -1896,7 +1896,7 @@ const ITEMS_PER_PAGE = 12;
 let visibleCount = ITEMS_PER_PAGE;
 
 // ── DETALLE DE OFERTA POR MODELO ──
-// Fuente: Circular VTAS-9620426 Plan de Incentivos Stellantis - Abril 2026.
+// Fuente: Plan de Incentivos Stellantis - Abril 2026 (tabulador interno).
 // Vigencia: 3 al 30 de abril de 2026. Financiera: STM Financial (Grupo Financiero Inbursa).
 // CAT promedio 20.5% sin IVA (ponderado 23 marzo 2026).
 function getOfferDetailHTML(v) {
@@ -1922,7 +1922,7 @@ function getOfferDetailHTML(v) {
     // Fiat 2026 MY
     14: 'Descuento contado $20,000. Tasa desde 7.99% con 1.5% comisión por apertura.',                                    // Fastback Impetus 2026
 
-    // ── Modelos faltantes Circular VTAS-9620426 (agregados 20 abril) ──
+    // ── Modelos faltantes tabulador interno (agregados 20 abril) ──
     15: 'Descuento contado $42,000 + 3 años mantenimiento gratis. Tasa desde 9.99% con 1.5% CxA. Bono financiamiento total $62,000. BonoFlex disponible.',  // Peugeot 2008 ALLURE PACK 2026
     16: 'Sin descuento contado. 3 años mantenimiento gratis. Tasa desde 9.99% con 1.5% CxA. Único Peugeot SUV de 7 pasajeros del piloto.',  // Peugeot 5008 GT 2026
     17: 'Descuento contado $90,000 (75K + 25K participación distribuidor). Tasa desde 11.99% con 1.5% CxA. Bono financiamiento total $100,000. Van comercial grande Peugeot.',  // Peugeot Expert FURGON 2026
@@ -2134,7 +2134,7 @@ function updateCalc() {
   const subEl = document.querySelector('.calc-result-sub');
   if (subEl) {
     const cxaTxt = cxaUsada > 0 ? ` con ${(cxaUsada*100).toFixed(2).replace('.00','')}% CxA` : ' SC (sin comisión por apertura)';
-    subEl.innerHTML = `Tasa anual <strong>${(tasaUsada*100).toFixed(2).replace('.00','')}%</strong>${cxaTxt} para este modelo (Circular VTAS-9620426). Tasas en otros modelos: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).`;
+    subEl.innerHTML = `Tasa anual <strong>${(tasaUsada*100).toFixed(2).replace('.00','')}%</strong>${cxaTxt} para este modelo. Tasas en otros modelos: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).`;
   }
   // H1: si el resumen sticky esta visible, refrescarlo con nuevo pct/plazo
   try {
