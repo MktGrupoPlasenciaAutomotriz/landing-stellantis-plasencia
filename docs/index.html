@@ -3507,26 +3507,25 @@ function stickyCtaBrowse() {
 (function initStickyMobileCta(){
   var bar = document.getElementById('stickyMobileCta');
   if (!bar) return;
-  var hero = document.querySelector('.hero');
-  if (!hero || !('IntersectionObserver' in window)) return;
+  // Siempre visible en mobile; solo se oculta cuando el modal bloquea el body (body[style*="position: fixed"])
+  var mq = window.matchMedia('(max-width: 640px)');
   var _impressionFired = false;
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      // Mostrar cuando el hero ya NO esta visible (user scrolleo abajo)
-      if (!entry.isIntersecting) {
-        bar.classList.add('is-visible');
-        document.body.classList.add('has-sticky-cta');
-        if (!_impressionFired) {
-          _impressionFired = true;
-          (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_impression' });
-        }
-      } else {
-        bar.classList.remove('is-visible');
-        document.body.classList.remove('has-sticky-cta');
+  function apply() {
+    if (mq.matches) {
+      bar.classList.add('is-visible');
+      document.body.classList.add('has-sticky-cta');
+      if (!_impressionFired) {
+        _impressionFired = true;
+        try { (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_impression' }); } catch(e) {}
       }
-    });
-  }, { root: null, rootMargin: '-80px 0px 0px 0px', threshold: 0 });
-  io.observe(hero);
+    } else {
+      bar.classList.remove('is-visible');
+      document.body.classList.remove('has-sticky-cta');
+    }
+  }
+  apply();
+  if (mq.addEventListener) mq.addEventListener('change', apply);
+  else if (mq.addListener) mq.addListener(apply);
 })();
 
 </script>
