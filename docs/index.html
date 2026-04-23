@@ -2898,11 +2898,36 @@ function pushCalcInteraction(type) {
   }, 600);
 }
 
-// Single-path resilience: fetch keepalive (primario) + sendBeacon (fallback) + retry queue.
+// Single-path resilience + dedup por FOLIO en cliente.
 // Historia: el patron triple-path (iframe + fetch + beacon en paralelo) creaba 3 rows
 // duplicados en Airtable porque los 3 llegaban a Zapier. Fix 22 abr 2026:
 // serializar — SOLO un path por submit, fallback solo si el primario falla
 // sincronicamente. keepalive sobrevive unload/navigation; si no soportado, beacon.
+// Dedup: la capa de desarrollo (este cliente) es la fuente de verdad — antes de
+// despachar, se consulta set in-memory + localStorage (TTL 24h). Si el FOLIO ya
+// fue enviado exitosamente, se hace skip. Esto cubre doble-click, refresh con
+// form ya enviado, retry queue con folios ya entregados, y cualquier race.
+var _sentFolios = new Set();
+var FOLIO_TTL_MS = 24 * 60 * 60 * 1000;
+(function loadSentFoliosFromStorage(){
+  try {
+    var arr = JSON.parse(localStorage.getItem('gp_sent_folios') || '[]');
+    var cutoff = Date.now() - FOLIO_TTL_MS;
+    arr.forEach(function(e){ if (e && e.folio && e.ts > cutoff) _sentFolios.add(e.folio); });
+  } catch(e) {}
+})();
+function markFolioSent(folio) {
+  if (!folio) return;
+  _sentFolios.add(folio);
+  try {
+    var arr = JSON.parse(localStorage.getItem('gp_sent_folios') || '[]');
+    var cutoff = Date.now() - FOLIO_TTL_MS;
+    arr = arr.filter(function(e){ return e && e.ts > cutoff; });
+    arr.push({ folio: folio, ts: Date.now() });
+    localStorage.setItem('gp_sent_folios', JSON.stringify(arr.slice(-100)));
+  } catch(e) {}
+}
+
 function normalizePayload(data) {
   const out = {};
   Object.entries(data || {}).forEach(([k, v]) => { out[k] = v == null ? '' : String(v); });
@@ -2911,6 +2936,11 @@ function normalizePayload(data) {
 
 function sendToWebhook(data) {
   if (!WEBHOOK_URL) return;
+  var folio = data && data.folio ? String(data.folio) : '';
+  if (folio && _sentFolios.has(folio)) {
+    console.warn('[lead] dedup skip (folio ya enviado)', folio);
+    return;
+  }
   const payload = normalizePayload(data);
   const body = new URLSearchParams(payload).toString();
   var sent = false;
@@ -2940,21 +2970,23 @@ function sendToWebhook(data) {
     } catch(e) { console.error('[lead] beacon fail', e); }
   }
 
-  console.log('[lead] submit', data.folio, { sent: sent });
+  console.log('[lead] submit', folio, { sent: sent });
 
-  // Si todo fallo sincronicamente, encolar para retry en proxima visita
-  if (!sent) {
+  if (sent) {
+    markFolioSent(folio);
+  } else {
+    // Fallo sincronicamente, encolar para retry en proxima visita
     try {
       const queue = JSON.parse(localStorage.getItem('gp_pending_leads') || '[]');
-      queue.push({ url: WEBHOOK_URL, data: payload, ts: Date.now(), folio: data.folio || '' });
+      queue.push({ url: WEBHOOK_URL, data: payload, ts: Date.now(), folio: folio });
       localStorage.setItem('gp_pending_leads', JSON.stringify(queue.slice(-20)));
-      console.warn('[lead] queued for retry', data.folio);
+      console.warn('[lead] queued for retry', folio);
     } catch(e) { console.error('[lead] queue fail', e); }
   }
 }
 
 // Al cargar la pagina, reintenta leads encolados (max 7 dias de antiguedad)
-// Importante: SOLO un path (fetch) — si mandamos fetch + beacon se duplicaria el retry.
+// Importante: SOLO un path (fetch) + dedup por folio — no reintentar algo ya entregado.
 (function retryPendingLeads(){
   try {
     const queue = JSON.parse(localStorage.getItem('gp_pending_leads') || '[]');
@@ -2964,6 +2996,11 @@ function sendToWebhook(data) {
     queue.forEach(function(item){
       if (!item || !item.url || !item.data) return;
       if (Date.now() - (item.ts || 0) > MAX_AGE) return;
+      var folio = item.folio || '';
+      if (folio && _sentFolios.has(folio)) {
+        console.log('[lead] retry dedup skip', folio);
+        return;
+      }
       try {
         fetch(item.url, {
           method: 'POST',
@@ -2972,7 +3009,8 @@ function sendToWebhook(data) {
           body: new URLSearchParams(item.data).toString(),
           keepalive: true
         });
-        console.log('[lead] retry sent', item.folio);
+        markFolioSent(folio);
+        console.log('[lead] retry sent', folio);
       } catch(e) { kept.push(item); }
     });
     localStorage.setItem('gp_pending_leads', JSON.stringify(kept));
