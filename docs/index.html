@@ -1146,7 +1146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-legacy-strip">
         <span><b>+75</b>años de experiencia</span><span class="leg-sep">·</span>
         <span><b>+15</b>marcas representadas</span><span class="leg-sep">·</span>
-        <span><b>+40</b>agencias del grupo</span>
+        <span><b>+35</b>agencias del grupo</span>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Marcas</div></div>
@@ -1392,7 +1392,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span style="width:1px;height:24px;background:rgba(255,255,255,0.18);"></span>
       <img src="https://spdfc.s3.us-west-2.amazonaws.com/distribuidores/Ram_Peugeot_Professional_Plasencia/img/logo.svg" alt="Stellantis Plasencia" style="height:30px;opacity:0.95;mix-blend-mode:screen;">
     </div>
-    <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat &middot; Parte de Grupo Plasencia Automotriz desde 1947<br>Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jalisco<br>Lun a Vie 9:00 a 20:00 &middot; Sáb 9:00 a 18:00 &middot; Dom 11:00 a 17:00 &middot; Tel. (33) 3344 4455<br><span style="opacity:0.75;">+75 años acercándote al auto de tus sueños &middot; +15 marcas &middot; +40 agencias &middot; Centro y Pacifico de México</span><br><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#00358F);text-decoration:underline;font-weight:600;font-size:13px;">📍 Ver ubicación en mapa</a></p>
+    <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat &middot; Parte de Grupo Plasencia Automotriz desde 1947<br>Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jalisco<br>Lun a Vie 9:00 a 20:00 &middot; Sáb 9:00 a 18:00 &middot; Dom 11:00 a 17:00 &middot; Tel. (33) 3344 4455<br><span style="opacity:0.75;">+75 años acercándote al auto de tus sueños &middot; +15 marcas &middot; +35 agencias &middot; Centro y Pacifico de México</span><br><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#00358F);text-decoration:underline;font-weight:600;font-size:13px;">📍 Ver ubicación en mapa</a></p>
     <p style="margin-top:10px;font-size:10px;line-height:1.5;opacity:0.65;">Financiamiento con STM Financial, S.A. de C.V. SOFOM E.R. (Grupo Financiero Inbursa). CAT promedio 20.5% sin IVA, ponderado calculado al 23 de marzo de 2026. Promoción válida en México. Crédito sujeto a aprobación. Sin comisión por apertura. Vigencia abril 2026. Consulta términos, condiciones y precios con tu distribuidor autorizado.</p>
     <div style="margin-top:14px;"><a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.5); text-decoration: underline; font-size: 12px;">Aviso de Privacidad</a></div>
     <p style="margin-top:14px;font-size:11px;opacity:0.65;">Vigencia del 1 al 30 de abril de 2026 o hasta agotar existencias. Precios de lista en pesos mexicanos, incluyen IVA y están sujetos a cambios sin previo aviso. Los intereses del financiamiento causan IVA adicional; la mensualidad mostrada es estimada y puede variar al momento de la contratación según tasa autorizada, enganche y esquema elegido. Promociones y bonos aplican únicamente en modelos RAM, Peugeot, Jeep, Dodge y Fiat seleccionados. Imágenes ilustrativas. Consulta modelos participantes, términos y condiciones con tu asesor de ventas. Crédito sujeto a aprobación bancaria.</p>
@@ -1849,7 +1849,7 @@ let submitting = false;
 // ── CAPTURE URL PARAMS (fbclid, gclid, gbraid, wbraid, UTMs) + Meta cookies ──
 (function() {
   var params = new URLSearchParams(window.location.search);
-  ['fbclid','gclid','gbraid','wbraid','utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
+  ['fbclid','gclid','gbraid','wbraid','meta_ad_id','meta_placement','utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
     var v = params.get(k);
     if (v) sessionStorage.setItem(k, v);
   });
@@ -3132,6 +3132,8 @@ function submitForm() {
     gclid: sessionStorage.getItem('gclid') || '',
     gbraid: sessionStorage.getItem('gbraid') || '',
     wbraid: sessionStorage.getItem('wbraid') || '',
+    meta_ad_id: sessionStorage.getItem('meta_ad_id') || '',
+    meta_placement: sessionStorage.getItem('meta_placement') || '',
     utm_source: sessionStorage.getItem('utm_source') || '',
     utm_medium: sessionStorage.getItem('utm_medium') || '',
     utm_campaign: sessionStorage.getItem('utm_campaign') || '',
@@ -3146,8 +3148,55 @@ function submitForm() {
   };
 
   lastAppointment = { ...payload, vehiculoObj: currentCar, dateLabel: '', timeLabel };
+
+  const _dlDownPct   = (typeof downPctVal !== 'undefined' ? downPctVal : (typeof downPct !== 'undefined' ? downPct : 0));
+  const _dlMonthly   = (typeof monthlyVal !== 'undefined' ? monthlyVal : (typeof monthly !== 'undefined' ? monthly : 0));
+  const _dlSede      = (document.getElementById('fSucursal')?.value) || (currentCar.loc || '') || '';
+  const _dlTipo      = document.getElementById('fTipoPersona')?.value || '';
+  const _dlBuscaFin  = document.getElementById('fBuscaFinanciamiento')?.value || '';
+  const _dlCompIng   = document.getElementById('fCompruebaIngresos')?.value || '';
+  const _dlTradeIn   = (document.getElementById('fTradeIn')?.value === 'si');
+  const _dlCashOnly  = (_dlBuscaFin === 'NO (CONTADO)');
+  const _dlPromoLabel = currentCar.badge || '';
+  const _dlPromoValue = (function(){
+    if (typeof currentCar.descFinanc === 'number' && currentCar.descFinanc > 0) return currentCar.descFinanc;
+    const m = _dlPromoLabel.match(/\$\s*([\d,]+)/);
+    return m ? parseInt(m[1].replace(/,/g,''), 10) : 0;
+  })();
+  const _dlPromoType = (typeof currentCar.descFinanc !== 'undefined')
+    ? (currentCar.msi > 0 ? 'bono_msi' : (currentCar.mantAnios > 0 ? 'bono_mantenimiento' : 'bono_nuevo'))
+    : ((currentCar.km || 0) > 0 ? 'bono_seminuevo' : 'bono_nuevo');
+
   sendToWebhook(payload);
-  dataLayer.push({ event: 'generate_lead', folio: folio, item_name: currentCar.name + ' ' + currentCar.year, item_price: currentCar.price, lead_value: currentCar.price });
+  dataLayer.push({
+    event: 'generate_lead',
+    folio: folio,
+    item_name: currentCar.name + ' ' + currentCar.year,
+    item_price: currentCar.price,
+    lead_value: currentCar.price,
+    vehicle_brand: currentCar.brand || '',
+    vehicle_year: currentCar.year,
+    vehicle_version: currentCar.version || '',
+    cash_only: _dlCashOnly,
+    down_pct: _dlDownPct,
+    term_months: selectedTerm,
+    monthly_payment: _dlMonthly,
+    sede: _dlSede,
+    tipo_persona: _dlTipo,
+    busca_financiamiento: _dlBuscaFin,
+    comprueba_ingresos: _dlCompIng,
+    auto_a_cuenta: _dlTradeIn,
+    appointment_date: (document.getElementById('hFechaCita')?.value) || (document.getElementById('fDate')?.value) || '',
+    appointment_time: (document.getElementById('hHoraCita')?.value) || (document.getElementById('fTime')?.value) || '',
+    accept_marketing: document.getElementById('fMarketing').checked,
+    promo_id: (currentCar.id || '').toString(),
+    promo_label: _dlPromoLabel,
+    promo_value: _dlPromoValue,
+    promo_type: _dlPromoType,
+    fbclid: sessionStorage.getItem('fbclid') || '',
+    meta_ad_id: sessionStorage.getItem('meta_ad_id') || '',
+    meta_placement: sessionStorage.getItem('meta_placement') || ''
+  });
 
   let dateLabel = dateVal;
   if (dateVal) {
