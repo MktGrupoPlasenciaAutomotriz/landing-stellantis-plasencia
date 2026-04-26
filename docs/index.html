@@ -3045,6 +3045,14 @@ function scrollToFirstError() {
 
 function submitForm() {
   if (submitting) return;
+  // Guard: si currentCar se perdió (cierre de modal accidental, navegación SPA, etc.) no crashear silencioso
+  if (!currentCar) {
+    try { dataLayer.push({ event: 'form_submit_no_vehicle', error: 'currentCar_null' }); } catch (e) {}
+    var ge = document.getElementById('formGlobalError');
+    if (ge) { ge.textContent = 'Se perdió el auto seleccionado. Cierra esta ventana y vuelve a tocar "Agendar cita".'; ge.classList.add('show'); }
+    if (typeof closeModal === 'function') setTimeout(closeModal, 2500);
+    return;
+  }
   clearValidation(); // limpia errores stale de intentos previos
   const nombre = document.getElementById('fName').value.trim().toUpperCase();
   const ap1 = document.getElementById('fLastName1').value.trim().toUpperCase();
