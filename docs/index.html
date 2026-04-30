@@ -2191,6 +2191,14 @@ function getCalMaxDate() {
   return max;
 }
 
+// Dias inhabiles (mismo trato que domingo: deshabilitado en calendario, no clickeable).
+// Formato YYYY-MM-DD. Agregar aqui festivos oficiales conforme se confirmen.
+const BLOCKED_DATES = ['2026-05-01'];
+function isBlockedDate(d) {
+  const iso = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  return BLOCKED_DATES.indexOf(iso) !== -1;
+}
+
 function isValidAppointmentDate(dateStr) {
   if (!dateStr) return false;
   const parts = dateStr.split('-').map(Number);
@@ -2199,6 +2207,7 @@ function isValidAppointmentDate(dateStr) {
   const max = getCalMaxDate();
   if (date < min || date > max) return false;
   if (date.getDay() === 0) return false;
+  if (isBlockedDate(date)) return false; // dia inhabil
   return true;
 }
 
@@ -2249,7 +2258,8 @@ function renderCalendar() {
     const dateCheck = new Date(calViewYear, calViewMonth, d); dateCheck.setHours(0,0,0,0);
     const beforeMin = dateCheck < min;
     const afterMax = dateCheck > max;
-    const disabled = isSunday || beforeMin || afterMax;
+    const isBlocked = isBlockedDate(dateCheck);
+    const disabled = isSunday || beforeMin || afterMax || isBlocked;
     const isToday = dateCheck.getTime() === today.getTime();
     const isSelected = calSelectedDate === dateKey;
     let cls = 'cal-cell';
