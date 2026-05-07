@@ -1228,6 +1228,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span>Sedán</span>
       </button>
     </div>
+    <!-- Filtro de sucursal: Mariano Otero (RAM, Peugeot Pro) vs Santa Anita (Jeep, Dodge, Fiat, Peugeot pasajeros) -->
+    <div class="loc-chips" role="group" aria-label="Filtrar por sucursal" style="display:flex;gap:8px;flex-wrap:wrap;padding:0 0 12px;align-items:center;">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--ink-500,#64748B);margin-right:2px;">Sucursal:</span>
+      <button type="button" class="loc-chip type-chip active" data-loc="all" onclick="filterByLocChip('all')" aria-pressed="true" style="padding:7px 14px;font-size:12px;">
+        <span>Ambas sedes</span>
+      </button>
+      <button type="button" class="loc-chip type-chip" data-loc="mariano_otero" onclick="filterByLocChip('mariano_otero')" aria-pressed="false" title="Av. Mariano Otero 405-A, Guadalajara · RAM y Peugeot Professional" style="padding:7px 14px;font-size:12px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Mariano Otero</span>
+      </button>
+      <button type="button" class="loc-chip type-chip" data-loc="santa_anita" onclick="filterByLocChip('santa_anita')" aria-pressed="false" title="Av. López Mateos Sur 3505, Tlajomulco · Jeep, Dodge, Fiat y Peugeot" style="padding:7px 14px;font-size:12px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Santa Anita</span>
+      </button>
+    </div>
     <div class="filter-bar">
       <div class="filter-bar-inner">
         <div class="filter-search">
@@ -1933,7 +1948,19 @@ let selectedTerm = 36;
 let currentFilter = 'all';
 let currentBrandFilter = 'all';
 let currentPriceFilter = 'all';
+let currentLocFilter = 'all'; // 'all' | 'mariano_otero' | 'santa_anita'
 let searchQuery = '';
+
+// Match de un vehiculo contra el filtro de sucursal usando v.locs (array) + fallback a v.loc
+function vehicleMatchesLoc(v, locKey) {
+  if (locKey === 'all') return true;
+  var needle = (locKey === 'mariano_otero') ? 'mariano otero' : 'santa anita';
+  var locs = Array.isArray(v.locs) ? v.locs : [];
+  if (locs.length) {
+    return locs.some(function(l) { return String(l && l.nombre || '').toLowerCase().includes(needle); });
+  }
+  return String(v.loc || '').toLowerCase().includes(needle);
+}
 const ITEMS_PER_PAGE = 12;
 let visibleCount = ITEMS_PER_PAGE;
 
@@ -1945,6 +1972,12 @@ function filterByTypeChip(val) {
 }
 function filterByBrandSelect(val) { currentBrandFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_brand', filter_value: val }); }
 function filterByPriceSelect(val) { currentPriceFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_price', filter_value: val }); }
+function filterByLocChip(val) {
+  currentLocFilter = val; visibleCount = ITEMS_PER_PAGE;
+  document.querySelectorAll('.loc-chip').forEach(function(c){ var on = c.dataset.loc === val; c.classList.toggle('active', on); c.setAttribute('aria-pressed', on?'true':'false'); });
+  updateFilters();
+  if (val !== 'all') dataLayer.push({ event: 'filter_loc', filter_value: val });
+}
 function onSearch(val) {
   searchQuery = val.trim(); visibleCount = ITEMS_PER_PAGE; renderCards(currentFilter); updateFilterUI();
   clearTimeout(searchDebounce);
@@ -1957,12 +1990,13 @@ function onSearch(val) {
 function loadMore() { visibleCount += ITEMS_PER_PAGE; renderCards(currentFilter); }
 
 function clearAllFilters() {
-  currentFilter = 'all'; currentBrandFilter = 'all'; currentPriceFilter = 'all'; searchQuery = '';
+  currentFilter = 'all'; currentBrandFilter = 'all'; currentPriceFilter = 'all'; currentLocFilter = 'all'; searchQuery = '';
   visibleCount = ITEMS_PER_PAGE;
   document.getElementById('filterType').value = 'all';
   document.getElementById('filterBrand').value = 'all';
   document.getElementById('filterPrice').value = 'all';
   document.getElementById('searchInput').value = '';
+  document.querySelectorAll('.loc-chip').forEach(function(c){ var on = c.dataset.loc === 'all'; c.classList.toggle('active', on); c.setAttribute('aria-pressed', on?'true':'false'); });
   updateFilters();
   dataLayer.push({ event: 'filter_clear' });
 }
@@ -2001,6 +2035,11 @@ function renderCards(filter) {
   // Brand filter
   if (currentBrandFilter !== 'all') {
     filtered = filtered.filter(v => v.cat === currentBrandFilter);
+  }
+
+  // Sucursal filter (Mariano Otero / Santa Anita / all)
+  if (currentLocFilter !== 'all') {
+    filtered = filtered.filter(v => vehicleMatchesLoc(v, currentLocFilter));
   }
 
   // Price filter
@@ -2053,17 +2092,27 @@ function renderCards(filter) {
 }
 
 // Card template unificado
+// Abrevia el nombre de sucursal para los badges (cabe en card chica)
+function formatSucursalShort(loc, locs) {
+  if (Array.isArray(locs) && locs.length > 1) return '📍 Ambas sedes';
+  var raw = (locs && locs.length === 1 ? locs[0].nombre : loc) || '';
+  raw = String(raw).replace(/^Stellantis\s+/i, '').trim();
+  return raw ? '📍 ' + raw : '';
+}
+
 function buildVCardHTML(v) {
   const monthly = calcMonthly(v.price, 20, 36, v.tasa);
   const badgeClass = v.cat;
   const typeLabels = {pickup:'Pickup',van:'Van',suv:'SUV',sedan:'Sedan'};
   const displayName = v.name.startsWith(v.brand) ? v.name : v.name;
+  const sucursalLabel = formatSucursalShort(v.loc, v.locs);
   return `
     <div class="v-card" onclick="openModal(${v.id})">
       <div class="v-card-img-wrap">
         ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName + ' ' + v.year + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Imagen próximamente</div></div>'}
         ${v.badge ? '<div class="v-card-badge ' + badgeClass + '">' + v.badge + '</div>' : ''}
         ${v.img ? '<div class="img-ref-chip" style="position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,0.65);color:#fff;font-size:9px;padding:3px 8px;border-radius:4px;font-weight:500;letter-spacing:0.3px;z-index:2;">Imagen referencial</div>' : ''}
+        ${sucursalLabel ? '<div class="v-card-loc-chip" style="position:absolute;bottom:6px;right:6px;background:rgba(15,26,46,0.85);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;font-weight:600;letter-spacing:0.2px;z-index:2;">' + sucursalLabel + '</div>' : ''}
       </div>
       <div class="v-card-body">
         <div class="v-card-brand-row">
