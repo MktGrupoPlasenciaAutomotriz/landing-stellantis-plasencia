@@ -1228,18 +1228,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span>Sedán</span>
       </button>
     </div>
-    <!-- Filtro de sucursal: Mariano Otero (RAM, Peugeot Pro) vs Santa Anita (Jeep, Dodge, Fiat, Peugeot pasajeros) -->
-    <div class="loc-chips" role="group" aria-label="Filtrar por sucursal" style="display:flex;gap:8px;flex-wrap:wrap;padding:0 0 12px;align-items:center;">
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--ink-500,#64748B);margin-right:2px;">Sucursal:</span>
-      <button type="button" class="loc-chip type-chip active" data-loc="all" onclick="filterByLocChip('all')" aria-pressed="true" style="padding:7px 14px;font-size:12px;">
-        <span>Ambas sedes</span>
+    <!-- Filtro de sucursal: scroll horizontal + sin label visible (los iconos hablan solos) -->
+    <div class="loc-chips type-chips" role="group" aria-label="Filtrar por sucursal">
+      <button type="button" class="loc-chip type-chip active" data-loc="all" onclick="filterByLocChip('all')" aria-pressed="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <span>Todas las sedes</span>
       </button>
-      <button type="button" class="loc-chip type-chip" data-loc="mariano_otero" onclick="filterByLocChip('mariano_otero')" aria-pressed="false" title="Av. Mariano Otero 405-A, Guadalajara · RAM y Peugeot Professional" style="padding:7px 14px;font-size:12px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <button type="button" class="loc-chip type-chip" data-loc="mariano_otero" onclick="filterByLocChip('mariano_otero')" aria-pressed="false" title="Av. Mariano Otero 405-A, Guadalajara">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <span>Mariano Otero</span>
       </button>
-      <button type="button" class="loc-chip type-chip" data-loc="santa_anita" onclick="filterByLocChip('santa_anita')" aria-pressed="false" title="Av. López Mateos Sur 3505, Tlajomulco · Jeep, Dodge, Fiat y Peugeot" style="padding:7px 14px;font-size:12px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <button type="button" class="loc-chip type-chip" data-loc="santa_anita" onclick="filterByLocChip('santa_anita')" aria-pressed="false" title="Av. López Mateos Sur 3505, Tlajomulco">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <span>Santa Anita</span>
       </button>
     </div>
@@ -2094,7 +2094,7 @@ function renderCards(filter) {
 // Card template unificado
 // Abrevia el nombre de sucursal para los badges (cabe en card chica)
 function formatSucursalShort(loc, locs) {
-  if (Array.isArray(locs) && locs.length > 1) return '📍 Ambas sedes';
+  if (Array.isArray(locs) && locs.length > 1) return '📍 Varias sedes';
   var raw = (locs && locs.length === 1 ? locs[0].nombre : loc) || '';
   raw = String(raw).replace(/^Stellantis\s+/i, '').trim();
   return raw ? '📍 ' + raw : '';
