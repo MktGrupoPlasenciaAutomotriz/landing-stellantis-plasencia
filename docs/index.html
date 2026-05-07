@@ -282,18 +282,44 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 
 /* ── FILTERS (dropdown bar) ── */
 .filters-section {
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   padding: 18px 0;
   border-bottom: 1px solid var(--ink-200);
+  position: sticky; top: 64px; z-index: 90;
 }
+@media(min-width:768px){ .filters-section { top: 72px; } }
+@media(max-width:600px){ .filters-section { padding: 12px 0; } }
+/* Hint card de sede seleccionada: feedback inmediato con direccion + horario + Ver mapa */
+.loc-info-card { display:flex; gap:10px; align-items:flex-start; padding:10px 12px; margin:8px 0 4px; background: linear-gradient(135deg, #F8FAFC 0%, #EFF4FA 100%); border:1px solid var(--ink-200,#E2E8F0); border-left:3px solid var(--brand-accent,#00358F); border-radius:8px; font-size:12px; color:var(--ink-700,#334155); line-height:1.4; }
+.loc-info-card .loc-info-pin { width:18px; height:18px; flex-shrink:0; color:var(--brand-accent,#00358F); margin-top:1px; }
+.loc-info-card .loc-info-body { flex:1; min-width:0; }
+.loc-info-card .loc-info-name { font-weight:800; color:var(--ink-900,#0F172A); font-size:13px; margin-bottom:2px; }
+.loc-info-card .loc-info-addr { color:var(--ink-600,#475569); }
+.loc-info-card .loc-info-hours { color:var(--ink-500,#64748B); font-size:11px; margin-top:2px; }
+.loc-info-card .loc-info-actions { display:inline-flex; gap:10px; margin-top:6px; flex-wrap:wrap; }
+.loc-info-card .loc-info-link { color:var(--brand-accent,#00358F); font-weight:700; font-size:12px; text-decoration:none; cursor:pointer; display:inline-flex; align-items:center; gap:4px; }
+.loc-info-card .loc-info-link:hover { text-decoration:underline; }
+@media(max-width:600px){ .loc-info-card { font-size:11.5px; padding:9px 11px; } .loc-info-card .loc-info-name { font-size:12.5px; } }
+/* Modal de mapa de sede */
+.loc-map-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:1000; align-items:center; justify-content:center; padding:16px; }
+.loc-map-modal.is-open { display:flex; }
+.loc-map-modal-inner { background:#fff; border-radius:14px; max-width:680px; width:100%; max-height:90vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 25px 60px rgba(0,0,0,0.3); }
+.loc-map-modal-head { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--ink-200,#E2E8F0); }
+.loc-map-modal-title { font-family:var(--font-display); font-weight:800; font-size:16px; color:var(--ink-900,#0F172A); }
+.loc-map-modal-close { background:transparent; border:none; cursor:pointer; padding:6px; color:var(--ink-500,#64748B); border-radius:6px; }
+.loc-map-modal-close:hover { background:var(--ink-100,#F1F5F9); color:var(--ink-900,#0F172A); }
+.loc-map-modal-body { padding:0; }
+.loc-map-modal-iframe { width:100%; aspect-ratio:16/10; border:0; display:block; }
+.loc-map-modal-foot { padding:12px 18px; font-size:12px; color:var(--ink-600,#475569); border-top:1px solid var(--ink-200,#E2E8F0); display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
 .filter-bar { padding: 0; }
 .filter-bar-inner { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 
 /* Type icon chips */
 .type-chips { display:flex; gap:8px; overflow-x:auto; padding:8px 0 12px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 .type-chips::-webkit-scrollbar { display:none; }
-.type-chip { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:#fff; border:1.5px solid var(--ink-200); border-radius:999px; font-family:var(--font-body); font-size:13px; font-weight:700; color:var(--ink-700); cursor:pointer; flex-shrink:0; transition:all 0.15s ease; white-space:nowrap; }
+.type-chip { display:inline-flex; align-items:center; gap:8px; padding:11px 16px; min-height:44px; background:#fff; border:1.5px solid var(--ink-200); border-radius:999px; font-family:var(--font-body); font-size:13px; font-weight:700; color:var(--ink-700); cursor:pointer; flex-shrink:0; transition:all 0.15s ease; white-space:nowrap; }
 .type-chip:hover { border-color:var(--brand-accent); color:var(--brand-accent); transform:translateY(-1px); }
 .type-chip.active { background:var(--brand-accent); color:#fff; border-color:var(--brand-accent); box-shadow:0 4px 10px rgba(0,53,143,0.25); }
 .type-chip svg { width:20px; height:20px; flex-shrink:0; }
@@ -1243,6 +1269,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span>Santa Anita</span>
       </button>
     </div>
+    <!-- Hint de sede seleccionada: aparece debajo de los chips solo cuando se selecciona una sede especifica -->
+    <div id="locInfo" class="loc-info-card" style="display:none;" role="region" aria-live="polite"></div>
     <div class="filter-bar">
       <div class="filter-bar-inner">
         <div class="filter-search">
@@ -1951,15 +1979,27 @@ let currentPriceFilter = 'all';
 let currentLocFilter = 'all'; // 'all' | 'mariano_otero' | 'santa_anita'
 let searchQuery = '';
 
-// Match de un vehiculo contra el filtro de sucursal usando v.locs (array) + fallback a v.loc
+// Match de un vehiculo contra el filtro de sucursal.
+// El parser DCA usa nomenclatura interna:
+//   "Stellantis LCV"        = Light Commercial Vehicles (RAM, Peugeot Pro) -> Mariano Otero
+//   "Stellantis Jeep"       = pasajeros (Jeep, Dodge, Fiat, Peugeot pasajeros) -> Santa Anita
+//   "Stellantis Santa Anita"= sucursal Santa Anita (cuando el feed lo nombra explicitamente)
 function vehicleMatchesLoc(v, locKey) {
   if (locKey === 'all') return true;
-  var needle = (locKey === 'mariano_otero') ? 'mariano otero' : 'santa anita';
+  var needles = (locKey === 'mariano_otero')
+    ? ['mariano otero', 'lcv']
+    : ['santa anita', 'jeep'];
   var locs = Array.isArray(v.locs) ? v.locs : [];
-  if (locs.length) {
-    return locs.some(function(l) { return String(l && l.nombre || '').toLowerCase().includes(needle); });
-  }
-  return String(v.loc || '').toLowerCase().includes(needle);
+  var sources = locs.length ? locs.map(function(l){return String(l && l.nombre || '').toLowerCase();}) : [String(v.loc || '').toLowerCase()];
+  return sources.some(function(src){ return needles.some(function(n){ return src.includes(n); }); });
+}
+
+// Helper para abreviar sucursal en badge (resuelve el alias LCV/Jeep -> nombres legibles)
+function sucursalLabelFromLoc(name) {
+  var n = String(name || '').toLowerCase();
+  if (n.includes('mariano otero') || n.includes('lcv')) return 'Mariano Otero';
+  if (n.includes('santa anita') || n.includes('jeep')) return 'Santa Anita';
+  return String(name || '').replace(/^Stellantis\s+/i, '').trim();
 }
 const ITEMS_PER_PAGE = 12;
 let visibleCount = ITEMS_PER_PAGE;
@@ -1972,9 +2012,67 @@ function filterByTypeChip(val) {
 }
 function filterByBrandSelect(val) { currentBrandFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_brand', filter_value: val }); }
 function filterByPriceSelect(val) { currentPriceFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_price', filter_value: val }); }
+// Datos de sucursales Stellantis Plasencia. Fuente: stellantisplasencia.com (Mariano Otero)
+// y stellantissantaanita.com (Santa Anita).
+var SEDE_INFO = {
+  'mariano_otero': {
+    nombre: 'Stellantis Plasencia · Mariano Otero',
+    direccion: 'Av. Mariano Otero 405-A, Guadalajara, Jal.',
+    horario: 'Lun a Vie 9:00-19:00 · Sáb 9:00-15:00',
+    foco: 'RAM y Peugeot Professional (vehículos comerciales)',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Stellantis+Plasencia+Mariano+Otero+405A+Guadalajara',
+    embedUrl: 'https://www.google.com/maps?q=Stellantis+Plasencia+Mariano+Otero+405A+Guadalajara&output=embed'
+  },
+  'santa_anita': {
+    nombre: 'Stellantis Plasencia · Santa Anita',
+    direccion: 'Av. López Mateos Sur 3505, Tlajomulco de Zúñiga, Jal.',
+    horario: 'Lun a Vie 9:00-19:00 · Sáb 9:00-15:00',
+    foco: 'Jeep, Dodge, Fiat y Peugeot pasajeros',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Stellantis+Santa+Anita+Lopez+Mateos+3505+Tlajomulco',
+    embedUrl: 'https://www.google.com/maps?q=Stellantis+Santa+Anita+Lopez+Mateos+3505+Tlajomulco&output=embed'
+  }
+};
+
+function renderLocInfo(val) {
+  var el = document.getElementById('locInfo');
+  if (!el) return;
+  if (val === 'all' || !SEDE_INFO[val]) { el.style.display = 'none'; el.innerHTML = ''; return; }
+  var s = SEDE_INFO[val];
+  el.innerHTML =
+    '<svg class="loc-info-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>' +
+    '<div class="loc-info-body">' +
+      '<div class="loc-info-name">' + s.nombre + '</div>' +
+      '<div class="loc-info-addr">' + s.direccion + '</div>' +
+      '<div class="loc-info-hours">' + s.horario + (s.foco ? ' · ' + s.foco : '') + '</div>' +
+      '<div class="loc-info-actions">' +
+        '<a class="loc-info-link" href="#" onclick="event.preventDefault();openLocMapModal(\'' + val + '\');">Ver mapa aquí</a>' +
+        '<a class="loc-info-link" href="' + s.mapsUrl + '" target="_blank" rel="noopener">Abrir en Google Maps ↗</a>' +
+      '</div>' +
+    '</div>';
+  el.style.display = 'flex';
+}
+
+function openLocMapModal(val) {
+  var s = SEDE_INFO[val]; if (!s) return;
+  document.getElementById('locMapTitle').textContent = s.nombre;
+  document.getElementById('locMapAddr').textContent = s.direccion;
+  document.getElementById('locMapIframe').src = s.embedUrl;
+  document.getElementById('locMapMaps').href = s.mapsUrl;
+  document.getElementById('locMapModal').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  dataLayer.push({ event: 'open_loc_map', sede: val });
+}
+
+function closeLocMapModal() {
+  document.getElementById('locMapModal').classList.remove('is-open');
+  document.getElementById('locMapIframe').src = '';
+  document.body.style.overflow = '';
+}
+
 function filterByLocChip(val) {
   currentLocFilter = val; visibleCount = ITEMS_PER_PAGE;
   document.querySelectorAll('.loc-chip').forEach(function(c){ var on = c.dataset.loc === val; c.classList.toggle('active', on); c.setAttribute('aria-pressed', on?'true':'false'); });
+  renderLocInfo(val);
   updateFilters();
   if (val !== 'all') dataLayer.push({ event: 'filter_loc', filter_value: val });
 }
@@ -2092,12 +2190,14 @@ function renderCards(filter) {
 }
 
 // Card template unificado
-// Abrevia el nombre de sucursal para los badges (cabe en card chica)
+// Abrevia el nombre de sucursal para los badges (cabe en card chica).
+// Resuelve aliases LCV->Mariano Otero, Jeep->Santa Anita.
 function formatSucursalShort(loc, locs) {
-  if (Array.isArray(locs) && locs.length > 1) return '📍 Varias sedes';
-  var raw = (locs && locs.length === 1 ? locs[0].nombre : loc) || '';
-  raw = String(raw).replace(/^Stellantis\s+/i, '').trim();
-  return raw ? '📍 ' + raw : '';
+  var sources = Array.isArray(locs) && locs.length ? locs.map(function(l){return l && l.nombre;}) : [loc];
+  var labels = Array.from(new Set(sources.map(sucursalLabelFromLoc).filter(Boolean)));
+  if (labels.length === 0) return '';
+  if (labels.length > 1) return '📍 Varias sedes';
+  return '📍 ' + labels[0];
 }
 
 function buildVCardHTML(v) {
@@ -3671,6 +3771,28 @@ function stickyCtaBrowse() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
     Encuentra tu auto
   </button>
+</div>
+
+<!-- Modal de mapa de sede (consistente con HYU y Seminuevos) -->
+<div id="locMapModal" class="loc-map-modal" role="dialog" aria-modal="true" aria-labelledby="locMapTitle" onclick="if(event.target===this)closeLocMapModal()">
+  <div class="loc-map-modal-inner">
+    <div class="loc-map-modal-head">
+      <div>
+        <div class="loc-map-modal-title" id="locMapTitle">—</div>
+        <div id="locMapAddr" style="font-size:12px;color:var(--ink-600,#475569);margin-top:2px;">—</div>
+      </div>
+      <button type="button" class="loc-map-modal-close" onclick="closeLocMapModal()" aria-label="Cerrar mapa">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="loc-map-modal-body">
+      <iframe id="locMapIframe" class="loc-map-modal-iframe" src="" loading="lazy" title="Mapa de la sede" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="loc-map-modal-foot">
+      <span>¿Listo para venir? Agenda tu cita y tu asesor te contacta por WhatsApp.</span>
+      <a id="locMapMaps" href="#" target="_blank" rel="noopener" class="loc-info-link" style="color:var(--brand-accent,#00358F);font-weight:700;">Abrir en Google Maps ↗</a>
+    </div>
+  </div>
 </div>
 
 </body>
