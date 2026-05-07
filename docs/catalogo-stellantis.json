@@ -24,9 +24,9 @@
       "Negro Brillante",
       "Plata Estelar"
     ],
-    "img": "/imagenes/dodge/attitude-dodge-attitude-gt-2026.jpg",
+    "img": "/imagenes/oficial/dodge/ATTI26.png",
     "gallery": [
-      "/imagenes/dodge/attitude-dodge-attitude-gt-2026.jpg"
+      "/imagenes/oficial/dodge/ATTI26.png"
     ],
     "photos": 1,
     "color": "",
@@ -83,9 +83,9 @@
       "Negro Brillante",
       "Plata Estelar"
     ],
-    "img": "/imagenes/dodge/attitude-dodge-attitude-sport-2026.jpg",
+    "img": "/imagenes/oficial/dodge/ATTI26.png",
     "gallery": [
-      "/imagenes/dodge/attitude-dodge-attitude-sport-2026.jpg"
+      "/imagenes/oficial/dodge/ATTI26.png"
     ],
     "photos": 1,
     "color": "",
@@ -140,9 +140,9 @@
       "Granito",
       "Plata Estelar"
     ],
-    "img": "/imagenes/dodge/attitude-dodge-attitude-sxt-15l-t-2026.jpg",
+    "img": "/imagenes/oficial/dodge/ATTI26.png",
     "gallery": [
-      "/imagenes/dodge/attitude-dodge-attitude-sxt-15l-t-2026.jpg"
+      "/imagenes/oficial/dodge/ATTI26.png"
     ],
     "photos": 1,
     "color": "",
@@ -196,9 +196,9 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": "/imagenes/dodge/durango-dodge-durango-rt-aut-2024.jpg",
+    "img": "/imagenes/oficial/dodge/DURA25.png",
     "gallery": [
-      "/imagenes/dodge/durango-dodge-durango-rt-aut-2024.jpg"
+      "/imagenes/oficial/dodge/DURA25.png"
     ],
     "photos": 1,
     "color": "",
@@ -254,9 +254,9 @@
       "Negro Brillante",
       "Plata"
     ],
-    "img": "/imagenes/dodge/journey-dodge-journey-sport-aut-15lturbo-2026.jpg",
+    "img": "/imagenes/oficial/dodge/JOUR26.png",
     "gallery": [
-      "/imagenes/dodge/journey-dodge-journey-sport-aut-15lturbo-2026.jpg"
+      "/imagenes/oficial/dodge/JOUR26.png"
     ],
     "photos": 1,
     "color": "",
@@ -310,9 +310,9 @@
     "colores_disponibles": [
       "Azul Brillante"
     ],
-    "img": "/imagenes/dodge/journey-journey-aut-15-lts-turbo-4-cil-gt-plus-2024.jpg",
+    "img": "/imagenes/oficial/dodge/JOUR26.png",
     "gallery": [
-      "/imagenes/dodge/journey-journey-aut-15-lts-turbo-4-cil-gt-plus-2024.jpg"
+      "/imagenes/oficial/dodge/JOUR26.png"
     ],
     "photos": 1,
     "color": "",
@@ -368,8 +368,10 @@
       "Gris Silverstone",
       "Rojo Monte Carlo"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/fiat/FIFA26.png",
+    "gallery": [
+      "/imagenes/oficial/fiat/FIFA26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -477,9 +479,9 @@
       "Negro Vesubio",
       "Rojo Montecarlo"
     ],
-    "img": "/imagenes/fiat/fiat-pulse-fiat-pulse-automatico-13-lts-t-4-cil-abarth-2026.jpg",
+    "img": "/imagenes/oficial/fiat/FPAB26.png",
     "gallery": [
-      "/imagenes/fiat/fiat-pulse-fiat-pulse-automatico-13-lts-t-4-cil-abarth-2026.jpg"
+      "/imagenes/oficial/fiat/FPAB26.png"
     ],
     "photos": 1,
     "color": "",
@@ -533,9 +535,9 @@
     "colores_disponibles": [
       "Rojo Monte Carlo"
     ],
-    "img": "/imagenes/fiat/fiat-pulse-fiat-pulse-manual-13-lts-4-cil-hatchback-2026.jpg",
+    "img": "/imagenes/oficial/fiat/FPUL26.png",
     "gallery": [
-      "/imagenes/fiat/fiat-pulse-fiat-pulse-manual-13-lts-4-cil-hatchback-2026.jpg"
+      "/imagenes/oficial/fiat/FPUL26.png"
     ],
     "photos": 1,
     "color": "",
@@ -589,9 +591,9 @@
     "colores_disponibles": [
       "Red Hot"
     ],
-    "img": "/imagenes/jeep/jeep-cherokee-cherokee-limited-hev-2026.jpg",
+    "img": "/imagenes/oficial/jeep/CHRO26.png",
     "gallery": [
-      "/imagenes/jeep/jeep-cherokee-cherokee-limited-hev-2026.jpg"
+      "/imagenes/oficial/jeep/CHRO26.png"
     ],
     "photos": 1,
     "color": "",
@@ -645,9 +647,9 @@
     "colores_disponibles": [
       "Negro Carbon"
     ],
-    "img": "/imagenes/jeep/commander-jeep-commander-4x2-ta-13l-turbo-overland-2026.jpg",
+    "img": "/imagenes/oficial/jeep/COMM25.png",
     "gallery": [
-      "/imagenes/jeep/commander-jeep-commander-4x2-ta-13l-turbo-overland-2026.jpg"
+      "/imagenes/oficial/jeep/COMM25.png"
     ],
     "photos": 1,
     "color": "",
@@ -701,8 +703,10 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/jeep/COMP26.png",
+    "gallery": [
+      "/imagenes/oficial/jeep/COMP26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -755,9 +759,9 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": "/imagenes/jeep/jeep-compass-jeep-compass-high-altitude-2026.jpg",
+    "img": "/imagenes/oficial/jeep/COMP26.png",
     "gallery": [
-      "/imagenes/jeep/jeep-compass-jeep-compass-high-altitude-2026.jpg"
+      "/imagenes/oficial/jeep/COMP26.png"
     ],
     "photos": 1,
     "color": "",
@@ -811,9 +815,9 @@
     "colores_disponibles": [
       "Negro Diamante"
     ],
-    "img": "/imagenes/jeep/jeep-grand-cherokee-jeep-grand-cherokee-4x2-aut-36l-6-c-limited-2025.jpg",
+    "img": "/imagenes/oficial/jeep/TCHR25.png",
     "gallery": [
-      "/imagenes/jeep/jeep-grand-cherokee-jeep-grand-cherokee-4x2-aut-36l-6-c-limited-2025.jpg"
+      "/imagenes/oficial/jeep/TCHR25.png"
     ],
     "photos": 1,
     "color": "",
@@ -870,9 +874,9 @@
       "Negro Diamante",
       "Plata Metalico"
     ],
-    "img": "/imagenes/jeep/jeep-grand-cherokee-jeep-grand-cherokee-4x4-aut-36lts-6-cil-summit-2025.jpg",
+    "img": "/imagenes/oficial/jeep/TCHR25.png",
     "gallery": [
-      "/imagenes/jeep/jeep-grand-cherokee-jeep-grand-cherokee-4x4-aut-36lts-6-cil-summit-2025.jpg"
+      "/imagenes/oficial/jeep/TCHR25.png"
     ],
     "photos": 1,
     "color": "",
@@ -926,9 +930,9 @@
     "colores_disponibles": [
       "Plata Metalico"
     ],
-    "img": "/imagenes/jeep/jeep-grand-cherokee-jeep-grand-cherokee-altitude-2025.jpg",
+    "img": "/imagenes/oficial/jeep/TCHR25.png",
     "gallery": [
-      "/imagenes/jeep/jeep-grand-cherokee-jeep-grand-cherokee-altitude-2025.jpg"
+      "/imagenes/oficial/jeep/TCHR25.png"
     ],
     "photos": 1,
     "color": "",
@@ -982,8 +986,10 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/jeep/TCHR25.png",
+    "gallery": [
+      "/imagenes/oficial/jeep/TCHR25.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -1036,8 +1042,10 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/jeep/TCHR25.png",
+    "gallery": [
+      "/imagenes/oficial/jeep/TCHR25.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -1090,9 +1098,9 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": "/imagenes/jeep/jeep-grand-cherokee-jeep-grand-cherokee-phev-2025.jpg",
+    "img": "/imagenes/oficial/jeep/GCXE25.png",
     "gallery": [
-      "/imagenes/jeep/jeep-grand-cherokee-jeep-grand-cherokee-phev-2025.jpg"
+      "/imagenes/oficial/jeep/GCXE25.png"
     ],
     "photos": 1,
     "color": "",
@@ -1147,9 +1155,9 @@
       "Blanco Brillante",
       "Gris Ferroso"
     ],
-    "img": "/imagenes/jeep/jeep-jt-jeep-jt-4x4-36-lts-6-cil-mojave-2026.jpg",
+    "img": "/imagenes/oficial/jeep/GLAD26.png",
     "gallery": [
-      "/imagenes/jeep/jeep-jt-jeep-jt-4x4-36-lts-6-cil-mojave-2026.jpg"
+      "/imagenes/oficial/jeep/GLAD26.png"
     ],
     "photos": 1,
     "color": "",
@@ -1204,9 +1212,9 @@
       "Blanco Brillante",
       "Gris Ferroso"
     ],
-    "img": "/imagenes/jeep/jeep-jt-jeep-jt-4x4-aut-36-lts-6-cil-rubicon-2026.jpg",
+    "img": "/imagenes/oficial/jeep/GLAD26.png",
     "gallery": [
-      "/imagenes/jeep/jeep-jt-jeep-jt-4x4-aut-36-lts-6-cil-rubicon-2026.jpg"
+      "/imagenes/oficial/jeep/GLAD26.png"
     ],
     "photos": 1,
     "color": "",
@@ -1260,9 +1268,9 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": "/imagenes/jeep/jeep-jt-jeep-jt-4x4-aut-36-lts-6-cil-willys-2026.jpg",
+    "img": "/imagenes/oficial/jeep/GLAD26.png",
     "gallery": [
-      "/imagenes/jeep/jeep-jt-jeep-jt-4x4-aut-36-lts-6-cil-willys-2026.jpg"
+      "/imagenes/oficial/jeep/GLAD26.png"
     ],
     "photos": 1,
     "color": "",
@@ -1318,9 +1326,9 @@
       "Granito",
       "Gris Mantarraya"
     ],
-    "img": "/imagenes/jeep/renegade-jeep-renegade-limited-s-2026.jpg",
+    "img": "/imagenes/oficial/jeep/RENE26.png",
     "gallery": [
-      "/imagenes/jeep/renegade-jeep-renegade-limited-s-2026.jpg"
+      "/imagenes/oficial/jeep/RENE26.png"
     ],
     "photos": 1,
     "color": "",
@@ -1374,9 +1382,9 @@
     "colores_disponibles": [
       "Gris Ferroso"
     ],
-    "img": "/imagenes/jeep/jeep-wrangler-jeep-wrangler-unlimited-rubicon-4x4-turbo-2026.jpg",
+    "img": "/imagenes/oficial/jeep/WRMH25.png",
     "gallery": [
-      "/imagenes/jeep/jeep-wrangler-jeep-wrangler-unlimited-rubicon-4x4-turbo-2026.jpg"
+      "/imagenes/oficial/jeep/WRMH25.png"
     ],
     "photos": 1,
     "color": "",
@@ -1431,9 +1439,9 @@
       "Blanco Brillante",
       "Gris Ferroso"
     ],
-    "img": "/imagenes/jeep/jeep-wrangler-jeep-wrangler-unlimited-sahara-20l-turbo-4x4-2026.jpg",
+    "img": "/imagenes/oficial/jeep/WRMH25.png",
     "gallery": [
-      "/imagenes/jeep/jeep-wrangler-jeep-wrangler-unlimited-sahara-20l-turbo-4x4-2026.jpg"
+      "/imagenes/oficial/jeep/WRMH25.png"
     ],
     "photos": 1,
     "color": "",
@@ -1487,8 +1495,10 @@
     "colores_disponibles": [
       "Rojo Dinamita"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/jeep/WRMH25.png",
+    "gallery": [
+      "/imagenes/oficial/jeep/WRMH25.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -1542,9 +1552,9 @@
       "Gris Ferroso",
       "Rojo Dinamita"
     ],
-    "img": "/imagenes/jeep/jeep-wrangler-wrangler-unlimited-willys-20l-turbo-4x4-2026.jpg",
+    "img": "/imagenes/oficial/jeep/WRMH25.png",
     "gallery": [
-      "/imagenes/jeep/jeep-wrangler-wrangler-unlimited-willys-20l-turbo-4x4-2026.jpg"
+      "/imagenes/oficial/jeep/WRMH25.png"
     ],
     "photos": 1,
     "color": "",
@@ -1598,9 +1608,9 @@
     "colores_disponibles": [
       "Blanc Icy"
     ],
-    "img": "/imagenes/peugeot/partner-maxi-e-partner-maxi-pack-5p-electrica-136hp-50kwh-2024.png",
+    "img": "/imagenes/oficial/peugeot-pro/PGPT26N.png",
     "gallery": [
-      "/imagenes/peugeot/partner-maxi-e-partner-maxi-pack-5p-electrica-136hp-50kwh-2024.png"
+      "/imagenes/oficial/peugeot-pro/PGPT26N.png"
     ],
     "photos": 1,
     "color": "",
@@ -1654,8 +1664,10 @@
     "colores_disponibles": [
       "Blanco Icy"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/peugeot-pro/PGRA25.png",
+    "gallery": [
+      "/imagenes/oficial/peugeot-pro/PGRA25.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -1709,8 +1721,10 @@
       "Blanc Icy",
       "Blanco Icy"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/peugeot-pro/PGRA25.png",
+    "gallery": [
+      "/imagenes/oficial/peugeot-pro/PGRA25.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -1766,9 +1780,9 @@
       "Gris Selenium",
       "Rojo Elixir"
     ],
-    "img": "/imagenes/peugeot/2008-nueva-2008-allure-pack-5p-12puretech-130hp-aut-6-vel-2026.jpg",
+    "img": "/imagenes/oficial/peugeot/P20026.png",
     "gallery": [
-      "/imagenes/peugeot/2008-nueva-2008-allure-pack-5p-12puretech-130hp-aut-6-vel-2026.jpg"
+      "/imagenes/oficial/peugeot/P20026.png"
     ],
     "photos": 1,
     "color": "",
@@ -1824,9 +1838,9 @@
       "Gris Selenium",
       "Rojo Elixir"
     ],
-    "img": "/imagenes/peugeot/2008-nueva-2008-gt-5p-12-puretech-130hp-aut-6vel-adas-sc-2026.jpg",
+    "img": "/imagenes/oficial/peugeot/P20026.png",
     "gallery": [
-      "/imagenes/peugeot/2008-nueva-2008-gt-5p-12-puretech-130hp-aut-6vel-adas-sc-2026.jpg"
+      "/imagenes/oficial/peugeot/P20026.png"
     ],
     "photos": 1,
     "color": "",
@@ -1881,9 +1895,9 @@
       "Blanco Okenite",
       "Gris Titane"
     ],
-    "img": "/imagenes/peugeot/3008-nueva-3008-allure-pack-5p-16-thp-165-hp-aut-6-velfl-2026.jpg",
+    "img": "/imagenes/oficial/peugeot/PSVA26.png",
     "gallery": [
-      "/imagenes/peugeot/3008-nueva-3008-allure-pack-5p-16-thp-165-hp-aut-6-velfl-2026.jpg"
+      "/imagenes/oficial/peugeot/PSVA26.png"
     ],
     "photos": 1,
     "color": "",
@@ -1938,9 +1952,9 @@
       "Blanco Okenite",
       "Gris Titane"
     ],
-    "img": "/imagenes/peugeot/3008-nueva-3008-gt-5p-16-thp-180hp-aut-6-v-suv-2026.jpg",
+    "img": "/imagenes/oficial/peugeot/PSVA26.png",
     "gallery": [
-      "/imagenes/peugeot/3008-nueva-3008-gt-5p-16-thp-180hp-aut-6-v-suv-2026.jpg"
+      "/imagenes/oficial/peugeot/PSVA26.png"
     ],
     "photos": 1,
     "color": "",
@@ -1995,9 +2009,9 @@
       "Blanco Okeni",
       "Gris Artense"
     ],
-    "img": "/imagenes/peugeot/5008-nueva-5008-gt-5p-16thp-180hp-aut-6vel-2026.jpg",
+    "img": "/imagenes/oficial/peugeot/PTSV26.png",
     "gallery": [
-      "/imagenes/peugeot/5008-nueva-5008-gt-5p-16thp-180hp-aut-6vel-2026.jpg"
+      "/imagenes/oficial/peugeot/PTSV26.png"
     ],
     "photos": 1,
     "color": "",
@@ -2051,9 +2065,9 @@
     "colores_disponibles": [
       "Blanc Icy"
     ],
-    "img": "/imagenes/peugeot/partner-maxi-nueva-partner-maxi-pack-5p-12puretech-110hp-man-6vel-2024.png",
+    "img": "/imagenes/oficial/peugeot-pro/PGPT26N.png",
     "gallery": [
-      "/imagenes/peugeot/partner-maxi-nueva-partner-maxi-pack-5p-12puretech-110hp-man-6vel-2024.png"
+      "/imagenes/oficial/peugeot-pro/PGPT26N.png"
     ],
     "photos": 1,
     "color": "",
@@ -2107,9 +2121,9 @@
     "colores_disponibles": [
       "Blanco Icy"
     ],
-    "img": "/imagenes/peugeot/partner-maxi-pack-partner-maxi-pack-5p-16-hdi-90hp-man-5vel-fl-2026.png",
+    "img": "/imagenes/oficial/peugeot-pro/PGPT26N.png",
     "gallery": [
-      "/imagenes/peugeot/partner-maxi-pack-partner-maxi-pack-5p-16-hdi-90hp-man-5vel-fl-2026.png"
+      "/imagenes/oficial/peugeot-pro/PGPT26N.png"
     ],
     "photos": 1,
     "color": "",
@@ -2163,8 +2177,10 @@
     "colores_disponibles": [
       "Blanco Banquise"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/peugeot-pro/PARP26.png",
+    "gallery": [
+      "/imagenes/oficial/peugeot-pro/PARP26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -2218,9 +2234,9 @@
       "Blanc Icy",
       "Blanco Icy"
     ],
-    "img": "/imagenes/peugeot/rifter-rifter-allure-pack-5p-12-puretech-130hp-aut-2026.png",
+    "img": "/imagenes/oficial/peugeot/PTRI26.png",
     "gallery": [
-      "/imagenes/peugeot/rifter-rifter-allure-pack-5p-12-puretech-130hp-aut-2026.png"
+      "/imagenes/oficial/peugeot/PTRI26.png"
     ],
     "photos": 1,
     "color": "",
@@ -2275,9 +2291,9 @@
       "Azul Libeccio",
       "Gris Artense"
     ],
-    "img": "/imagenes/peugeot/rifter-rifter-allure-pack-5p-16hdi-90hp-man-5vel-7p-2026.png",
+    "img": "/imagenes/oficial/peugeot/PTRI26.png",
     "gallery": [
-      "/imagenes/peugeot/rifter-rifter-allure-pack-5p-16hdi-90hp-man-5vel-7p-2026.png"
+      "/imagenes/oficial/peugeot/PTRI26.png"
     ],
     "photos": 1,
     "color": "",
@@ -2331,9 +2347,9 @@
     "colores_disponibles": [
       "Blanco"
     ],
-    "img": "/imagenes/ram/ram-1200-ram-1200-bighorn-cc-20t-8at-4x4-2026.jpg",
+    "img": "/imagenes/oficial/ram/120026.png",
     "gallery": [
-      "/imagenes/ram/ram-1200-ram-1200-bighorn-cc-20t-8at-4x4-2026.jpg"
+      "/imagenes/oficial/ram/120026.png"
     ],
     "photos": 1,
     "color": "",
@@ -2387,9 +2403,9 @@
     "colores_disponibles": [
       "Rojo"
     ],
-    "img": "/imagenes/ram/ram-1200-ram-1200-laramie-cc-20-t-8at-2026.jpg",
+    "img": "/imagenes/oficial/ram/120026.png",
     "gallery": [
-      "/imagenes/ram/ram-1200-ram-1200-laramie-cc-20-t-8at-2026.jpg"
+      "/imagenes/oficial/ram/120026.png"
     ],
     "photos": 1,
     "color": "",
@@ -2443,9 +2459,9 @@
     "colores_disponibles": [
       "Blanco"
     ],
-    "img": "/imagenes/ram/ram-1200-ram-1200-tradesman-cc-20t-6mt-2026.jpg",
+    "img": "/imagenes/oficial/ram/120026.png",
     "gallery": [
-      "/imagenes/ram/ram-1200-ram-1200-tradesman-cc-20t-6mt-2026.jpg"
+      "/imagenes/oficial/ram/120026.png"
     ],
     "photos": 1,
     "color": "",
@@ -2499,9 +2515,9 @@
     "colores_disponibles": [
       "Blanco"
     ],
-    "img": "/imagenes/ram/ram-1200-ram-1200-tradesman-cc-24t-6mt-2025.jpg",
+    "img": "/imagenes/oficial/ram/120026.png",
     "gallery": [
-      "/imagenes/ram/ram-1200-ram-1200-tradesman-cc-24t-6mt-2025.jpg"
+      "/imagenes/oficial/ram/120026.png"
     ],
     "photos": 1,
     "color": "",
@@ -2555,9 +2571,9 @@
     "colores_disponibles": [
       "Blanco"
     ],
-    "img": "/imagenes/ram/ram-1200-ram-1200-tradesman-cr-ca-20t-6mt-2026.jpg",
+    "img": "/imagenes/oficial/ram/120026.png",
     "gallery": [
-      "/imagenes/ram/ram-1200-ram-1200-tradesman-cr-ca-20t-6mt-2026.jpg"
+      "/imagenes/oficial/ram/120026.png"
     ],
     "photos": 1,
     "color": "",
@@ -2611,9 +2627,9 @@
     "colores_disponibles": [
       "Blanco"
     ],
-    "img": "/imagenes/ram/ram-1200-ram-1200-tradesman-rc-20t-6mt-2026.jpg",
+    "img": "/imagenes/oficial/ram/120026.png",
     "gallery": [
-      "/imagenes/ram/ram-1200-ram-1200-tradesman-rc-20t-6mt-2026.jpg"
+      "/imagenes/oficial/ram/120026.png"
     ],
     "photos": 1,
     "color": "",
@@ -2667,9 +2683,9 @@
     "colores_disponibles": [
       "Marfil 3 Perlado"
     ],
-    "img": "/imagenes/ram/ram-1500-ram-1500-crew-cab-4x4-aut-6-cil-laramie-sport-2026.jpg",
+    "img": "/imagenes/oficial/ram/RLSH25.png",
     "gallery": [
-      "/imagenes/ram/ram-1500-ram-1500-crew-cab-4x4-aut-6-cil-laramie-sport-2026.jpg"
+      "/imagenes/oficial/ram/RLSH25.png"
     ],
     "photos": 1,
     "color": "",
@@ -2723,9 +2739,9 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": "/imagenes/ram/ram-1500-ram-1500-crew-cab-4x4-aut-6-ciltungsten-2026.jpg",
+    "img": "/imagenes/oficial/ram/RLSH26T.png",
     "gallery": [
-      "/imagenes/ram/ram-1500-ram-1500-crew-cab-4x4-aut-6-ciltungsten-2026.jpg"
+      "/imagenes/oficial/ram/RLSH26T.png"
     ],
     "photos": 1,
     "color": "",
@@ -2781,8 +2797,10 @@
       "Granito",
       "Negro Diamante"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/ram/HDLI24.png",
+    "gallery": [
+      "/imagenes/oficial/ram/HDLI24.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -2835,8 +2853,10 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/ram/R400026.png",
+    "gallery": [
+      "/imagenes/oficial/ram/R400026.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -2889,8 +2909,10 @@
     "colores_disponibles": [
       "Blanco Brillante"
     ],
-    "img": null,
-    "gallery": [],
+    "img": "/imagenes/oficial/ram/R400026.png",
+    "gallery": [
+      "/imagenes/oficial/ram/R400026.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -2943,9 +2965,9 @@
     "colores_disponibles": [
       "Blanco"
     ],
-    "img": "/imagenes/ram/ram-700-ram-700-automatica-cvt-10-lts-turbo-laramie-2025.jpg",
+    "img": "/imagenes/oficial/ram/R70026.png",
     "gallery": [
-      "/imagenes/ram/ram-700-ram-700-automatica-cvt-10-lts-turbo-laramie-2025.jpg"
+      "/imagenes/oficial/ram/R70026.png"
     ],
     "photos": 1,
     "color": "",
@@ -3000,9 +3022,9 @@
       "Gris Cuarzo Metalizado",
       "Rojo Colorado"
     ],
-    "img": "/imagenes/ram/ram-700-ram-700-automatica-cvt-10-lts-turbo-laramie-2026.jpg",
+    "img": "/imagenes/oficial/ram/R70026.png",
     "gallery": [
-      "/imagenes/ram/ram-700-ram-700-automatica-cvt-10-lts-turbo-laramie-2026.jpg"
+      "/imagenes/oficial/ram/R70026.png"
     ],
     "photos": 1,
     "color": "",
@@ -3058,9 +3080,9 @@
       "Gris Cuarzo Metalizado",
       "Rojo Colorado"
     ],
-    "img": "/imagenes/ram/ram-700-ram-700-automatica-cvt-13-lts-4-cil-bighorn-2026.jpg",
+    "img": "/imagenes/oficial/ram/R70026.png",
     "gallery": [
-      "/imagenes/ram/ram-700-ram-700-automatica-cvt-13-lts-4-cil-bighorn-2026.jpg"
+      "/imagenes/oficial/ram/R70026.png"
     ],
     "photos": 1,
     "color": "",
@@ -3114,9 +3136,9 @@
     "colores_disponibles": [
       "Rojo Colorado"
     ],
-    "img": "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-bighorn-crew-cab-2025.jpg",
+    "img": "/imagenes/oficial/ram/R70026.png",
     "gallery": [
-      "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-bighorn-crew-cab-2025.jpg"
+      "/imagenes/oficial/ram/R70026.png"
     ],
     "photos": 1,
     "color": "",
@@ -3170,9 +3192,9 @@
     "colores_disponibles": [
       "Rojo Colorado"
     ],
-    "img": "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-bighorn-crew-cab-2026.jpg",
+    "img": "/imagenes/oficial/ram/R70026.png",
     "gallery": [
-      "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-bighorn-crew-cab-2026.jpg"
+      "/imagenes/oficial/ram/R70026.png"
     ],
     "photos": 1,
     "color": "",
@@ -3226,9 +3248,9 @@
     "colores_disponibles": [
       "Blanco"
     ],
-    "img": "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-tradesman-rc-2026.jpg",
+    "img": "/imagenes/oficial/ram/R70026.png",
     "gallery": [
-      "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-tradesman-rc-2026.jpg"
+      "/imagenes/oficial/ram/R70026.png"
     ],
     "photos": 1,
     "color": "",
@@ -3282,9 +3304,9 @@
     "colores_disponibles": [
       "Blanco"
     ],
-    "img": "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-tradesman-crew-cab-2025.jpg",
+    "img": "/imagenes/oficial/ram/R70026.png",
     "gallery": [
-      "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-tradesman-crew-cab-2025.jpg"
+      "/imagenes/oficial/ram/R70026.png"
     ],
     "photos": 1,
     "color": "",
@@ -3338,9 +3360,9 @@
     "colores_disponibles": [
       "Blanco"
     ],
-    "img": "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-tradesman-crew-cab-2026.jpg",
+    "img": "/imagenes/oficial/ram/R70026.png",
     "gallery": [
-      "/imagenes/ram/ram-700-ram-700-manual-13-lts-4-cil-tradesman-crew-cab-2026.jpg"
+      "/imagenes/oficial/ram/R70026.png"
     ],
     "photos": 1,
     "color": "",

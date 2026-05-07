@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" width="48" height="48" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clippath">
+      <rect width="48" height="48" fill="none"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clippath)">
+    <g id="Grupo_720">
+      <path id="Trazado_974" d="M29.88,9.76c.53,1.01.97,2.07,1.33,3.16.56,1.76.98,3.56,1.24,5.38.31,2.04.5,4.09.61,6.15.22,3.91.23,7.83.24,11.74v1.6h-3.67c0-2.12.02-4.24,0-6.35s-.09-4.22-.14-6.34h-4.32v12.7h-3.5V9.92c0-.05,0-.1,0-.15h8.21ZM25.17,13.15v8.58h4.02s0-.05,0-.07c-.14-1.4-.32-2.78-.58-4.16-.26-1.43-.64-2.83-1.13-4.2-.02-.1-.12-.17-.22-.15-.55,0-1.1,0-1.65,0h-.44Z" fill="#fff"/>
+      <path id="Trazado_975" d="M14.09,9.76c0,.08,0,.15,0,.23,0,.98,0,1.96,0,2.94v.21h-4.32v8.59h3.3v3.34h-3.31v12.72h-3.9V9.76h8.24Z" fill="#fff"/>
+      <path id="Trazado_976" d="M42.86,9.76v3.37h-3.06v24.65h-3.9V13.15h-3.12v-3.39h10.08Z" fill="#fff"/>
+      <path id="Trazado_977" d="M19.58,9.76v28.02h-4.02V9.99c0-.08,0-.15-.01-.23h4.04Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>
