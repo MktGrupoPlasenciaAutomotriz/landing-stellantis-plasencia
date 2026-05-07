@@ -2062,8 +2062,9 @@ function buildVCardHTML(v) {
   return `
     <div class="v-card" onclick="openModal(${v.id})">
       <div class="v-card-img-wrap">
-        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName + ' ' + v.year + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Agenda tu cita para conocerlo</div></div>'}
+        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName + ' ' + v.year + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Imagen próximamente</div></div>'}
         ${v.badge ? '<div class="v-card-badge ' + badgeClass + '">' + v.badge + '</div>' : ''}
+        ${v.img ? '<div class="img-ref-chip" style="position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,0.65);color:#fff;font-size:9px;padding:3px 8px;border-radius:4px;font-weight:500;letter-spacing:0.3px;z-index:2;">Imagen referencial</div>' : ''}
       </div>
       <div class="v-card-body">
         <div class="v-card-brand-row">
@@ -2071,7 +2072,7 @@ function buildVCardHTML(v) {
           <span class="v-card-cat">${typeLabels[v.type] || v.type}</span>
         </div>
         <div class="v-card-title">${displayName} ${v.year}</div>
-        <div class="v-card-specs">${v.version} &middot; ${v.engine} &middot; ${v.trans}</div>
+        <div class="v-card-specs">${[v.version, v.engine, v.trans].filter(Boolean).join(' · ')}</div>
         <div class="v-card-price-row">
           <div class="v-card-price" title="${v.priceType === 'msrp' ? 'Precio de lista, incluye IVA. Sujeto a disponibilidad y cambios sin previo aviso.' : (v.priceType === 'enganche' ? 'Enganche desde, según oferta abril 2026. Consulta precio total con tu asesor.' : 'Precio sujeto a cotización en agencia.')}">${v.price > 0 ? (v.priceType === 'msrp' ? 'Desde ' + fmt(v.price) : 'Enganche ' + fmt(v.price)) : 'Consultar precio'}</div>
           <div class="v-card-monthly">${v.price > 0 ? 'Desde ' + fmt(monthly) + '/mes' : 'Cotiza con tu asesor'}</div>
@@ -3137,7 +3138,7 @@ function submitForm() {
     enganche_pct: downPct,
     plazo_meses: selectedTerm,
     mensualidad: monthly,
-    vendedor_digital: 'MIGUEL TORRES',
+    vendedor_digital: ASESOR_ASIGNADO.nombre,
     tipo_persona: document.getElementById('fTipoPersona').value || 'NO ESPECIFICADO',
     busca_financiamiento: document.getElementById('fBuscaFinanciamiento').value || 'NO ESPECIFICADO',
     comprueba_ingresos: document.getElementById('fCompruebaIngresos').value || 'N/A',
