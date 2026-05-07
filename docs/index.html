@@ -1270,6 +1270,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ════ BRANDS — Endorsed Brands modulo (5 sub-marcas) ════ -->
+<section class="brands-section" aria-labelledby="brandsTitle" style="padding:24px 0 8px;background:var(--ink-50,#F9FAFB);">
+  <div class="container">
+    <h2 id="brandsTitle" style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-500,#64748B);text-align:center;margin:0 0 14px;">Las marcas que tenemos</h2>
+    <div class="brands-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:760px;margin:0 auto;">
+      <button class="brand-tile" data-cat="ram" onclick="selectBrandTile('ram')" aria-label="Ver inventario RAM" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#0F1A2E;border:1.5px solid #1E2740;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:90px;">
+        <img src="/imagenes/logos/ram.jpg" alt="RAM" style="height:30px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-ram">—</div>
+      </button>
+      <button class="brand-tile" data-cat="jeep" onclick="selectBrandTile('jeep')" aria-label="Ver inventario Jeep" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#0F1A2E;border:1.5px solid #1E2740;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:90px;">
+        <img src="/imagenes/logos/jeep.png" alt="Jeep" style="height:30px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-jeep">—</div>
+      </button>
+      <button class="brand-tile" data-cat="dodge" onclick="selectBrandTile('dodge')" aria-label="Ver inventario Dodge" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#0F1A2E;border:1.5px solid #1E2740;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:90px;">
+        <img src="/imagenes/logos/dodge.png" alt="Dodge" style="height:30px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-dodge">—</div>
+      </button>
+      <button class="brand-tile" data-cat="fiat" onclick="selectBrandTile('fiat')" aria-label="Ver inventario Fiat" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#0F1A2E;border:1.5px solid #1E2740;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:90px;">
+        <img src="/imagenes/logos/fiat.png" alt="Fiat" style="height:30px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-fiat">—</div>
+      </button>
+      <button class="brand-tile" data-cat="peugeot" onclick="selectBrandTile('peugeot')" aria-label="Ver inventario Peugeot" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#0F1A2E;border:1.5px solid #1E2740;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:90px;">
+        <img src="/imagenes/logos/peugeot.png" alt="Peugeot" style="height:30px;width:auto;object-fit:contain;">
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-peugeot">—</div>
+      </button>
+    </div>
+  </div>
+</section>
+<style>
+  .brand-tile:hover { transform:translateY(-2px); border-color:var(--brand-accent,#00358F)!important; box-shadow:0 6px 16px rgba(0,53,143,0.25); }
+  .brand-tile.is-active { border-color:var(--brand-accent,#00358F)!important; background:#1A2B4A!important; }
+  @media(max-width:600px) { .brands-grid { grid-template-columns:repeat(5,1fr)!important; gap:6px!important; } .brand-tile { padding:10px 4px!important; min-height:70px!important; } .brand-tile img { height:22px!important; } .brand-tile div { font-size:9px!important; } }
+</style>
+<script>
+  // Click en una sub-marca: filtra inventario y sincroniza el dropdown.
+  function selectBrandTile(cat) {
+    var sel = document.getElementById('filterBrand');
+    if (sel) {
+      // Toggle: si ya esta seleccionada, deseleccionar
+      var newVal = (sel.value === cat) ? 'all' : cat;
+      sel.value = newVal;
+      if (typeof filterByBrandSelect === 'function') filterByBrandSelect(newVal);
+      // Update visual de tiles
+      document.querySelectorAll('.brand-tile').forEach(function(b){
+        b.classList.toggle('is-active', newVal !== 'all' && b.getAttribute('data-cat') === newVal);
+      });
+    }
+    // Scroll al inventario
+    var inv = document.querySelector('.inventory-section');
+    if (inv) inv.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  // Pobla los counts en cada tile cuando vehicles este cargado.
+  function updateBrandTileCounts() {
+    if (!Array.isArray(window.vehicles) || vehicles.length === 0) return;
+    var counts = {};
+    vehicles.forEach(function(v){ if (v.cat) counts[v.cat] = (counts[v.cat] || 0) + 1; });
+    ['ram','jeep','dodge','fiat','peugeot'].forEach(function(cat){
+      var el = document.getElementById('brandCount-' + cat);
+      if (el) el.textContent = (counts[cat] || 0) + ' modelos';
+    });
+  }
+  // Intentar poblar despues del fetch (timeout corto)
+  setTimeout(updateBrandTileCounts, 1500);
+  setTimeout(updateBrandTileCounts, 3500);
+</script>
+
 <section class="inventory-section">
   <div class="container">
     <div class="inventory-grid" id="inventoryGrid"></div>
