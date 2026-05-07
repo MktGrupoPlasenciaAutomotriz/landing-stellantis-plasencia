@@ -3813,27 +3813,34 @@ function stickyCtaBrowse() {
 }
 
 (function initStickyMobileCta(){
-  var bar = document.getElementById('stickyMobileCta');
-  if (!bar) return;
-  // Siempre visible en mobile; solo se oculta cuando el modal bloquea el body (body[style*="position: fixed"])
-  var mq = window.matchMedia('(max-width: 640px)');
-  var _impressionFired = false;
-  function apply() {
-    if (mq.matches) {
-      bar.classList.add('is-visible');
-      document.body.classList.add('has-sticky-cta');
-      if (!_impressionFired) {
-        _impressionFired = true;
-        try { (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_impression' }); } catch(e) {}
+  // Wrapper boot() con DOMContentLoaded: el IIFE corre antes que el <div id="stickyMobileCta">
+  // exista en el DOM. Sin esto, getElementById retorna null y el sticky nunca se activa.
+  // (Bug detectado en audit funcional 2026-05-07: HYU/Sem ya tenían este pattern, STL no.)
+  function boot() {
+    var bar = document.getElementById('stickyMobileCta');
+    if (!bar) return;
+    // Siempre visible en mobile; solo se oculta cuando el modal bloquea el body (body[style*="position: fixed"])
+    var mq = window.matchMedia('(max-width: 640px)');
+    var _impressionFired = false;
+    function apply() {
+      if (mq.matches) {
+        bar.classList.add('is-visible');
+        document.body.classList.add('has-sticky-cta');
+        if (!_impressionFired) {
+          _impressionFired = true;
+          try { (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_impression' }); } catch(e) {}
+        }
+      } else {
+        bar.classList.remove('is-visible');
+        document.body.classList.remove('has-sticky-cta');
       }
-    } else {
-      bar.classList.remove('is-visible');
-      document.body.classList.remove('has-sticky-cta');
     }
+    apply();
+    if (mq.addEventListener) mq.addEventListener('change', apply);
+    else if (mq.addListener) mq.addListener(apply);
   }
-  apply();
-  if (mq.addEventListener) mq.addEventListener('change', apply);
-  else if (mq.addListener) mq.addListener(apply);
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', boot); }
+  else { boot(); }
 })();
 
 </script>
