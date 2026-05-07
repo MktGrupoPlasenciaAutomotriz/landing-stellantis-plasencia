@@ -319,7 +319,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .empty-state-title { font-family:var(--font-display); font-weight:800; font-size:18px; color:var(--ink-900,#0F172A); margin-bottom:14px; }
 .empty-state-pills-label { font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--ink-500,#64748B); margin:8px 0 6px; }
 .empty-state-pills { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-bottom:14px; }
-.empty-pill { display:inline-flex; align-items:center; gap:6px; padding:6px 12px; background:var(--ink-100,#F1F5F9); border:1px solid var(--ink-200,#E2E8F0); border-radius:999px; font-size:12px; font-weight:600; color:var(--ink-700,#334155); cursor:pointer; min-height:32px; transition:all 0.15s; }
+.empty-pill { display:inline-flex; align-items:center; gap:6px; padding:6px 12px; background:var(--ink-100,#F1F5F9); border:1px solid var(--ink-200,#E2E8F0); border-radius:999px; font-size:12px; font-weight:600; color:var(--ink-700,#334155); cursor:pointer; min-height:44px; transition:all 0.15s; }
 .empty-pill:hover { background:#FEE2E2; border-color:#FCA5A5; color:#991B1B; }
 .empty-pill span { font-weight:800; opacity:0.6; }
 .empty-suggestion { background:linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border:1px solid #BFDBFE; border-left:3px solid var(--brand-accent,#00358F); border-radius:8px; padding:12px 14px; margin:10px auto 16px; font-size:13px; color:var(--ink-800,#1E293B); line-height:1.5; max-width:480px; text-align:left; }
@@ -485,7 +485,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .v-card-body { padding:20px; display:flex; flex-direction:column; flex:1; }
 .v-card-brand-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
 .v-card-brand {
-  font-size:9px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+  font-size:10px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
   padding:3px 8px; border-radius:4px;
   background:var(--ink-100); color:var(--ink-600);
 }
@@ -495,7 +495,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .v-card-brand.dodge { background:rgba(186,12,47,0.10); color:#BA0C2F; }
 .v-card-brand.fiat { background:rgba(139,26,43,0.10); color:#8B1A2B; }
 .v-card-cat {
-  font-size:9px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
+  font-size:10px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
   padding:3px 8px; border-radius:4px;
   background:var(--ink-100); color:var(--ink-500);
 }
@@ -932,8 +932,8 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 .time-pill--selected { background:var(--brand-accent) !important; color:#fff !important; border-color:var(--brand-accent) !important; box-shadow:0 4px 12px -2px rgba(0,53,143,0.35); }
 .cita-summary { font-size:14px; font-weight:700; color:var(--brand-accent); padding:10px 14px; background:var(--brand-accent-soft, rgba(0,53,143,0.08)); border-radius:var(--radius-sm); text-align:center; margin-top:4px; }
 @media(max-width:767px){
-  .cal-cell { min-height:36px; font-size:12px; }
-  .time-pill { padding:8px 12px; font-size:12px; min-height:36px; }
+  .cal-cell { min-height:44px; font-size:12px; }
+  .time-pill { padding:8px 12px; font-size:12px; min-height:44px; }
 }
 
 /* ── CONFIRMATION ── */
@@ -1224,7 +1224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="step-card">
         <div class="step-num">02</div>
         <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><rect x="7" y="6" width="10" height="3.5" rx="0.5"/><circle cx="8.5" cy="13.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="13.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="15.5" cy="13.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="8.5" cy="17" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/><circle cx="15.5" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg></div>
-        <h3 class="step-title">Cotiza con STM</h3>
+        <h3 class="step-title">Calcula tu mensualidad</h3>
         <div class="step-desc">Calcula tu mensualidad con tasas de referencia. Tu asesor te confirma el esquema vigente al momento de tu cita.</div>
       </div>
       <div class="step-card">
@@ -1366,7 +1366,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>
   .brand-tile:hover { transform:translateY(-2px); border-color:var(--brand-accent,#00358F)!important; box-shadow:0 6px 16px rgba(0,53,143,0.18); }
   .brand-tile.is-active { border-color:var(--brand-accent,#00358F)!important; background:#FFFFFF!important; box-shadow:0 0 0 2px rgba(0,53,143,0.15); }
-  @media(max-width:600px) { .brands-grid { grid-template-columns:repeat(5,1fr)!important; gap:6px!important; } .brand-tile { padding:10px 4px!important; min-height:70px!important; } .brand-tile img { height:22px!important; } .brand-tile div { font-size:9px!important; } }
+  @media(max-width:600px) { .brands-grid { grid-template-columns:repeat(5,1fr)!important; gap:6px!important; } .brand-tile { padding:10px 4px!important; min-height:70px!important; } .brand-tile img { height:22px!important; } .brand-tile div { font-size:10px!important; } }
 </style>
 <script>
   // Click en una sub-marca: filtra inventario y sincroniza el dropdown.
@@ -1618,7 +1618,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="calc-result-amount" id="monthlyAmount">$0</div>
                 <div class="calc-result-sub">Tasa anual referencial <strong>9.99%</strong> (Peugeot SUVs / Jeep Renegade-Compass 2026). Selecciona un modelo para ver su tasa real: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 11.99% (Peugeot Manager/Partner FL), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).</div>
                 <div style="font-size:10px;color:rgba(255,255,255,0.42);margin-top:6px;line-height:1.35;font-style:italic;position:relative;">Mensualidad estimada. El importe real puede variar al contratar según tasa autorizada, enganche, plazo y esquema elegido. El interés causa IVA.</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-top:6px;line-height:1.4;position:relative;">* Financiamiento con STM Financial (Inbursa). CAT promedio 20.5% sin IVA. Cálculo con fines informativos. No constituye una autorización de crédito ni una oferta vinculante. Monto, plazo y tasa sujetos a aprobación crediticia.</div>
+                <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:6px;line-height:1.4;position:relative;">* Financiamiento con STM Financial (Inbursa). CAT promedio 20.5% sin IVA. Cálculo con fines informativos. No constituye una autorización de crédito ni una oferta vinculante. Monto, plazo y tasa sujetos a aprobación crediticia.</div>
               </div>
 
               <div class="calc-offer-banner">
@@ -1748,10 +1748,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- STEP 4: SUCURSAL (selector — 2 sucursales Stellantis) -->
           <div class="form-step" id="formStep4">
             <div style="margin-bottom:10px;">
-              <div style="font-family:var(--font-display); font-weight:800; font-size:15px; color:var(--ink-900); margin-bottom:4px;">¿En cuál sucursal te gustaría tu cita?</div>
+              <div id="sucursalGroupLabel" style="font-family:var(--font-display); font-weight:800; font-size:15px; color:var(--ink-900); margin-bottom:4px;">¿En cuál sucursal te gustaría tu cita?</div>
               <div style="font-size:13px; color:var(--ink-500); line-height:1.4;">Elige la que te quede más cerca. Las dos manejan el mismo catálogo y atención.</div>
             </div>
-            <div style="display:grid; grid-template-columns:1fr; gap:10px; margin:12px 0;">
+            <div role="radiogroup" aria-labelledby="sucursalGroupLabel" style="display:grid; grid-template-columns:1fr; gap:10px; margin:12px 0;">
               <div class="sucursal-radio-card" id="sucursalCardPlasencia" onclick="selectSucursal('STELLANTIS PLASENCIA')" role="radio" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectSucursal('STELLANTIS PLASENCIA');}">
                 <div class="radio-dot" aria-hidden="true"></div>
                 <div style="flex:1; min-width:0;">
@@ -2046,7 +2046,6 @@ var SEDE_INFO = {
     direccion: 'Av. Mariano Otero 405-A, Guadalajara, Jal.',
     horario: 'Lun a Vie 9:00-19:00 · Sáb 9:00-15:00',
     foco: 'RAM y Peugeot Professional (vehículos comerciales)',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Stellantis+Plasencia+Mariano+Otero+405A+Guadalajara',
     embedUrl: 'https://www.google.com/maps?q=Stellantis+Plasencia+Mariano+Otero+405A+Guadalajara&output=embed'
   },
   'santa_anita': {
@@ -2054,7 +2053,6 @@ var SEDE_INFO = {
     direccion: 'Av. López Mateos Sur 3505, Tlajomulco de Zúñiga, Jal.',
     horario: 'Lun a Vie 9:00-19:00 · Sáb 9:00-15:00',
     foco: 'Jeep, Dodge, Fiat y Peugeot pasajeros',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Stellantis+Santa+Anita+Lopez+Mateos+3505+Tlajomulco',
     embedUrl: 'https://www.google.com/maps?q=Stellantis+Santa+Anita+Lopez+Mateos+3505+Tlajomulco&output=embed'
   }
 };
@@ -2295,7 +2293,7 @@ function buildVCardHTML(v) {
       <div class="v-card-img-wrap">
         ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName + ' ' + v.year + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Imagen próximamente</div></div>'}
         ${v.badge ? '<div class="v-card-badge ' + badgeClass + '">' + v.badge + '</div>' : ''}
-        ${v.img ? '<div class="img-ref-chip" style="position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,0.65);color:#fff;font-size:9px;padding:3px 8px;border-radius:4px;font-weight:500;letter-spacing:0.3px;z-index:2;">Imagen referencial</div>' : ''}
+        ${v.img ? '<div class="img-ref-chip" style="position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,0.65);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;font-weight:500;letter-spacing:0.3px;z-index:2;">Imagen referencial</div>' : ''}
         ${sucursalLabel ? '<div class="v-card-loc-chip" style="position:absolute;bottom:6px;right:6px;background:rgba(15,26,46,0.85);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;font-weight:600;letter-spacing:0.2px;z-index:2;">' + sucursalLabel + '</div>' : ''}
       </div>
       <div class="v-card-body">
@@ -3766,12 +3764,6 @@ fetch('catalogo-stellantis.json')
       </div>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.260196706143!2d-103.4511651!3d20.577429099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ad5756fca519%3A0xec725ea69cccdc1b!2sStellantis%20Santa%20Anita!5e0!3m2!1ses-419!2smx!4v1776197282382!5m2!1ses-419!2smx" width="100%" height="360" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Stellantis Santa Anita"></iframe>
     </div>
-    <div style="padding:12px 20px;display:flex;gap:8px;justify-content:flex-end;border-top:1px solid #E2E8F0;">
-      <a id="mapExternalLink" href="https://maps.google.com/?q=Stellantis+Plasencia+RAM+Peugeot+Guadalajara" target="_blank" rel="noopener" style="padding:10px 20px;background:var(--brand-accent);color:#fff;border:none;border-radius:9999px;font-family:var(--font-display);font-weight:700;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Abrir en Google Maps
-      </a>
-    </div>
   </div>
 </div>
 <script>
@@ -3780,18 +3772,15 @@ function switchMapTab(tab) {
   var tabS = document.getElementById('mapTabSantaAnita');
   var mapP = document.getElementById('mapPlasencia');
   var mapS = document.getElementById('mapSantaAnita');
-  var link = document.getElementById('mapExternalLink');
   var accent = 'var(--brand-accent)';
   if (tab === 'plasencia') {
     tabP.style.borderBottomColor = accent; tabP.style.color = accent;
     tabS.style.borderBottomColor = 'transparent'; tabS.style.color = '#718096';
     mapP.style.display = 'block'; mapS.style.display = 'none';
-    link.href = 'https://maps.google.com/?q=Stellantis+Plasencia+RAM+Peugeot+Guadalajara';
   } else {
     tabS.style.borderBottomColor = accent; tabS.style.color = accent;
     tabP.style.borderBottomColor = 'transparent'; tabP.style.color = '#718096';
     mapS.style.display = 'block'; mapP.style.display = 'none';
-    link.href = 'https://maps.google.com/?q=Stellantis+Santa+Anita+Guadalajara';
   }
 }
 
