@@ -103,8 +103,8 @@ html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
 body { font-family:var(--font-body); color:var(--ink-700); background:var(--ink-50); -webkit-font-smoothing:antialiased; line-height:1.5; font-size:15px; overflow-x:hidden; }
 @media(min-width:768px){ body { font-size:15px; } }
 .gp-logo-chip { display:inline-flex; align-items:center; }
-.gp-logo-chip img { height:26px; width:auto; display:block; opacity:0.95; }
-@media(min-width: 768px) { .gp-logo-chip img { height:32px; } }
+.gp-logo-chip img { height:30px; width:auto; display:block; opacity:0.95; }
+@media(min-width: 768px) { .gp-logo-chip img { height:36px; } }
 /* ── MOBILE-FIRST REFINEMENT ── */
 @media (max-width: 640px) {
   .modal-overlay { padding:0; align-items:stretch; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
@@ -164,10 +164,10 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 .header-tel-link svg { color:var(--brand-accent); flex-shrink:0; }
 .header-tel-label { display:none; }
 @media(min-width:480px){ .header-tel-label { display:inline; } }
-.header-logo-img { height:36px; max-width:180px; width:auto; display:block; }
-@media(min-width: 768px) { .header-logo-img { height:44px; max-width:220px; } }
-.header-logo-gp { height:30px; width:auto; display:block; opacity:0.95; }
-@media(min-width: 768px) { .header-logo-gp { height:36px; } }
+.header-logo-img { height:44px; max-width:200px; width:auto; display:block; }
+@media(min-width: 768px) { .header-logo-img { height:56px; max-width:240px; } }
+.header-logo-gp { height:36px; width:auto; display:block; opacity:0.95; }
+@media(min-width: 768px) { .header-logo-gp { height:44px; } }
 .header-logo-divider { width:1px; height:26px; background:rgba(255,255,255,0.2); }
 
 /* ── HERO (gradient mesh) ── */
@@ -1196,7 +1196,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Marcas</div></div>
         <div class="hero-stat"><div class="hero-stat-num">60</div><div class="hero-stat-label">Versiones</div></div>
         <div class="hero-stat"><div class="hero-stat-num">Desde $262K</div><div class="hero-stat-label">Precio contado</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">Desde 7.99%</div><div class="hero-stat-label">Tasa STM</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">Desde 7.99%</div><div class="hero-stat-label">Tasa de referencia STM</div></div>
       </div>
       <button class="hero-cta" onclick="document.querySelector('.inventory-section').scrollIntoView({behavior:'smooth'})">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1469,8 +1469,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>¿Cómo funciona la tasa desde 7.99% con STM Financial (Inbursa)?</summary>
-        <div class="faq-a">Tasa preferencial según modelo y plan (comisión por apertura 1.5% o 2.5%): desde 7.99% con 2.5% CxA. Peugeot 9.99% con 1.5% CxA / 7.99% con 2.5%; Jeep Grand Cherokee 13.99%; Jeep Gladiator 12.99%; Dodge Attitude y Fiat Fastback tasa preferencial STM. CAT promedio 20.5% sin IVA. Crédito sujeto a aprobación.</div>
+        <summary>¿Cómo funciona la tasa de referencia desde 7.99% con STM Financial (Inbursa)?</summary>
+        <div class="faq-a">Tasas de referencia según modelo y plan (comisión por apertura 1.5% o 2.5%): desde 7.99% con 2.5% CxA. Peugeot 9.99% con 1.5% CxA / 7.99% con 2.5%; Jeep Grand Cherokee 13.99%; Jeep Gladiator 12.99%; Dodge Attitude y Fiat Fastback tasa de referencia STM. CAT promedio de referencia 20.5% sin IVA. Tu asesor te confirma el esquema vigente al momento de tu cita. Crédito sujeto a aprobación.</div>
       </details>
       <details class="faq-item">
         <summary>¿Reciben mi auto actual a cuenta?</summary>
@@ -1501,7 +1501,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="https://spdfc.s3.us-west-2.amazonaws.com/distribuidores/Ram_Peugeot_Professional_Plasencia/img/logo.svg" alt="Stellantis Plasencia" style="height:30px;opacity:0.95;mix-blend-mode:screen;">
     </div>
     <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat &middot; Parte de Grupo Plasencia Automotriz desde 1947<br>Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jalisco<br>Lun a Vie 9:00 a 20:00 &middot; Sáb 9:00 a 18:00 &middot; Dom 11:00 a 17:00 &middot; Tel. (33) 3344 4455<br><span style="opacity:0.75;">+75 años acercándote al auto de tus sueños &middot; +15 marcas &middot; +35 agencias &middot; Centro y Pacifico de México</span><br><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#00358F);text-decoration:underline;font-weight:600;font-size:13px;">📍 Ver ubicación en mapa</a></p>
-    <p style="margin-top:10px;font-size:10px;line-height:1.5;opacity:0.65;">Financiamiento con STM Financial, S.A. de C.V. SOFOM E.R. (Grupo Financiero Inbursa). CAT promedio 20.5% sin IVA, ponderado calculado al 23 de marzo de 2026. Crédito sujeto a aprobación. Consulta términos, condiciones y precios con tu distribuidor autorizado.</p>
+    <p style="margin-top:10px;font-size:10px;line-height:1.5;opacity:0.65;">Financiamiento con STM Financial, S.A. de C.V. SOFOM E.R. (Grupo Financiero Inbursa). CAT promedio de referencia 20.5% sin IVA, ponderado calculado al 23 de marzo de 2026. Crédito sujeto a aprobación. Consulta términos, condiciones y precios con tu distribuidor autorizado.</p>
     <div style="margin-top:14px;"><a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.5); text-decoration: underline; font-size: 12px;">Aviso de Privacidad</a></div>
     <p style="margin-top:14px;font-size:11px;opacity:0.65;">Precios de lista en pesos mexicanos, incluyen IVA y están sujetos a disponibilidad y cambios sin previo aviso. Los intereses del financiamiento causan IVA adicional; la mensualidad mostrada es estimada con tasas de referencia y puede variar al momento de la contratación según tasa autorizada, enganche y esquema elegido. Imágenes referenciales: la unidad real puede tener variaciones de color o acabado. Consulta términos, condiciones y disponibilidad con tu asesor. Crédito sujeto a aprobación bancaria.</p>
     <p style="margin-top:8px;font-size:11px;opacity:0.55;">© 2026 Grupo Plasencia Automotriz. Todos los derechos reservados.</p>
@@ -1616,7 +1616,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="calc-result">
                 <div class="calc-result-label">Mensualidad estimada</div>
                 <div class="calc-result-amount" id="monthlyAmount">$0</div>
-                <div class="calc-result-sub">Tasa anual referencial <strong>9.99%</strong> (Peugeot SUVs / Jeep Renegade-Compass 2026). Selecciona un modelo para ver su tasa real: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 11.99% (Peugeot Manager/Partner FL), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).</div>
+                <div class="calc-result-sub">Tasa de referencia (anual) <strong>9.99%</strong> (Peugeot SUVs / Jeep Renegade-Compass 2026). Selecciona un modelo para ver su tasa de referencia: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 11.99% (Peugeot Manager/Partner FL), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).</div>
                 <div style="font-size:10px;color:rgba(255,255,255,0.42);margin-top:6px;line-height:1.35;font-style:italic;position:relative;">Mensualidad estimada. El importe real puede variar al contratar según tasa autorizada, enganche, plazo y esquema elegido. El interés causa IVA.</div>
                 <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:6px;line-height:1.4;position:relative;">* Financiamiento con STM Financial (Inbursa). CAT promedio 20.5% sin IVA. Cálculo con fines informativos. No constituye una autorización de crédito ni una oferta vinculante. Monto, plazo y tasa sujetos a aprobación crediticia.</div>
               </div>
@@ -2305,7 +2305,7 @@ function buildVCardHTML(v) {
         <div class="v-card-specs">${[v.version, v.engine, v.trans].filter(Boolean).join(' · ')}</div>
         <div class="v-card-price-row">
           <div class="v-card-price" title="${v.priceType === 'msrp' ? 'Precio de lista, incluye IVA. Sujeto a disponibilidad y cambios sin previo aviso.' : (v.priceType === 'enganche' ? 'Enganche desde. Consulta precio total con tu asesor.' : 'Precio sujeto a cotización en agencia.')}">${v.price > 0 ? (v.priceType === 'msrp' ? 'Desde ' + fmt(v.price) : 'Enganche ' + fmt(v.price)) : 'Consultar precio'}</div>
-          <div class="v-card-monthly">${v.price > 0 ? 'Desde ' + fmt(monthly) + '/mes' : 'Cotiza con tu asesor'}</div>
+          <div class="v-card-monthly" title="Estimado con tasa de referencia. Tu asesor confirma el esquema vigente.">${v.price > 0 ? 'Desde ' + fmt(monthly) + '/mes' : 'Cotiza con tu asesor'}</div>
         </div>
         <div class="v-card-price-disclaimer" style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:4px;line-height:1.3;">${v.priceType === 'msrp' ? 'Precio de lista, incluye IVA. Sujeto a disponibilidad y cambios sin previo aviso.' : (v.priceType === 'enganche' ? 'Enganche desde. Sujeto a aprobación crediticia.' : 'Precio sujeto a cotización en agencia.')}</div>
         <div style="margin-top:8px;display:flex;gap:6px;position:relative;">
@@ -2364,7 +2364,7 @@ function updateCalc() {
   const subEl = document.querySelector('.calc-result-sub');
   if (subEl) {
     const cxaTxt = cxaUsada > 0 ? ` con ${(cxaUsada*100).toFixed(2).replace('.00','')}% CxA` : ' SC (sin comisión por apertura)';
-    subEl.innerHTML = `Tasa anual <strong>${(tasaUsada*100).toFixed(2).replace('.00','')}%</strong>${cxaTxt} para este modelo. Tasas en otros modelos: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).`;
+    subEl.innerHTML = `Tasa de referencia (anual) <strong>${(tasaUsada*100).toFixed(2).replace('.00','')}%</strong>${cxaTxt} para este modelo. Tasas de referencia en otros modelos: 7.99% (Dodge/Fiat), 9.99% (Peugeot SUVs), 13.99% (Jeep), 14.50% (RAM/Peugeot vans).`;
   }
   // H1: si el resumen sticky esta visible, refrescarlo con nuevo pct/plazo
   try {
