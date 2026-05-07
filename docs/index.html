@@ -1185,7 +1185,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-eyebrow"><span class="heb-dot"></span>DESDE 1947 · GRUPO PLASENCIA AUTOMOTRIZ</div>
       
       <div class="hero-vp">75 años acercándote al auto de tus sueños</div>
-      <h1>RAM, Peugeot, Jeep, Dodge y Fiat <span class="accent">en Plasencia</span></h1>
+      <h1>Estrena tu auto <span class="accent">Stellantis en Plasencia</span></h1>
       <p class="hero-sub">5 marcas, 60 versiones disponibles entre Mariano Otero (RAM y Peugeot Professional) y Santa Anita (Jeep, Dodge, Fiat y Peugeot pasajeros). Calcula tu mensualidad con tasas de referencia y agenda tu cita.</p>
       <div class="hero-legacy-strip">
         <span><b>+75</b>años de experiencia</span><span class="leg-sep">·</span>
@@ -1194,8 +1194,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Marcas</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">Desde $262K</div><div class="hero-stat-label">Precio contado</div></div>
         <div class="hero-stat"><div class="hero-stat-num">60</div><div class="hero-stat-label">Versiones</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">Desde $262K</div><div class="hero-stat-label">Precio contado</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">Desde 7.99%</div><div class="hero-stat-label">Tasa STM</div></div>
       </div>
       <button class="hero-cta" onclick="document.querySelector('.inventory-section').scrollIntoView({behavior:'smooth'})">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1296,7 +1297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="filter-bar-inner">
         <div class="filter-search">
           <svg class="filter-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" placeholder="Buscar marca, modelo o año..." oninput="onSearch(this.value)" id="searchInput">
+          <input type="text" placeholder="Buscar marca, modelo o año..." oninput="onSearch(this.value)" id="searchInput" aria-label="Buscar inventario" autocomplete="off">
         </div>
         <div class="filter-dropdown-wrap" style="display:none;">
           <select onchange="filterByType(this.value)" id="filterType" class="filter-select">
@@ -1341,23 +1342,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="brands-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:760px;margin:0 auto;">
       <button class="brand-tile" data-cat="ram" onclick="selectBrandTile('ram')" aria-label="Ver inventario RAM" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#FFFFFF;border:1px solid #D1D5DB;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:96px;box-shadow:0 1px 3px rgba(15,26,46,0.08), 0 1px 2px rgba(15,26,46,0.04);">
         <img src="/imagenes/logos/ram.png" alt="RAM" style="height:54px;width:auto;object-fit:contain;">
-        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-ram">—</div>
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-ram">…</div>
       </button>
       <button class="brand-tile" data-cat="jeep" onclick="selectBrandTile('jeep')" aria-label="Ver inventario Jeep" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#FFFFFF;border:1px solid #D1D5DB;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:96px;box-shadow:0 1px 3px rgba(15,26,46,0.08), 0 1px 2px rgba(15,26,46,0.04);">
         <img src="/imagenes/logos/jeep.png" alt="Jeep" style="height:36px;width:auto;object-fit:contain;">
-        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-jeep">—</div>
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-jeep">…</div>
       </button>
       <button class="brand-tile" data-cat="dodge" onclick="selectBrandTile('dodge')" aria-label="Ver inventario Dodge" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#FFFFFF;border:1px solid #D1D5DB;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:96px;box-shadow:0 1px 3px rgba(15,26,46,0.08), 0 1px 2px rgba(15,26,46,0.04);">
         <img src="/imagenes/logos/dodge.png" alt="Dodge" style="height:24px;width:auto;object-fit:contain;">
-        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-dodge">—</div>
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-dodge">…</div>
       </button>
       <button class="brand-tile" data-cat="fiat" onclick="selectBrandTile('fiat')" aria-label="Ver inventario Fiat" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#FFFFFF;border:1px solid #D1D5DB;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:96px;box-shadow:0 1px 3px rgba(15,26,46,0.08), 0 1px 2px rgba(15,26,46,0.04);">
         <img src="/imagenes/logos/fiat.png" alt="Fiat" style="height:48px;width:auto;object-fit:contain;">
-        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-fiat">—</div>
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-fiat">…</div>
       </button>
       <button class="brand-tile" data-cat="peugeot" onclick="selectBrandTile('peugeot')" aria-label="Ver inventario Peugeot" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 8px;background:#FFFFFF;border:1px solid #D1D5DB;border-radius:var(--radius-md,12px);cursor:pointer;transition:all 0.18s;min-height:96px;box-shadow:0 1px 3px rgba(15,26,46,0.08), 0 1px 2px rgba(15,26,46,0.04);">
         <img src="/imagenes/logos/peugeot.png" alt="Peugeot" style="height:54px;width:auto;object-fit:contain;">
-        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-peugeot">—</div>
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;" id="brandCount-peugeot">…</div>
       </button>
     </div>
   </div>
@@ -1413,7 +1414,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="reviews-head">
       <div class="reviews-kicker">Lo que dicen nuestros clientes</div>
       <h2 class="reviews-title" id="reviewsTitle">3.9 <span class="reviews-title-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg></span> en Google</h2>
-      <p class="reviews-sub">897 reseñas en Google · Stellantis Plasencia Mariano Otero — 5 marcas bajo un solo techo</p>
+      <p class="reviews-sub">897 reseñas en Google · Stellantis Plasencia Mariano Otero · 5 marcas bajo un solo techo</p>
     </div>
     <div class="reviews-grid">
       <article class="review-card">
@@ -1570,8 +1571,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- Sticky summary visible en step 2 y 3 -->
           <div class="step-summary" id="stepSummary">
             <div class="step-summary-main">
-              <div class="step-summary-title" id="stepSummaryTitle">—</div>
-              <div class="step-summary-meta" id="stepSummaryMeta">—</div>
+              <div class="step-summary-title" id="stepSummaryTitle">…</div>
+              <div class="step-summary-meta" id="stepSummaryMeta">…</div>
             </div>
           </div>
 
@@ -1767,8 +1768,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
 
-            <!-- Select oculto (mantiene compatibilidad con submitForm() y validateField()) -->
-            <select id="fSucursal" required aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" onchange="validateField(this)">
+            <!-- Select oculto: mantiene compatibilidad con submitForm()+validateField().
+                 NO usamos aria-hidden con required (anti-pattern: el form valida algo que el lector
+                 de pantalla no ve). Usamos clip+sr-only y label visible afuera (los radios chip
+                 son la UI accesible, este select se sincroniza por JS). -->
+            <select id="fSucursal" required aria-label="Sucursal seleccionada" style="position:absolute; clip:rect(0 0 0 0); width:1px; height:1px; overflow:hidden; padding:0; margin:-1px; border:0;" onchange="validateField(this)">
               <option value="">Selecciona sucursal</option>
               <option value="STELLANTIS PLASENCIA">Plasencia</option>
               <option value="STELLANTIS SANTA ANITA">Santa Anita</option>
@@ -1801,7 +1805,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-accent,#00358F)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <div style="flex:1; min-width:0;">
                 <div style="font-size:11px; color:var(--ink-500); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; line-height:1;">Tu cita en</div>
-                <div id="citaSucursalBadgeName" style="font-size:14px; font-weight:800; color:var(--ink-900); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:var(--font-display);">—</div>
+                <div id="citaSucursalBadgeName" style="font-size:14px; font-weight:800; color:var(--ink-900); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:var(--font-display);">…</div>
               </div>
             </div>
 
@@ -2731,7 +2735,7 @@ function openModal(id) {
       if (card) { card.classList.remove('selected'); card.setAttribute('aria-checked','false'); }
     });
     var _badge = document.getElementById('citaSucursalBadgeName');
-    if (_badge) _badge.textContent = '—';
+    if (_badge) _badge.textContent = '…';
   } catch(e) {}
   clearValidation();
   currentFormStep = 1;
@@ -3107,7 +3111,7 @@ function updateCitaSucursalBadge() {
   var nameEl = document.getElementById('citaSucursalBadgeName');
   if (!nameEl) return;
   var cfg = STELLANTIS_SUCURSALES[val];
-  nameEl.textContent = cfg ? cfg.label : '—';
+  nameEl.textContent = cfg ? cfg.label : '…';
 }
 
 // ── CALC INTERACTION (debounced 600ms) ──
@@ -3858,8 +3862,8 @@ function stickyCtaBrowse() {
   <div class="loc-map-modal-inner">
     <div class="loc-map-modal-head">
       <div>
-        <div class="loc-map-modal-title" id="locMapTitle">—</div>
-        <div id="locMapAddr" style="font-size:12px;color:var(--ink-600,#475569);margin-top:2px;">—</div>
+        <div class="loc-map-modal-title" id="locMapTitle">…</div>
+        <div id="locMapAddr" style="font-size:12px;color:var(--ink-600,#475569);margin-top:2px;">…</div>
       </div>
       <button type="button" class="loc-map-modal-close" onclick="closeLocMapModal()" aria-label="Cerrar mapa">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
