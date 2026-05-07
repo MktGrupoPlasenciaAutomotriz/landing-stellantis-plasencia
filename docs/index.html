@@ -209,7 +209,11 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   font-family:var(--font-display); font-weight:900;
   font-size:clamp(34px, 6vw, 64px); line-height:1.05; letter-spacing:-0.03em;
   margin-bottom:20px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
+@media (max-width: 480px) { .hero h1 { font-size: 30px; line-height: 1.06; } }
 .hero h1 .accent {
   background:linear-gradient(135deg, var(--brand-accent-bright) 0%, #B8D4FF 50%, var(--brand-accent-bright) 100%);
   -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -287,10 +291,21 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   -webkit-backdrop-filter: blur(14px);
   padding: 18px 0;
   border-bottom: 1px solid var(--ink-200);
-  position: sticky; top: 64px; z-index: 90;
+  position: sticky; top: 72px; z-index: 90;
 }
 @media(min-width:768px){ .filters-section { top: 72px; } }
 @media(max-width:600px){ .filters-section { padding: 12px 0; } }
+/* Hide-on-scroll mobile: header + filtros se ocultan al scroll-down,
+   reaparecen con scroll-up. Recupera ~256px de viewport util. */
+.header, .filters-section { transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1); will-change: transform; }
+@media (max-width: 768px) {
+  .header.is-hidden { transform: translateY(-100%); }
+  .filters-section.is-hidden { transform: translateY(calc(-100% - 72px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header, .filters-section { transition: none; }
+  .header.is-hidden, .filters-section.is-hidden { transform: none; }
+}
 /* Hint card de sede seleccionada: feedback inmediato con direccion + horario + Ver mapa */
 .loc-info-card { display:flex; gap:10px; align-items:flex-start; padding:10px 12px; margin:8px 0 4px; background: linear-gradient(135deg, #F8FAFC 0%, #EFF4FA 100%); border:1px solid var(--ink-200,#E2E8F0); border-left:3px solid var(--brand-accent,#00358F); border-radius:8px; font-size:12px; color:var(--ink-700,#334155); line-height:1.4; }
 .loc-info-card .loc-info-pin { width:18px; height:18px; flex-shrink:0; color:var(--brand-accent,#00358F); margin-top:1px; }
@@ -337,6 +352,13 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 /* Type icon chips */
 .type-chips { display:flex; gap:8px; overflow-x:auto; padding:8px 0 12px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 .type-chips::-webkit-scrollbar { display:none; }
+/* Gradient fade-out lado derecho para indicar overflow horizontal en chip rows mobile */
+@media (max-width: 768px) {
+  .type-chips, .filters-row {
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%);
+            mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%);
+  }
+}
 .type-chip { display:inline-flex; align-items:center; gap:8px; padding:11px 16px; min-height:44px; background:#fff; border:1.5px solid var(--ink-200); border-radius:999px; font-family:var(--font-body); font-size:13px; font-weight:700; color:var(--ink-700); cursor:pointer; flex-shrink:0; transition:all 0.15s ease; white-space:nowrap; }
 .type-chip:hover { border-color:var(--brand-accent); color:var(--brand-accent); transform:translateY(-1px); }
 .type-chip.active { background:var(--brand-accent); color:#fff; border-color:var(--brand-accent); box-shadow:0 4px 10px rgba(0,53,143,0.25); }
@@ -3800,10 +3822,62 @@ function toggleIngresosFeedback(sel) {
   }
 }
 
+// ── Hide-on-scroll header + filtros (mobile) ──
+// Recupera viewport ocultando header/filtros al scroll-down. Solo aplica is-hidden
+// cuando filters esta sticky-pegado (si esta en flujo natural, ocultarlo lo traeria
+// al viewport en lugar de sacarlo). Reaparece con cualquier scroll-up. <=768px.
+(function initHideOnScroll(){
+  const header = document.querySelector('.header');
+  const filters = document.querySelector('.filters-section');
+  if (!header || !filters) return;
+  const mq = window.matchMedia('(max-width: 768px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const HIDE_THRESHOLD = 5;
+  const REVEAL_THRESHOLD = 5;
+  const MIN_SCROLL_BEFORE_HIDE = 200;
+  const FILTERS_STICKY_TOP = 72;
+  const STICKY_TOLERANCE = 2;
+  let lastY = window.scrollY;
+  let ticking = false;
+  function isFiltersPinned(){
+    const wasHidden = filters.classList.contains('is-hidden');
+    if (wasHidden) filters.classList.remove('is-hidden');
+    const top = filters.getBoundingClientRect().top;
+    if (wasHidden) filters.classList.add('is-hidden');
+    return top <= FILTERS_STICKY_TOP + STICKY_TOLERANCE;
+  }
+  function update(){
+    const y = Math.max(0, window.scrollY);
+    const diff = y - lastY;
+    if (!mq.matches || reducedMotion.matches) {
+      header.classList.remove('is-hidden');
+      filters.classList.remove('is-hidden');
+    } else if (y < MIN_SCROLL_BEFORE_HIDE) {
+      header.classList.remove('is-hidden');
+      filters.classList.remove('is-hidden');
+    } else if (diff > HIDE_THRESHOLD) {
+      header.classList.add('is-hidden');
+      if (isFiltersPinned()) filters.classList.add('is-hidden');
+      else filters.classList.remove('is-hidden');
+    } else if (diff < -REVEAL_THRESHOLD) {
+      header.classList.remove('is-hidden');
+      filters.classList.remove('is-hidden');
+    }
+    lastY = y;
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  if (mq.addEventListener) mq.addEventListener('change', function(){
+    if (!mq.matches) { header.classList.remove('is-hidden'); filters.classList.remove('is-hidden'); }
+  });
+})();
+
 // ── H2: STICKY MOBILE CTA (mobile <=640px) ──
 // Barra fija bottom con "Encuentra tu auto" + WhatsApp. IntersectionObserver en .hero.
 function stickyCtaBrowse() {
-  (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_browse_click' });
+  (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_browse_click', viewport: 'mobile' });
   var grid = document.getElementById('inventoryGrid');
   if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(function(){
@@ -3812,32 +3886,55 @@ function stickyCtaBrowse() {
   }, 450);
 }
 
+// Sticky CTA: aparece despues de pasar el hero (IntersectionObserver) y se oculta
+// cuando el usuario llega al inventoryGrid (redundante en zona catalogo).
+// Antes aparecia desde scroll=0 violando UX-CRO-Patterns.md Patron 4. Fix 2026-05-07.
+// Tambien agrega viewport:'mobile' en dataLayer para paridad con SEM/HYU.
 (function initStickyMobileCta(){
-  // Wrapper boot() con DOMContentLoaded: el IIFE corre antes que el <div id="stickyMobileCta">
-  // exista en el DOM. Sin esto, getElementById retorna null y el sticky nunca se activa.
-  // (Bug detectado en audit funcional 2026-05-07: HYU/Sem ya tenían este pattern, STL no.)
   function boot() {
     var bar = document.getElementById('stickyMobileCta');
     if (!bar) return;
-    // Siempre visible en mobile; solo se oculta cuando el modal bloquea el body (body[style*="position: fixed"])
+    var hero = document.querySelector('.hero');
+    var grid = document.getElementById('inventoryGrid');
     var mq = window.matchMedia('(max-width: 640px)');
-    var _impressionFired = false;
-    function apply() {
-      if (mq.matches) {
+    var impressionFired = false;
+    var heroOut = false;
+    var gridIn = false;
+    function applyVisibility(){
+      var shouldShow = mq.matches && heroOut && !gridIn;
+      if (shouldShow) {
         bar.classList.add('is-visible');
         document.body.classList.add('has-sticky-cta');
-        if (!_impressionFired) {
-          _impressionFired = true;
-          try { (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_impression' }); } catch(e) {}
+        if (!impressionFired) {
+          impressionFired = true;
+          try { (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_impression', viewport: 'mobile' }); } catch(e) {}
         }
       } else {
         bar.classList.remove('is-visible');
         document.body.classList.remove('has-sticky-cta');
+        if (gridIn && impressionFired) {
+          try { (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_dismissed_in_catalog', viewport: 'mobile' }); } catch(e) {}
+          impressionFired = false;
+        }
       }
     }
-    apply();
-    if (mq.addEventListener) mq.addEventListener('change', apply);
-    else if (mq.addListener) mq.addListener(apply);
+    if (hero && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries){
+        heroOut = !entries[0].isIntersecting;
+        applyVisibility();
+      }, { rootMargin: '-80px 0px 0px 0px', threshold: 0 }).observe(hero);
+    } else {
+      heroOut = true;
+    }
+    if (grid && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries){
+        gridIn = entries[0].isIntersecting;
+        applyVisibility();
+      }, { rootMargin: '-100px 0px -40% 0px', threshold: 0 }).observe(grid);
+    }
+    if (mq.addEventListener) mq.addEventListener('change', applyVisibility);
+    else if (mq.addListener) mq.addListener(applyVisibility);
+    applyVisibility();
   }
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', boot); }
   else { boot(); }
