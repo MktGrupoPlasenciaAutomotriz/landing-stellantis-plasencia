@@ -14,12 +14,11 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 7
+        "unidades": 10
       }
     ],
-    "unidades_disponibles": 7,
+    "unidades_disponibles": 10,
     "colores_disponibles": [
-      "Blanco Brillante",
       "Granito",
       "Negro Brillante",
       "Plata Estelar"
@@ -28,7 +27,7 @@
     "gallery": [
       "/imagenes/oficial/dodge/ATTI26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -73,10 +72,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 4
+        "unidades": 8
       }
     ],
-    "unidades_disponibles": 4,
+    "unidades_disponibles": 8,
     "colores_disponibles": [
       "Blanco Brillante",
       "Granito",
@@ -87,7 +86,7 @@
     "gallery": [
       "/imagenes/oficial/dodge/ATTI26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -132,10 +131,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 5
+        "unidades": 10
       }
     ],
-    "unidades_disponibles": 5,
+    "unidades_disponibles": 10,
     "colores_disponibles": [
       "Granito",
       "Plata Estelar"
@@ -144,7 +143,7 @@
     "gallery": [
       "/imagenes/oficial/dodge/ATTI26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -189,10 +188,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco Brillante"
     ],
@@ -200,7 +199,7 @@
     "gallery": [
       "/imagenes/oficial/dodge/DURA25.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -245,10 +244,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 3
+        "unidades": 6
       }
     ],
-    "unidades_disponibles": 3,
+    "unidades_disponibles": 6,
     "colores_disponibles": [
       "Granito",
       "Negro Brillante",
@@ -258,7 +257,7 @@
     "gallery": [
       "/imagenes/oficial/dodge/JOUR26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -303,10 +302,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Azul Brillante"
     ],
@@ -314,7 +313,7 @@
     "gallery": [
       "/imagenes/oficial/dodge/JOUR26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -359,10 +358,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 5
+        "unidades": 10
       }
     ],
-    "unidades_disponibles": 5,
+    "unidades_disponibles": 10,
     "colores_disponibles": [
       "Gris Cinza",
       "Gris Silverstone",
@@ -417,10 +416,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Rojo Monte Carlo"
     ],
@@ -471,10 +470,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 2
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Negro Vesubio",
       "Rojo Montecarlo"
@@ -483,7 +482,7 @@
     "gallery": [
       "/imagenes/oficial/fiat/FPAB26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -528,10 +527,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Rojo Monte Carlo"
     ],
@@ -539,7 +538,7 @@
     "gallery": [
       "/imagenes/oficial/fiat/FPUL26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -570,32 +569,32 @@
     "cat": "fiat"
   },
   {
-    "id": 2683629066,
+    "id": 1351171430,
     "name": "Jeep Cherokee",
     "brand": "Jeep",
     "submarca": "Jeep",
     "year": 2026,
-    "version": "CHEROKEE LIMITED HEV",
+    "version": "CHEROKEE OVERLAND HEV",
     "type": "suv",
-    "price": 691312,
+    "price": 741077,
     "priceType": "msrp",
     "badge": "",
     "loc": "Stellantis Jeep",
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
-      "Red Hot"
+      "Blanco Brillante"
     ],
     "img": "/imagenes/oficial/jeep/CHRO26.png",
     "gallery": [
       "/imagenes/oficial/jeep/CHRO26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -640,10 +639,10 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 2
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Negro Carbon"
     ],
@@ -651,7 +650,7 @@
     "gallery": [
       "/imagenes/oficial/jeep/COMM25.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -682,14 +681,14 @@
     "cat": "jeep"
   },
   {
-    "id": 988002750,
+    "id": 2080794201,
     "name": "Jeep Compass",
     "brand": "Jeep",
     "submarca": "Jeep",
-    "year": 2025,
+    "year": 2026,
     "version": "JEEP COMPASS HIGH ALTITUDE",
     "type": "suv",
-    "price": 574428,
+    "price": 564354,
     "priceType": "msrp",
     "badge": "",
     "loc": "Stellantis Jeep",
@@ -738,24 +737,24 @@
     "cat": "jeep"
   },
   {
-    "id": 2080794201,
+    "id": 988002750,
     "name": "Jeep Compass",
     "brand": "Jeep",
     "submarca": "Jeep",
-    "year": 2026,
+    "year": 2025,
     "version": "JEEP COMPASS HIGH ALTITUDE",
     "type": "suv",
-    "price": 564354,
+    "price": 574428,
     "priceType": "msrp",
     "badge": "",
     "loc": "Stellantis Jeep",
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 1
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Blanco Brillante"
     ],
@@ -763,7 +762,7 @@
     "gallery": [
       "/imagenes/oficial/jeep/COMP26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -808,10 +807,10 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Negro Diamante"
     ],
@@ -819,7 +818,7 @@
     "gallery": [
       "/imagenes/oficial/jeep/TCHR25.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -857,20 +856,19 @@
     "year": 2025,
     "version": "JEEP GRAND CHEROKEE 4X4 AUT 3.6LTS 6 CIL SUMMIT",
     "type": "suv",
-    "price": 1333153,
+    "price": 1335847,
     "priceType": "msrp",
     "badge": "",
     "loc": "Stellantis Jeep",
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 4
+        "unidades": 6
       }
     ],
-    "unidades_disponibles": 4,
+    "unidades_disponibles": 6,
     "colores_disponibles": [
       "Blanco Brillante",
-      "Gris Baltico",
       "Negro Diamante",
       "Plata Metalico"
     ],
@@ -878,63 +876,7 @@
     "gallery": [
       "/imagenes/oficial/jeep/TCHR25.png"
     ],
-    "photos": 1,
-    "color": "",
-    "color_int": "",
-    "km": 0,
-    "engine": "",
-    "trans": "",
-    "fuel": "",
-    "cilindros": 0,
-    "hp": 0,
-    "puertas": 0,
-    "pasajeros": 0,
-    "velocidades": 0,
-    "traccion": "",
-    "tanque_l": 0,
-    "rines": 0,
-    "consumo_combinado": 0,
-    "consumo_ciudad": 0,
-    "consumo_carretera": 0,
-    "equipamiento": {},
-    "tasa": 0.1399,
-    "cxa": 0,
-    "descContado": 0,
-    "descFinanc": 0,
-    "msi": 0,
-    "mantAnios": 0,
-    "programas": [],
-    "vigDesde": "",
-    "vigHasta": "",
-    "cat": "jeep"
-  },
-  {
-    "id": 966711474,
-    "name": "Jeep Grand Cherokee",
-    "brand": "Jeep",
-    "submarca": "Jeep",
-    "year": 2025,
-    "version": "JEEP GRAND CHEROKEE ALTITUDE",
-    "type": "suv",
-    "price": 842784,
-    "priceType": "msrp",
-    "badge": "",
-    "loc": "Stellantis Jeep",
-    "locs": [
-      {
-        "nombre": "Stellantis Jeep",
-        "unidades": 1
-      }
-    ],
-    "unidades_disponibles": 1,
-    "colores_disponibles": [
-      "Plata Metalico"
-    ],
-    "img": "/imagenes/oficial/jeep/TCHR25.png",
-    "gallery": [
-      "/imagenes/oficial/jeep/TCHR25.png"
-    ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -979,12 +921,68 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco Brillante"
+    ],
+    "img": "/imagenes/oficial/jeep/TCHR25.png",
+    "gallery": [
+      "/imagenes/oficial/jeep/TCHR25.png"
+    ],
+    "photos": 0,
+    "color": "",
+    "color_int": "",
+    "km": 0,
+    "engine": "",
+    "trans": "",
+    "fuel": "",
+    "cilindros": 0,
+    "hp": 0,
+    "puertas": 0,
+    "pasajeros": 0,
+    "velocidades": 0,
+    "traccion": "",
+    "tanque_l": 0,
+    "rines": 0,
+    "consumo_combinado": 0,
+    "consumo_ciudad": 0,
+    "consumo_carretera": 0,
+    "equipamiento": {},
+    "tasa": 0.1399,
+    "cxa": 0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "",
+    "vigHasta": "",
+    "cat": "jeep"
+  },
+  {
+    "id": 966711474,
+    "name": "Jeep Grand Cherokee",
+    "brand": "Jeep",
+    "submarca": "Jeep",
+    "year": 2025,
+    "version": "JEEP GRAND CHEROKEE ALTITUDE",
+    "type": "suv",
+    "price": 842784,
+    "priceType": "msrp",
+    "badge": "",
+    "loc": "Stellantis Jeep",
+    "locs": [
+      {
+        "nombre": "Stellantis Jeep",
+        "unidades": 2
+      }
+    ],
+    "unidades_disponibles": 2,
+    "colores_disponibles": [
+      "Plata Metalico"
     ],
     "img": "/imagenes/oficial/jeep/TCHR25.png",
     "gallery": [
@@ -1035,10 +1033,10 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco Brillante"
     ],
@@ -1047,62 +1045,6 @@
       "/imagenes/oficial/jeep/TCHR25.png"
     ],
     "photos": 0,
-    "color": "",
-    "color_int": "",
-    "km": 0,
-    "engine": "",
-    "trans": "",
-    "fuel": "",
-    "cilindros": 0,
-    "hp": 0,
-    "puertas": 0,
-    "pasajeros": 0,
-    "velocidades": 0,
-    "traccion": "",
-    "tanque_l": 0,
-    "rines": 0,
-    "consumo_combinado": 0,
-    "consumo_ciudad": 0,
-    "consumo_carretera": 0,
-    "equipamiento": {},
-    "tasa": 0.1399,
-    "cxa": 0,
-    "descContado": 0,
-    "descFinanc": 0,
-    "msi": 0,
-    "mantAnios": 0,
-    "programas": [],
-    "vigDesde": "",
-    "vigHasta": "",
-    "cat": "jeep"
-  },
-  {
-    "id": 348150727,
-    "name": "Jeep Grand Cherokee",
-    "brand": "Jeep",
-    "submarca": "Jeep",
-    "year": 2025,
-    "version": "JEEP GRAND CHEROKEE PHEV",
-    "type": "suv",
-    "price": 1601103,
-    "priceType": "msrp",
-    "badge": "",
-    "loc": "Stellantis Jeep",
-    "locs": [
-      {
-        "nombre": "Stellantis Jeep",
-        "unidades": 1
-      }
-    ],
-    "unidades_disponibles": 1,
-    "colores_disponibles": [
-      "Blanco Brillante"
-    ],
-    "img": "/imagenes/oficial/jeep/GCXE25.png",
-    "gallery": [
-      "/imagenes/oficial/jeep/GCXE25.png"
-    ],
-    "photos": 1,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1147,10 +1089,10 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 2
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Blanco Brillante",
       "Gris Ferroso"
@@ -1159,7 +1101,7 @@
     "gallery": [
       "/imagenes/oficial/jeep/GLAD26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1204,10 +1146,10 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 2
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Blanco Brillante",
       "Gris Ferroso"
@@ -1216,7 +1158,7 @@
     "gallery": [
       "/imagenes/oficial/jeep/GLAD26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1261,10 +1203,10 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco Brillante"
     ],
@@ -1272,7 +1214,7 @@
     "gallery": [
       "/imagenes/oficial/jeep/GLAD26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1317,10 +1259,10 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 6
+        "unidades": 10
       }
     ],
-    "unidades_disponibles": 6,
+    "unidades_disponibles": 10,
     "colores_disponibles": [
       "Blanco Polar",
       "Granito",
@@ -1330,7 +1272,7 @@
     "gallery": [
       "/imagenes/oficial/jeep/RENE26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1375,10 +1317,10 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Gris Ferroso"
     ],
@@ -1386,7 +1328,63 @@
     "gallery": [
       "/imagenes/oficial/jeep/WRMH25.png"
     ],
-    "photos": 1,
+    "photos": 0,
+    "color": "",
+    "color_int": "",
+    "km": 0,
+    "engine": "",
+    "trans": "",
+    "fuel": "",
+    "cilindros": 0,
+    "hp": 0,
+    "puertas": 0,
+    "pasajeros": 0,
+    "velocidades": 0,
+    "traccion": "",
+    "tanque_l": 0,
+    "rines": 0,
+    "consumo_combinado": 0,
+    "consumo_ciudad": 0,
+    "consumo_carretera": 0,
+    "equipamiento": {},
+    "tasa": 0.1399,
+    "cxa": 0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "",
+    "vigHasta": "",
+    "cat": "jeep"
+  },
+  {
+    "id": 1566330379,
+    "name": "Jeep Wrangler",
+    "brand": "Jeep",
+    "submarca": "Jeep",
+    "year": 2024,
+    "version": "JEEP WRANGLER UNLIMITED RUBICON SUV",
+    "type": "suv",
+    "price": 1039241,
+    "priceType": "msrp",
+    "badge": "",
+    "loc": "Stellantis Jeep",
+    "locs": [
+      {
+        "nombre": "Stellantis Jeep",
+        "unidades": 2
+      }
+    ],
+    "unidades_disponibles": 2,
+    "colores_disponibles": [
+      "Gris Ferroso"
+    ],
+    "img": "/imagenes/oficial/jeep/WRMH25.png",
+    "gallery": [
+      "/imagenes/oficial/jeep/WRMH25.png"
+    ],
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1431,69 +1429,12 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 3
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 3,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
-      "Blanco Brillante",
       "Gris Ferroso"
-    ],
-    "img": "/imagenes/oficial/jeep/WRMH25.png",
-    "gallery": [
-      "/imagenes/oficial/jeep/WRMH25.png"
-    ],
-    "photos": 1,
-    "color": "",
-    "color_int": "",
-    "km": 0,
-    "engine": "",
-    "trans": "",
-    "fuel": "",
-    "cilindros": 0,
-    "hp": 0,
-    "puertas": 0,
-    "pasajeros": 0,
-    "velocidades": 0,
-    "traccion": "",
-    "tanque_l": 0,
-    "rines": 0,
-    "consumo_combinado": 0,
-    "consumo_ciudad": 0,
-    "consumo_carretera": 0,
-    "equipamiento": {},
-    "tasa": 0.1399,
-    "cxa": 0,
-    "descContado": 0,
-    "descFinanc": 0,
-    "msi": 0,
-    "mantAnios": 0,
-    "programas": [],
-    "vigDesde": "",
-    "vigHasta": "",
-    "cat": "jeep"
-  },
-  {
-    "id": 1882888308,
-    "name": "Jeep Wrangler",
-    "brand": "Jeep",
-    "submarca": "Jeep",
-    "year": 2025,
-    "version": "WRANGLER UNLIMITED WILLYS 2.0L TURBO 4X4",
-    "type": "suv",
-    "price": 882403,
-    "priceType": "msrp",
-    "badge": "",
-    "loc": "Stellantis Jeep",
-    "locs": [
-      {
-        "nombre": "Stellantis Jeep",
-        "unidades": 1
-      }
-    ],
-    "unidades_disponibles": 1,
-    "colores_disponibles": [
-      "Rojo Dinamita"
     ],
     "img": "/imagenes/oficial/jeep/WRMH25.png",
     "gallery": [
@@ -1544,10 +1485,10 @@
     "locs": [
       {
         "nombre": "Stellantis Jeep",
-        "unidades": 3
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 3,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Gris Ferroso",
       "Rojo Dinamita"
@@ -1556,7 +1497,63 @@
     "gallery": [
       "/imagenes/oficial/jeep/WRMH25.png"
     ],
-    "photos": 1,
+    "photos": 0,
+    "color": "",
+    "color_int": "",
+    "km": 0,
+    "engine": "",
+    "trans": "",
+    "fuel": "",
+    "cilindros": 0,
+    "hp": 0,
+    "puertas": 0,
+    "pasajeros": 0,
+    "velocidades": 0,
+    "traccion": "",
+    "tanque_l": 0,
+    "rines": 0,
+    "consumo_combinado": 0,
+    "consumo_ciudad": 0,
+    "consumo_carretera": 0,
+    "equipamiento": {},
+    "tasa": 0.1399,
+    "cxa": 0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "",
+    "vigHasta": "",
+    "cat": "jeep"
+  },
+  {
+    "id": 1882888308,
+    "name": "Jeep Wrangler",
+    "brand": "Jeep",
+    "submarca": "Jeep",
+    "year": 2025,
+    "version": "WRANGLER UNLIMITED WILLYS 2.0L TURBO 4X4",
+    "type": "suv",
+    "price": 882403,
+    "priceType": "msrp",
+    "badge": "",
+    "loc": "Stellantis Jeep",
+    "locs": [
+      {
+        "nombre": "Stellantis Jeep",
+        "unidades": 2
+      }
+    ],
+    "unidades_disponibles": 2,
+    "colores_disponibles": [
+      "Rojo Dinamita"
+    ],
+    "img": "/imagenes/oficial/jeep/WRMH25.png",
+    "gallery": [
+      "/imagenes/oficial/jeep/WRMH25.png"
+    ],
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1601,10 +1598,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanc Icy"
     ],
@@ -1612,7 +1609,7 @@
     "gallery": [
       "/imagenes/oficial/peugeot-pro/PGPT26N.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1657,10 +1654,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 9
+        "unidades": 18
       }
     ],
-    "unidades_disponibles": 9,
+    "unidades_disponibles": 18,
     "colores_disponibles": [
       "Blanco Icy"
     ],
@@ -1718,8 +1715,7 @@
     ],
     "unidades_disponibles": 2,
     "colores_disponibles": [
-      "Blanc Icy",
-      "Blanco Icy"
+      "Blanc Icy"
     ],
     "img": "/imagenes/oficial/peugeot-pro/PGRA25.png",
     "gallery": [
@@ -1770,10 +1766,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 6
+        "unidades": 10
       }
     ],
-    "unidades_disponibles": 6,
+    "unidades_disponibles": 10,
     "colores_disponibles": [
       "Blanco Okenite",
       "Gris Artense",
@@ -1784,7 +1780,7 @@
     "gallery": [
       "/imagenes/oficial/peugeot/P20026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1829,10 +1825,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 5
+        "unidades": 8
       }
     ],
-    "unidades_disponibles": 5,
+    "unidades_disponibles": 8,
     "colores_disponibles": [
       "Gris Artense",
       "Gris Selenium",
@@ -1842,7 +1838,7 @@
     "gallery": [
       "/imagenes/oficial/peugeot/P20026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1887,10 +1883,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 2
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Blanco Okenite",
       "Gris Titane"
@@ -1899,7 +1895,7 @@
     "gallery": [
       "/imagenes/oficial/peugeot/PSVA26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -1944,19 +1940,20 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 2
+        "unidades": 18
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 18,
     "colores_disponibles": [
       "Blanco Okenite",
+      "Gris Artense",
       "Gris Titane"
     ],
     "img": "/imagenes/oficial/peugeot/PSVA26.png",
     "gallery": [
       "/imagenes/oficial/peugeot/PSVA26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2001,10 +1998,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 2
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Blanco Okeni",
       "Gris Artense"
@@ -2013,7 +2010,63 @@
     "gallery": [
       "/imagenes/oficial/peugeot/PTSV26.png"
     ],
-    "photos": 1,
+    "photos": 0,
+    "color": "",
+    "color_int": "",
+    "km": 0,
+    "engine": "",
+    "trans": "",
+    "fuel": "",
+    "cilindros": 0,
+    "hp": 0,
+    "puertas": 0,
+    "pasajeros": 0,
+    "velocidades": 0,
+    "traccion": "",
+    "tanque_l": 0,
+    "rines": 0,
+    "consumo_combinado": 0,
+    "consumo_ciudad": 0,
+    "consumo_carretera": 0,
+    "equipamiento": {},
+    "tasa": 0.1299,
+    "cxa": 0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "",
+    "vigHasta": "",
+    "cat": "peugeot"
+  },
+  {
+    "id": 2608080681,
+    "name": "Peugeot Partner Maxi Pack",
+    "brand": "Peugeot",
+    "submarca": "Peugeot",
+    "year": 2026,
+    "version": "NUEVA PARTNER MAXI PACK 5P 1.2 GAS 110HP MAN 6VEL",
+    "type": "van",
+    "price": 361021,
+    "priceType": "msrp",
+    "badge": "",
+    "loc": "Stellantis LCV",
+    "locs": [
+      {
+        "nombre": "Stellantis LCV",
+        "unidades": 2
+      }
+    ],
+    "unidades_disponibles": 2,
+    "colores_disponibles": [
+      "Blanco Icy"
+    ],
+    "img": "/imagenes/oficial/peugeot-pro/PGPT26N.png",
+    "gallery": [
+      "/imagenes/oficial/peugeot-pro/PGPT26N.png"
+    ],
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2058,10 +2111,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanc Icy"
     ],
@@ -2069,7 +2122,7 @@
     "gallery": [
       "/imagenes/oficial/peugeot-pro/PGPT26N.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2114,10 +2167,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco Icy"
     ],
@@ -2125,7 +2178,7 @@
     "gallery": [
       "/imagenes/oficial/peugeot-pro/PGPT26N.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2170,10 +2223,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 8
+        "unidades": 16
       }
     ],
-    "unidades_disponibles": 8,
+    "unidades_disponibles": 16,
     "colores_disponibles": [
       "Blanco Banquise"
     ],
@@ -2226,10 +2279,10 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 8
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 8,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Blanc Icy",
       "Blanco Icy"
@@ -2238,7 +2291,7 @@
     "gallery": [
       "/imagenes/oficial/peugeot/PTRI26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2283,19 +2336,18 @@
     "locs": [
       {
         "nombre": "Stellantis Santa Anita",
-        "unidades": 6
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 6,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
-      "Azul Libeccio",
       "Gris Artense"
     ],
     "img": "/imagenes/oficial/peugeot/PTRI26.png",
     "gallery": [
       "/imagenes/oficial/peugeot/PTRI26.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2340,10 +2392,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco"
     ],
@@ -2351,7 +2403,7 @@
     "gallery": [
       "/imagenes/oficial/ram/120026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2396,10 +2448,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Rojo"
     ],
@@ -2407,7 +2459,7 @@
     "gallery": [
       "/imagenes/oficial/ram/120026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2452,10 +2504,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 14
+        "unidades": 22
       }
     ],
-    "unidades_disponibles": 14,
+    "unidades_disponibles": 22,
     "colores_disponibles": [
       "Blanco"
     ],
@@ -2463,7 +2515,7 @@
     "gallery": [
       "/imagenes/oficial/ram/120026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2508,10 +2560,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco"
     ],
@@ -2519,7 +2571,7 @@
     "gallery": [
       "/imagenes/oficial/ram/120026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2564,10 +2616,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 2
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Blanco"
     ],
@@ -2575,7 +2627,7 @@
     "gallery": [
       "/imagenes/oficial/ram/120026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2620,10 +2672,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 9
+        "unidades": 16
       }
     ],
-    "unidades_disponibles": 9,
+    "unidades_disponibles": 16,
     "colores_disponibles": [
       "Blanco"
     ],
@@ -2631,7 +2683,7 @@
     "gallery": [
       "/imagenes/oficial/ram/120026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2676,10 +2728,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Marfil 3 Perlado"
     ],
@@ -2687,7 +2739,7 @@
     "gallery": [
       "/imagenes/oficial/ram/RLSH25.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2732,10 +2784,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco Brillante"
     ],
@@ -2743,7 +2795,7 @@
     "gallery": [
       "/imagenes/oficial/ram/RLSH26T.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -2788,10 +2840,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 3
+        "unidades": 6
       }
     ],
-    "unidades_disponibles": 3,
+    "unidades_disponibles": 6,
     "colores_disponibles": [
       "Blanco Perla",
       "Granito",
@@ -2839,17 +2891,17 @@
     "year": 2025,
     "version": "RAM 4000 CHASIS CABINA \"P\" AUT. 8 CIL",
     "type": "pickup",
-    "price": 744822,
+    "price": 790145,
     "priceType": "msrp",
     "badge": "",
     "loc": "Stellantis LCV",
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 3
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 3,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Blanco Brillante"
     ],
@@ -2895,7 +2947,7 @@
     "year": 2026,
     "version": "RAM 4000 CHASIS CABINA PL AUT 8 CIL.",
     "type": "pickup",
-    "price": 774557,
+    "price": 781092,
     "priceType": "msrp",
     "badge": "",
     "loc": "Stellantis LCV",
@@ -2958,10 +3010,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 1
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 1,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco"
     ],
@@ -2969,7 +3021,7 @@
     "gallery": [
       "/imagenes/oficial/ram/R70026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -3019,14 +3071,13 @@
     ],
     "unidades_disponibles": 2,
     "colores_disponibles": [
-      "Gris Cuarzo Metalizado",
       "Rojo Colorado"
     ],
     "img": "/imagenes/oficial/ram/R70026.png",
     "gallery": [
       "/imagenes/oficial/ram/R70026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -3071,12 +3122,11 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 14
+        "unidades": 26
       }
     ],
-    "unidades_disponibles": 14,
+    "unidades_disponibles": 26,
     "colores_disponibles": [
-      "Blanco",
       "Gris Cuarzo Metalizado",
       "Rojo Colorado"
     ],
@@ -3084,7 +3134,7 @@
     "gallery": [
       "/imagenes/oficial/ram/R70026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -3129,10 +3179,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 2
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Rojo Colorado"
     ],
@@ -3140,7 +3190,7 @@
     "gallery": [
       "/imagenes/oficial/ram/R70026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -3185,10 +3235,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 2
+        "unidades": 4
       }
     ],
-    "unidades_disponibles": 2,
+    "unidades_disponibles": 4,
     "colores_disponibles": [
       "Rojo Colorado"
     ],
@@ -3196,7 +3246,7 @@
     "gallery": [
       "/imagenes/oficial/ram/R70026.png"
     ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -3241,10 +3291,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 3
+        "unidades": 2
       }
     ],
-    "unidades_disponibles": 3,
+    "unidades_disponibles": 2,
     "colores_disponibles": [
       "Blanco"
     ],
@@ -3252,63 +3302,7 @@
     "gallery": [
       "/imagenes/oficial/ram/R70026.png"
     ],
-    "photos": 1,
-    "color": "",
-    "color_int": "",
-    "km": 0,
-    "engine": "",
-    "trans": "",
-    "fuel": "",
-    "cilindros": 0,
-    "hp": 0,
-    "puertas": 0,
-    "pasajeros": 0,
-    "velocidades": 0,
-    "traccion": "",
-    "tanque_l": 0,
-    "rines": 0,
-    "consumo_combinado": 0,
-    "consumo_ciudad": 0,
-    "consumo_carretera": 0,
-    "equipamiento": {},
-    "tasa": 0.145,
-    "cxa": 0,
-    "descContado": 0,
-    "descFinanc": 0,
-    "msi": 0,
-    "mantAnios": 0,
-    "programas": [],
-    "vigDesde": "",
-    "vigHasta": "",
-    "cat": "ram"
-  },
-  {
-    "id": 649589327,
-    "name": "RAM 700",
-    "brand": "RAM",
-    "submarca": "RAM",
-    "year": 2025,
-    "version": "RAM 700 MANUAL 1.3 LTS. 4 CIL. TRADESMAN CREW CAB",
-    "type": "pickup",
-    "price": 298927,
-    "priceType": "msrp",
-    "badge": "",
-    "loc": "Stellantis LCV",
-    "locs": [
-      {
-        "nombre": "Stellantis LCV",
-        "unidades": 1
-      }
-    ],
-    "unidades_disponibles": 1,
-    "colores_disponibles": [
-      "Blanco"
-    ],
-    "img": "/imagenes/oficial/ram/R70026.png",
-    "gallery": [
-      "/imagenes/oficial/ram/R70026.png"
-    ],
-    "photos": 1,
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
@@ -3353,10 +3347,10 @@
     "locs": [
       {
         "nombre": "Stellantis LCV",
-        "unidades": 4
+        "unidades": 6
       }
     ],
-    "unidades_disponibles": 4,
+    "unidades_disponibles": 6,
     "colores_disponibles": [
       "Blanco"
     ],
@@ -3364,7 +3358,63 @@
     "gallery": [
       "/imagenes/oficial/ram/R70026.png"
     ],
-    "photos": 1,
+    "photos": 0,
+    "color": "",
+    "color_int": "",
+    "km": 0,
+    "engine": "",
+    "trans": "",
+    "fuel": "",
+    "cilindros": 0,
+    "hp": 0,
+    "puertas": 0,
+    "pasajeros": 0,
+    "velocidades": 0,
+    "traccion": "",
+    "tanque_l": 0,
+    "rines": 0,
+    "consumo_combinado": 0,
+    "consumo_ciudad": 0,
+    "consumo_carretera": 0,
+    "equipamiento": {},
+    "tasa": 0.145,
+    "cxa": 0,
+    "descContado": 0,
+    "descFinanc": 0,
+    "msi": 0,
+    "mantAnios": 0,
+    "programas": [],
+    "vigDesde": "",
+    "vigHasta": "",
+    "cat": "ram"
+  },
+  {
+    "id": 649589327,
+    "name": "RAM 700",
+    "brand": "RAM",
+    "submarca": "RAM",
+    "year": 2025,
+    "version": "RAM 700 MANUAL 1.3 LTS. 4 CIL. TRADESMAN CREW CAB",
+    "type": "pickup",
+    "price": 298927,
+    "priceType": "msrp",
+    "badge": "",
+    "loc": "Stellantis LCV",
+    "locs": [
+      {
+        "nombre": "Stellantis LCV",
+        "unidades": 2
+      }
+    ],
+    "unidades_disponibles": 2,
+    "colores_disponibles": [
+      "Blanco"
+    ],
+    "img": "/imagenes/oficial/ram/R70026.png",
+    "gallery": [
+      "/imagenes/oficial/ram/R70026.png"
+    ],
+    "photos": 0,
     "color": "",
     "color_int": "",
     "km": 0,
