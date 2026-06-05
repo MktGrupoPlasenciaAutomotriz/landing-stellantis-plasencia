@@ -1430,8 +1430,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </button>
     <select class="sort-select" onchange="onSortChange(this.value)" aria-label="Ordenar resultados" id="sortSelect">
       <option value="featured">Destacados</option>
-      <option value="price-asc">Precio: menor a mayor</option>
-      <option value="price-desc">Precio: mayor a menor</option>
+      <option value="enganche-asc">Enganche: menor a mayor</option>
+      <option value="enganche-desc">Enganche: mayor a menor</option>
       <option value="year-desc">Año: más nuevos</option>
     </select>
   </div>
@@ -1498,20 +1498,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div id="locInfo" class="loc-info-card" style="display:none;" role="region" aria-live="polite"></div>
       </details>
 
-      <!-- Marca -->
-      <details class="filter-group">
+      <!-- Marca — brand tiles visuales (movidos desde main por consistencia con gac/seminuevos) -->
+      <details class="filter-group" open>
         <summary>Marca</summary>
-        <div class="filter-dropdown-wrap">
-          <select onchange="filterByBrandSelect(this.value)" id="filterBrand" class="filter-select" aria-label="Marca">
-            <option value="all">Todas las marcas</option>
-            <option value="ram">RAM</option>
-            <option value="peugeot">Peugeot</option>
-            <option value="jeep">Jeep</option>
-            <option value="dodge">Dodge</option>
-            <option value="fiat">Fiat</option>
-          </select>
+        <div class="brands-tiles-sidebar" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px;">
+          <button type="button" class="brand-tile-side" data-cat="ram" onclick="selectBrandTile('ram')" aria-label="Filtrar por RAM" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px 6px;background:#fff;border:1px solid var(--ink-200,#E2E8F0);border-radius:8px;cursor:pointer;transition:all 0.15s;min-height:64px;">
+            <img src="/imagenes/logos/ram.png" alt="RAM" style="height:30px;width:auto;object-fit:contain;">
+            <div style="font-size:9px;font-weight:700;color:var(--ink-500,#64748B);letter-spacing:0.4px;" id="brandCountSide-ram">…</div>
+          </button>
+          <button type="button" class="brand-tile-side" data-cat="jeep" onclick="selectBrandTile('jeep')" aria-label="Filtrar por Jeep" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px 6px;background:#fff;border:1px solid var(--ink-200,#E2E8F0);border-radius:8px;cursor:pointer;transition:all 0.15s;min-height:64px;">
+            <img src="/imagenes/logos/jeep.png" alt="Jeep" style="height:22px;width:auto;object-fit:contain;">
+            <div style="font-size:9px;font-weight:700;color:var(--ink-500,#64748B);letter-spacing:0.4px;" id="brandCountSide-jeep">…</div>
+          </button>
+          <button type="button" class="brand-tile-side" data-cat="peugeot" onclick="selectBrandTile('peugeot')" aria-label="Filtrar por Peugeot" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px 6px;background:#fff;border:1px solid var(--ink-200,#E2E8F0);border-radius:8px;cursor:pointer;transition:all 0.15s;min-height:64px;">
+            <img src="/imagenes/logos/peugeot.png" alt="Peugeot" style="height:30px;width:auto;object-fit:contain;">
+            <div style="font-size:9px;font-weight:700;color:var(--ink-500,#64748B);letter-spacing:0.4px;" id="brandCountSide-peugeot">…</div>
+          </button>
+          <button type="button" class="brand-tile-side" data-cat="dodge" onclick="selectBrandTile('dodge')" aria-label="Filtrar por Dodge" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px 6px;background:#fff;border:1px solid var(--ink-200,#E2E8F0);border-radius:8px;cursor:pointer;transition:all 0.15s;min-height:64px;">
+            <img src="/imagenes/logos/dodge.png" alt="Dodge" style="height:16px;width:auto;object-fit:contain;">
+            <div style="font-size:9px;font-weight:700;color:var(--ink-500,#64748B);letter-spacing:0.4px;" id="brandCountSide-dodge">…</div>
+          </button>
+          <button type="button" class="brand-tile-side" data-cat="fiat" onclick="selectBrandTile('fiat')" aria-label="Filtrar por Fiat" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px 6px;background:#fff;border:1px solid var(--ink-200,#E2E8F0);border-radius:8px;cursor:pointer;transition:all 0.15s;min-height:64px;grid-column:span 2;">
+            <img src="/imagenes/logos/fiat.png" alt="Fiat" style="height:26px;width:auto;object-fit:contain;">
+            <div style="font-size:9px;font-weight:700;color:var(--ink-500,#64748B);letter-spacing:0.4px;" id="brandCountSide-fiat">…</div>
+          </button>
         </div>
+        <!-- Select original conservado oculto para back compat con JS (pills activas, clearAllFilters, updateFilterUI) -->
+        <select onchange="filterByBrandSelect(this.value)" id="filterBrand" class="filter-select" aria-label="Marca" style="display:none;" aria-hidden="true">
+          <option value="all">Todas las marcas</option>
+          <option value="ram">RAM</option>
+          <option value="peugeot">Peugeot</option>
+          <option value="jeep">Jeep</option>
+          <option value="dodge">Dodge</option>
+          <option value="fiat">Fiat</option>
+        </select>
       </details>
+      <style>
+        .brand-tile-side:hover { border-color:var(--brand-accent,#00358F)!important; background:#F8FAFC!important; }
+        .brand-tile-side.is-active { border-color:var(--brand-accent,#00358F)!important; background:#F8FAFC!important; box-shadow:0 0 0 2px rgba(0,53,143,0.15); }
+      </style>
 
       <!-- Precio (oculto en Pivote 2 evergreen — con 13 modelos la dispersión de precio se ve directamente en cards; handlers JS vivos) -->
       <details class="filter-group" style="display:none;" data-pivote2-hidden="filter-precio-evergreen">
@@ -1567,8 +1592,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   @media(max-width:600px) { .intent-tab { padding:9px 14px!important; font-size:12px!important; } }
 </style>
 
-<!-- ════ BRANDS — Endorsed Brands modulo (5 sub-marcas) ════ -->
-<section class="brands-section" aria-labelledby="brandsTitle" style="padding:36px 0 28px;background:#0F1A2E;">
+<!-- ════ BRANDS — Endorsed Brands modulo (5 sub-marcas) — OCULTO en Pivote 2 sprint UX: brand tiles ahora viven en el sidebar como filtro visual junto con gac/seminuevos pattern. Conservado en código para back compat de handlers (selectBrandTile, updateBrandTileCounts) ════ -->
+<section class="brands-section" aria-labelledby="brandsTitle" style="padding:36px 0 28px;background:#0F1A2E;display:none;" data-pivote2-hidden="brands-section-moved-to-sidebar">
   <div class="container">
     <h2 id="brandsTitle" style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);text-align:center;margin:0 0 18px;">Las marcas que tenemos</h2>
     <div class="brands-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:760px;margin:0 auto;">
@@ -1601,7 +1626,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   @media(max-width:600px) { .brands-grid { grid-template-columns:repeat(5,1fr)!important; gap:6px!important; } .brand-tile { padding:10px 4px!important; min-height:70px!important; } .brand-tile img { height:22px!important; } .brand-tile div { font-size:10px!important; } }
 </style>
 <script>
-  // Click en una sub-marca: filtra inventario y sincroniza el dropdown.
+  // Click en una sub-marca: filtra inventario y sincroniza dropdown + tiles (main + sidebar).
   function selectBrandTile(cat) {
     var sel = document.getElementById('filterBrand');
     if (sel) {
@@ -1609,16 +1634,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var newVal = (sel.value === cat) ? 'all' : cat;
       sel.value = newVal;
       if (typeof filterByBrandSelect === 'function') filterByBrandSelect(newVal);
-      // Update visual de tiles
-      document.querySelectorAll('.brand-tile').forEach(function(b){
+      // Update visual: tiles main (legacy, ocultos) + tiles sidebar (Pivote 2 UX)
+      document.querySelectorAll('.brand-tile, .brand-tile-side').forEach(function(b){
         b.classList.toggle('is-active', newVal !== 'all' && b.getAttribute('data-cat') === newVal);
+        b.setAttribute('aria-pressed', (newVal !== 'all' && b.getAttribute('data-cat') === newVal) ? 'true' : 'false');
       });
     }
     // Scroll al inventario
     var inv = document.getElementById('inventoryGrid');
     if (inv) inv.scrollIntoView({behavior:'smooth', block:'start'});
   }
-  // Pobla los counts en cada tile cuando vehicles este cargado.
+  // Pobla los counts en cada tile (main legacy + sidebar Pivote 2) cuando vehicles este cargado.
   function updateBrandTileCounts() {
     if (!Array.isArray(window.vehicles) || vehicles.length === 0) return;
     var counts = {};
@@ -1626,6 +1652,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ['ram','jeep','dodge','fiat','peugeot'].forEach(function(cat){
       var el = document.getElementById('brandCount-' + cat);
       if (el) el.textContent = (counts[cat] || 0) + ' modelos';
+      var elSide = document.getElementById('brandCountSide-' + cat);
+      if (elSide) elSide.textContent = (counts[cat] || 0) + (counts[cat] === 1 ? ' modelo' : ' modelos');
     });
   }
   // Intentar poblar despues del fetch (timeout corto)
@@ -2338,11 +2366,42 @@ function buildVCardHTML(v) {
     : (v.ofertaEspecial
       ? '<div class="v-card-oferta-especial" style="font-family:var(--font-display);font-weight:800;font-size:15px;color:var(--ink-900,#0F1A2E);line-height:1.3;">' + v.ofertaEspecial + '<span style="font-size:11px;color:var(--ink-500,#64748B);font-weight:600;margin-left:4px;">*</span></div>'
       : '<div class="v-card-consultar" style="font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--ink-700,#334155);">Tu asesor confirma precio y términos</div>');
-  // Chip OFERTA VIGENTE: solo aparece si JSON tiene promo del mes activa.
+  // Bloque OFERTA VIGENTE: solo aparece si JSON tiene promo del mes activa.
+  // Patrón visual acoplado a GAC: bloque con gradient + border + eyebrow + texto detallado.
   const hasPromo = (v.descContado && v.descContado > 0) || (v.descFinanc && v.descFinanc > 0);
-  const promoChip = hasPromo
-    ? '<div class="v-card-promo-chip" style="margin-top:6px;display:inline-flex;align-items:center;gap:6px;background:#FFF4E5;color:#B85700;font-size:11px;font-weight:700;padding:4px 10px;border-radius:9999px;letter-spacing:0.3px;text-transform:uppercase;"><span style="width:6px;height:6px;border-radius:50%;background:#FF8A00;"></span>Oferta vigente' + (v.vigHasta ? ' · hasta ' + v.vigHasta : '') + '</div>'
-    : '';
+  const promoBlock = (function(){
+    if (!hasPromo) return '';
+    // Construir el texto principal de la promo según qué campos vengan en el JSON.
+    var bonoTxt = '';
+    if (v.descContado && v.descContado > 0) {
+      bonoTxt = 'Bono $' + v.descContado.toLocaleString('es-MX');
+    }
+    var financTxt = '';
+    if (v.descFinanc && v.descFinanc > 0) {
+      // Si descFinanc > 1 es un monto, si = 1 es marker simbólico (programa sin monto)
+      financTxt = v.descFinanc > 1 ? '$' + v.descFinanc.toLocaleString('es-MX') + ' al financiar' : 'Programa activo';
+    }
+    var msiTxt = (v.msi && v.msi > 0) ? (v.msi === 1 ? 'Meses sin intereses' : v.msi + ' MSI') : '';
+    var vigTxt = v.vigHasta ? ('Vigente hasta ' + v.vigHasta) : '';
+    // Mes para eyebrow desde vigHasta (formato DD/MM/YYYY) — best effort
+    var mesEyebrow = (function(){
+      if (!v.vigHasta) return 'Oferta del mes';
+      var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+      var parts = v.vigHasta.split('/');
+      if (parts.length !== 3) return 'Oferta del mes';
+      var mes = parseInt(parts[1], 10);
+      var year = parts[2];
+      return 'Oferta ' + (meses[mes - 1] || '') + ' ' + year;
+    })();
+    var mainLine = [bonoTxt, financTxt, msiTxt].filter(Boolean).join(' + ');
+    var tooltip = ('Oferta comercial vigente: ' + mainLine + (vigTxt ? '. ' + vigTxt : '') + '. Tu asesor confirma plan a tu medida.').replace(/"/g, '&quot;');
+    return '<div class="v-card-promo-block" title="' + tooltip + '" style="margin-top:8px;padding:8px 10px;background:linear-gradient(135deg,rgba(0,53,143,0.10),rgba(0,53,143,0.02));border:1px solid rgba(0,53,143,0.22);border-radius:6px;font-size:11px;line-height:1.4;">'
+      + '<div style="font-size:9px;font-weight:700;letter-spacing:0.4px;color:var(--brand-accent,#00358F);text-transform:uppercase;margin-bottom:3px;">' + mesEyebrow + '</div>'
+      + '<div><strong style="color:var(--ink-900,#0F1A2E);">' + mainLine + '</strong>'
+      + (vigTxt ? ' <span style="color:var(--ink-600,#475569);">· ' + vigTxt + '</span>' : '')
+      + '</div>'
+      + '</div>';
+  })();
   // Programas evergreen (bono lealtad, MSI) — pills permanentes del lineup.
   const programasPills = (v.programas && v.programas.length)
     ? '<div class="v-card-programas" style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">' + v.programas.map(function(p){
@@ -2364,7 +2423,7 @@ function buildVCardHTML(v) {
         </div>
         <div class="v-card-title">${displayName}${yearTxt}</div>
         ${anchorOffer}
-        ${promoChip}
+        ${promoBlock}
         ${programasPills}
         <div class="v-card-price-disclaimer" style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:6px;line-height:1.3;">*Consulta términos y condiciones. Tu asesor confirma precio total y mensualidad.</div>
         <div style="margin-top:8px;display:flex;gap:6px;position:relative;">
@@ -3384,14 +3443,18 @@ function onSortChange(value) {
   try { (window.dataLayer = window.dataLayer || []).push({ event: 'filter_sort', sort_value: value }); } catch(e) {}
 }
 function _priceFromCard(c) { const e=c.querySelector('.v-card-price'); return e ? (parseInt(e.textContent.replace(/[^0-9]/g,''),10)||0) : 0; }
+function _engancheFromCard(c) { const e=c.querySelector('.v-card-enganche'); return e ? (parseInt(e.textContent.replace(/[^0-9]/g,''),10)||0) : 0; }
 function _yearFromCard(c) { const t=(c.querySelector('.v-card-title')||{}).textContent||''; const m=t.match(/(19|20)\d{2}/); return m ? parseInt(m[0],10) : 0; }
 function sortInventoryDom() {
   const grid = document.getElementById('inventoryGrid');
   if (!grid || currentSort === 'featured') return;
   const cards = Array.from(grid.children).filter(c => c.classList && c.classList.contains('v-card'));
   let cmp;
-  if (currentSort === 'price-asc')  cmp = (a,b)=>_priceFromCard(a)-_priceFromCard(b);
-  else if (currentSort === 'price-desc') cmp = (a,b)=>_priceFromCard(b)-_priceFromCard(a);
+  // Pivote 2: sort por enganche (ancla evergreen real) en lugar de precio MSRP (no existe).
+  if (currentSort === 'enganche-asc')  cmp = (a,b)=>{ const ea=_engancheFromCard(a), eb=_engancheFromCard(b); return (ea===0?Infinity:ea)-(eb===0?Infinity:eb); };
+  else if (currentSort === 'enganche-desc') cmp = (a,b)=>_engancheFromCard(b)-_engancheFromCard(a);
+  else if (currentSort === 'price-asc')  cmp = (a,b)=>_priceFromCard(a)-_priceFromCard(b);  // back compat
+  else if (currentSort === 'price-desc') cmp = (a,b)=>_priceFromCard(b)-_priceFromCard(a);  // back compat
   else if (currentSort === 'year-desc')  cmp = (a,b)=>_yearFromCard(b)-_yearFromCard(a);
   else if (currentSort === 'year-asc')   cmp = (a,b)=>_yearFromCard(a)-_yearFromCard(b);
   if (cmp) cards.sort(cmp).forEach(c => grid.appendChild(c));
