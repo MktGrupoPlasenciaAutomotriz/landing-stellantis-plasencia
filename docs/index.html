@@ -173,7 +173,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
 /* ── HERO (gradient mesh) ── */
 .hero {
   position:relative; overflow:hidden;
-  background:var(--brand-primary-dark) url('imagenes/hero/stellantis-ai-cinematografico.jpg') no-repeat center center;
+  background:var(--brand-primary-dark) url('hero-stellantis-v4-silhouettes.jpg') no-repeat center center;
   background-size:cover;
   color:#fff; padding:96px 0 104px;
   min-height:620px;
@@ -1816,11 +1816,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="trust-badge-item" id="trustBadgeEmpresarial" style="display:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Esquema empresarial</div>
         </div>
 
-        <!-- Banner de sucursal — estilo GAC. Pivote 2 evergreen: cada modelo está en 1 sola sede oficial. Info-only -->
-        <div class="modal-suc-banner" id="modalSucBanner" style="margin:14px 0 18px;padding:12px 14px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;font-size:13px;line-height:1.5;color:var(--ink-800,#1E293B);display:none;">
-          <strong style="display:flex;align-items:center;gap:6px;color:var(--brand-accent,#00358F);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <span id="modalSucBannerSede"></span></strong>
-          <div style="margin-top:4px;color:var(--ink-600,#475569);" id="modalSucBannerHelp">Te contactamos para coordinar tu visita en esta sucursal.</div>
+        <!-- Selector de sucursal — patrón GAC buildSucursalBanner. El usuario elige dónde quiere su visita; el asesor confirma disponibilidad real. -->
+        <div class="modal-suc-banner" id="modalSucBanner" style="margin:14px 0 18px;padding:14px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:10px;font-size:13px;line-height:1.5;color:var(--ink-800,#1E293B);">
+          <div style="display:flex;align-items:center;gap:6px;color:var(--brand-accent,#00358F);font-weight:700;margin-bottom:10px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            ¿En cuál sucursal te queda mejor?
+          </div>
+          <div class="sucursal-cards" id="sucursalCards" style="display:grid;grid-template-columns:1fr;gap:8px;">
+            <label class="sucursal-card" data-suc="Stellantis Mariano Otero" style="display:flex;gap:10px;padding:10px 12px;border:2px solid var(--ink-200,#E2E8F0);border-radius:8px;background:#fff;cursor:pointer;transition:all 0.15s;">
+              <input type="radio" name="sucursalSelect" value="Stellantis Mariano Otero" style="margin-top:2px;accent-color:var(--brand-accent,#00358F);">
+              <div>
+                <div style="font-weight:700;color:var(--ink-900,#0F1A2E);">Stellantis Plasencia · Mariano Otero</div>
+                <div style="font-size:11px;color:var(--ink-500,#64748B);margin-top:2px;">Av. Mariano Otero 405-A, Zapopan · RAM y Peugeot Profesional</div>
+              </div>
+            </label>
+            <label class="sucursal-card" data-suc="Stellantis Santa Anita" style="display:flex;gap:10px;padding:10px 12px;border:2px solid var(--ink-200,#E2E8F0);border-radius:8px;background:#fff;cursor:pointer;transition:all 0.15s;">
+              <input type="radio" name="sucursalSelect" value="Stellantis Santa Anita" style="margin-top:2px;accent-color:var(--brand-accent,#00358F);">
+              <div>
+                <div style="font-weight:700;color:var(--ink-900,#0F1A2E);">Stellantis Plasencia · Santa Anita</div>
+                <div style="font-size:11px;color:var(--ink-500,#64748B);margin-top:2px;">Av. López Mateos Sur 3505, Tlajomulco · Jeep, Dodge, Fiat y Peugeot pasajeros</div>
+              </div>
+            </label>
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:var(--ink-500,#64748B);line-height:1.4;">Tu asesor confirma la sucursal donde está la unidad y coordina tu visita.</div>
         </div>
+        <style>
+          .sucursal-card:hover { border-color: var(--brand-accent,#00358F) !important; background: #F8FAFC !important; }
+          .sucursal-card.is-selected { border-color: var(--brand-accent,#00358F) !important; background: rgba(0,53,143,0.06) !important; box-shadow: 0 0 0 3px rgba(0,53,143,0.12); }
+        </style>
 
         <!-- FORM 1-STEP LITE (pivote 2026-05-13) -->
         <div class="form-section">
@@ -2678,25 +2701,34 @@ function openModal(id) {
   ].filter(function(s){ return !!s; });
   document.getElementById('modalSpecs').innerHTML = _specs.map(s => `<span class="spec-chip">${s}</span>`).join('');
 
-  // Banner sucursal (patrón GAC simplificado): cada modelo tiene 1 sola sede real.
-  const _suc = (currentCar.locs && currentCar.locs[0] && currentCar.locs[0].nombre) || currentCar.loc || '';
-  const _sucBanner = document.getElementById('modalSucBanner');
-  const _sucSede = document.getElementById('modalSucBannerSede');
-  const _sucHelp = document.getElementById('modalSucBannerHelp');
-  if (_sucBanner && _suc) {
-    _sucSede.textContent = 'Esta unidad está en ' + _suc;
-    _sucHelp.textContent = (currentCar.type === 'pickup' || currentCar.type === 'van')
-      ? 'Te contactamos para coordinar entrega y, si lo necesitas, esquema de facturación PFAE/PM.'
-      : 'Te contactamos para coordinar tu prueba de manejo y visita en esta sucursal.';
-    _sucBanner.style.display = 'block';
-  } else if (_sucBanner) {
-    _sucBanner.style.display = 'none';
-  }
+  // Selector de sucursal (patrón GAC): el usuario elige dónde le queda mejor.
+  // No asumimos dónde está la unidad — el asesor confirma disponibilidad real.
+  // Preselección inteligente: si el modelo es comercial (pickup/van) preseleccionamos
+  // Mariano Otero (LCV) como hint. Si es pasajeros, preseleccionamos Santa Anita.
+  // El usuario puede cambiarla; el asesor resuelve.
+  const _isComercial = (currentCar.type === 'pickup' || currentCar.type === 'van');
+  const _hintSede = _isComercial ? 'Stellantis Mariano Otero' : 'Stellantis Santa Anita';
+  document.querySelectorAll('input[name="sucursalSelect"]').forEach(function(r){
+    r.checked = (r.value === _hintSede);
+  });
+  document.querySelectorAll('.sucursal-card').forEach(function(c){
+    c.classList.toggle('is-selected', c.getAttribute('data-suc') === _hintSede);
+    // Click handler: marca radio + sincroniza visual + dispara evento
+    c.onclick = function(e){
+      var val = this.getAttribute('data-suc');
+      var radio = this.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+      document.querySelectorAll('.sucursal-card').forEach(function(other){
+        other.classList.toggle('is-selected', other === c);
+      });
+      try { dataLayer.push({ event: 'select_sucursal', sucursal_preferida: val, item_id: (currentCar && currentCar.id) || null, ...(typeof getTrackingContext === 'function' ? getTrackingContext() : {}) }); } catch (err) {}
+    };
+  });
 
   // "Esquema empresarial" trust badge: solo aplica a pickup/van (uso comercial).
   const _empBadge = document.getElementById('trustBadgeEmpresarial');
   if (_empBadge) {
-    _empBadge.style.display = (currentCar.type === 'pickup' || currentCar.type === 'van') ? 'inline-flex' : 'none';
+    _empBadge.style.display = _isComercial ? 'inline-flex' : 'none';
   }
 
   // Calculadora eliminada (versión lite) — solo reset selectedTerm por compatibilidad
@@ -3095,9 +3127,10 @@ function submitForm() {
   // Pivote 2 enriquecimiento: campos de vehículo + intent + ancla evergreen.
   // Permite al Worker correlacionar lead ↔ inventario_stellantis y enriquecer Airtable/D1
   // sin depender de adivinar a partir del string `vehiculo`.
-  const _primaryLoc = (currentCar.locs && currentCar.locs.length > 0)
-    ? (currentCar.locs[0].nombre || currentCar.loc || agenciaFija)
-    : (currentCar.loc || agenciaFija);
+  // Sucursal: el usuario eligió en el modal (patrón GAC). El asesor confirma disponibilidad real.
+  const _sucursalRadio = document.querySelector('input[name="sucursalSelect"]:checked');
+  const _sucursalPreferida = _sucursalRadio ? _sucursalRadio.value : ((currentCar.type === 'pickup' || currentCar.type === 'van') ? 'Stellantis Mariano Otero' : 'Stellantis Santa Anita');
+  const _primaryLoc = _sucursalPreferida;
 
   const payload = {
     folio: folio,
@@ -3119,9 +3152,10 @@ function submitForm() {
     enganche_desde: currentCar.engancheDesde || 0,
     oferta_especial: currentCar.ofertaEspecial || '',
     promo_activa: !!((currentCar.descContado && currentCar.descContado > 0) || (currentCar.descFinanc && currentCar.descFinanc > 0)),
-    sucursal: _primaryLoc,
-    agencia: _primaryLoc,
-    sucursal_origen_lead: _primaryLoc,
+    sucursal: _sucursalPreferida,
+    sucursal_preferida: _sucursalPreferida,
+    agencia: _sucursalPreferida,
+    sucursal_origen_lead: _sucursalPreferida,
     fecha_cita: '',
     hora_cita: '',
     auto_a_cuenta: '',
