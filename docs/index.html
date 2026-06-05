@@ -3224,7 +3224,7 @@ function submitForm() {
     enganche_pct: '',
     plazo_meses: '',
     mensualidad: '',
-    tipo_persona: '',
+    // tipo_persona: '' ELIMINADO — duplicaba la key con la línea ~3214 que envía 'PFAE_PM' cuando es_flotilla=true. JS usaba el último valor (vacío) → fix: solo dejamos el del bloque flotilla.
     fuente: 'LANDING PAGE',
     etapa: 'POR CONTACTAR',
     fbclid: sessionStorage.getItem('fbclid') || '',
