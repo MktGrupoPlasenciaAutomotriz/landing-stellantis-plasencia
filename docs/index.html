@@ -513,7 +513,8 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
 .steps-kicker { font-size:11px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand-accent); margin-bottom:10px; }
 .steps-title { font-family:var(--font-display); font-weight:800; font-size:clamp(24px,3vw,32px); line-height:1.2; color:var(--ink-900); letter-spacing:-0.02em; margin:0 0 12px; }
 .steps-sub { font-size:15px; line-height:1.6; color:var(--ink-600); margin:0; }
-.steps-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+.steps-grid { display:grid; grid-template-columns:1fr; gap:20px; max-width:1100px; margin:0 auto; }
+@media(min-width:768px){ .steps-grid { grid-template-columns:repeat(3,1fr); } }
 .step-card { background:#fff; border:1px solid var(--ink-200); border-radius:16px; padding:28px 24px; position:relative; transition:transform 0.2s, box-shadow 0.2s; text-align:center; }
 .step-card:hover { transform:translateY(-3px); box-shadow:0 14px 30px -12px rgba(0,53,143,0.18); }
 .step-num { font-family:var(--font-display); font-size:38px; font-weight:900; color:var(--brand-accent); line-height:1; letter-spacing:-0.04em; opacity:0.7; display:block; }
@@ -1398,8 +1399,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="step-card">
         <div class="step-num">03</div>
         <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
-        <h3 class="step-title">Te llamamos en menos de 2 horas</h3>
-        <div class="step-desc">Tu asesor te contacta por WhatsApp o llamada para resolver dudas, calcular tu financiamiento y agendar tu visita a la sucursal.</div>
+        <h3 class="step-title">Tu asesor construye tu oferta a la medida</h3>
+        <div class="step-desc">Te contactamos por WhatsApp o llamada en menos de 2 horas. Tu asesor confirma precio total, tasa real, mensualidad y bonos vigentes según tu perfil, y agenda tu visita en la sucursal correspondiente.</div>
       </div>
     </div>
   </div>
@@ -1409,8 +1410,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="trust-item"><strong><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-7h6v7"/></svg> +75 años de experiencia · Desde 1947</strong></div>
     <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> Garantía de fábrica</div>
-    <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Vehículos comerciales</div>
-    <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Esquemas PFAE / PM</div>
+    <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> 2 sucursales en GDL</div>
+    <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> WhatsApp en menos de 2h</div>
     <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Distribuidor autorizado</div>
     <div class="trust-item"><svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.93" y1="19.07" x2="10.12" y2="13.88"/><line x1="19.07" y1="19.07" x2="13.88" y2="13.88"/></svg> Prueba de manejo</div>
   </div>
@@ -1646,8 +1647,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (inv) inv.scrollIntoView({behavior:'smooth', block:'start'});
   }
   // Pobla los counts en cada tile (main legacy + sidebar Pivote 2) cuando vehicles este cargado.
+  // Fix QA: vehicles es `let`, no se expone en window — checar referencia directa.
   function updateBrandTileCounts() {
-    if (!Array.isArray(window.vehicles) || vehicles.length === 0) return;
+    if (typeof vehicles === 'undefined' || !Array.isArray(vehicles) || vehicles.length === 0) return;
     var counts = {};
     vehicles.forEach(function(v){ if (v.cat) counts[v.cat] = (counts[v.cat] || 0) + 1; });
     ['ram','jeep','dodge','fiat','peugeot'].forEach(function(cat){
@@ -1677,7 +1679,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="reviews-head">
       <div class="reviews-kicker">Lo que dicen nuestros clientes</div>
       <h2 class="reviews-title" id="reviewsTitle">3.9 <span class="reviews-title-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg></span> en Google</h2>
-      <p class="reviews-sub">897 reseñas en Google · Stellantis Plasencia Mariano Otero · 5 marcas bajo un solo techo</p>
+      <p class="reviews-sub">Reseñas en Google · Stellantis Plasencia · 5 marcas en 2 sucursales de Guadalajara</p>
     </div>
     <div class="reviews-grid">
       <article class="review-card">
@@ -1731,9 +1733,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="faq-title" id="faqTitle">Resolvemos tus dudas antes de hablar con un asesor</h2>
     </div>
     <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>¿Por qué solo veo el enganche y no el precio total ni la mensualidad?</summary>
+        <div class="faq-a">Estos 13 modelos son nuestros favoritos siempre disponibles. El enganche es el ancla que se mantiene estable mes con mes. Tu asesor construye tu oferta a la medida: confirma precio total vigente, tasa real STM Financial según tu perfil, mensualidad exacta y bonos comerciales del mes que correspondan a tu modelo y sucursal. Así evitamos darte un precio que pueda variar; el asesor te confirma todo durante tu contacto en menos de 2 horas.</div>
+      </details>
       <details class="faq-item">
-        <summary>¿Cómo funciona la tasa de referencia desde 7.99% con STM Financial (Inbursa)?</summary>
-        <div class="faq-a">Tasas de referencia según modelo y plan (comisión por apertura 1.5% o 2.5%): desde 7.99% con 2.5% CxA. Peugeot 9.99% con 1.5% CxA / 7.99% con 2.5%; Jeep Grand Cherokee 13.99%; Jeep Gladiator 12.99%; Dodge Attitude y Fiat Fastback tasa de referencia STM. CAT promedio de referencia 20.5% sin IVA. Tu asesor te confirma el esquema vigente al momento de tu visita. Crédito sujeto a aprobación.</div>
+        <summary>¿Cómo funciona la tasa de referencia con STM Financial (Inbursa)?</summary>
+        <div class="faq-a">STM Financial es la financiera oficial de Stellantis (Grupo Inbursa). La tasa que te aplican depende del modelo, plan, plazo, enganche y tu perfil crediticio. Tu asesor calcula tu tasa real y mensualidad específica durante el contacto. CAT promedio de referencia 20.5% sin IVA. Crédito sujeto a aprobación.</div>
       </details>
       <details class="faq-item">
         <summary>¿Reciben mi auto actual a cuenta?</summary>
@@ -1763,7 +1769,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span style="width:1px;height:24px;background:rgba(255,255,255,0.18);"></span>
       <img src="https://spdfc.s3.us-west-2.amazonaws.com/distribuidores/Ram_Peugeot_Professional_Plasencia/img/logo.svg" alt="Stellantis Plasencia" style="height:30px;opacity:0.95;mix-blend-mode:screen;">
     </div>
-    <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat &middot; Parte de Grupo Plasencia Automotriz desde 1947<br>Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jalisco<br>Lun a Vie 9:00 a 20:00 &middot; Sáb 9:00 a 18:00 &middot; Dom 11:00 a 17:00 &middot; Tel. (33) 3344 4455<br><span style="opacity:0.75;">+75 años acercándote al auto de tus sueños &middot; +15 marcas &middot; +35 agencias &middot; Centro y Pacifico de México</span><br><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#00358F);text-decoration:underline;font-weight:600;font-size:13px;">📍 Ver ubicación en mapa</a></p>
+    <p><strong>Stellantis Plasencia</strong> &middot; Distribuidor Autorizado RAM, Peugeot, Jeep, Dodge, Fiat &middot; Parte de Grupo Plasencia Automotriz desde 1947<br><span style="opacity:0.75;">+75 años acercándote al auto de tus sueños &middot; +15 marcas &middot; +35 agencias &middot; Centro y Pacífico de México</span></p>
+    <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-top:14px;text-align:left;max-width:760px;margin-left:auto;margin-right:auto;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 14px;">
+        <strong style="font-size:13px;color:#fff;">📍 Stellantis Plasencia · Mariano Otero</strong><br>
+        <span style="font-size:12px;opacity:0.78;">RAM y Peugeot Profesional · Av. Mariano Otero 405-A, La Giralda, 45088 Zapopan, Jal.</span><br>
+        <span style="font-size:11px;opacity:0.65;">Lun-Vie 9:00-20:00 · Sáb 9:00-18:00 · Dom 11:00-17:00</span>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 14px;">
+        <strong style="font-size:13px;color:#fff;">📍 Stellantis Plasencia · Santa Anita</strong><br>
+        <span style="font-size:12px;opacity:0.78;">Jeep, Dodge, Fiat y Peugeot pasajeros · Av. Adolfo López Mateos Sur 3505, Los Gavilanes, 45645 Tlajomulco de Zúñiga, Jal.</span><br>
+        <span style="font-size:11px;opacity:0.65;">Lun-Vie 9:00-19:00 · Sáb 9:00-15:00</span>
+      </div>
+    </div>
+    <p style="margin-top:12px;font-size:12px;"><a href="#" onclick="event.preventDefault();document.getElementById('mapModal').style.display='flex'" style="color:var(--brand-accent,#00358F);text-decoration:underline;font-weight:600;">📍 Ver ubicación en mapa</a></p>
     <p style="margin-top:10px;font-size:10px;line-height:1.5;opacity:0.65;">Financiamiento con STM Financial, S.A. de C.V. SOFOM E.R. (Grupo Financiero Inbursa). CAT promedio de referencia 20.5% sin IVA, ponderado calculado al 23 de marzo de 2026. Crédito sujeto a aprobación. Consulta términos, condiciones y precios con tu distribuidor autorizado.</p>
     <div style="margin-top:14px;"><a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.5); text-decoration: underline; font-size: 12px;">Aviso de Privacidad</a></div>
     <p style="margin-top:14px;font-size:11px;opacity:0.65;">Precios de lista en pesos mexicanos, incluyen IVA y están sujetos a disponibilidad y cambios sin previo aviso. Las condiciones finales de financiamiento (tasa, enganche, plazo y mensualidad) serán calculadas y confirmadas por tu asesor durante el contacto. Los intereses del financiamiento causan IVA adicional. Imágenes referenciales: la unidad real puede tener variaciones de color o acabado. Consulta términos, condiciones y disponibilidad con tu asesor. Crédito sujeto a aprobación bancaria.</p>
@@ -1791,10 +1810,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="modal-specs" id="modalSpecs"></div>
 
-        <div class="modal-trust">
+        <div class="modal-trust" id="modalTrust">
           <div class="trust-badge-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> Garantía de fábrica</div>
           <div class="trust-badge-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.93" y1="19.07" x2="10.12" y2="13.88"/><line x1="19.07" y1="19.07" x2="13.88" y2="13.88"/></svg> Prueba de manejo</div>
-          <div class="trust-badge-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Esquema empresarial</div>
+          <div class="trust-badge-item" id="trustBadgeEmpresarial" style="display:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Esquema empresarial</div>
+        </div>
+
+        <!-- Banner de sucursal — estilo GAC. Pivote 2 evergreen: cada modelo está en 1 sola sede oficial. Info-only -->
+        <div class="modal-suc-banner" id="modalSucBanner" style="margin:14px 0 18px;padding:12px 14px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;font-size:13px;line-height:1.5;color:var(--ink-800,#1E293B);display:none;">
+          <strong style="display:flex;align-items:center;gap:6px;color:var(--brand-accent,#00358F);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <span id="modalSucBannerSede"></span></strong>
+          <div style="margin-top:4px;color:var(--ink-600,#475569);" id="modalSucBannerHelp">Te contactamos para coordinar tu visita en esta sucursal.</div>
         </div>
 
         <!-- FORM 1-STEP LITE (pivote 2026-05-13) -->
@@ -1863,6 +1888,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             Sí, contáctame en menos de 2 horas
           </button>
+          <p style="margin:8px 0 0;text-align:center;font-size:12px;font-weight:600;color:var(--ink-600,#475569);">Sin compromiso ni costo · Tu asesor construye tu oferta a la medida</p>
           <p class="form-privacy">Al enviar, aceptas el <a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener">aviso de privacidad</a> de Grupo Plasencia conforme a la LFPDPPP.</p>
           </div>
 
@@ -2466,7 +2492,8 @@ function buildVCardHTML(v) {
       + '</div>';
   })();
   // Programas evergreen (bono lealtad, MSI) — pills permanentes del lineup.
-  const programasPills = (v.programas && v.programas.length)
+  // Si ya hay ofertaEspecial (Wrangler), las pills son redundantes con el título — se ocultan.
+  const programasPills = (v.programas && v.programas.length && !v.ofertaEspecial)
     ? '<div class="v-card-programas" style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">' + v.programas.map(function(p){
         return '<span style="font-size:10px;font-weight:600;color:var(--ink-600,#475569);background:var(--ink-50,#F8FAFC);border:1px solid var(--ink-200,#E2E8F0);padding:3px 8px;border-radius:9999px;">' + p + '</span>';
       }).join('') + '</div>'
@@ -2631,24 +2658,46 @@ function openModal(id) {
     <div class="modal-gallery-badge">${currentCar.badge}</div>
   `;
 
-  document.getElementById('modalName').textContent = `${displayName} ${currentCar.year}`;
-  document.getElementById('modalPrice').textContent = currentCar.price > 0 ? (currentCar.priceType === 'msrp' ? 'Desde ' + fmt(currentCar.price) : 'Enganche ' + fmt(currentCar.price)) : 'Consultar precio';
+  // Pivote 2 evergreen — sin precio MSRP en data Bere. Ancla del modal es engancheDesde o ofertaEspecial.
+  const _yearStr = (currentCar.year && currentCar.year > 0) ? (' ' + currentCar.year) : '';
+  document.getElementById('modalName').textContent = displayName + _yearStr;
+  document.getElementById('modalPrice').textContent = (currentCar.engancheDesde && currentCar.engancheDesde > 0)
+    ? 'Enganche desde ' + fmt(currentCar.engancheDesde)
+    : (currentCar.ofertaEspecial || 'Tu asesor te confirma');
   const _mpd = document.getElementById('modalPriceDisclaimer');
-  if (_mpd) _mpd.textContent = currentCar.priceType === 'msrp'
-    ? 'Precio de lista, incluye IVA. Sujeto a disponibilidad y cambios sin previo aviso.'
-    : (currentCar.priceType === 'enganche'
-      ? 'Enganche desde. Crédito sujeto a aprobación de STM Financial (Inbursa).'
-      : 'Precio sujeto a cotización en agencia.');
-  document.getElementById('modalVersion').textContent = `${currentCar.brand} &middot; ${currentCar.version}`;
-  document.getElementById('modalVersion').innerHTML = `${currentCar.brand} &middot; ${currentCar.version}`;
+  if (_mpd) _mpd.textContent = 'Tu asesor Stellantis Plasencia construye tu oferta a la medida: confirma precio total, tasa real, mensualidad y plazo según tu perfil. Crédito sujeto a aprobación STM Financial (Grupo Inbursa).';
+  document.getElementById('modalVersion').innerHTML = currentCar.brand;
 
-  document.getElementById('modalSpecs').innerHTML = [
-    currentCar.year + ' Nuevo',
+  // Specs chips: solo render los que tienen valor (evita chips vacíos circulares).
+  const _specs = [
+    (currentCar.year && currentCar.year > 0) ? currentCar.year + ' Nuevo' : null,
     currentCar.brand,
-    currentCar.trans,
-    currentCar.fuel,
-    currentCar.engine
-  ].map(s => `<span class="spec-chip">${s}</span>`).join('');
+    currentCar.trans || null,
+    currentCar.fuel || null,
+    currentCar.engine || null
+  ].filter(function(s){ return !!s; });
+  document.getElementById('modalSpecs').innerHTML = _specs.map(s => `<span class="spec-chip">${s}</span>`).join('');
+
+  // Banner sucursal (patrón GAC simplificado): cada modelo tiene 1 sola sede real.
+  const _suc = (currentCar.locs && currentCar.locs[0] && currentCar.locs[0].nombre) || currentCar.loc || '';
+  const _sucBanner = document.getElementById('modalSucBanner');
+  const _sucSede = document.getElementById('modalSucBannerSede');
+  const _sucHelp = document.getElementById('modalSucBannerHelp');
+  if (_sucBanner && _suc) {
+    _sucSede.textContent = 'Esta unidad está en ' + _suc;
+    _sucHelp.textContent = (currentCar.type === 'pickup' || currentCar.type === 'van')
+      ? 'Te contactamos para coordinar entrega y, si lo necesitas, esquema de facturación PFAE/PM.'
+      : 'Te contactamos para coordinar tu prueba de manejo y visita en esta sucursal.';
+    _sucBanner.style.display = 'block';
+  } else if (_sucBanner) {
+    _sucBanner.style.display = 'none';
+  }
+
+  // "Esquema empresarial" trust badge: solo aplica a pickup/van (uso comercial).
+  const _empBadge = document.getElementById('trustBadgeEmpresarial');
+  if (_empBadge) {
+    _empBadge.style.display = (currentCar.type === 'pickup' || currentCar.type === 'van') ? 'inline-flex' : 'none';
+  }
 
   // Calculadora eliminada (versión lite) — solo reset selectedTerm por compatibilidad
   selectedTerm = 36;

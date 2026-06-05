@@ -13,13 +13,17 @@
     "badge": "",
     "loc": "Stellantis Santa Anita",
     "locs": [
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 },
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 }
+      {
+        "nombre": "Stellantis Santa Anita",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/fiat/FIFA26.png",
-    "gallery": ["/imagenes/oficial/fiat/FIFA26.png"],
+    "gallery": [
+      "/imagenes/oficial/fiat/FIFA26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -68,13 +72,17 @@
     "badge": "",
     "loc": "Stellantis Santa Anita",
     "locs": [
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 },
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 }
+      {
+        "nombre": "Stellantis Santa Anita",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/jeep/WRMH25.png",
-    "gallery": ["/imagenes/oficial/jeep/WRMH25.png"],
+    "gallery": [
+      "/imagenes/oficial/jeep/WRMH25.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -100,7 +108,10 @@
     "descFinanc": 0,
     "msi": 1,
     "mantAnios": 0,
-    "programas": ["Bono de lealtad $30,000", "Meses sin intereses"],
+    "programas": [
+      "Bono de lealtad $30,000",
+      "Meses sin intereses"
+    ],
     "vigDesde": "",
     "vigHasta": "",
     "cat": "jeep",
@@ -121,13 +132,17 @@
     "badge": "",
     "loc": "Stellantis Santa Anita",
     "locs": [
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 },
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 }
+      {
+        "nombre": "Stellantis Santa Anita",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/jeep/RENE26.png",
-    "gallery": ["/imagenes/oficial/jeep/RENE26.png"],
+    "gallery": [
+      "/imagenes/oficial/jeep/RENE26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -174,13 +189,17 @@
     "badge": "",
     "loc": "Stellantis Santa Anita",
     "locs": [
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 },
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 }
+      {
+        "nombre": "Stellantis Santa Anita",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/jeep/COMP26.png",
-    "gallery": ["/imagenes/oficial/jeep/COMP26.png"],
+    "gallery": [
+      "/imagenes/oficial/jeep/COMP26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -227,13 +246,17 @@
     "badge": "",
     "loc": "Stellantis Santa Anita",
     "locs": [
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 },
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 }
+      {
+        "nombre": "Stellantis Santa Anita",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/peugeot/PSVA26.png",
-    "gallery": ["/imagenes/oficial/peugeot/PSVA26.png"],
+    "gallery": [
+      "/imagenes/oficial/peugeot/PSVA26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -280,13 +303,17 @@
     "badge": "",
     "loc": "Stellantis Mariano Otero",
     "locs": [
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 },
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 }
+      {
+        "nombre": "Stellantis Mariano Otero",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/ram/120026.png",
-    "gallery": ["/imagenes/oficial/ram/120026.png"],
+    "gallery": [
+      "/imagenes/oficial/ram/120026.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -333,13 +360,17 @@
     "badge": "",
     "loc": "Stellantis Santa Anita",
     "locs": [
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 },
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 }
+      {
+        "nombre": "Stellantis Santa Anita",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/dodge/ATTI26.png",
-    "gallery": ["/imagenes/oficial/dodge/ATTI26.png"],
+    "gallery": [
+      "/imagenes/oficial/dodge/ATTI26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -386,13 +417,17 @@
     "badge": "",
     "loc": "Stellantis Mariano Otero",
     "locs": [
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 },
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 }
+      {
+        "nombre": "Stellantis Mariano Otero",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/ram/R70026.png",
-    "gallery": ["/imagenes/oficial/ram/R70026.png"],
+    "gallery": [
+      "/imagenes/oficial/ram/R70026.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -439,13 +474,17 @@
     "badge": "",
     "loc": "Stellantis Santa Anita",
     "locs": [
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 },
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 }
+      {
+        "nombre": "Stellantis Santa Anita",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/peugeot/P20026.png",
-    "gallery": ["/imagenes/oficial/peugeot/P20026.png"],
+    "gallery": [
+      "/imagenes/oficial/peugeot/P20026.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -492,13 +531,17 @@
     "badge": "",
     "loc": "Stellantis Mariano Otero",
     "locs": [
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 },
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 }
+      {
+        "nombre": "Stellantis Mariano Otero",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/peugeot-pro/PNEX26.png",
-    "gallery": ["/imagenes/oficial/peugeot-pro/PNEX26.png"],
+    "gallery": [
+      "/imagenes/oficial/peugeot-pro/PNEX26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -545,13 +588,17 @@
     "badge": "",
     "loc": "Stellantis Mariano Otero",
     "locs": [
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 },
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 }
+      {
+        "nombre": "Stellantis Mariano Otero",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/peugeot-pro/PGPT26N.png",
-    "gallery": ["/imagenes/oficial/peugeot-pro/PGPT26N.png"],
+    "gallery": [
+      "/imagenes/oficial/peugeot-pro/PGPT26N.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -598,13 +645,17 @@
     "badge": "",
     "loc": "Stellantis Mariano Otero",
     "locs": [
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 },
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 }
+      {
+        "nombre": "Stellantis Mariano Otero",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/peugeot-pro/PARP26.png",
-    "gallery": ["/imagenes/oficial/peugeot-pro/PARP26.png"],
+    "gallery": [
+      "/imagenes/oficial/peugeot-pro/PARP26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
@@ -651,13 +702,17 @@
     "badge": "",
     "loc": "Stellantis Santa Anita",
     "locs": [
-      { "nombre": "Stellantis Santa Anita", "unidades": 0 },
-      { "nombre": "Stellantis Mariano Otero", "unidades": 0 }
+      {
+        "nombre": "Stellantis Santa Anita",
+        "unidades": 0
+      }
     ],
     "unidades_disponibles": 0,
     "colores_disponibles": [],
     "img": "/imagenes/oficial/fiat/FPUL26.png",
-    "gallery": ["/imagenes/oficial/fiat/FPUL26.png"],
+    "gallery": [
+      "/imagenes/oficial/fiat/FPUL26.png"
+    ],
     "photos": 0,
     "color": "",
     "color_int": "",
