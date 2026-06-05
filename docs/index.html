@@ -1865,6 +1865,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- STEP 1 LITE: unico step — datos de contacto -->
           <div class="form-step active" id="formStep2">
+          <!-- Uso del vehículo — Personal vs Flotilla. Habilita al asesor segmentar B2B/B2C y al worker etiquetar la card en kanban. -->
+          <div class="form-uso-block" style="margin-bottom:18px;">
+            <div style="font-size:13px;font-weight:700;color:var(--ink-800,#1E293B);margin-bottom:8px;">¿Para qué lo quieres? <span class="label-req">Obligatorio</span></div>
+            <div class="uso-cards" id="usoCards" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <label class="uso-card is-selected" data-uso="personal" style="display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:2px solid var(--brand-accent,#00358F);background:rgba(0,53,143,0.06);border-radius:8px;cursor:pointer;transition:all 0.15s;box-shadow:0 0 0 3px rgba(0,53,143,0.12);">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <input type="radio" name="usoVehiculo" value="personal" checked style="accent-color:var(--brand-accent,#00358F);">
+                  <span style="font-weight:700;color:var(--ink-900,#0F1A2E);font-size:13px;">Para mí</span>
+                </div>
+                <div style="font-size:11px;color:var(--ink-500,#64748B);line-height:1.3;">Uso personal o familiar</div>
+              </label>
+              <label class="uso-card" data-uso="flotilla" style="display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:2px solid var(--ink-200,#E2E8F0);background:#fff;border-radius:8px;cursor:pointer;transition:all 0.15s;">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <input type="radio" name="usoVehiculo" value="flotilla" style="accent-color:var(--brand-accent,#00358F);">
+                  <span style="font-weight:700;color:var(--ink-900,#0F1A2E);font-size:13px;">Para mi negocio o flotilla</span>
+                </div>
+                <div style="font-size:11px;color:var(--ink-500,#64748B);line-height:1.3;">Esquemas PFAE/PM · Asesor B2B</div>
+              </label>
+            </div>
+          </div>
+          <style>
+            .uso-card:hover { border-color: var(--brand-accent,#00358F) !important; background: #F8FAFC !important; }
+            .uso-card.is-selected { border-color: var(--brand-accent,#00358F) !important; background: rgba(0,53,143,0.06) !important; box-shadow: 0 0 0 3px rgba(0,53,143,0.12); }
+          </style>
           <div class="form-grid">
             <div class="form-group full">
               <label class="form-label" for="fName">Nombre(s) <span class="label-req">Obligatorio</span></label>
@@ -2726,6 +2750,33 @@ function openModal(id) {
     };
   });
 
+  // Selector de uso del vehículo (Personal / Flotilla)
+  // Preselección inteligente: si type=pickup|van (comercial) → flotilla; otherwise personal.
+  var _hintUso = _isComercial ? 'flotilla' : 'personal';
+  document.querySelectorAll('input[name="usoVehiculo"]').forEach(function(r){
+    r.checked = (r.value === _hintUso);
+  });
+  document.querySelectorAll('.uso-card').forEach(function(c){
+    c.classList.toggle('is-selected', c.getAttribute('data-uso') === _hintUso);
+    c.onclick = function(e){
+      var val = this.getAttribute('data-uso');
+      var radio = this.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+      document.querySelectorAll('.uso-card').forEach(function(other){
+        other.classList.toggle('is-selected', other === c);
+      });
+      try {
+        dataLayer.push({
+          event: 'select_uso_vehiculo',
+          uso_vehiculo: val,
+          es_flotilla: val === 'flotilla',
+          item_id: (currentCar && currentCar.id) || null,
+          ...(typeof getTrackingContext === 'function' ? getTrackingContext() : {})
+        });
+      } catch (err) {}
+    };
+  });
+
   // "Esquema empresarial" trust badge: solo aplica a pickup/van (uso comercial).
   const _empBadge = document.getElementById('trustBadgeEmpresarial');
   if (_empBadge) {
@@ -3132,6 +3183,10 @@ function submitForm() {
   const _sucursalRadio = document.querySelector('input[name="sucursalSelect"]:checked');
   const _sucursalPreferida = _sucursalRadio ? _sucursalRadio.value : ((currentCar.type === 'pickup' || currentCar.type === 'van') ? 'Stellantis Mariano Otero' : 'Stellantis Santa Anita');
   const _primaryLoc = _sucursalPreferida;
+  // Uso del vehículo: Personal vs Flotilla. El worker debe etiquetar la card del kanban con tag "Flotilla" si es flotilla.
+  const _usoRadio = document.querySelector('input[name="usoVehiculo"]:checked');
+  const _usoVehiculo = _usoRadio ? _usoRadio.value : ((currentCar.type === 'pickup' || currentCar.type === 'van') ? 'flotilla' : 'personal');
+  const _esFlotilla = _usoVehiculo === 'flotilla';
 
   const payload = {
     folio: folio,
@@ -3153,6 +3208,10 @@ function submitForm() {
     enganche_desde: currentCar.engancheDesde || 0,
     oferta_especial: currentCar.ofertaEspecial || '',
     promo_activa: !!((currentCar.descContado && currentCar.descContado > 0) || (currentCar.descFinanc && currentCar.descFinanc > 0)),
+    // Uso del vehículo (Pivote 2): segmenta B2C vs B2B. El worker debe agregar tag "Flotilla" en kanban si es_flotilla=true.
+    uso_vehiculo: _usoVehiculo,
+    es_flotilla: _esFlotilla,
+    tipo_persona: _esFlotilla ? 'PFAE_PM' : '',
     sucursal: _sucursalPreferida,
     sucursal_preferida: _sucursalPreferida,
     agencia: _sucursalPreferida,
@@ -3231,6 +3290,9 @@ function submitForm() {
     oferta_especial: currentCar.ofertaEspecial || '',
     oferta_activa: !!((currentCar.descContado && currentCar.descContado > 0) || (currentCar.descFinanc && currentCar.descFinanc > 0)),
     sede: (currentCar.locs && currentCar.locs[0] && currentCar.locs[0].nombre) || currentCar.loc || '',
+    uso_vehiculo: _usoVehiculo,
+    es_flotilla: _esFlotilla,
+    lead_segment: _esFlotilla ? 'B2B_flotilla' : 'B2C_personal',
     accept_marketing: document.getElementById('fMarketing').checked,
     // Back compat (no romper triggers GTM existentes que referencien promo_* )
     promo_id: (currentCar.id || '').toString(),
