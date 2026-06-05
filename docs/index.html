@@ -2427,7 +2427,7 @@ function buildVCardHTML(v) {
         ${programasPills}
         <div class="v-card-price-disclaimer" style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:6px;line-height:1.3;">*Consulta términos y condiciones. Tu asesor confirma precio total y mensualidad.</div>
         <div style="margin-top:8px;display:flex;gap:6px;position:relative;">
-          <button onclick="event.stopPropagation();openModal(${v.id})" style="flex:1;padding:12px;min-height:44px;background:var(--brand-accent,#00358F);color:#fff;border:none;border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:0.2px;cursor:pointer;">Que me contacten</button>
+          <button onclick="event.stopPropagation();openModal(${v.id})" style="flex:1;padding:12px;min-height:44px;background:var(--brand-accent,#00358F);color:#fff;border:none;border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:0.2px;cursor:pointer;">Quiero que me contacten</button>
         </div>
       </div>
     </div>`;
@@ -2923,8 +2923,17 @@ function submitForm() {
   if (!currentCar) {
     try { dataLayer.push({ event: 'form_submit_no_vehicle', error: 'currentCar_null', ...getTrackingContext() }); } catch (e) {}
     var ge = document.getElementById('formGlobalError');
-    if (ge) { ge.textContent = 'Se perdió el auto seleccionado. Cierra esta ventana y vuelve a tocar "Quiero información".'; ge.classList.add('show'); }
+    if (ge) { ge.textContent = 'Se perdió el auto seleccionado. Cierra esta ventana y vuelve a tocar el modelo.'; ge.classList.add('show'); }
     if (typeof closeModal === 'function') setTimeout(closeModal, 2500);
+    return;
+  }
+  // Guardia integridad: si por alguna razón el JSON cargó con item sin id, no envíes lead
+  // huérfano que el Worker no pueda correlacionar con inventario_stellantis. Paridad con
+  // form_submit_no_auto_id de Seminuevos.
+  if (!currentCar.id) {
+    try { dataLayer.push({ event: 'form_submit_no_auto_id', error: 'currentCar_id_missing', item_name: (currentCar.name || '') + ' ' + (currentCar.year || ''), ...getTrackingContext() }); } catch (e) {}
+    var ge2 = document.getElementById('formGlobalError');
+    if (ge2) { ge2.textContent = 'No pudimos identificar el modelo. Recarga la página y vuelve a intentar.'; ge2.classList.add('show'); }
     return;
   }
   clearValidation();
@@ -2971,6 +2980,13 @@ function submitForm() {
   const downPct = 20;
   const monthly = (typeof calcMonthly === 'function' && currentCar.price > 0) ? calcMonthly(currentCar.price, downPct, selectedTerm, currentCar.tasa) : 0;
 
+  // Pivote 2 enriquecimiento: campos de vehículo + intent + ancla evergreen.
+  // Permite al Worker correlacionar lead ↔ inventario_stellantis y enriquecer Airtable/D1
+  // sin depender de adivinar a partir del string `vehiculo`.
+  const _primaryLoc = (currentCar.locs && currentCar.locs.length > 0)
+    ? (currentCar.locs[0].nombre || currentCar.loc || agenciaFija)
+    : (currentCar.loc || agenciaFija);
+
   const payload = {
     folio: folio,
     fecha_registro: new Date().toISOString(),
@@ -2979,11 +2995,21 @@ function submitForm() {
     apellido_materno: ap2,
     telefono: '+52' + phone,
     email: email,
-    vehiculo: `${displayName} ${currentCar.year} ${currentCar.version}`.toUpperCase(),
+    vehiculo: `${displayName} ${currentCar.year} ${currentCar.version}`.toUpperCase().trim(),
     marca: currentCar.brand,
     precio: currentCar.price,
-    sucursal: agenciaFija,
-    agencia: agenciaFija,
+    // Enriquecimiento Pivote 2 — vehículo (paridad con Seminuevos donde aplica)
+    auto_id_origen: currentCar.id || null,
+    vehiculo_anio: currentCar.year || 0,
+    vehiculo_tipo: currentCar.type || '',
+    vehiculo_intent: currentCar.intent || '',
+    vehiculo_submarca: currentCar.submarca || currentCar.brand || '',
+    enganche_desde: currentCar.engancheDesde || 0,
+    oferta_especial: currentCar.ofertaEspecial || '',
+    promo_activa: !!((currentCar.descContado && currentCar.descContado > 0) || (currentCar.descFinanc && currentCar.descFinanc > 0)),
+    sucursal: _primaryLoc,
+    agencia: _primaryLoc,
+    sucursal_origen_lead: _primaryLoc,
     fecha_cita: '',
     hora_cita: '',
     auto_a_cuenta: '',
@@ -3037,14 +3063,29 @@ function submitForm() {
     event_id: folio + '_Lead',    // dedup key Pixel↔CAPI Meta
     folio: folio,
     currency: 'MXN',
-    value: currentCar.price,
-    item_name: currentCar.name + ' ' + currentCar.year,
-    item_price: currentCar.price,
-    lead_value: currentCar.price,
+    // En Pivote 2 evergreen "value" representa el ancla psicológica (enganche desde),
+    // no MSRP (que ya no existe en data Bere). Si no hay enganche (Wrangler) cae a 0.
+    value: currentCar.engancheDesde || 0,
+    // Ítem (paridad con Seminuevos)
+    item_id: (currentCar.id || '').toString(),
+    item_name: currentCar.name + (currentCar.year > 0 ? ' ' + currentCar.year : ''),
+    item_brand: currentCar.brand || '',
+    item_category: currentCar.type || '',
+    item_variant: currentCar.intent || '',  // Pivote 2 — para análisis por intent
+    item_price: currentCar.engancheDesde || 0,
+    lead_value: currentCar.engancheDesde || 0,
     vehicle_brand: currentCar.brand || '',
-    vehicle_year: currentCar.year,
+    vehicle_year: currentCar.year || 0,
     vehicle_version: currentCar.version || '',
+    vehicle_submarca: currentCar.submarca || currentCar.brand || '',
+    vehicle_intent: currentCar.intent || '',
+    vehicle_tipo: currentCar.type || '',
+    enganche_desde: currentCar.engancheDesde || 0,
+    oferta_especial: currentCar.ofertaEspecial || '',
+    oferta_activa: !!((currentCar.descContado && currentCar.descContado > 0) || (currentCar.descFinanc && currentCar.descFinanc > 0)),
+    sede: (currentCar.locs && currentCar.locs[0] && currentCar.locs[0].nombre) || currentCar.loc || '',
     accept_marketing: document.getElementById('fMarketing').checked,
+    // Back compat (no romper triggers GTM existentes que referencien promo_* )
     promo_id: (currentCar.id || '').toString(),
     promo_label: _dlPromoLabel,
     promo_value: _dlPromoValue,
