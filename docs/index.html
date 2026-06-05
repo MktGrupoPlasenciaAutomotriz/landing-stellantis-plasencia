@@ -2459,8 +2459,9 @@ function formatSucursalShort(loc, locs) {
   var sources = Array.isArray(locs) && locs.length ? locs.map(function(l){return l && l.nombre;}) : [loc];
   var labels = Array.from(new Set(sources.map(sucursalLabelFromLoc).filter(Boolean)));
   if (labels.length === 0) return '';
-  if (labels.length > 1) return '📍 Varias sedes';
-  return '📍 ' + labels[0];
+  if (labels.length === 1) return '📍 ' + labels[0];
+  // 2+ sedes: decir exactamente "2 sucursales" (no "Varias sedes" genérico) — usuario elige en modal.
+  return '📍 ' + labels.length + ' sucursales';
 }
 
 function buildVCardHTML(v) {
