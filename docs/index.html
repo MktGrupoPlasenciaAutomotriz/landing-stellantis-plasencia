@@ -1627,13 +1627,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </style>
 <script>
   // Click en una sub-marca: filtra inventario y sincroniza dropdown + tiles (main + sidebar).
+  // source='sidebar_tile' permite distinguir vs. dropdown legacy en GA4.
   function selectBrandTile(cat) {
     var sel = document.getElementById('filterBrand');
     if (sel) {
       // Toggle: si ya esta seleccionada, deseleccionar
       var newVal = (sel.value === cat) ? 'all' : cat;
       sel.value = newVal;
-      if (typeof filterByBrandSelect === 'function') filterByBrandSelect(newVal);
+      if (typeof filterByBrandSelect === 'function') filterByBrandSelect(newVal, 'sidebar_tile');
       // Update visual: tiles main (legacy, ocultos) + tiles sidebar (Pivote 2 UX)
       document.querySelectorAll('.brand-tile, .brand-tile-side').forEach(function(b){
         b.classList.toggle('is-active', newVal !== 'all' && b.getAttribute('data-cat') === newVal);
@@ -2072,7 +2073,40 @@ function sucursalLabelFromLoc(name) {
 const ITEMS_PER_PAGE = 16; // Pivote 2 evergreen: con 13 modelos, evita activar "Load more".
 let visibleCount = ITEMS_PER_PAGE;
 
-function filterByType(val) { currentFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_type', filter_value: val, ...getTrackingContext() }); }
+// Helper Pivote 2: snapshot de filtros activos. Útil para enriquecer cada evento de filtro
+// con contexto cruzado (¿qué intent estaba activo cuando filtró por marca? ¿cuántos filtros
+// combinó?) sin tener que duplicar lógica en cada función.
+function getActiveFiltersSnapshot() {
+  var active = [];
+  if (typeof currentIntent !== 'undefined' && currentIntent !== 'all') active.push('intent:' + currentIntent);
+  if (typeof currentFilter !== 'undefined' && currentFilter !== 'all') active.push('tipo:' + currentFilter);
+  if (typeof currentBrandFilter !== 'undefined' && currentBrandFilter !== 'all') active.push('marca:' + currentBrandFilter);
+  if (typeof currentLocFilter !== 'undefined' && currentLocFilter !== 'all') active.push('sede:' + currentLocFilter);
+  if (typeof currentPriceFilter !== 'undefined' && currentPriceFilter !== 'all') active.push('precio:' + currentPriceFilter);
+  if (typeof searchQuery !== 'undefined' && searchQuery) active.push('search:' + searchQuery);
+  return {
+    intent_active: (typeof currentIntent !== 'undefined' ? currentIntent : 'all'),
+    filters_active_count: active.length,
+    filters_active_keys: active.join(',')
+  };
+}
+// Empuja un evento filter_combination cuando hay >=2 filtros activos. Da insight CRO sobre
+// patrones de uso (qué combinaciones suelen aplicar usuarios reales).
+function pushFilterCombination() {
+  try {
+    var snap = getActiveFiltersSnapshot();
+    if (snap.filters_active_count >= 2) {
+      dataLayer.push({
+        event: 'filter_combination',
+        filters_active_count: snap.filters_active_count,
+        filters_active_keys: snap.filters_active_keys,
+        intent_active: snap.intent_active,
+        ...(typeof getTrackingContext === 'function' ? getTrackingContext() : {})
+      });
+    }
+  } catch (e) {}
+}
+function filterByType(val) { currentFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') { dataLayer.push({ event: 'filter_type', filter_value: val, ...getActiveFiltersSnapshot(), ...getTrackingContext() }); pushFilterCombination(); } }
 // Pivote 2 evergreen: filtro por intención de uso (lifestyle / familia / comercial).
 // Evento ADITIVO select_content (GA4 estándar, NO conversion en Meta — sin riesgo de change history).
 function filterByIntent(val) {
@@ -2090,8 +2124,10 @@ function filterByIntent(val) {
         event: 'select_content',
         content_type: 'intent_tab',
         content_id: val,
+        ...(typeof getActiveFiltersSnapshot === 'function' ? getActiveFiltersSnapshot() : {}),
         ...(typeof getTrackingContext === 'function' ? getTrackingContext() : {})
       });
+      if (typeof pushFilterCombination === 'function') pushFilterCombination();
     } catch (e) {}
   }
 }
@@ -2100,8 +2136,22 @@ function filterByTypeChip(val) {
   document.querySelectorAll('.type-chip').forEach(function(c){ var on = c.dataset.type === val; c.classList.toggle('active', on); c.setAttribute('aria-pressed', on?'true':'false'); });
   var dd = document.getElementById('filterType'); if (dd) dd.value = val;
 }
-function filterByBrandSelect(val) { currentBrandFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_brand', filter_value: val, ...getTrackingContext() }); }
-function filterByPriceSelect(val) { currentPriceFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') dataLayer.push({ event: 'filter_price', filter_value: val, ...getTrackingContext() }); }
+function filterByBrandSelect(val, source) {
+  currentBrandFilter = val;
+  visibleCount = ITEMS_PER_PAGE;
+  updateFilters();
+  if (val !== 'all') {
+    dataLayer.push({
+      event: 'filter_brand',
+      filter_value: val,
+      source: source || 'dropdown',   // 'sidebar_tile' | 'dropdown' | 'pill_clear'
+      ...getActiveFiltersSnapshot(),
+      ...getTrackingContext()
+    });
+    pushFilterCombination();
+  }
+}
+function filterByPriceSelect(val) { currentPriceFilter = val; visibleCount = ITEMS_PER_PAGE; updateFilters(); if (val !== 'all') { dataLayer.push({ event: 'filter_price', filter_value: val, ...getActiveFiltersSnapshot(), ...getTrackingContext() }); pushFilterCombination(); } }
 // Datos de sucursales Stellantis Plasencia. Fuente: stellantisplasencia.com (Mariano Otero)
 // y stellantissantaanita.com (Santa Anita).
 var SEDE_INFO = {
@@ -2160,14 +2210,27 @@ function filterByLocChip(val) {
   document.querySelectorAll('.loc-chip').forEach(function(c){ var on = c.dataset.loc === val; c.classList.toggle('active', on); c.setAttribute('aria-pressed', on?'true':'false'); });
   renderLocInfo(val);
   updateFilters();
-  if (val !== 'all') dataLayer.push({ event: 'filter_loc', filter_value: val, ...getTrackingContext() });
+  if (val !== 'all') {
+    dataLayer.push({ event: 'filter_loc', filter_value: val, ...getActiveFiltersSnapshot(), ...getTrackingContext() });
+    pushFilterCombination();
+  }
 }
 function onSearch(val) {
   searchQuery = val.trim(); visibleCount = ITEMS_PER_PAGE; renderCards(currentFilter); updateFilterUI();
   clearTimeout(searchDebounce);
   if (val && val.trim().length >= 2) {
     searchDebounce = setTimeout(function() {
-      dataLayer.push({ event: 'search', search_term: val.trim(), results_count: document.querySelectorAll('.v-card').length, ...getTrackingContext() });
+      var resultsCount = document.querySelectorAll('.v-card').length;
+      dataLayer.push({
+        event: 'search',
+        search_term: val.trim(),
+        results_count: resultsCount,
+        has_results: resultsCount > 0,
+        is_zero_results: resultsCount === 0,
+        ...getActiveFiltersSnapshot(),
+        ...getTrackingContext()
+      });
+      pushFilterCombination();
     }, 1000);
   }
 }
