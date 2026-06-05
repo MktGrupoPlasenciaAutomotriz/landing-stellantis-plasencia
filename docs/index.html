@@ -1354,7 +1354,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       <div class="hero-vp">75 años acercándote al auto de tus sueños</div>
       <h1>Estrena tu auto <span class="accent">Stellantis en Plasencia</span></h1>
-      <p class="hero-sub">Nuestro lineup siempre disponible. 13 modelos seleccionados entre Mariano Otero (RAM y Peugeot Professional) y Santa Anita (Jeep, Dodge, Fiat y Peugeot pasajeros). Bonos y promociones del mes cuando aplican. Déjanos tus datos en 30 segundos y tu asesor te contacta por WhatsApp en menos de 2 horas.</p>
+      <p class="hero-sub">13 modelos siempre disponibles entre Mariano Otero (RAM y Peugeot Profesional) y Santa Anita (Jeep, Dodge, Fiat y Peugeot pasajeros). Déjanos tus datos en 30 segundos y tu asesor te contacta por WhatsApp en menos de 2 horas. Sin compromiso ni costo.</p>
       <div class="hero-legacy-strip">
         <span><b>+75</b>años de experiencia</span><span class="leg-sep">·</span>
         <span><b>+15</b>marcas representadas</span><span class="leg-sep">·</span>
@@ -1363,8 +1363,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Marcas</div></div>
         <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">Modelos favoritos</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">Desde $262K</div><div class="hero-stat-label">Precio contado</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">Always-On</div><div class="hero-stat-label">Siempre disponibles</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">Desde $66,200<span style="font-size:14px;">*</span></div><div class="hero-stat-label">Enganche desde</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">Sucursales en GDL</div></div>
       </div>
       <button class="hero-cta" onclick="document.getElementById('inventoryGrid').scrollIntoView({behavior:'smooth'})">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1419,7 +1419,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ════ SEARCH BAR (sticky slim) ════ -->
 <section class="search-bar" aria-label="Buscar inventario">
   <div class="container search-bar-inner">
-    <div class="filter-search" style="display:none;" data-pivote2-hidden="search-bar-evergreen">
+    <div class="filter-search">
       <svg class="filter-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <input type="text" placeholder="Buscar marca, modelo o año..." oninput="onSearch(this.value)" id="searchInput" aria-label="Buscar inventario" autocomplete="off">
     </div>
@@ -1451,8 +1451,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="filter-active-pills" id="activePills"></div>
 
-      <!-- Tipo de vehículo (oculto en Pivote 2 evergreen — la navegación por intención lo absorbe; handlers JS quedan vivos pero el componente no se ve) -->
-      <div class="filter-group" style="display:none;" data-pivote2-hidden="filter-tipo-evergreen">
+      <!-- Tipo de vehículo (reactivado para paridad con gac/seminuevos) -->
+      <div class="filter-group">
         <h3 class="filter-group-title">Tipo de vehículo</h3>
         <div class="type-chips" role="group" aria-label="Filtrar por tipo de vehículo">
           <button type="button" class="type-chip active" data-type="all" onclick="filterByTypeChip('all')" aria-pressed="true">
@@ -1832,7 +1832,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <button class="btn-conversion" onclick="submitForm()">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Sí, contáctenme
+            Sí, contáctame en menos de 2 horas
           </button>
           <p class="form-privacy">Al enviar, aceptas el <a href="https://grupoplasencia.com/aviso_de_privacidad/" target="_blank" rel="noopener">aviso de privacidad</a> de Grupo Plasencia conforme a la LFPDPPP.</p>
           </div>
@@ -2324,18 +2324,26 @@ function formatSucursalShort(loc, locs) {
 }
 
 function buildVCardHTML(v) {
-  const monthly = calcMonthly(v.price, 20, 36, v.tasa);
   const badgeClass = v.cat;
   const typeLabels = {pickup:'Pickup',van:'Van',suv:'SUV',sedan:'Sedan'};
   const displayName = v.name.startsWith(v.brand) ? v.name : v.name;
   const sucursalLabel = formatSucursalShort(v.loc, v.locs);
-  // Evergreen: chip OFERTA VIGENTE condicional al haber promo del mes (descContado o descFinanc > 0).
-  // Vive como aviso bajo el precio. No dispara evento (es solo visual).
+  const yearTxt = (v.year && v.year > 0) ? (' ' + v.year) : '';
+  // Pivote 2 evergreen — anclas comerciales sólo de fuente oficial (imágenes de Bere):
+  //  - engancheDesde: enganche desde $X (lo único cuantitativo que mandó Bere)
+  //  - ofertaEspecial: copy alternativo (Wrangler: bono lealtad + MSI)
+  //  Sin MSRP, sin tasa, sin mensualidad calculada → tu asesor las confirma.
+  const anchorOffer = (v.engancheDesde && v.engancheDesde > 0)
+    ? '<div class="v-card-enganche" style="font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--ink-900,#0F1A2E);letter-spacing:0.2px;">Enganche desde ' + fmt(v.engancheDesde) + '<span style="font-size:11px;color:var(--ink-500,#64748B);font-weight:600;margin-left:4px;">*</span></div>'
+    : (v.ofertaEspecial
+      ? '<div class="v-card-oferta-especial" style="font-family:var(--font-display);font-weight:800;font-size:15px;color:var(--ink-900,#0F1A2E);line-height:1.3;">' + v.ofertaEspecial + '<span style="font-size:11px;color:var(--ink-500,#64748B);font-weight:600;margin-left:4px;">*</span></div>'
+      : '<div class="v-card-consultar" style="font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--ink-700,#334155);">Tu asesor confirma precio y términos</div>');
+  // Chip OFERTA VIGENTE: solo aparece si JSON tiene promo del mes activa.
   const hasPromo = (v.descContado && v.descContado > 0) || (v.descFinanc && v.descFinanc > 0);
   const promoChip = hasPromo
     ? '<div class="v-card-promo-chip" style="margin-top:6px;display:inline-flex;align-items:center;gap:6px;background:#FFF4E5;color:#B85700;font-size:11px;font-weight:700;padding:4px 10px;border-radius:9999px;letter-spacing:0.3px;text-transform:uppercase;"><span style="width:6px;height:6px;border-radius:50%;background:#FF8A00;"></span>Oferta vigente' + (v.vigHasta ? ' · hasta ' + v.vigHasta : '') + '</div>'
     : '';
-  // Programas evergreen (bono lealtad, MSI, etc.) — pills permanentes del lineup.
+  // Programas evergreen (bono lealtad, MSI) — pills permanentes del lineup.
   const programasPills = (v.programas && v.programas.length)
     ? '<div class="v-card-programas" style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">' + v.programas.map(function(p){
         return '<span style="font-size:10px;font-weight:600;color:var(--ink-600,#475569);background:var(--ink-50,#F8FAFC);border:1px solid var(--ink-200,#E2E8F0);padding:3px 8px;border-radius:9999px;">' + p + '</span>';
@@ -2344,7 +2352,7 @@ function buildVCardHTML(v) {
   return `
     <div class="v-card" onclick="openModal(${v.id})">
       <div class="v-card-img-wrap">
-        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName + ' ' + v.year + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName + ' ' + v.year + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Imagen próximamente</div></div>'}
+        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName + yearTxt + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName + yearTxt + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Imagen próximamente</div></div>'}
         ${v.badge ? '<div class="v-card-badge ' + badgeClass + '">' + v.badge + '</div>' : ''}
         ${v.img ? '<div class="img-ref-chip" style="position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,0.65);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;font-weight:500;letter-spacing:0.3px;z-index:2;">Imagen referencial</div>' : ''}
         ${sucursalLabel ? '<div class="v-card-loc-chip" style="position:absolute;bottom:6px;right:6px;background:rgba(15,26,46,0.85);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;font-weight:600;letter-spacing:0.2px;z-index:2;">' + sucursalLabel + '</div>' : ''}
@@ -2354,17 +2362,13 @@ function buildVCardHTML(v) {
           <span class="v-card-brand ${v.cat}">${v.brand}</span>
           <span class="v-card-cat">${typeLabels[v.type] || v.type}</span>
         </div>
-        <div class="v-card-title">${displayName} ${v.year}</div>
-        <div class="v-card-specs">${[v.version, v.engine, v.trans].filter(Boolean).join(' · ')}</div>
-        <div class="v-card-price-row">
-          <div class="v-card-price" title="${v.priceType === 'msrp' ? 'Precio de lista, incluye IVA. Sujeto a disponibilidad y cambios sin previo aviso.' : (v.priceType === 'enganche' ? 'Enganche desde. Consulta precio total con tu asesor.' : 'Precio sujeto a cotización en agencia.')}">${v.price > 0 ? (v.priceType === 'msrp' ? 'Desde ' + fmt(v.price) : 'Enganche ' + fmt(v.price)) : 'Consultar precio'}</div>
-          <div class="v-card-monthly" title="Estimado con tasa de referencia. Tu asesor confirma el esquema vigente.">${v.price > 0 ? 'Desde ' + fmt(monthly) + '/mes' : 'Cotiza con tu asesor'}</div>
-        </div>
+        <div class="v-card-title">${displayName}${yearTxt}</div>
+        ${anchorOffer}
         ${promoChip}
         ${programasPills}
-        <div class="v-card-price-disclaimer" style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:4px;line-height:1.3;">${v.priceType === 'msrp' ? 'Precio de lista, incluye IVA. Sujeto a disponibilidad y cambios sin previo aviso.' : (v.priceType === 'enganche' ? 'Enganche desde. Sujeto a aprobación crediticia.' : 'Precio sujeto a cotización en agencia.')}</div>
+        <div class="v-card-price-disclaimer" style="font-size:10px;color:var(--ink-400,#94A3B8);margin-top:6px;line-height:1.3;">*Consulta términos y condiciones. Tu asesor confirma precio total y mensualidad.</div>
         <div style="margin-top:8px;display:flex;gap:6px;position:relative;">
-          <button onclick="event.stopPropagation();openModal(${v.id})" style="flex:1;padding:12px;min-height:44px;background:var(--brand-accent,#00358F);color:#fff;border:none;border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:0.2px;cursor:pointer;">Quiero información</button>
+          <button onclick="event.stopPropagation();openModal(${v.id})" style="flex:1;padding:12px;min-height:44px;background:var(--brand-accent,#00358F);color:#fff;border:none;border-radius:8px;font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:0.2px;cursor:pointer;">Que me contacten</button>
         </div>
       </div>
     </div>`;
