@@ -123,7 +123,7 @@ body { font-family:var(--font-body); color:var(--ink-700); background:var(--ink-
 }
 button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-btn, .btn-conversion, .modal-close, .tooltip-trigger, input[type="range"], select, input[type="date"], .form-input {
   touch-action: manipulation;
-  -webkit-tap-highlight-color: rgba(0,0,0,0.04);
+  -webkit-tap-highlight-color: rgba(0,53,143,0.12);
 }
 .v-card { cursor: pointer; }
 
@@ -405,7 +405,7 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
 
   .filter-sidebar {
     position: fixed; top: 0; left: 0; bottom: 0;
-    width: min(86vw, 380px); max-height: 100vh;
+    width: min(86vw, 380px); max-height: 100dvh;
     border-radius: 0; border: none;
     z-index: 1100;
     transform: translateX(-100%);
@@ -567,7 +567,7 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
 .faq-section { background:#F7F9FC; padding:72px 0; }
 .faq-head { text-align:center; max-width:680px; margin:0 auto 40px; }
 .faq-kicker { font-size:11px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand-accent); margin-bottom:8px; }
-.faq-title { font-family:var(--font-display); font-weight:800; font-size:28px; line-height:1.2; color:var(--ink-900); letter-spacing:-0.02em; }
+.faq-title { font-family:var(--font-display); font-weight:800; font-size:clamp(22px, 4.2vw, 32px); line-height:1.2; color:var(--ink-900); letter-spacing:-0.02em; }
 .faq-intro { margin-top:14px; max-width:680px; font-size:14px; line-height:1.55; color:var(--ink-600); }
 .faq-intro strong { color:var(--ink-900); font-weight:700; }
 .faq-list { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
@@ -691,10 +691,10 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
   padding:3px 8px; border-radius:4px;
   background:var(--ink-100); color:var(--ink-500);
 }
-.v-card-title { font-family:var(--font-display); font-size:18px; font-weight:800; color:var(--ink-900); letter-spacing:-0.02em; margin-bottom:4px; }
+.v-card-title { font-family:var(--font-display); font-size:clamp(16px, 4vw, 18px); font-weight:800; color:var(--ink-900); letter-spacing:-0.02em; margin-bottom:4px; }
 .v-card-specs { font-size:12px; color:var(--ink-500); margin-bottom:14px; }
 .v-card-price-row { display:flex; align-items:baseline; justify-content:space-between; margin-top:auto; padding-top:12px; border-top:1px solid var(--ink-100); }
-.v-card-price { font-family:var(--font-display); font-size:22px; font-weight:800; color:var(--ink-900); letter-spacing:-0.02em; }
+.v-card-price { font-family:var(--font-display); font-size:clamp(20px, 5vw, 24px); font-weight:800; color:var(--ink-900); letter-spacing:-0.02em; }
 .v-card-monthly { font-size:11px; color:var(--color-success-dark); font-weight:700; }
 .v-card-cta {
   margin-top:14px; display:flex; align-items:center; justify-content:center; gap:6px;
@@ -718,7 +718,7 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
 .modal-content {
   background:#fff; border-radius:var(--radius-2xl); width:100%; max-width:1100px;
   margin:24px auto; box-shadow:var(--shadow-xl); overflow:hidden;
-  animation:modalIn var(--duration-slow) var(--ease);
+  animation:modalIn var(--duration-normal) var(--ease);
 }
 @keyframes modalIn { from { opacity:0; transform:translateY(20px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -1144,7 +1144,7 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
   display:flex; align-items:center; justify-content:center; color:#fff;
   box-shadow:0 12px 28px -8px rgba(16,185,129,0.5);
 }
-.confirmation-title { font-family:var(--font-display); font-size:28px; font-weight:900; color:var(--ink-900); letter-spacing:-0.02em; margin-bottom:8px; }
+.confirmation-title { font-family:var(--font-display); font-size:clamp(22px, 5vw, 30px); font-weight:900; color:var(--ink-900); letter-spacing:-0.02em; margin-bottom:8px; }
 .confirmation-subtitle { color:var(--ink-500); margin-bottom:14px; font-size:14px; }
 
 /* ── POST-CONFIRMATION STEPS ── */
@@ -2649,7 +2649,7 @@ function buildVCardHTML(v) {
   return `
     <div class="v-card" onclick="openModal(${v.id})">
       <div class="v-card-img-wrap">
-        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName + yearTxt + '" loading="lazy">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName + yearTxt + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Imagen próximamente</div></div>'}
+        ${v.img ? '<img class="v-card-img" src="' + v.img + '" alt="' + displayName + yearTxt + '" loading="lazy" width="800" height="500" decoding="async">' : '<div class="v-card-empty ' + v.cat + '"><div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;">' + v.brand + '</div><div style="font-size:14px;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:600;">' + displayName + yearTxt + '</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Imagen próximamente</div></div>'}
         ${v.badge ? '<div class="v-card-badge ' + badgeClass + '">' + v.badge + '</div>' : ''}
         ${v.img ? '<div class="img-ref-chip" style="position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,0.65);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;font-weight:500;letter-spacing:0.3px;z-index:2;">Imagen referencial</div>' : ''}
         ${sucursalLabel ? '<div class="v-card-loc-chip" style="position:absolute;bottom:6px;right:6px;background:rgba(15,26,46,0.85);color:#fff;font-size:10px;padding:3px 8px;border-radius:4px;font-weight:600;letter-spacing:0.2px;z-index:2;">' + sucursalLabel + '</div>' : ''}
@@ -2785,7 +2785,29 @@ window.addEventListener('popstate', function() {
     const h = window.location.hash;
     const modal = document.getElementById('vehicleModal');
     const isOpen = modal && modal.classList.contains('open');
-    if ((!h || h === '#catalogo') && isOpen) closeModal();
+    // Pivote 2 fix B.P0.1: handler robusto para back/forward Android.
+    // Casos a manejar:
+    //  - hash vacío o #catalogo: cerrar modal si está abierto.
+    //  - #vehiculo-N: abrir modal del vehículo N (forward desde un back previo).
+    //  - #confirmacion: mantener confirmStation visible (no cerrar modal porque
+    //    la confirmación vive dentro del modal-content).
+    if (h && h.indexOf('#vehiculo-') === 0) {
+      var idStr = h.slice('#vehiculo-'.length);
+      var id = parseInt(idStr, 10);
+      if (!isNaN(id) && (!currentCar || currentCar.id !== id)) {
+        // Forward navigation: reabrir el modal del vehículo.
+        if (typeof openModal === 'function') {
+          try { openModal(id); } catch(e){ console.warn('popstate openModal fail', e); }
+        }
+      }
+    } else if (h === '#confirmacion' && isOpen) {
+      // Estado de confirmación, no cerrar el modal porque contiene la confirmation.
+      // Solo asegurar que confirmState esté visible.
+      var cs = document.getElementById('confirmState');
+      if (cs && !cs.classList.contains('show')) cs.classList.add('show');
+    } else if ((!h || h === '#catalogo') && isOpen) {
+      closeModal();
+    }
   } finally { _spaNavigating = false; }
 });
 
@@ -3108,24 +3130,51 @@ function normalizePayload(data) {
 }
 
 function sendToWebhook(data) {
-  if (!WEBHOOK_URL) return;
+  if (!WEBHOOK_URL) return Promise.resolve({ ok: false, reason: 'no_webhook' });
   var folio = data && data.folio ? String(data.folio) : '';
   if (folio && _sentFolios.has(folio)) {
     console.warn('[lead] dedup skip (folio ya enviado)', folio);
-    return;
+    return Promise.resolve({ ok: true, deduped: true });
   }
   const payload = normalizePayload(data);
   const body = JSON.stringify(payload);
   var sent = false;
+  var deliveryPromise;
+
+  // Pivote 2 B.P0.3 fix: detección offline + Promise real.
+  // Si el navegador reporta offline, no intentamos fetch — encolamos directo
+  // y devolvemos { ok:false, reason:'offline' } para que el UI muestre banner
+  // honesto en vez de avanzar a confirmación con promesa rota.
+  if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+    try {
+      const queue = JSON.parse(localStorage.getItem('gp_pending_leads') || '[]');
+      queue.push({ url: WEBHOOK_URL, data: payload, ts: Date.now(), folio: folio });
+      localStorage.setItem('gp_pending_leads', JSON.stringify(queue.slice(-20)));
+    } catch(e) { console.error('[lead] queue offline fail', e); }
+    return Promise.resolve({ ok: false, reason: 'offline', queued: true });
+  }
 
   // Primary: fetch keepalive. Sobrevive navigation/tab-close. Worker tiene CORS abierto.
   try {
-    fetch(WEBHOOK_URL, {
+    deliveryPromise = fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: body,
       keepalive: true
-    }).catch(function(e){ console.error('[lead] fetch rejected async', e); });
+    }).then(function(r){
+      if (r && r.ok) { markFolioSent(folio); return { ok: true, status: r.status }; }
+      console.error('[lead] worker non-ok', r && r.status);
+      return { ok: false, reason: 'worker_error', status: r && r.status };
+    }).catch(function(e){
+      console.error('[lead] fetch rejected async', e);
+      // Encolar para retry al recuperar conexión.
+      try {
+        const queue = JSON.parse(localStorage.getItem('gp_pending_leads') || '[]');
+        queue.push({ url: WEBHOOK_URL, data: payload, ts: Date.now(), folio: folio });
+        localStorage.setItem('gp_pending_leads', JSON.stringify(queue.slice(-20)));
+      } catch(qe) {}
+      return { ok: false, reason: 'fetch_failed', error: String(e && e.message || e) };
+    });
     sent = true;
   } catch(e) {
     console.error('[lead] fetch threw sync, trying beacon fallback', e);
@@ -3137,23 +3186,25 @@ function sendToWebhook(data) {
       if (navigator.sendBeacon) {
         const blob = new Blob([body], { type: 'application/json' });
         sent = navigator.sendBeacon(WEBHOOK_URL, blob) === true;
+        deliveryPromise = Promise.resolve({ ok: sent, via: 'beacon' });
+        if (sent) markFolioSent(folio);
       }
     } catch(e) { console.error('[lead] beacon fail', e); }
   }
 
   console.log('[lead] submit', folio, { sent: sent });
 
-  if (sent) {
-    markFolioSent(folio);
-  } else {
-    // Fallo sincronicamente, encolar para retry en proxima visita
+  if (!sent) {
+    // Fallo sincronicamente Y sin beacon, encolar para retry en proxima visita
     try {
       const queue = JSON.parse(localStorage.getItem('gp_pending_leads') || '[]');
       queue.push({ url: WEBHOOK_URL, data: payload, ts: Date.now(), folio: folio });
       localStorage.setItem('gp_pending_leads', JSON.stringify(queue.slice(-20)));
       console.warn('[lead] queued for retry', folio);
     } catch(e) { console.error('[lead] queue fail', e); }
+    return Promise.resolve({ ok: false, reason: 'sync_fail', queued: true });
   }
+  return deliveryPromise || Promise.resolve({ ok: true });
 }
 
 // Al cargar la pagina, reintenta leads encolados (max 7 dias de antiguedad)
@@ -3559,7 +3610,7 @@ function generateRegistrationPDF() {
 
   // ============ DATOS CLIENTE ============
   sectionTitle('Datos del cliente');
-  row('Nombre', `${a.nombre} ${a.apellido_paterno} ${a.apellido_materno}`, { bold: true });
+  row('Nombre', [a.nombre, a.apellido_paterno, a.apellido_materno].filter(Boolean).join(' '), { bold: true });
   row('WhatsApp', a.telefono);
   row('Correo', a.email);
   y += 2;
@@ -4113,6 +4164,99 @@ function stickyCtaBrowse() {
   var _tapStyle = document.createElement('style');
   _tapStyle.textContent = '@media (hover: none) { .v-card:active { transform: scale(0.985); transition: transform 80ms ease-out; } }';
   document.head.appendChild(_tapStyle);
+
+  // 7. Debounce renderCards en onSearch (A.P1.6 INP fix)
+  // Cada keystroke regeneraba todo el grid (innerHTML re-render). Con 13+
+  // modelos, INP mobile podía subir >200ms. Debounce 180ms preserva
+  // responsividad pero evita el thrashing.
+  if (typeof window.onSearch === 'function' && !window._onSearchDebounced) {
+    var _origOnSearch = window.onSearch;
+    var _searchTimer;
+    window.onSearch = function(val) {
+      clearTimeout(_searchTimer);
+      _searchTimer = setTimeout(function(){ try { _origOnSearch(val); } catch(e){ console.error('onSearch', e); } }, 180);
+    };
+    window._onSearchDebounced = true;
+  }
+
+  // 8. aria-invalid dinámico en inputs con error (C.P1-4 WCAG 3.3.1)
+  // El frontend ya muestra .form-error-msg pero el screen reader no anuncia
+  // que el campo está inválido. Observamos el toggle de .show en error
+  // messages y aplicamos aria-invalid="true" al input asociado vía
+  // aria-describedby. Al limpiar el error, removemos aria-invalid.
+  var _errObserver = new MutationObserver(function(mutations){
+    mutations.forEach(function(m){
+      if (m.attributeName !== 'class') return;
+      var errEl = m.target;
+      if (!errEl.classList || !errEl.id || !errEl.id.endsWith('-error')) return;
+      var inputId = errEl.id.replace(/-error$/, '');
+      var input = document.getElementById(inputId);
+      if (!input) return;
+      if (errEl.classList.contains('show')) {
+        input.setAttribute('aria-invalid', 'true');
+      } else {
+        input.removeAttribute('aria-invalid');
+      }
+    });
+  });
+  document.querySelectorAll('.form-error-msg[id$="-error"]').forEach(function(el){
+    _errObserver.observe(el, { attributes: true, attributeFilter: ['class'] });
+  });
+
+  // 9. Focus management filter drawer mobile (C.P1-9)
+  // Drawer abre/cierra con aria-expanded pero no mueve focus al drawer ni
+  // atrapa Tab dentro. Esc cierra (handler global). Implementación robusta
+  // sin tocar el toggle existente.
+  var _drawerToggleBtn = document.getElementById('filtersToggle');
+  var _drawerEl = document.getElementById('filterSidebar');
+  if (_drawerToggleBtn && _drawerEl) {
+    var _drawerObs = new MutationObserver(function(mutations){
+      mutations.forEach(function(m){
+        if (m.attributeName !== 'aria-expanded' && m.attributeName !== 'class') return;
+        var open = _drawerToggleBtn.getAttribute('aria-expanded') === 'true' || _drawerEl.classList.contains('open');
+        if (open) {
+          // Focus al close button del drawer.
+          var closeBtn = _drawerEl.querySelector('.filter-sidebar-close') || _drawerEl.querySelector('button');
+          if (closeBtn) setTimeout(function(){ try { closeBtn.focus({ preventScroll: true }); } catch(e){} }, 60);
+        } else {
+          // Restaurar focus al toggle.
+          try { _drawerToggleBtn.focus({ preventScroll: true }); } catch(e){}
+        }
+      });
+    });
+    _drawerObs.observe(_drawerToggleBtn, { attributes: true, attributeFilter: ['aria-expanded'] });
+    _drawerObs.observe(_drawerEl, { attributes: true, attributeFilter: ['class'] });
+
+    // Tab trap dentro del drawer.
+    document.addEventListener('keydown', function(ev){
+      if (ev.key !== 'Tab') return;
+      var open = _drawerEl.classList.contains('open') || _drawerToggleBtn.getAttribute('aria-expanded') === 'true';
+      if (!open) return;
+      var focusables = Array.from(_drawerEl.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+        .filter(function(el){ return el.offsetParent !== null; });
+      if (!focusables.length) return;
+      var first = focusables[0], last = focusables[focusables.length - 1];
+      if (ev.shiftKey && document.activeElement === first) { last.focus(); ev.preventDefault(); }
+      else if (!ev.shiftKey && document.activeElement === last) { first.focus(); ev.preventDefault(); }
+    });
+  }
+
+  // 10. Online/offline banner (B.P0.3 honest CRO)
+  // Si el usuario pierde conexión durante el flow, mostrar banner sticky
+  // informando que su lead se guardará localmente y se enviará al reconectar.
+  var _offlineBanner = null;
+  function _ensureOfflineBanner() {
+    if (_offlineBanner) return _offlineBanner;
+    _offlineBanner = document.createElement('div');
+    _offlineBanner.setAttribute('role', 'status');
+    _offlineBanner.setAttribute('aria-live', 'polite');
+    _offlineBanner.style.cssText = 'position:fixed;left:0;right:0;bottom:0;background:#7c2d12;color:#fff;padding:12px 16px;font-size:13px;font-weight:600;text-align:center;z-index:9999;display:none;font-family:var(--font-body, system-ui);';
+    _offlineBanner.textContent = 'Sin conexión: tu registro se guarda local y se envía cuando vuelvas a tener red.';
+    document.body.appendChild(_offlineBanner);
+    return _offlineBanner;
+  }
+  window.addEventListener('offline', function(){ _ensureOfflineBanner().style.display = 'block'; });
+  window.addEventListener('online',  function(){ if (_offlineBanner) _offlineBanner.style.display = 'none'; });
 })();
 </script>
 
