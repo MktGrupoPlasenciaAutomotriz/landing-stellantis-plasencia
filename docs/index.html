@@ -721,6 +721,7 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
   animation:modalIn var(--duration-slow) var(--ease);
 }
 @keyframes modalIn { from { opacity:0; transform:translateY(20px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 /* Modal fullscreen mobile — must come AFTER base .modal-content */
 @media (max-width: 640px) {
   .modal-overlay { padding:0; align-items:stretch; }
@@ -1984,8 +1985,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
           </div>
         </div>
-        <div class="confirmation-title">Listo, te llamamos en menos de 2 horas</div>
+        <div class="confirmation-title" tabindex="-1">Listo, te llamamos en menos de 2 horas</div>
         <p class="confirmation-subtitle" id="confirmSubtitle">Te contactamos por WhatsApp para confirmar tu visita a la agencia.</p>
+
+        <!-- FOLIO arriba (Peak-End Rule: el ancla emocional positiva debe ser lo primero después del título) -->
+        <div class="confirmation-folio" id="confirmFolio">GP-STL-000000</div>
+        <button type="button" id="copyFolioBtn" onclick="copyFolio()" style="margin:-6px auto 16px;display:flex;align-items:center;gap:6px;padding:6px 12px;background:transparent;color:var(--ink-600);border:1px solid var(--ink-200);border-radius:999px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font-body);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copyFolioLabel">Copiar folio</span>
+        </button>
 
         <!-- QUE SIGUE -->
         <div class="next-steps">
@@ -2002,7 +2010,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="next-step-text">Llega a la agencia con tu folio. El asesor ya tiene tus datos y el auto listo.</div>
           </div>
         </div>
-        <div class="confirmation-folio" id="confirmFolio">GP-STL-000000</div>
 
         <div class="confirmation-details" id="confirmDetails"></div>
 
@@ -2902,7 +2909,9 @@ function closeModal() {
   document.body.style.width = '';
   document.body.style.top = '';
   document.documentElement.style.overflow = '';
-  window.scrollTo(0, parseInt(savedScrollY, 10));
+  // behavior:'instant' para no heredar scroll-behavior:smooth del <html> y evitar
+  // el salto animado raro post-close del modal en mobile.
+  window.scrollTo({ top: parseInt(savedScrollY, 10), behavior: 'instant' });
   // Liberar estado de envio para permitir abrir otro vehiculo
   if (typeof resetSubmitState === 'function') resetSubmitState();
   // Restaurar vista de formulario para la proxima apertura
@@ -3144,7 +3153,10 @@ function resetSubmitState() {
   submitting = false;
   window._submitCompleted = false;
   const b = document.querySelector('.btn-conversion');
-  if (b) { b.disabled = false; b.style.opacity = ''; b.style.cursor = ''; }
+  if (b) {
+    b.disabled = false; b.style.opacity = ''; b.style.cursor = '';
+    if (b.dataset.originalHtml) { b.innerHTML = b.dataset.originalHtml; delete b.dataset.originalHtml; }
+  }
 }
 
 // Scroll al primer campo con error (UX: user-centric — sube al problema)
@@ -3217,7 +3229,13 @@ function submitForm() {
 
   submitting = true;
   const submitBtn = document.querySelector('.btn-conversion');
-  if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '0.6'; submitBtn.style.cursor = 'wait'; }
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.85';
+    submitBtn.style.cursor = 'wait';
+    submitBtn.dataset.originalHtml = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" style="animation:spin 0.8s linear infinite;flex-shrink:0;"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="14 42" stroke-linecap="round"/></svg> Enviando…';
+  }
 
   const nombre = document.getElementById('fName').value.trim().toUpperCase();
   const ap1 = document.getElementById('fLastName1').value.trim().toUpperCase();
@@ -3894,6 +3912,147 @@ function stickyCtaBrowse() {
     </div>
   </div>
 </div>
+
+<!-- ════ MOBILE-FIRST INTERACTIONS (Pivote 2 mobile audit findings) ════ -->
+<script>
+(function(){
+  'use strict';
+
+  // 1. scrollIntoView en focus de inputs del modal (B.P0.4)
+  // Fix iOS Safari: el teclado on-screen tapa los últimos campos del form. Al
+  // recibir focus, scrollIntoView con block:'center' garantiza visibilidad
+  // sobre el teclado. Guard 280ms para esperar al teclado.
+  document.addEventListener('focusin', function(ev){
+    var el = ev.target;
+    if (!el || !el.closest) return;
+    var modal = el.closest('.modal-overlay.open');
+    if (!modal) return;
+    var isFormField = el.matches('input, textarea, select');
+    if (!isFormField) return;
+    setTimeout(function(){
+      try { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e){}
+    }, 280);
+  });
+
+  // 2. Focus management modal (C.P0-6)
+  // - Al abrir, focus al primer elemento interactivo del modal (close button).
+  // - Mantiene referencia al elemento que abrió el modal para devolver focus al cerrar.
+  // - Implementa focus trap: Tab cíclico dentro del modal.
+  var _modalOpener = null;
+  var _modalObserver = new MutationObserver(function(mutations){
+    mutations.forEach(function(m){
+      if (m.attributeName !== 'class') return;
+      var modal = m.target;
+      if (!modal.classList.contains('open')) return;
+      // Modal recién abierto. Guarda opener y mueve focus al primer botón.
+      _modalOpener = document.activeElement;
+      var focusable = modal.querySelector('.modal-close') || modal.querySelector('button, [tabindex="0"], input, select, textarea, a[href]');
+      if (focusable) {
+        setTimeout(function(){ try { focusable.focus({ preventScroll: true }); } catch(e){} }, 80);
+      }
+    });
+  });
+  document.querySelectorAll('.modal-overlay').forEach(function(m){ _modalObserver.observe(m, { attributes: true, attributeFilter: ['class'] }); });
+
+  // Focus trap dentro de modal abierto.
+  document.addEventListener('keydown', function(ev){
+    if (ev.key !== 'Tab') return;
+    var modal = document.querySelector('.modal-overlay.open');
+    if (!modal) return;
+    var focusables = Array.from(modal.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+      .filter(function(el){ return el.offsetParent !== null; });
+    if (!focusables.length) return;
+    var first = focusables[0], last = focusables[focusables.length - 1];
+    if (ev.shiftKey && document.activeElement === first) {
+      last.focus(); ev.preventDefault();
+    } else if (!ev.shiftKey && document.activeElement === last) {
+      first.focus(); ev.preventDefault();
+    }
+  });
+
+  // Restore focus al opener cuando modal se cierra.
+  var _restoreObserver = new MutationObserver(function(mutations){
+    mutations.forEach(function(m){
+      if (m.attributeName !== 'class') return;
+      var modal = m.target;
+      if (modal.classList.contains('open')) return;
+      // Modal cerrado. Devuelve focus al opener.
+      if (_modalOpener && document.body.contains(_modalOpener)) {
+        try { _modalOpener.focus({ preventScroll: true }); } catch(e){}
+      }
+      _modalOpener = null;
+    });
+  });
+  document.querySelectorAll('.modal-overlay').forEach(function(m){ _restoreObserver.observe(m, { attributes: true, attributeFilter: ['class'] }); });
+
+  // 3. Focus al confirmation title (C.P1-3)
+  // Cuando confirmState aparece (post-submit), mover focus al título para que
+  // el screen reader anuncie "Listo, te llamamos en menos de 2 horas" + folio.
+  var _confirmObserver = new MutationObserver(function(){
+    var cs = document.getElementById('confirmState');
+    if (cs && cs.classList.contains('show')) {
+      var title = cs.querySelector('.confirmation-title');
+      if (title) setTimeout(function(){ try { title.focus(); } catch(e){} }, 120);
+    }
+  });
+  var csInit = document.getElementById('confirmState');
+  if (csInit) _confirmObserver.observe(csInit, { attributes: true, attributeFilter: ['class'] });
+
+  // 4. Copiar folio al clipboard (C.P2-7)
+  window.copyFolio = function(){
+    var folio = (document.getElementById('confirmFolio') || {}).textContent || '';
+    folio = folio.trim();
+    if (!folio || folio === 'GP-STL-000000') return;
+    var label = document.getElementById('copyFolioLabel');
+    var ok = function(){ if (label) { label.textContent = '¡Copiado!'; setTimeout(function(){ label.textContent = 'Copiar folio'; }, 1800); } };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(folio).then(ok).catch(function(){
+          // Fallback: textarea + execCommand.
+          var ta = document.createElement('textarea'); ta.value = folio; document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); ok(); } catch(e){}
+          document.body.removeChild(ta);
+        });
+      } else {
+        var ta = document.createElement('textarea'); ta.value = folio; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); ok(); } catch(e){}
+        document.body.removeChild(ta);
+      }
+    } catch(e){}
+  };
+
+  // 5. Feedback durante generación PDF (B.P1.7)
+  // jsPDF + addImage tarda 1-3s en mobile gama media. Sin feedback el usuario
+  // doble-tappea (descargas duplicadas) o cree que falló. Wrappamos
+  // generateRegistrationPDF para disable + texto "Generando…" + restore.
+  var _origGenPDF = window.generateRegistrationPDF;
+  if (typeof _origGenPDF === 'function') {
+    window.generateRegistrationPDF = function(){
+      var btn = document.querySelector('.confirm-action-btn.primary');
+      if (btn) {
+        btn.disabled = true;
+        btn.dataset.origHtml = btn.innerHTML;
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" style="animation:spin 0.8s linear infinite;flex-shrink:0;"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="14 42" stroke-linecap="round"/></svg> Generando PDF…';
+      }
+      // setTimeout 50ms para que el browser paint el spinner antes de bloquear.
+      setTimeout(function(){
+        try { _origGenPDF.apply(window, arguments); } catch(e){ console.error('PDF gen error', e); }
+        if (btn) {
+          btn.disabled = false;
+          if (btn.dataset.origHtml) { btn.innerHTML = btn.dataset.origHtml; delete btn.dataset.origHtml; }
+        }
+      }, 50);
+    };
+  }
+
+  // 6. Active feedback en .v-card tap (C.P2-2)
+  // El -webkit-tap-highlight-color por default casi invisible. Agregamos
+  // active state visible para confirmación táctil mobile.
+  var _tapStyle = document.createElement('style');
+  _tapStyle.textContent = '@media (hover: none) { .v-card:active { transform: scale(0.985); transition: transform 80ms ease-out; } }';
+  document.head.appendChild(_tapStyle);
+})();
+</script>
 
 </body>
 </html>
