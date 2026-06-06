@@ -191,7 +191,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
                    linear-gradient(90deg, rgba(0,53,143,0.06) 1px, transparent 1px);
   background-size:40px 40px; mask-image:radial-gradient(ellipse at center, black, transparent 70%);
 }
-.hero-content { position:relative; z-index:1; max-width:640px; text-align:left; }
+.hero-content { position:relative; z-index:2; max-width:640px; text-align:left; }
 @media (max-width: 768px) {
   .hero { padding:64px 0 72px; min-height:auto; background-position:65% center; }
   .hero::before { background:linear-gradient(180deg, rgba(7,14,28,0.55) 0%, rgba(7,14,28,0.78) 45%, rgba(15,26,46,0.92) 100%); }
@@ -213,7 +213,8 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   overflow-wrap: anywhere;
   hyphens: auto;
 }
-@media (max-width: 480px) { .hero h1 { font-size: 30px; line-height: 1.06; } }
+@media (max-width: 480px) { .hero h1 { font-size: 28px; line-height: 1.06; } }
+@media (max-width: 360px) { .hero h1 { font-size: 24px; line-height: 1.08; } }
 .hero h1 .accent {
   background:linear-gradient(135deg, var(--brand-accent-bright) 0%, #B8D4FF 50%, var(--brand-accent-bright) 100%);
   -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -361,10 +362,10 @@ details.filter-group > summary::after {
 details.filter-group[open] > summary::after { transform: rotate(-135deg); margin-top: 3px; }
 
 .filter-sidebar .type-chips { display: flex; flex-wrap: wrap; gap: 6px; overflow: visible; padding: 0; -webkit-mask-image: none; mask-image: none; }
-.filter-sidebar .type-chip { padding: 8px 12px; font-size: 12px; min-height: 36px; flex: 0 0 auto; }
-.filter-sidebar .type-chip svg { width: 16px; height: 16px; }
+.filter-sidebar .type-chip { padding: 11px 14px; font-size: 13px; min-height: 44px; flex: 0 0 auto; }
+.filter-sidebar .type-chip svg { width: 18px; height: 18px; }
 .filter-sidebar .loc-chips { display: flex; flex-direction: column; gap: 4px; }
-.filter-sidebar .loc-chip { width: 100%; justify-content: flex-start; padding: 8px 12px; font-size: 12px; min-height: 36px; }
+.filter-sidebar .loc-chip { width: 100%; justify-content: flex-start; padding: 11px 14px; font-size: 13px; min-height: 44px; }
 
 .filter-sidebar .filter-dropdown-wrap { width: 100%; }
 .filter-sidebar .filter-select { width: 100%; padding: 10px 32px 10px 14px; }
@@ -603,9 +604,10 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
   .filter-select { width: 100%; }
 }
 /* Patrón GAC para que search + Filtros + Destacados quepan en una línea en
-   mobile sin encimarse: sort-select reduce ancho y tipografía, gap más chico. */
+   mobile sin encimarse: sort-select reduce ancho y tipografía. Gap 8px = base
+   GAC, suficiente. */
 @media (max-width: 480px) {
-  .search-bar-inner { gap: 6px; }
+  .search-bar-inner { gap: 8px; }
   .sort-select { font-size: 12px; padding: 0 30px 0 10px; max-width: 38vw; }
   .filters-toggle-mobile { padding: 0 10px; font-size: 12px; }
 }
@@ -1256,7 +1258,7 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 .sticky-mobile-cta {
   display: none;
   position: fixed; left: 0; right: 0; bottom: 0;
-  z-index: 80;
+  z-index: 998;
   background: #fff;
   border-top: 1px solid var(--ink-200);
   padding: 10px 16px;
