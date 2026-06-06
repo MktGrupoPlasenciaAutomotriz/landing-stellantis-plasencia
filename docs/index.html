@@ -9,7 +9,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-WKV7LZ7T');</script>
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>RAM, Peugeot, Jeep, Dodge y Fiat Plasencia | Otero y Santa Anita</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -28,7 +28,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@700;800&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link rel="preload" as="image" href="hero-stellantis-v4-silhouettes.jpg" fetchpriority="high">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 <style>
 :root {
   /* Stellantis Plasencia — Manual de Identidad Red Mainstream (marzo 2024).
@@ -219,7 +220,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   background:linear-gradient(135deg, var(--brand-accent-bright) 0%, #B8D4FF 50%, var(--brand-accent-bright) 100%);
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
-.hero-vp { font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin:14px 0 18px; max-width:540px; }
+.hero-vp { font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.82); margin:14px 0 18px; max-width:540px; }
 @media (max-width: 768px) { .hero-vp { margin:14px auto 18px; text-align:center; } }
 /* Authority eyebrow + legacy stat strip */
 .hero-eyebrow {
@@ -239,7 +240,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   display:flex; flex-wrap:wrap; gap:6px 18px; align-items:baseline;
   margin:10px 0 6px; max-width:640px;
   font-family: 'Inter', sans-serif;
-  font-size:13px; color:rgba(255,255,255,0.72);
+  font-size:13px; color:rgba(255,255,255,0.92);
 }
 .hero-legacy-strip b {
   font-family:'Montserrat', sans-serif;
@@ -262,7 +263,7 @@ button, a, .filter-chip, .v-card, .v-card-cta, .calc-term-btn, .confirm-action-b
   font-family:var(--font-display); font-size:22px; font-weight:800; color:#fff;
   letter-spacing:-0.02em; line-height:1;
 }
-.hero-stat-label { font-size:11px; color:rgba(255,255,255,0.5); margin-top:6px; text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }
+.hero-stat-label { font-size:11px; color:rgba(255,255,255,0.85); margin-top:6px; text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }
 
 /* ── HERO CTA ── */
 .hero-cta {
@@ -612,6 +613,23 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
   .search-bar-inner { gap: 8px; }
   .sort-select { font-size: 12px; padding: 0 30px 0 10px; max-width: 38vw; }
   .filters-toggle-mobile { padding: 0 10px; font-size: 12px; }
+}
+/* Mobile: iOS Safari auto-zoom prevention (font-size>=16px en inputs) + touch
+   target >=44px en toolbar. WCAG 2.5.5 + HIG/Material. */
+@media (max-width: 768px) {
+  .filter-search input { font-size: 16px; min-height: 44px; }
+  .sort-select { min-height: 44px; }
+  .filter-select { font-size: 16px; }
+  select.form-input, input.form-input { font-size: 16px; }
+}
+/* Reduced motion global: respetar usuarios con vestibular issues. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
 .search-no-results {
   grid-column:1/-1; text-align:center; padding:48px 20px;
@@ -1003,7 +1021,11 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
 .form-input::placeholder { color:var(--ink-400); }
 select.form-input { -webkit-appearance:none; appearance:none; background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23475569'/%3E%3C/svg%3E") no-repeat right 16px center; padding-right:38px; cursor:pointer; }
 
-.uppercase-field { text-transform:uppercase; }
+/* uppercase-field: kept como hook semántico pero SIN text-transform CSS
+   (screen readers leen letras MAYÚSCULAS letra-por-letra, "J,U,A,N"). El
+   uppercase real se aplica en el submit JS solo para campos de nombre.
+   El email NO se transforma a uppercase (rompe expectativa + autocomplete iOS). */
+.uppercase-field { }
 input.form-input[type="text"], input.form-input[type="email"], input.form-input[type="tel"] { text-transform:uppercase; }
 input.form-input[type="text"]::placeholder, input.form-input[type="email"]::placeholder, input.form-input[type="tel"]::placeholder { text-transform:none; color:var(--ink-400); }
 
@@ -1014,7 +1036,7 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
   font-size:14px; font-weight:700; color:var(--ink-600);
   display:flex; align-items:center; white-space:nowrap;
 }
-.help-text { font-size:11px; color:var(--ink-400); margin-top:6px; }
+.help-text { font-size:11px; color:var(--ink-500); margin-top:6px; }
 
 .form-input.error { border-color:var(--color-error); background:#FEF2F2; }
 .form-input.valid { border-color:var(--color-success); }
@@ -1072,7 +1094,8 @@ input.form-input[type="text"]::placeholder, input.form-input[type="email"]::plac
 .cita-picker { margin-top:4px; max-width:340px; }
 .cal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
 .cal-header-title { font-family:var(--font-display); font-weight:700; font-size:15px; color:var(--ink-800); text-transform:capitalize; }
-.cal-nav { background:none; border:1.5px solid var(--ink-200); border-radius:var(--radius-sm); width:34px; height:34px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--ink-500); transition:all var(--duration-fast) var(--ease); }
+.cal-nav { background:none; border:1.5px solid var(--ink-200); border-radius:var(--radius-sm); width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--ink-500); transition:all var(--duration-fast) var(--ease); }
+@media (max-width: 768px) { .cal-nav { width:44px; height:44px; } }
 .cal-nav:hover { border-color:var(--brand-accent); color:var(--brand-accent); }
 .cal-nav:disabled { opacity:0.3; cursor:default; border-color:var(--ink-200); color:var(--ink-400); }
 .cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:12px; }
@@ -1802,7 +1825,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<div class="modal-overlay" id="vehicleModal" role="dialog" aria-modal="true">
+<div class="modal-overlay" id="vehicleModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
   <div class="modal-content">
     <div class="modal-gallery" id="modalGallery">
       <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">&times;</button>
@@ -1904,31 +1927,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="form-grid">
             <div class="form-group full">
               <label class="form-label" for="fName">Nombre(s) <span class="label-req">Obligatorio</span></label>
-              <input class="form-input uppercase-field" id="fName" type="text" placeholder="JUAN CARLOS" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="given-name" required aria-required="true" aria-describedby="fName-error">
+              <input class="form-input uppercase-field" id="fName" type="text" placeholder="Juan Carlos" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="given-name" enterkeyhint="next" required aria-required="true" aria-describedby="fName-error">
               <div class="form-error-msg" id="fName-error" role="alert">Necesitamos tu nombre para registrarte</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="fLastName1">Apellido paterno <span class="label-req">Obligatorio</span></label>
-              <input class="form-input uppercase-field" id="fLastName1" type="text" placeholder="PEREZ" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="family-name" required aria-required="true" aria-describedby="fLastName1-error">
+              <input class="form-input uppercase-field" id="fLastName1" type="text" placeholder="Pérez" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="family-name" enterkeyhint="next" required aria-required="true" aria-describedby="fLastName1-error">
               <div class="form-error-msg" id="fLastName1-error" role="alert">Necesitamos tu apellido paterno</div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="fLastName2">Apellido materno <span class="label-req">Obligatorio</span></label>
-              <input class="form-input uppercase-field" id="fLastName2" type="text" placeholder="GARCIA" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="additional-name" required aria-required="true" aria-describedby="fLastName2-error">
-              <div class="form-error-msg" id="fLastName2-error" role="alert">Necesitamos tu apellido materno</div>
+              <label class="form-label" for="fLastName2">Apellido materno <span class="label-opt">Opcional</span></label>
+              <input class="form-input uppercase-field" id="fLastName2" type="text" placeholder="García" oninput="sanitizeOnInput(this); validateField(this)" autocomplete="additional-name" enterkeyhint="next" aria-describedby="fLastName2-error">
+              <div class="form-error-msg" id="fLastName2-error" role="alert">Apellido materno solo letras</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="fPhone">WhatsApp (10 digitos) <span class="label-req">Obligatorio</span></label>
               <div class="phone-wrap">
                 <div class="phone-prefix">MX +52</div>
-                <input class="form-input" id="fPhone" type="tel" placeholder="3312345678" maxlength="10" oninput="formatPhone(this); validateField(this)" onkeypress="return /[0-9]/.test(event.key)" autocomplete="tel-national" inputmode="numeric" required aria-required="true" aria-describedby="fPhone-error" style="flex:1;">
+                <input class="form-input" id="fPhone" type="tel" placeholder="3312345678" maxlength="10" oninput="formatPhone(this); validateField(this)" onkeypress="return /[0-9]/.test(event.key)" autocomplete="tel-national" inputmode="numeric" enterkeyhint="next" required aria-required="true" aria-describedby="fPhone-error" style="flex:1;">
               </div>
               <div class="help-text">10 dígitos sin espacios</div>
               <div class="form-error-msg" id="fPhone-error" role="alert">Necesitamos 10 dígitos para contactarte por WhatsApp</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="fEmail">Correo electrónico <span class="label-req">Obligatorio</span></label>
-              <input class="form-input" id="fEmail" type="email" placeholder="TU@EMAIL.COM" oninput="validateField(this)" autocomplete="email" required aria-required="true" aria-describedby="fEmail-error">
+              <input class="form-input" id="fEmail" type="email" placeholder="tu@email.com" oninput="validateField(this)" autocomplete="email" inputmode="email" enterkeyhint="done" required aria-required="true" aria-describedby="fEmail-error">
               <div class="form-error-msg" id="fEmail-error" role="alert">Revisa tu correo: ahí te confirmamos el registro</div>
             </div>
           </div>
@@ -1955,7 +1978,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <!-- CONFIRMATION -->
-      <div class="confirmation" id="confirmState">
+      <div class="confirmation" id="confirmState" role="status" aria-live="polite" aria-atomic="true">
         <div class="confirmation-icon">
           <div class="confirmation-icon-circle">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
@@ -3200,7 +3223,7 @@ function submitForm() {
   const ap1 = document.getElementById('fLastName1').value.trim().toUpperCase();
   const ap2 = document.getElementById('fLastName2').value.trim().toUpperCase();
   const phone = document.getElementById('fPhone').value.trim();
-  const email = document.getElementById('fEmail').value.trim().toUpperCase();
+  const email = document.getElementById('fEmail').value.trim().toLowerCase();
   const name = [nombre, ap1, ap2].join(' ');
   const folio = generateFolio('GP-STL');
   const displayName = currentCar.name.startsWith(currentCar.brand) ? currentCar.name : currentCar.name;
