@@ -601,6 +601,13 @@ details.filter-group[open] > summary::after { transform: rotate(-135deg); margin
   .filter-search { min-width: 100%; }
   .filter-dropdown-wrap { width: calc(50% - 4px); }
   .filter-select { width: 100%; }
+  /* Mobile: el input de búsqueda compite con Filtros + Destacados y se ve
+     encimado. Ya hay intent tabs (Estilo de vida / Familia / Negocio) y el
+     drawer de Filtros — el search input se oculta. */
+  .search-bar-inner > .filter-search { display: none; }
+  .search-bar-inner { justify-content: flex-end; gap: 8px; }
+  .search-bar-inner > .filters-toggle-mobile,
+  .search-bar-inner > .sort-select { flex: 0 0 auto; }
 }
 .search-no-results {
   grid-column:1/-1; text-align:center; padding:48px 20px;
