@@ -2021,6 +2021,26 @@ const ASESOR_ASIGNADO = {
   telefono: '+52 222 708 3255'
 };
 
+// Routing del botón "Escribir a mi asesor por WhatsApp" en la confirmación.
+// Espeja la lógica del worker (resolveStellantisNotifPins en src/index.js):
+//   - Flotilla            → Chucho (Director de Marketing Corporativo)
+//   - Sucursal Plasencia  → Luis Porras (Gerente Ventas Digitales Plasencia)
+//   - Sucursal Santa Anita → Hassam Cruz (Gerente Santa Anita)
+//   - Fallback            → Vendedor Digital genérico
+function resolveAsesorWA(esFlotilla, sucursalSeleccionada) {
+  if (esFlotilla) {
+    return { nombre: 'Chucho · Dirección', telefono: '+52 222 708 3255' };
+  }
+  var suc = String(sucursalSeleccionada || '').toUpperCase();
+  if (suc.indexOf('SANTA ANITA') !== -1) {
+    return { nombre: 'Hassam Cruz · Santa Anita', telefono: '+52 33 1605 5733' };
+  }
+  if (suc.indexOf('PLASENCIA') !== -1 || suc.indexOf('OTERO') !== -1 || suc.indexOf('MARIANO') !== -1) {
+    return { nombre: 'Luis Porras · Mariano Otero', telefono: '+52 33 3129 8612' };
+  }
+  return { nombre: ASESOR_ASIGNADO.nombre, telefono: ASESOR_ASIGNADO.telefono };
+}
+
 // Tasa de referencia estándar: 9.99% (Peugeot SUVs + Jeep Renegade/Compass 2026,
 // los segmentos de mayor volumen del piloto). Cada SKU puede sobrescribir su tasa
 // específica vía `v.tasa` desde catalogo-stellantis.json (poblada desde Airtable
@@ -3314,8 +3334,9 @@ function submitForm() {
 
   document.getElementById('detailState').style.display = 'none';
   document.getElementById('confirmFolio').textContent = folio;
-  const waPhone = ASESOR_ASIGNADO.telefono.replace(/[^0-9]/g, '');
-  const waMsg = `Hola, vi el ${currentCar.name} ${currentCar.year} en stellantis.grupoplasencia.com y me interesa más información. Soy ${nombre}.`;
+  const _asesorWA = resolveAsesorWA(_esFlotilla, _sucursalPreferida);
+  const waPhone = _asesorWA.telefono.replace(/[^0-9]/g, '');
+  const waMsg = `Hola ${_asesorWA.nombre.split(' · ')[0]}, vi el ${currentCar.name} ${currentCar.year} en stellantis.grupoplasencia.com y me interesa más información. Soy ${nombre}.`;
   document.getElementById('waAsesor').href = `https://api.whatsapp.com/send/?phone=${waPhone}&text=${encodeURIComponent(waMsg)}&type=phone_number&app_absent=0`;
   document.getElementById('confirmDetails').innerHTML = `
     <p><strong>Vehículo:</strong> ${displayName} ${currentCar.year} ${currentCar.version}</p>
