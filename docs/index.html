@@ -3310,6 +3310,33 @@ function submitForm() {
     if (!firstError) firstError = privacyBox;
   }
 
+  // Validación SUCURSAL OBLIGATORIA (director 2026-06-08). El usuario debe
+  // elegir activamente sucursal — sin fallback automático según tipo de vehículo
+  // (eso confundía al usuario porque "decidía" cosas que él no entendía).
+  var sucCheckedSTL = document.querySelector('input[name="sucursalSelect"]:checked');
+  var sucBannerSTL = document.getElementById('modalSucBanner');
+  if (!sucCheckedSTL) {
+    if (sucBannerSTL) {
+      sucBannerSTL.style.outline = '2px solid #B91C1C';
+      sucBannerSTL.style.background = '#FEF2F2';
+      var existingErrSTL = sucBannerSTL.querySelector('.sucursal-required-error');
+      if (!existingErrSTL) {
+        var errSTL = document.createElement('div');
+        errSTL.className = 'sucursal-required-error';
+        errSTL.setAttribute('role', 'alert');
+        errSTL.style.cssText = 'color:#B91C1C;font-size:12px;font-weight:600;margin-top:8px;';
+        errSTL.textContent = 'Selecciona una sucursal para continuar.';
+        sucBannerSTL.appendChild(errSTL);
+      }
+    }
+    if (!firstError) firstError = sucBannerSTL || document.querySelector('input[name="sucursalSelect"]');
+  } else if (sucBannerSTL) {
+    sucBannerSTL.style.outline = '';
+    sucBannerSTL.style.background = '';
+    var prevErrSTL = sucBannerSTL.querySelector('.sucursal-required-error');
+    if (prevErrSTL) prevErrSTL.remove();
+  }
+
   if (firstError) {
     document.getElementById('formGlobalError').classList.add('show');
     firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -3342,12 +3369,15 @@ function submitForm() {
   // Permite al Worker correlacionar lead ↔ inventario_stellantis y enriquecer Airtable/D1
   // sin depender de adivinar a partir del string `vehiculo`.
   // Sucursal: el usuario eligió en el modal (patrón GAC). El asesor confirma disponibilidad real.
+  // Pivote 2 — 2026-06-08 (director): sucursal SIN fallback automático.
+  // La validación arriba garantiza que _sucursalRadio NO es null aquí.
   const _sucursalRadio = document.querySelector('input[name="sucursalSelect"]:checked');
-  const _sucursalPreferida = _sucursalRadio ? _sucursalRadio.value : ((currentCar.type === 'pickup' || currentCar.type === 'van') ? 'Stellantis Mariano Otero' : 'Stellantis Santa Anita');
+  const _sucursalPreferida = _sucursalRadio.value;
   const _primaryLoc = _sucursalPreferida;
-  // Uso del vehículo: Personal vs Flotilla. El worker debe etiquetar la card del kanban con tag "Flotilla" si es flotilla.
+  // Uso: Personal default. Si el usuario quiere Flotilla lo elige explícitamente
+  // (Personal preselected es OK porque es el caso B2C dominante; Flotilla es B2B).
   const _usoRadio = document.querySelector('input[name="usoVehiculo"]:checked');
-  const _usoVehiculo = _usoRadio ? _usoRadio.value : ((currentCar.type === 'pickup' || currentCar.type === 'van') ? 'flotilla' : 'personal');
+  const _usoVehiculo = _usoRadio ? _usoRadio.value : 'personal';
   const _esFlotilla = _usoVehiculo === 'flotilla';
 
   const payload = {
