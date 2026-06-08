@@ -1859,14 +1859,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             ¿En cuál sucursal te queda mejor?
           </div>
           <div class="sucursal-cards" id="sucursalCards" style="display:grid;grid-template-columns:1fr;gap:8px;">
-            <label class="sucursal-card" data-suc="Stellantis Mariano Otero" style="display:flex;gap:10px;padding:10px 12px;border:2px solid var(--ink-200,#E2E8F0);border-radius:8px;background:#fff;cursor:pointer;transition:all 0.15s;">
+            <label class="sucursal-card" data-suc="Stellantis Mariano Otero" style="display:flex;gap:10px;padding:10px 12px;border:2px solid var(--ink-200,#E2E8F0);border-radius:8px;background:#fff;cursor:pointer;transition:all 0.15s;position:relative;">
               <input type="radio" name="sucursalSelect" value="Stellantis Mariano Otero" style="margin-top:2px;accent-color:var(--brand-accent,#00358F);">
               <div>
                 <div style="font-weight:700;color:var(--ink-900,#0F1A2E);">Stellantis Plasencia · Mariano Otero</div>
                 <div style="font-size:11px;color:var(--ink-500,#64748B);margin-top:2px;">Av. Mariano Otero 405-A, Zapopan · RAM y Peugeot Profesional</div>
               </div>
             </label>
-            <label class="sucursal-card" data-suc="Stellantis Santa Anita" style="display:flex;gap:10px;padding:10px 12px;border:2px solid var(--ink-200,#E2E8F0);border-radius:8px;background:#fff;cursor:pointer;transition:all 0.15s;">
+            <label class="sucursal-card" data-suc="Stellantis Santa Anita" style="display:flex;gap:10px;padding:10px 12px;border:2px solid var(--ink-200,#E2E8F0);border-radius:8px;background:#fff;cursor:pointer;transition:all 0.15s;position:relative;">
               <input type="radio" name="sucursalSelect" value="Stellantis Santa Anita" style="margin-top:2px;accent-color:var(--brand-accent,#00358F);">
               <div>
                 <div style="font-weight:700;color:var(--ink-900,#0F1A2E);">Stellantis Plasencia · Santa Anita</div>
@@ -1878,7 +1878,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <style>
           .sucursal-card:hover { border-color: var(--brand-accent,#00358F) !important; background: #F8FAFC !important; }
-          .sucursal-card.is-selected { border-color: var(--brand-accent,#00358F) !important; background: rgba(0,53,143,0.06) !important; box-shadow: 0 0 0 3px rgba(0,53,143,0.12); }
+          /* P0 fix 2026-06-08 — refuerzo visual del seleccionado: borde 3px + checkmark visible. */
+          .sucursal-card.is-selected { border-color: var(--brand-accent,#00358F) !important; border-width: 3px !important; background: rgba(0,53,143,0.10) !important; box-shadow: 0 0 0 4px rgba(0,53,143,0.14); }
+          .sucursal-card.is-selected::after { content:'✓'; position:absolute; top:6px; right:8px; width:22px; height:22px; border-radius:50%; background:var(--brand-accent,#00358F); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; line-height:1; box-shadow:0 2px 6px rgba(0,53,143,0.4); }
         </style>
 
         <!-- FORM 1-STEP LITE (pivote 2026-05-13) -->
@@ -1905,14 +1907,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="form-uso-block" style="margin-bottom:18px;">
             <div style="font-size:13px;font-weight:700;color:var(--ink-800,#1E293B);margin-bottom:8px;">¿Para qué lo quieres? <span class="label-req">Obligatorio</span></div>
             <div class="uso-cards" id="usoCards" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-              <label class="uso-card is-selected" data-uso="personal" style="display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:2px solid var(--brand-accent,#00358F);background:rgba(0,53,143,0.06);border-radius:8px;cursor:pointer;transition:all 0.15s;box-shadow:0 0 0 3px rgba(0,53,143,0.12);">
+              <label class="uso-card is-selected" data-uso="personal" style="display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:3px solid var(--brand-accent,#00358F);background:rgba(0,53,143,0.10);border-radius:8px;cursor:pointer;transition:all 0.15s;box-shadow:0 0 0 4px rgba(0,53,143,0.14);position:relative;">
                 <div style="display:flex;align-items:center;gap:6px;">
                   <input type="radio" name="usoVehiculo" value="personal" checked style="accent-color:var(--brand-accent,#00358F);">
                   <span style="font-weight:700;color:var(--ink-900,#0F1A2E);font-size:13px;">Para mí</span>
+                  <span style="font-size:10px;font-weight:700;color:var(--brand-accent,#00358F);background:rgba(0,53,143,0.14);padding:1px 6px;border-radius:4px;letter-spacing:0.4px;">DEFAULT</span>
                 </div>
-                <div style="font-size:11px;color:var(--ink-500,#64748B);line-height:1.3;">Uso personal o familiar</div>
+                <div style="font-size:11px;color:var(--ink-500,#64748B);line-height:1.3;">Uso personal o familiar · tu uso más común</div>
               </label>
-              <label class="uso-card" data-uso="flotilla" style="display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:2px solid var(--ink-200,#E2E8F0);background:#fff;border-radius:8px;cursor:pointer;transition:all 0.15s;">
+              <label class="uso-card" data-uso="flotilla" style="display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:2px solid var(--ink-200,#E2E8F0);background:#fff;border-radius:8px;cursor:pointer;transition:all 0.15s;position:relative;">
                 <div style="display:flex;align-items:center;gap:6px;">
                   <input type="radio" name="usoVehiculo" value="flotilla" style="accent-color:var(--brand-accent,#00358F);">
                   <span style="font-weight:700;color:var(--ink-900,#0F1A2E);font-size:13px;">Para mi negocio o flotilla</span>
@@ -1923,7 +1926,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <style>
             .uso-card:hover { border-color: var(--brand-accent,#00358F) !important; background: #F8FAFC !important; }
-            .uso-card.is-selected { border-color: var(--brand-accent,#00358F) !important; background: rgba(0,53,143,0.06) !important; box-shadow: 0 0 0 3px rgba(0,53,143,0.12); }
+            /* P0 fix 2026-06-08 — refuerzo visual del seleccionado: borde 3px + checkmark visible (paridad con sucursal-card). */
+            .uso-card.is-selected { border-color: var(--brand-accent,#00358F) !important; border-width: 3px !important; background: rgba(0,53,143,0.10) !important; box-shadow: 0 0 0 4px rgba(0,53,143,0.14); }
+            .uso-card.is-selected::after { content:'✓'; position:absolute; top:6px; right:8px; width:22px; height:22px; border-radius:50%; background:var(--brand-accent,#00358F); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; line-height:1; box-shadow:0 2px 6px rgba(0,53,143,0.4); }
           </style>
           <div class="form-grid">
             <div class="form-group full">
@@ -2850,16 +2855,15 @@ function openModal(id) {
 
   // Selector de sucursal (patrón GAC): el usuario elige dónde le queda mejor.
   // No asumimos dónde está la unidad — el asesor confirma disponibilidad real.
-  // Preselección inteligente: si el modelo es comercial (pickup/van) preseleccionamos
-  // Mariano Otero (LCV) como hint. Si es pasajeros, preseleccionamos Santa Anita.
-  // El usuario puede cambiarla; el asesor resuelve.
+  // P0 fix 2026-06-08 — Director: la sucursal es OBLIGATORIA en STL/GAC/HYU y no
+  // debe estar preseleccionada. Quitamos `r.checked = (...)` y deseleccionamos
+  // todas las cards hasta que el usuario elija explícitamente.
   const _isComercial = (currentCar.type === 'pickup' || currentCar.type === 'van');
-  const _hintSede = _isComercial ? 'Stellantis Mariano Otero' : 'Stellantis Santa Anita';
   document.querySelectorAll('input[name="sucursalSelect"]').forEach(function(r){
-    r.checked = (r.value === _hintSede);
+    r.checked = false;
   });
   document.querySelectorAll('.sucursal-card').forEach(function(c){
-    c.classList.toggle('is-selected', c.getAttribute('data-suc') === _hintSede);
+    c.classList.remove('is-selected');
     // Click handler: marca radio + sincroniza visual + dispara evento
     c.onclick = function(e){
       var val = this.getAttribute('data-suc');
