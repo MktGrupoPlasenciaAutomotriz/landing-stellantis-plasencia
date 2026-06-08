@@ -1397,10 +1397,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span><b>+35</b>agencias del grupo</span>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Marcas</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">Modelos favoritos</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">Desde $66,200<span style="font-size:14px;">*</span></div><div class="hero-stat-label">Enganche desde</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">Sucursales en GDL</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" id="heroStatMarcas">—</div><div class="hero-stat-label">Marcas</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" id="heroStatModelos">—</div><div class="hero-stat-label">Modelos favoritos</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" id="heroStatEnganche">—</div><div class="hero-stat-label">Enganche desde</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" id="heroStatSucursales">—</div><div class="hero-stat-label">Sucursales en GDL</div></div>
       </div>
       <button class="hero-cta" onclick="document.getElementById('inventoryGrid').scrollIntoView({behavior:'smooth'})">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -3724,10 +3724,56 @@ function generateRegistrationPDF() {
   doc.save(`Confirmacion_Registro_${a.marca}_${a.folio}.pdf`);
 }
 
+// Hero stats 100% dinamicos al catalogo Stellantis.
+function renderHeroStats() {
+  try {
+    if (!vehicles || !vehicles.length) return;
+    const elMarcas = document.getElementById('heroStatMarcas');
+    const elModelos = document.getElementById('heroStatModelos');
+    const elEng = document.getElementById('heroStatEnganche');
+    const elSucs = document.getElementById('heroStatSucursales');
+
+    // 1) Marcas unicas
+    if (elMarcas) {
+      const marcas = new Set(vehicles.map(v => (v.brand || '').trim()).filter(Boolean));
+      elMarcas.textContent = marcas.size || '—';
+    }
+
+    // 2) Modelos favoritos (name + version unicos)
+    if (elModelos) {
+      const uniq = new Set(vehicles.map(v => ((v.name || '') + ' ' + (v.version || '')).trim().toUpperCase()).filter(Boolean));
+      elModelos.textContent = uniq.size || '—';
+    }
+
+    // 3) Enganche minimo del catalogo
+    if (elEng) {
+      const engs = vehicles.map(v => v && typeof v.engancheDesde === 'number' ? v.engancheDesde : null).filter(n => n && n > 0);
+      if (engs.length) {
+        const min = Math.min.apply(null, engs);
+        elEng.innerHTML = 'Desde ' + (typeof fmt === 'function' ? fmt(min) : ('$' + min.toLocaleString('es-MX'))) + '<span style="font-size:14px;">*</span>';
+      } else {
+        elEng.textContent = '—';
+      }
+    }
+
+    // 4) Sucursales unicas (desde locs[].nombre)
+    if (elSucs) {
+      const sucs = new Set();
+      vehicles.forEach(v => {
+        (v.locs || []).forEach(l => { if (l && l.nombre) sucs.add(l.nombre.trim()); });
+      });
+      elSucs.textContent = sucs.size || '—';
+    }
+  } catch (e) {
+    console.error('renderHeroStats error:', e);
+  }
+}
+
 fetch('catalogo-stellantis.json')
   .then(r => r.json())
   .then(data => {
     vehicles = data;
+    renderHeroStats();
     renderCards(currentFilter || 'all');
     if (typeof renderPromoBanner === 'function') renderPromoBanner();
   })
