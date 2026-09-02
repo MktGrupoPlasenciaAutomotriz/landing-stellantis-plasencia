@@ -2174,6 +2174,31 @@ function getGaClientId() {
   return parts.length >= 4 ? parts.slice(-2).join('.') : '';
 }
 
+// GA4 session_id. SIN ESTO los eventos server-side via Measurement Protocol NO
+// se unen a la sesion del browser: GA4 abre una sesion nueva sin fuente y la
+// manda a (direct) / "Unassigned", aunque el clic haya venido de Paid Search.
+// Diagnosticado en Seminuevos el 27-ago-2026 y corregido ahi el 28; esta landing
+// se quedo sin el fix hasta el 2-sep-2026.
+//
+// A diferencia de Seminuevos, aqui NO se hardcodea el stream: GA4 se carga por
+// GTM y el measurement ID no esta en el HTML. Se busca cualquier cookie que
+// empiece con `_ga_`, que es la que GA4 crea por stream. Asi el fix sobrevive a
+// un cambio de propiedad y no hay que tocar codigo si alguien recrea el stream.
+//
+// Formatos soportados (GA4 ha usado los dos):
+//   GS1.1.1712345678.5.1.1712345999.60.0.0          -> session_id = 3er segmento
+//   GS2.1.s1756300000$o5$g1$t1756300123$j60$l0$h0   -> session_id = tras la "s"
+function getGaSessionId() {
+  try {
+    var m = document.cookie.match(/(?:^|;\s*)_ga_[A-Z0-9]+=([^;]+)/);
+    if (!m) return '';
+    var parts = decodeURIComponent(m[1]).split('.');
+    if (parts.length < 3) return '';
+    var seg = parts[2].split('$')[0];
+    return /^s?\d+$/.test(seg) ? seg.replace(/^s/, '') : '';
+  } catch (e) { return ''; }
+}
+
 // Tracking context unico: TODOS los eventos del funnel deben llevar estos
 // identifiers para que GTM/GA4/Pixel tengan visibilidad cross-platform de
 // quien esta en cada paso (no solo en generate_lead). Spread con
@@ -2194,6 +2219,7 @@ function getTrackingContext() {
     utm_content:       sessionStorage.getItem('utm_content')  || '',
     utm_term:          sessionStorage.getItem('utm_term')     || '',
     ga_client_id:      getGaClientId(),
+    ga_session_id:     getGaSessionId(),
     client_ip_address: sessionStorage.getItem('client_ip') || '',
     client_user_agent: navigator.userAgent || ''
   };
@@ -3437,6 +3463,7 @@ function submitForm() {
     fbp: getCookie('_fbp'),
     fbc: getCookie('_fbc'),
     ga_client_id: getGaClientId(),
+    ga_session_id: getGaSessionId(),
     client_ip_address: sessionStorage.getItem('client_ip') || '',
     client_user_agent: navigator.userAgent || '',
     vendedor_digital: ASESOR_ASIGNADO.nombre,
